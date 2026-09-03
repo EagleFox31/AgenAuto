@@ -2,103 +2,136 @@
 
 ## 1. Principes
 
-L’architecture d’AgenAuto suit cinq principes :
+L’architecture d’AgenAuto suit six principes :
 
-1. **Domain-first** — le modèle automobile et les règles métier priment sur les choix de framework.
-2. **Canonical data first** — le référentiel véhicule est séparé des offres commerciales.
-3. **Modular monolith before distributed systems** — on garde des frontières de domaine nettes sans introduire des microservices prématurés.
-4. **Contract-driven interfaces** — les interfaces entre frontend, API et workers sont explicites et versionnées.
-5. **Operational readiness by design** — logs, métriques, audit, migrations, sécurité et reprise ne sont pas ajoutés après coup.
+1. **Domain-first** — le modèle automobile et les règles métier priment sur les frameworks.
+2. **Canonical data first** — le référentiel véhicule reste séparé des offres commerciales.
+3. **Headless Core before custom backend** — les capacités génériques data/admin/auth/API sont confiées à Payload plutôt que recodées.
+4. **Modular monolith before distributed systems** — les frontières de domaine restent nettes sans microservices prématurés.
+5. **Contract-driven boundaries** — les interfaces entre Payload, frontend et ingestion spécialisée sont explicites.
+6. **Operational readiness by design** — migrations, sécurité, audit, observabilité et reprise font partie du MVP.
 
-## 2. Topologie cible
+## 2. Décision structurante
+
+Payload CMS est le **Headless Core** d’AgenAuto.
+
+Il porte la persistance principale, l’Admin Panel, l’authentification, l’access control, les APIs générées, les hooks, les migrations PostgreSQL et les jobs applicatifs simples.
+
+La logique qui différencie AgenAuto reste dans des modules métier dédiés : comparaison, normalisation automobile, search/discovery, provenance/fraîcheur, data quality et ingestion.
+
+Voir :
+- `docs/HEADLESS_CORE.md`
+- `docs/adr/ADR-001-payload-headless-core.md`
+- `docs/adr/ADR-002-canonical-vehicle-vs-dealer-offer.md`
+
+## 3. Topologie cible
 
 ```text
 Browser
   |
-  +--> apps/web -------------------+
-  |                                |
-  +--> apps/dealer-portal ---------+----> services/api ----> PostgreSQL
-  |                                |           |
-  +--> apps/admin -----------------+           +-----------> Object Storage
-                                               |
-                                               +-----------> Redis
-                                                            |
-                                                            v
-                                                services/ingestion-worker
+  +--> Next.js public product UI ------------------+
+  |                                                |
+  +--> Dealer-facing UI when needed ---------------+
+                                                   |
+                                                   v
+                                      Payload Headless Core
+                                  Admin / Auth / Access / APIs
+                                  Collections / Hooks / Jobs
+                                                   |
+                                                   v
+                                               PostgreSQL
+                                                   |
+                           +-----------------------+------------------+
+                           |                                          |
+                           v                                          v
+                  Object / Media Storage                      Python Ingestion
+                                                             CSV / Excel / APIs
+                                                             collectors / match
 ```
 
-### Applications
+### Pourquoi cette topologie
 
-#### `apps/web`
-Expérience publique : catalogue, recherche, pages marques/modèles, fiches véhicules, comparaison, concessionnaires, offres, génération de leads.
+Une grande partie de ce qui était auparavant prévu dans `services/api` et `apps/admin` correspond à des capacités déjà fournies par Payload. Les reconstruire en FastAPI + admin custom n’apporterait pas d’avantage produit au MVP.
 
-Responsabilités principales :
-- SEO technique et contenu indexable ;
-- navigation catalogue ;
-- filtres et recherche ;
-- comparateur ;
+FastAPI n’est donc plus le backend CRUD principal. Python devient un outil spécialisé là où son écosystème apporte un levier clair.
+
+## 4. Applications et packages
+
+### `apps/web`
+
+Application Next.js principale. Elle héberge :
+- expérience publique ;
+- intégration Payload ;
+- routes publiques ;
+- catalogue ;
+- recherche ;
+- fiches véhicules ;
+- comparaison ;
 - formulaires de leads ;
-- analytics produit.
+- éventuellement les écrans dealer dédiés au fur et à mesure.
 
-#### `apps/dealer-portal`
-Espace B2B des distributeurs et agences.
+### Payload Admin
 
-Responsabilités principales :
-- gestion des offres ;
-- prix et promotions ;
-- disponibilité ;
-- médias commerciaux ;
-- gestion des leads ;
-- indicateurs de conversion.
+Le back-office interne initial est fourni par Payload et configuré par nos collections, hooks, validations et règles d’accès.
 
-#### `apps/admin`
-Back-office interne AgenAuto.
+Il sert à :
+- maintenir le référentiel ;
+- gérer les dealers et agences ;
+- gérer les offres ;
+- corriger des données ;
+- superviser les imports ;
+- consulter les leads ;
+- effectuer des revues de qualité.
 
-Responsabilités principales :
-- validation du référentiel ;
-- résolution de doublons ;
-- correction des mappings ;
-- supervision des imports ;
-- contrôle qualité ;
-- audit des modifications.
+Nous ne construisons pas `apps/admin` séparé au MVP tant que l’Admin Payload répond correctement aux besoins.
 
-### Services
+### Dealer UX
 
-#### `services/api`
-API métier principale en FastAPI.
+Le dealer portal n’est pas automatiquement une application indépendante.
 
-Le service reste un **modular monolith** au MVP, structuré en modules de domaine indépendants :
+Approche progressive :
 
-```text
-api/
-  domains/
-    catalog/
-    specifications/
-    dealers/
-    offers/
-    comparison/
-    leads/
-    ingestion/
-    identity/
-    audit/
-  shared/
-  infrastructure/
-```
+1. utiliser l’Admin Payload avec scopes et vues adaptés pour les opérations simples ;
+2. ajouter des composants ou vues custom si nécessaire ;
+3. construire une UX dealer dédiée uniquement lorsque les workflows B2B justifient un produit séparé.
 
-#### `services/ingestion-worker`
-Traitements asynchrones et ingestion :
-- imports CSV/Excel ;
-- appels API partenaires ;
-- collecte autorisée ;
-- nettoyage ;
-- normalisation ;
+### `packages/payload-config`
+
+Contient :
+- collections ;
+- globals ;
+- access policies ;
+- hooks ;
+- field factories ;
+- validation ;
+- jobs/workflows ;
+- plugins/configuration Payload.
+
+### `packages/automotive-domain`
+
+Contient les règles métier indépendantes de l’UI :
+- dictionnaire de specs ;
+- normalisation d’unités ;
+- invariants automobile ;
+- projection de comparaison ;
+- détection de différences ;
+- politiques de fraîcheur ;
+- matching helpers partagés.
+
+### `services/ingestion`
+
+Service Python spécialisé, introduit uniquement pour les traitements où il est utile :
+- CSV/Excel complexes ;
+- normalisation de masse ;
 - matching ;
-- calcul de score de confiance ;
-- génération de snapshots de prix et disponibilité.
+- déduplication ;
+- collecteurs autorisés ;
+- extraction de documents ;
+- batch quality analysis.
 
-Redis sert de broker/queue uniquement quand les traitements sortent du cadre d’une requête HTTP courte.
+Ce service n’est jamais une deuxième base de vérité. Il écrit dans Payload/PostgreSQL via un contrat contrôlé.
 
-## 3. Modèle de domaine
+## 5. Modèle de domaine
 
 ### Référentiel canonique
 
@@ -111,16 +144,16 @@ Brand
                  └── MediaAsset
 ```
 
-Entités clés :
-- `Brand`
-- `VehicleModel`
-- `Generation`
-- `Trim`
-- `SpecificationDefinition`
-- `TrimSpecification`
-- `MediaAsset`
+Collections principales :
+- `brands`
+- `vehicle-models`
+- `generations`
+- `trims`
+- `specification-definitions`
+- `trim-specifications`
+- `media`
 
-Les spécifications sont normalisées via un dictionnaire contrôlé afin d’éviter des variantes telles que `1.5L`, `1498 cc`, `1 498 cm3` comme trois propriétés différentes.
+Les spécifications utilisent un dictionnaire contrôlé et des unités normalisées.
 
 ### Réseau de distribution
 
@@ -133,149 +166,205 @@ Dealer
        └── AvailabilitySnapshot
 ```
 
-Entités clés :
-- `Dealer`
-- `DealerLocation`
-- `DealerBrand`
-- `Offer`
-- `PriceHistory`
-- `AvailabilitySnapshot`
-- `Promotion`
-- `WarrantyTerm`
+Collections principales :
+- `dealers`
+- `dealer-locations`
+- `dealer-brands`
+- `offers`
+- `price-history`
+- `availability-snapshots`
+- `promotions`
+- `warranty-terms`
 
-Une `Offer` référence une `Trim` canonique. Le prix et la disponibilité n’appartiennent jamais directement au véhicule canonique.
+Une `Offer` référence une `Trim` canonique. Le prix et la disponibilité n’appartiennent jamais directement à la `Trim`.
 
-### Acquisition et qualité de données
+### Identité et organisations
 
-```text
-IngestionSource
-  └── ImportRun
-       └── RawRecord
-            └── MatchDecision
-                 └── Canonical entity / Offer
-```
+Collection `users` avec rôles initiaux :
+- `admin`
+- `data_editor`
+- `dealer_manager`
+- `dealer_agent`
 
-Chaque donnée ingérée conserve :
-- sa source ;
-- la date d’observation ;
-- son payload brut ou hash de référence ;
-- le statut de normalisation ;
-- le score de confiance ;
-- les éventuelles corrections humaines.
+Les utilisateurs dealer sont rattachés à une organisation/dealer. Les règles Payload filtrent lecture et mutation au niveau document et champ.
+
+Un compte buyer n’est pas obligatoire au MVP pour rechercher, comparer et soumettre un lead.
 
 ### Leads
 
-Entités principales :
-- `Lead`
-- `LeadIntent`
-- `QuoteRequest`
-- `TestDriveRequest`
-- `LeadAssignment`
-- `LeadStatusHistory`
+Collections principales :
+- `leads`
+- `lead-status-events`
 
-Le MVP doit pouvoir identifier l’origine d’un lead, le véhicule concerné, l’agence ciblée et son statut de traitement.
+Intentions :
+- quote request ;
+- test drive ;
+- contact request.
 
-## 4. Recherche et comparaison
+Chaque lead doit conserver :
+- source page ;
+- trim/offer concerné si disponible ;
+- dealer/location ciblé ;
+- statut ;
+- consentement pertinent ;
+- attribution d’acquisition.
 
-### Recherche
+### Provenance et ingestion
 
-Phase MVP :
-- PostgreSQL ;
-- indexes adaptés ;
-- full-text search ;
-- filtres structurés ;
-- facettes calculées côté API.
+Collections principales :
+- `data-sources`
+- `import-runs`
+- `raw-records` ou références de payload brut ;
+- `match-decisions`
+- `review-items`.
 
-Un moteur comme Meilisearch/OpenSearch n’est introduit que si la latence, le volume ou les besoins de ranking dépassent ce que PostgreSQL permet raisonnablement.
+Les observations commerciales doivent conserver au minimum :
+- `source` ;
+- `observedAt` ;
+- `reviewStatus` lorsque nécessaire.
 
-### Comparateur
+## 6. Payload : frontières de responsabilité
 
-Le comparateur travaille sur des `Trim` et non uniquement sur des `VehicleModel`.
+Payload gère nativement ou par configuration :
+- CRUD ;
+- relations ;
+- auth ;
+- access control ;
+- Admin Panel ;
+- media ;
+- REST / GraphQL / Local API ;
+- migrations PostgreSQL ;
+- hooks ;
+- jobs applicatifs adaptés.
 
-Pipeline :
+AgenAuto ajoute explicitement :
+- invariants de domaine ;
+- custom endpoints si les APIs générées ne suffisent pas ;
+- projections de comparaison ;
+- search queries métier ;
+- règles de data quality ;
+- provenance/fraîcheur ;
+- workflows d’import.
+
+Le CMS n’est donc pas une boîte noire : **Payload fournit la plateforme, AgenAuto conserve la logique métier.**
+
+## 7. Recherche
+
+MVP : PostgreSQL uniquement.
+
+Approche :
+- index structurés ;
+- requêtes Payload/Drizzle ciblées ;
+- filtres combinables ;
+- full-text lorsque pertinent ;
+- pagination ;
+- tri ;
+- cache uniquement si mesuré utile.
+
+Meilisearch/OpenSearch n’est introduit que si la latence, le ranking ou le volume le justifient réellement.
+
+## 8. Comparateur
+
+Le comparateur travaille sur des `Trim`.
 
 ```text
 selected trim ids
-      |
-      v
-load canonical specifications
-      |
-      v
-normalize units / missing values
-      |
-      v
+       |
+       v
+load canonical specs + relevant offers
+       |
+       v
+normalize units / unknown values
+       |
+       v
 comparison projection
-      |
-      v
-highlight differences
+       |
+       v
+highlight meaningful differences
 ```
 
-Les valeurs inconnues sont explicitement marquées comme non disponibles ; elles ne sont jamais inventées ou assimilées à zéro.
+Les valeurs inconnues sont explicitement marquées comme non disponibles et jamais transformées en valeurs inventées.
 
-## 5. Stack technique
+Le moteur est implémenté dans `packages/automotive-domain` ou un module équivalent, pas dans de simples templates CMS.
 
-### Frontend
+## 9. Jobs et asynchrone
+
+Payload Jobs Queue est utilisée pour les tâches applicatives asynchrones simples et proches du domaine TypeScript :
+- notifications ;
+- synchronisations légères ;
+- post-processing ;
+- opérations planifiées ;
+- tâches déclenchées par hooks.
+
+Le service Python reste préférable pour les pipelines data lourds ou spécialisés.
+
+Redis n’est **plus une dépendance obligatoire au bootstrap**. Il n’est ajouté que si un besoin de queue/cache externe apparaît et que Payload Jobs Queue ne suffit pas.
+
+## 10. Stack technique
+
+### Application
 - Next.js
-- TypeScript
 - React
+- TypeScript strict
+- Payload CMS
 - Tailwind CSS
-- Design system interne dans `packages/ui`
-
-### Backend
-- Python
-- FastAPI
-- SQLAlchemy 2.x
-- Alembic
-- Pydantic
 
 ### Data
-- PostgreSQL 16
-- Redis pour queues/cache ciblé
-- S3-compatible object storage pour médias et imports
+- PostgreSQL
+- Payload Postgres adapter / Drizzle
+- stockage objet compatible S3 si nécessaire pour les médias
+
+### Specialized ingestion
+- Python
+- Pydantic
+- Polars/Pandas selon besoin
+- Playwright / parsers selon sources autorisées
+- FastAPI uniquement si une API dédiée au service d’ingestion devient utile
 
 ### Quality
-- Ruff
-- mypy ou Pyright pour les zones critiques
-- pytest
 - ESLint
 - TypeScript strict
+- Vitest/Jest selon modules
 - Playwright pour les parcours E2E critiques
+- Ruff + pytest pour le service Python
 
 ### Delivery
 - Docker / Docker Compose
 - GitHub Actions
-- migrations versionnées
-- environnements `local`, `staging`, `production`
+- migrations Payload versionnées
+- environnements local / staging / production
 
 ### Observability
-- Sentry pour erreurs applicatives
-- OpenTelemetry lorsque les flux distribués le justifient
-- logs structurés JSON côté backend
-- corrélation `request_id` / `import_run_id` / `lead_id`
+- Sentry ;
+- logs structurés ;
+- correlation IDs ;
+- métriques d’import ;
+- OpenTelemetry seulement lorsque les flux distribués le justifient.
 
-## 6. Structure cible du repository
+## 11. Structure cible du repository
 
 ```text
 AgenAuto/
 ├── apps/
-│   ├── web/
-│   ├── dealer-portal/
-│   └── admin/
-├── services/
-│   ├── api/
-│   └── ingestion-worker/
+│   └── web/
+│       ├── app/
+│       ├── payload.config.ts
+│       └── src/
 ├── packages/
+│   ├── automotive-domain/
+│   ├── payload-config/
 │   ├── ui/
-│   ├── contracts/
 │   └── config/
+├── services/
+│   └── ingestion/
 ├── infra/
 │   ├── docker/
-│   ├── migrations/
 │   └── observability/
 ├── scripts/
 ├── docs/
 │   ├── adr/
 │   ├── ARCHITECTURE.md
+│   ├── HEADLESS_CORE.md
 │   ├── APP_FACTORY.md
 │   └── ROADMAP.md
 ├── .github/
@@ -284,69 +373,58 @@ AgenAuto/
 └── README.md
 ```
 
-## 7. API boundaries
+Le repo peut rester encore plus simple au tout début. Nous ne créons pas des dossiers vides pour simuler une architecture mature.
 
-Premières familles d’API :
+## 12. Access control
 
-```text
-/api/v1/brands
-/api/v1/models
-/api/v1/generations
-/api/v1/trims
-/api/v1/search
-/api/v1/compare
-/api/v1/dealers
-/api/v1/offers
-/api/v1/leads
-/api/v1/imports
-```
+Payload applique l’autorisation côté backend.
 
-L’API publique de consultation et l’API de gestion peuvent partager le même service au MVP, mais les permissions et scopes doivent être clairement séparés.
+Règles initiales :
+- public : lecture des données publiées nécessaires au catalogue ;
+- dealer agent : opérations commerciales limitées à son dealer ;
+- dealer manager : gestion étendue de son dealer et de ses utilisateurs autorisés ;
+- data editor : maintenance du référentiel et review ;
+- admin : gouvernance complète.
 
-## 8. Authentification et autorisation
+Les champs canoniques sensibles ne deviennent pas modifiables par un dealer simplement parce qu’il a accès à une `Offer`.
 
-Rôles initiaux :
-- `anonymous`
-- `customer`
-- `dealer_agent`
-- `dealer_manager`
-- `data_editor`
-- `admin`
+## 13. Sécurité
 
-L’autorisation est appliquée au niveau du domaine et non uniquement dans l’interface.
-
-## 9. Sécurité
-
-Minimum attendu dès le MVP :
-- secrets dans un secret store / variables d’environnement ;
+Minimum MVP :
+- secrets hors Git ;
 - validation stricte des uploads ;
-- rate limiting sur endpoints publics sensibles ;
-- protection anti-abus sur les leads ;
-- audit des opérations administratives ;
-- CORS explicite ;
+- anti-abus sur les leads ;
+- access control testé ;
+- audit des mutations importantes ;
 - dépendances scannées ;
-- sauvegardes PostgreSQL testées ;
-- politique de rétention des données personnelles.
+- backup/restore PostgreSQL testé ;
+- rétention des données personnelles documentée ;
+- collectors conformes aux conditions d’utilisation applicables.
 
-## 10. Décisions d’architecture
+## 14. ADR
 
-Les décisions importantes sont documentées sous `docs/adr/`.
+ADR acceptés :
+- ADR-001 — Payload CMS as AgenAuto Headless Core ;
+- ADR-002 — Canonical Vehicle / Dealer Offer separation.
 
-ADR initiaux à prévoir :
-- ADR-001 — Modular monolith comme architecture de départ ;
-- ADR-002 — séparation Canonical Vehicle / Dealer Offer ;
-- ADR-003 — PostgreSQL comme moteur de recherche initial ;
-- ADR-004 — stratégie d’ingestion multi-source ;
-- ADR-005 — stratégie d’authentification et RBAC.
+ADR futurs probables :
+- stratégie de recherche ;
+- stratégie d’ingestion multi-source ;
+- modèle dealer multi-tenant ;
+- stratégie de stockage média ;
+- éventuel découpage du service d’ingestion.
 
-## 11. Critères de passage à l’échelle
+## 15. Critères de passage à l’échelle
 
-On ne découpe pas un module en service séparé parce que « les microservices scalent ». Le découpage n’est envisagé que si au moins un de ces critères apparaît :
-- profil de charge radicalement différent ;
-- cycles de déploiement indépendants nécessaires ;
-- isolation de panne requise ;
-- ownership d’équipe différent ;
-- dépendances techniques incompatibles ;
-- contraintes de sécurité particulières.
+Nous n’ajoutons pas une nouvelle infrastructure parce qu’elle est populaire.
 
-Cette règle protège AgenAuto contre la complexité distribuée prématurée.
+Une séparation technique majeure n’est envisagée que si au moins un critère apparaît :
+- charge radicalement différente ;
+- besoin de déploiement indépendant ;
+- isolation de panne ;
+- contrainte de sécurité spécifique ;
+- dépendances incompatibles ;
+- ownership d’équipe séparé ;
+- limite mesurée du Headless Core.
+
+Cette règle protège AgenAuto contre la complexité prématurée tout en conservant des frontières propres.
