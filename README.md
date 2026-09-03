@@ -116,33 +116,55 @@ Nous distinguons désormais quatre couches :
 
 La règle AppFactory est simple : **Build what differentiates. Reuse what is infrastructure. Integrate what is commodity.**
 
-➡️ [Méthodologie AppFactory](docs/APP_FACTORY.md)
+➡️ [Méthodologie AppFactory](docs/APP_FACTORY.md)  
+➡️ [Registre des briques](app-factory/registry/BRICKS.md)  
+➡️ [Registre open source](app-factory/sources/OSS_REGISTRY.md)
 
-## Structure cible
+## Structure du repository
 
 ```text
 AgenAuto/
 ├── apps/
-│   └── web/                    # Next.js + Payload + public product UI
-│
-├── packages/
-│   ├── automotive-domain/      # normalisation, comparaison, invariants
-│   ├── ui/                     # design system
-│   ├── payload-config/         # collections, hooks, access policies
-│   └── config/
-│
+│   └── web/
+│       └── src/
+│           ├── app/
+│           │   ├── (frontend)/
+│           │   └── (payload)/
+│           ├── access/
+│           ├── collections/
+│           │   ├── automotive/
+│           │   ├── market/
+│           │   └── platform/
+│           ├── features/
+│           │   ├── discovery/
+│           │   ├── comparison/
+│           │   └── leads/
+│           ├── jobs/
+│           └── lib/
 ├── services/
-│   └── ingestion/              # Python spécialisé, si nécessaire
-│
+│   └── ingestion/
+├── packages/
+│   ├── automotive-domain/
+│   ├── contracts/
+│   ├── ui/
+│   └── config/
+├── app-factory/
+│   ├── registry/
+│   └── sources/
+├── data/
+│   └── pilot/
 ├── infra/
 │   ├── docker/
 │   └── observability/
-│
+├── tests/
+│   └── e2e/
+├── scripts/
 └── docs/
-    └── adr/
 ```
 
 Le **dealer portal n’est pas nécessairement une application séparée au MVP**. Les opérations simples peuvent utiliser un espace Payload configuré par rôle ; une UX dealer dédiée n’est construite que pour les parcours où l’Admin générique devient insuffisant.
+
+➡️ [Arborescence détaillée et règles de placement](docs/REPOSITORY_STRUCTURE.md)
 
 ## Domaines fonctionnels
 
@@ -232,6 +254,7 @@ Priorités :
 - [Architecture](docs/ARCHITECTURE.md)
 - [Headless Core](docs/HEADLESS_CORE.md)
 - [Méthodologie AppFactory](docs/APP_FACTORY.md)
+- [Arborescence du repository](docs/REPOSITORY_STRUCTURE.md)
 - [Roadmap](docs/ROADMAP.md)
 - [Delivery Board](docs/PROJECT_BOARD.md)
 - [Architecture Decision Records](docs/adr/README.md)
