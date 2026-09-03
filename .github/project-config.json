@@ -1,0 +1,118 @@
+{
+  "project": {
+    "owner": "EagleFox31",
+    "title": "AgenAuto Delivery",
+    "bootstrap": true,
+    "template": "appfactory-product",
+    "linkRepository": true,
+    "importOpenIssues": true,
+    "createBoardView": true
+  },
+  "bootstrap": {
+    "boardViewName": "AppFactory Board",
+    "phases": [
+      "Headless Core",
+      "Automotive Schema",
+      "Dealers & Offers",
+      "Data Quality",
+      "Discovery",
+      "Comparison",
+      "Leads",
+      "Ingestion",
+      "Dealer Operations",
+      "Pilot",
+      "Post-MVP"
+    ]
+  },
+  "issueOverrides": {
+    "1": {
+      "priority": "P0",
+      "workType": "Engineering",
+      "phase": "Headless Core",
+      "size": "M"
+    },
+    "2": {
+      "priority": "P0",
+      "workType": "Engineering",
+      "phase": "Automotive Schema",
+      "size": "L"
+    },
+    "3": {
+      "priority": "P0",
+      "workType": "Quality",
+      "phase": "Headless Core",
+      "size": "M"
+    },
+    "4": {
+      "priority": "P0",
+      "workType": "Security",
+      "phase": "Headless Core",
+      "size": "L"
+    },
+    "5": {
+      "priority": "P1",
+      "workType": "Feature",
+      "phase": "Data Quality",
+      "size": "L"
+    },
+    "6": {
+      "priority": "P1",
+      "workType": "Feature",
+      "phase": "Dealers & Offers",
+      "size": "L"
+    },
+    "7": {
+      "priority": "P1",
+      "workType": "Feature",
+      "phase": "Discovery",
+      "size": "L"
+    },
+    "8": {
+      "priority": "P1",
+      "workType": "Feature",
+      "phase": "Comparison",
+      "size": "L"
+    },
+    "9": {
+      "priority": "P2",
+      "workType": "Feature",
+      "phase": "Leads",
+      "size": "M"
+    },
+    "10": {
+      "priority": "P2",
+      "workType": "Engineering",
+      "phase": "Ingestion",
+      "size": "L"
+    },
+    "11": {
+      "priority": "P2",
+      "workType": "Feature",
+      "phase": "Dealer Operations",
+      "size": "M"
+    },
+    "12": {
+      "priority": "P2",
+      "workType": "Security",
+      "phase": "Pilot",
+      "size": "L"
+    },
+    "13": {
+      "priority": "P1",
+      "workType": "Product",
+      "phase": "Data Quality",
+      "size": "L"
+    },
+    "14": {
+      "priority": "P2",
+      "workType": "Quality",
+      "phase": "Pilot",
+      "size": "L"
+    },
+    "15": {
+      "priority": "P0",
+      "workType": "Product",
+      "size": "XL"
+    }
+  }
+}
