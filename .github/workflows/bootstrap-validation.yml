@@ -1,0 +1,78 @@
+name: Bootstrap validation
+
+on:
+  push:
+    branches:
+      - feat/bootstrap-payload-foundation
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+
+    services:
+      postgres:
+        image: postgres:16-alpine
+        env:
+          POSTGRES_DB: agenauto
+          POSTGRES_USER: agenauto
+          POSTGRES_PASSWORD: agenauto-ci
+        ports:
+          - 5432:5432
+        options: >-
+          --health-cmd "pg_isready -U agenauto -d agenauto"
+          --health-interval 5s
+          --health-timeout 5s
+          --health-retries 10
+
+    env:
+      CI: true
+      DATABASE_URL: postgresql://agenauto:agenauto-ci@localhost:5432/agenauto
+      PAYLOAD_SECRET: bootstrap-validation-only-not-a-production-secret
+      NEXT_PUBLIC_APP_URL: http://localhost:3000
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 24.15.0
+
+      - name: Enable pnpm
+        run: |
+          corepack enable
+          corepack prepare pnpm@10.20.0 --activate
+          pnpm --version
+
+      - name: Install dependencies from lockfile
+        run: pnpm install --frozen-lockfile
+
+      - name: Regenerate Payload import map
+        run: pnpm --dir apps/web generate:importmap
+
+      - name: Regenerate Payload types
+        run: pnpm --dir apps/web generate:types
+
+      - name: Verify generated files are committed
+        run: git diff --exit-code -- apps/web/src/payload-types.ts 'apps/web/src/app/(payload)/admin/importMap.js'
+
+      - name: Apply committed migrations to empty PostgreSQL database
+        run: pnpm --dir apps/web payload migrate
+
+      - name: Check migration status
+        run: pnpm --dir apps/web payload migrate:status
+
+      - name: Lint
+        run: pnpm --dir apps/web lint
+
+      - name: Typecheck
+        run: pnpm --dir apps/web typecheck
+
+      - name: Build
+        run: pnpm --dir apps/web build

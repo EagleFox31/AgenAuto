@@ -1,0 +1,33 @@
+{
+  "name": "agenauto",
+  "version": "0.1.0",
+  "private": true,
+  "description": "AgenAuto — automotive discovery and comparison platform for Cameroon",
+  "packageManager": "pnpm@10.20.0",
+  "scripts": {
+    "dev": "pnpm --dir apps/web dev",
+    "build": "pnpm --dir apps/web build",
+    "lint": "pnpm --dir apps/web lint",
+    "typecheck": "pnpm --dir apps/web typecheck",
+    "payload": "pnpm --dir apps/web payload",
+    "generate:types": "pnpm --dir apps/web generate:types",
+    "generate:importmap": "pnpm --dir apps/web generate:importmap",
+    "migrate": "pnpm --dir apps/web migrate",
+    "migrate:create": "pnpm --dir apps/web migrate:create",
+    "migrate:status": "pnpm --dir apps/web migrate:status",
+    "db:up": "docker compose -f infra/docker/compose.yml up -d postgres",
+    "db:down": "docker compose -f infra/docker/compose.yml down",
+    "db:logs": "docker compose -f infra/docker/compose.yml logs -f postgres"
+  },
+  "engines": {
+    "node": ">=24.15.0",
+    "pnpm": ">=10 <12"
+  },
+  "pnpm": {
+    "onlyBuiltDependencies": [
+      "sharp",
+      "esbuild",
+      "unrs-resolver"
+    ]
+  }
+}

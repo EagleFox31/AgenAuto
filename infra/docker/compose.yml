@@ -1,0 +1,21 @@
+services:
+  postgres:
+    image: postgres:16-alpine
+    container_name: agenauto-postgres
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: agenauto
+      POSTGRES_USER: agenauto
+      POSTGRES_HOST_AUTH_METHOD: trust
+    ports:
+      - '127.0.0.1:5432:5432'
+    volumes:
+      - agenauto-postgres-data:/var/lib/postgresql/data
+    healthcheck:
+      test: ['CMD-SHELL', 'pg_isready -U agenauto -d agenauto']
+      interval: 5s
+      timeout: 5s
+      retries: 10
+
+volumes:
+  agenauto-postgres-data:
