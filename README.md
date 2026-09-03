@@ -2,97 +2,147 @@
 
 > **Comparer. Comprendre. Choisir.**
 
-AgenAuto est une plateforme de découverte et de comparaison automobile pensée pour le marché camerounais, avec une ambition simple : rendre l’achat d’un véhicule neuf plus lisible, plus comparable et plus transparent.
+AgenAuto est une plateforme de découverte et de comparaison automobile pensée pour le marché camerounais. Notre ambition est de rendre l’achat d’un véhicule neuf plus lisible, plus comparable et plus transparent.
 
 Notre objectif n’est pas de créer une énième marketplace d’annonces. AgenAuto veut devenir la **couche de référence entre les acheteurs et les distributeurs automobiles officiels** : un catalogue fiable, des caractéristiques normalisées, des offres localisées, un comparateur pertinent et des parcours de prise de contact réellement qualifiés.
 
 ## Vision
 
-Aujourd’hui, comparer deux véhicules neufs au Cameroun demande souvent de naviguer entre plusieurs sites, brochures PDF, pages sociales, showrooms et échanges WhatsApp. Les prix ne sont pas toujours publics, les niveaux de finition sont difficiles à comparer et les informations techniques ne sont pas structurées de la même manière d’un distributeur à l’autre.
+Comparer deux véhicules neufs au Cameroun demande encore souvent de naviguer entre plusieurs sites, brochures PDF, pages sociales, showrooms et échanges WhatsApp. Les niveaux de finition sont difficiles à aligner, les prix ne sont pas toujours publics et les caractéristiques techniques ne sont pas décrites de manière uniforme.
 
-AgenAuto veut résoudre ce problème avec une expérience unique :
+AgenAuto veut réunir ces informations dans une expérience unique :
 
-- rechercher un véhicule par budget, usage, carrosserie, motorisation ou marque ;
-- comparer plusieurs modèles et finitions sur une base de données normalisée ;
-- identifier le ou les distributeurs officiels qui commercialisent le véhicule ;
-- consulter les prix disponibles, promotions, garanties et disponibilités déclarées ;
+- rechercher un véhicule par budget, usage, carrosserie, énergie, transmission ou marque ;
+- comparer plusieurs modèles et finitions sur une base normalisée ;
+- identifier les distributeurs officiels et leurs agences ;
+- consulter les prix, promotions, garanties et disponibilités lorsqu’ils sont publiés ou vérifiés ;
 - demander un devis, un essai ou un contact commercial ;
-- à terme, comparer aussi le coût total de possession, le financement, l’assurance et les offres de reprise.
+- à terme, comparer aussi le coût total de possession, le financement, l’assurance et les solutions de reprise.
 
-**Cameroon first. Africa-ready.** L’architecture est conçue pour démarrer localement sans empêcher une extension progressive à d’autres marchés africains.
+**Cameroon first. Africa-ready.** Le produit démarre avec le marché camerounais tout en conservant un modèle capable de s’étendre progressivement à d’autres marchés africains.
 
 ## Ce qu’AgenAuto n’est pas
 
 AgenAuto n’est pas un site généraliste d’annonces de véhicules d’occasion et ne cherche pas à remplacer les concessionnaires.
 
-La plateforme se positionne comme une infrastructure de **discovery, comparison et lead generation** au service de l’écosystème automobile : acheteurs, distributeurs, marques et partenaires.
+La plateforme se positionne comme une infrastructure de **discovery, comparison et lead generation** au service des acheteurs, distributeurs, marques et partenaires.
 
-## Le principe produit central
+## Principe produit central
 
-Le modèle métier sépare strictement :
+Le modèle sépare strictement :
 
 1. le **véhicule canonique** — marque, modèle, génération, finition et caractéristiques techniques ;
-2. l’**offre concessionnaire** — distributeur, agence, prix, stock, promotion, garantie et disponibilité.
-
-Cette séparation permet à plusieurs distributeurs de proposer le même véhicule sans dupliquer ou dégrader le référentiel technique.
+2. l’**offre concessionnaire** — distributeur, agence, prix, disponibilité, promotion et garantie.
 
 ```text
-Vehicle Catalog
+Canonical Vehicle Catalog
   Brand -> Model -> Generation -> Trim -> Specifications
                          |
                          v
-Dealer Offers
-  Dealer -> Location -> Offer -> Price / Stock / Warranty / Promotion
+Dealer Market Layer
+  Dealer -> Location -> Offer -> Price / Availability / Warranty
                          |
                          v
 Discovery -> Compare -> Lead -> Dealer
 ```
 
+Une même finition peut donc être référencée par plusieurs offres commerciales sans dupliquer ou altérer le référentiel technique.
+
+## Architecture : Headless Core + Product Domain
+
+AgenAuto utilise **Payload CMS comme Headless Core**.
+
+Payload apporte les capacités génériques que nous n’avons aucun intérêt à recoder :
+
+- Admin Panel ;
+- collections et relations ;
+- PostgreSQL et migrations ;
+- authentification ;
+- RBAC et access control ;
+- REST / Local API ;
+- médias ;
+- hooks ;
+- jobs applicatifs ;
+- CRUD catalogue, dealers, offres et leads.
+
+La différenciation AgenAuto reste dans nos modules métier :
+
+- normalisation des caractéristiques automobiles ;
+- moteur de comparaison ;
+- recherche et discovery ;
+- provenance et fraîcheur des données ;
+- ingestion et matching ;
+- qualité des données ;
+- futures recommandations et calculs de coût total de possession.
+
+Python reste utilisé comme **service spécialisé d’ingestion et de data processing** lorsque son écosystème apporte un avantage clair. FastAPI n’est plus le backend CRUD principal du produit.
+
+```text
+                   AgenAuto
+                      |
+        +-------------+-------------+
+        |                           |
+   Public Web                  Dealer UX
+   Next.js                     Next.js
+        |                           |
+        +-------------+-------------+
+                      |
+               Payload Headless Core
+          Admin / Auth / APIs / Jobs
+                      |
+                  PostgreSQL
+                      |
+              +-------+--------+
+              |                |
+      Payload Jobs       Python Ingestion
+                         CSV / Excel / API
+                         Collectors / Match
+```
+
+➡️ [Architecture détaillée](docs/ARCHITECTURE.md)  
+➡️ [Headless Core](docs/HEADLESS_CORE.md)  
+➡️ [ADR-001 — Payload comme Headless Core](docs/adr/ADR-001-payload-headless-core.md)
+
 ## Méthodologie AppFactory
 
-AgenAuto est construit avec notre approche **AppFactory** : les fonctionnalités métier restent propres au produit, tandis que les capacités transverses sont conçues comme des briques standardisées, testables et réutilisables.
+AgenAuto est construit avec notre approche **AppFactory** : nous industrialisons les capacités non différenciantes afin de concentrer l’effort sur la valeur métier.
 
-Nous distinguons trois niveaux :
+Nous distinguons désormais quatre couches :
 
-- **Product Core** : catalogue, comparaison, offres, concessionnaires, leads et ingestion automobile ;
-- **Platform Bricks** : authentification, permissions, observabilité, audit, stockage, notifications, analytics, feature flags et sécurité ;
-- **Delivery Factory** : conventions Git, CI/CD, quality gates, environnements, migrations, tests, documentation et automatisation des releases.
+- **Product Core** — catalogue automobile, comparaison, discovery, offres, leads et data quality ;
+- **Headless Core Brick** — Payload, configuré comme socle data/admin/auth/API ;
+- **Platform Bricks** — observabilité, notifications, storage, analytics, feature flags, anti-abus et intégrations ;
+- **Delivery Factory** — Git, CI/CD, tests, quality gates, environnements, documentation et releases.
 
-L’AppFactory n’est pas un prétexte pour sur-architecturer. Une brique n’est introduite que lorsqu’elle réduit réellement le coût de développement, le risque opérationnel ou la dette future.
+La règle AppFactory est simple : **Build what differentiates. Reuse what is infrastructure. Integrate what is commodity.**
 
 ➡️ [Méthodologie AppFactory](docs/APP_FACTORY.md)
 
-## Architecture cible
+## Structure cible
 
 ```text
-apps/
-  web/                 # expérience publique, SEO, recherche, comparaison
-  dealer-portal/       # espace distributeurs / agences
-  admin/               # qualité du catalogue, modération, imports
-
-services/
-  api/                 # FastAPI — domaine et API métier
-  ingestion-worker/    # imports, normalisation, collecteurs, tâches asynchrones
-
-packages/
-  ui/                  # design system partagé
-  contracts/           # schémas OpenAPI / types générés
-  config/              # configuration partagée
-
-infra/
-  docker/
-  migrations/
-  observability/
-
-docs/
-  adr/
+AgenAuto/
+├── apps/
+│   └── web/                    # Next.js + Payload + public product UI
+│
+├── packages/
+│   ├── automotive-domain/      # normalisation, comparaison, invariants
+│   ├── ui/                     # design system
+│   ├── payload-config/         # collections, hooks, access policies
+│   └── config/
+│
+├── services/
+│   └── ingestion/              # Python spécialisé, si nécessaire
+│
+├── infra/
+│   ├── docker/
+│   └── observability/
+│
+└── docs/
+    └── adr/
 ```
 
-Socle envisagé : **Next.js + TypeScript**, **FastAPI + Python**, **PostgreSQL**, **Redis** pour les traitements asynchrones nécessaires, stockage objet compatible S3, Docker et GitHub Actions.
-
-La recherche commence volontairement avec PostgreSQL ; un moteur dédié ne sera ajouté que si les volumes et les usages le justifient.
-
-➡️ [Architecture détaillée](docs/ARCHITECTURE.md)
+Le **dealer portal n’est pas nécessairement une application séparée au MVP**. Les opérations simples peuvent utiliser un espace Payload configuré par rôle ; une UX dealer dédiée n’est construite que pour les parcours où l’Admin générique devient insuffisant.
 
 ## Domaines fonctionnels
 
@@ -104,77 +154,75 @@ La recherche commence volontairement avec PostgreSQL ; un moteur dédié ne sera
 - Vehicle Comparison
 - Leads & Test Drives
 - Data Ingestion & Normalization
-- Dealer Portal
+- Dealer Operations
 - Administration & Data Quality
 - Analytics & Observability
 
 ## Stratégie de données
 
-AgenAuto doit pouvoir recevoir des données par plusieurs canaux :
-
 ```text
-API partenaire
+Partner API
 CSV / Excel
-Saisie portail
-Import administrateur
-Collecteur autorisé
-        |
-        v
-Raw Ingestion
-        |
-        v
-Normalization + Matching
-        |
-        v
-Validation / Data Quality
-        |
-        v
+Payload Admin
+Dealer input
+Permitted collector
+       |
+       v
+Raw observation
+       |
+       v
+Normalize + Match
+       |
+       v
+Validation / Review
+       |
+       v
+Payload Headless Core
+       |
+       v
 Canonical Catalog + Dealer Offers
 ```
 
-L’objectif à long terme est de privilégier les **feeds et API partenaires**. Les collecteurs automatisés ne doivent jamais devenir la seule source de vérité du produit.
+Nous privilégions à terme les **feeds et API partenaires**. Les collecteurs automatisés restent une solution complémentaire et ne doivent pas devenir l’unique source de vérité.
+
+Chaque observation commerciale importante doit pouvoir porter au minimum sa **source** et sa **date d’observation**.
 
 ## Qualité et sérieux d’exécution
 
-Chaque évolution significative doit respecter les mêmes règles :
+Chaque évolution significative suit les mêmes règles :
 
-- une issue décrit le problème et les critères d’acceptation ;
+- une issue décrit le problème et ses critères d’acceptation ;
 - une branche porte un changement cohérent ;
 - une Pull Request documente la décision et les impacts ;
-- CI obligatoire avant intégration ;
+- CI avant intégration ;
 - migrations versionnées ;
-- tests adaptés au niveau de risque ;
+- tests adaptés au risque ;
 - secrets hors du dépôt ;
-- observabilité prévue dès les premiers flux critiques ;
-- décisions structurantes documentées sous forme d’ADR ;
-- aucune dépendance open source intégrée sans vérification de licence.
-
-Le dépôt fournit un formulaire d’Issue structuré et un template de Pull Request afin que ces règles soient appliquées dans le workflow quotidien.
+- access control appliqué côté backend ;
+- observabilité prévue sur les flux critiques ;
+- décisions structurantes documentées en ADR ;
+- dépendances open source intégrées uniquement après vérification de licence.
 
 ## Plan de livraison
 
-Le développement est découpé en incréments exploitables :
+La nouvelle séquence privilégie l’exploitation du Headless Core dès le départ :
 
-**Foundation → Catalog → Dealers & Offers → Discovery & Comparison → Leads → Ingestion → Dealer Portal → Pilot Launch**.
+**Payload Foundation → Automotive Schema → Data Quality → Market Data → Discovery → Comparison → Leads → Ingestion → Dealer Operations → Pilot Launch**.
 
-Le MVP doit permettre à un utilisateur de découvrir des véhicules neufs, comparer des finitions, identifier les distributeurs correspondants et générer un lead exploitable.
-
-➡️ [Plan de travail et roadmap](docs/ROADMAP.md)
+➡️ [Roadmap et plan de travail](docs/ROADMAP.md)
 
 ## Backlog
 
-Le backlog opérationnel est suivi dans les **GitHub Issues**. Les epics structurent les grands chantiers et les issues d’implémentation sont liées aux critères d’acceptation du MVP.
+Le backlog opérationnel vit dans les **GitHub Issues** et est regroupé sous l’Epic MVP.
 
 🎯 **[Epic MVP — Foundation to pilot launch](https://github.com/EagleFox31/AgenAuto/issues/15)**
 
-Le repo privilégie un backlog lisible et exécutable plutôt qu’une accumulation de tickets. Les priorités sont organisées autour de :
+Priorités :
 
 - **P0 — Foundation / Blocking**
 - **P1 — MVP Core**
 - **P2 — MVP Completion**
 - **P3 — Post-MVP**
-
-Un GitHub Project `AgenAuto Delivery` est recommandé pour visualiser ce backlog en gardant les Issues comme source de vérité.
 
 ➡️ [Configuration recommandée du Project](docs/PROJECT_BOARD.md)
 
@@ -182,15 +230,17 @@ Un GitHub Project `AgenAuto Delivery` est recommandé pour visualiser ce backlog
 
 - [Concept produit AppFactory — Word](docs/Concept_AppFactory_AgenAuto.docx)
 - [Architecture](docs/ARCHITECTURE.md)
+- [Headless Core](docs/HEADLESS_CORE.md)
 - [Méthodologie AppFactory](docs/APP_FACTORY.md)
-- [Roadmap et plan de travail](docs/ROADMAP.md)
-- [GitHub Project / Delivery Board](docs/PROJECT_BOARD.md)
+- [Roadmap](docs/ROADMAP.md)
+- [Delivery Board](docs/PROJECT_BOARD.md)
+- [Architecture Decision Records](docs/adr/README.md)
 
 ## Statut
 
-**Phase actuelle : Product Foundation / Architecture.**
+**Phase actuelle : Headless Core Foundation / Domain Modeling.**
 
-Le produit est en phase de structuration du socle, du modèle de données et du backlog avant implémentation fonctionnelle.
+Nous verrouillons le schéma automobile, les règles d’accès et la stratégie de données avant d’investir dans les parcours publics de comparaison.
 
 ---
 
