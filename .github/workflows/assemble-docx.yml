@@ -21,26 +21,29 @@ jobs:
         shell: bash
         run: |
           set -euo pipefail
-          wc -c .b64parts/part*
-          sha256sum .b64parts/part*
           python - <<'PY'
           from pathlib import Path
           import hashlib, sys
           expected = {
-              'part01': ('10000', '220aea3db695ec7e8fd8a2017b9b100da2b0bda64b91a0f6202bb071a854db40'),
-              'part02': ('10000', 'f85c8c77308c8950e1ec03a836acb6f53d72df2485eda29220d0d8cde0829d12'),
-              'part03': ('10000', 'd8b71571f03d01c9dc58107eb2e00883a14d50ada8c17b7dec2af1fb8c4e3b73'),
-              'part04': ('10000', '22aa270c7fc9523ae89087f4d301080de2077a290f1787a6949d460e2b59d4ad'),
-              'part05': ('10000', '074a06eeee09af8eb80817363655a9ee68e90e2af17dc1add117f020995abb12'),
-              'part06': ('10000', 'fb37ac6dca7223908da536ddcc400fbb9ad92ebd0155b2ba020acf4cf48a6727'),
-              'part07': ('6900', 'c73fd8b4cf23ef0e0a1072c873b6ccd7046f6f22c9368c37e2d168db0f5e1d4b'),
+              'part01': (10000, '220aea3db695ec7e8fd8a2017b9b100da2b0bda64b91a0f6202bb071a854db40'),
+              'part02': (10000, 'f85c8c77308c8950e1ec03a836acb6f53d72df2485eda29220d0d8cde0829d12'),
+              'part03a': (2500, 'c5d97a84837dbe0b4cb39c1ccd3ac63b3fdda386c308f8609b9c08759a8413f5'),
+              'part03b': (2500, '98c76215e98d0989e66ac0b29ee1d2000701cd33d38196486029175267e063ae'),
+              'part03c': (2500, '0d70bf7fadd3bde6a6d66cb5588e0e85de434c6c47c22fd230048fa79c6f4ada'),
+              'part03d': (2500, '1bf37d5d217809f2fb99584c7c362262f7b25795d273f85e98638d20c280b733'),
+              'part04': (10000, '22aa270c7fc9523ae89087f4d301080de2077a290f1787a6949d460e2b59d4ad'),
+              'part05a': (2500, '17fc1fa508a8f8400ddef0012383f0dbc5822f38eab909e2cb31b27efa7ebc5e'),
+              'part05b': (2500, 'cbaf7c9fb46ffef2227f8d5f68fdaf9f8eeff4207c7970528f592e0fbddd4653'),
+              'part05c': (2500, 'bde9d94df9d6e55c1dca2d3c1129b5f722ed4d99e0cbec8fa72495dbab28db01'),
+              'part05d': (2500, '463d2461c4afadebeb12090d0508efabb2064328bc17b49866de1e6be8ee64b5'),
+              'part06': (10000, 'fb37ac6dca7223908da536ddcc400fbb9ad92ebd0155b2ba020acf4cf48a6727'),
+              'part07': (6900, 'c73fd8b4cf23ef0e0a1072c873b6ccd7046f6f22c9368c37e2d168db0f5e1d4b'),
           }
           bad = []
           for name, (size, digest) in expected.items():
-              p = Path('.b64parts') / name
-              data = p.read_bytes()
+              data = (Path('.b64parts') / name).read_bytes()
               actual = hashlib.sha256(data).hexdigest()
-              if len(data) != int(size) or actual != digest:
+              if len(data) != size or actual != digest:
                   bad.append((name, len(data), actual))
           if bad:
               print('MISMATCHES:', bad)
@@ -52,8 +55,17 @@ jobs:
         shell: bash
         run: |
           set -euo pipefail
-          cat .b64parts/part* | base64 --decode > docs/Concept_AppFactory_AgenAuto.docx
+          cat \
+            .b64parts/part01 \
+            .b64parts/part02 \
+            .b64parts/part03a .b64parts/part03b .b64parts/part03c .b64parts/part03d \
+            .b64parts/part04 \
+            .b64parts/part05a .b64parts/part05b .b64parts/part05c .b64parts/part05d \
+            .b64parts/part06 \
+            .b64parts/part07 \
+            | base64 --decode > docs/Concept_AppFactory_AgenAuto.docx
           test "$(stat -c%s docs/Concept_AppFactory_AgenAuto.docx)" -eq 50175
+          test "$(sha256sum docs/Concept_AppFactory_AgenAuto.docx | cut -d' ' -f1)" = "fe6286760043573b9b48ac7e67ba3c4ad7330336e3656cf66d3729dbaf3ac88b"
           python - <<'PY'
           import zipfile
           path = 'docs/Concept_AppFactory_AgenAuto.docx'
@@ -70,9 +82,6 @@ jobs:
         run: |
           set -euo pipefail
           rm -rf .b64parts
-          rm -f .github/workflows/assemble-docx.yml
-          rmdir .github/workflows 2>/dev/null || true
-          rmdir .github 2>/dev/null || true
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add -A
