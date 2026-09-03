@@ -1,28 +1,62 @@
 # GitHub Project — AgenAuto Delivery
 
-## Recommendation
+## Principe
 
-AgenAuto doit utiliser un GitHub Project dès le début du développement actif. Les **Issues restent la source de vérité** ; le Project sert à visualiser, prioriser et limiter le WIP.
+AgenAuto utilise un GitHub Project v2 pour piloter le delivery. Les **Issues restent la source de vérité** ; le Project sert à visualiser le flux, prioriser, limiter le WIP et suivre les phases.
 
-**Nom recommandé : `AgenAuto Delivery`**
+**Project : `AgenAuto Delivery`**
 
-## Champs
+Le Project est désormais géré par la brique AppFactory réutilisable :
+
+```text
+EagleFox31/appfactory-project-automation@v1
+```
+
+Configuration produit : `.github/project-config.json`  
+Workflow consommateur : `.github/workflows/project-automation.yml`
+
+## Bootstrap automatique
+
+Lors du premier lancement manuel du workflow avec `issue_number` vide, l'Action :
+
+1. crée `AgenAuto Delivery` s'il n'existe pas ;
+2. le lie au repository AgenAuto ;
+3. crée ou réconcilie les champs AppFactory ;
+4. crée la vue `AppFactory Board` ;
+5. importe les Issues ouvertes ;
+6. les place dans le backlog ;
+7. applique les métadonnées définies dans `project-config.json`.
+
+Le bootstrap est convergent et non destructif : une relance réutilise les éléments existants et ajoute les options manquantes au lieu de recréer le Project.
+
+## Champs AppFactory
 
 ### Status
-- Inbox
-- Ready
-- In Progress
-- In Review
-- Blocked
-- Done
+
+```text
+Backlog → Ready → In Progress → Review → Validation → Done
+```
 
 ### Priority
-- P0 — Blocking
-- P1 — MVP Core
-- P2 — MVP Completion
-- P3 — Post-MVP
 
-### Phase
+- P0
+- P1
+- P2
+- P3
+
+### Work type
+
+- Product
+- Feature
+- Engineering
+- UX
+- Security
+- Quality
+- Documentation
+- Bug
+
+### Phase AgenAuto
+
 - Headless Core
 - Automotive Schema
 - Dealers & Offers
@@ -35,76 +69,65 @@ AgenAuto doit utiliser un GitHub Project dès le début du développement actif.
 - Pilot
 - Post-MVP
 
-### Area
-- Product
-- Headless Core
-- Frontend
-- Automotive Domain
-- Data
-- Dealer Ops
-- Platform
-- Security
-- Observability
-- DevEx
-
 ### Size
+
 - XS
 - S
 - M
 - L
+- XL
 
-Une issue `L` doit être examinée pour vérifier qu’elle n’est pas en réalité un epic ou plusieurs issues.
+Une issue `L` ou `XL` doit être examinée pour vérifier qu'elle n'est pas en réalité un epic ou plusieurs issues.
 
-## Vues recommandées
+## Automations lifecycle
 
-### 1. Delivery Board
-Board groupé par `Status`.
+- nouvelle Issue → `Backlog` ;
+- Issue réouverte → `Backlog` ;
+- draft PR liée → `In Progress` ;
+- PR prête pour review → `Review` ;
+- PR mergée → `Done` ;
+- Issue fermée → `Done` ;
+- édition d'Issue → resynchronisation des métadonnées ;
+- `workflow_dispatch` + numéro d'Issue → resynchronisation ciblée ;
+- `workflow_dispatch` sans numéro → bootstrap/réconciliation complète.
 
-Usage quotidien : visualiser le WIP.
+## Métadonnées initiales
 
-### 2. MVP Roadmap
-Groupée par `Phase`, triée par `Priority`.
+Les Issues #1 à #15 disposent d'overrides dans `.github/project-config.json` afin que le premier import remplisse immédiatement :
 
-Usage : vérifier l’ordre logique du produit.
+- Priority ;
+- Work type ;
+- Phase ;
+- Size.
 
-### 3. Ready Queue
-Filtre `Status = Ready`, tri `Priority` puis `Size`.
+Les nouvelles Issues pourront utiliser les conventions de titre AppFactory ou les métadonnées embarquées dans leur body lorsque nécessaire.
 
-Usage : choisir le prochain travail sans improviser.
+## Vue de base
 
-### 4. Headless Core
-Filtre `Area = Headless Core`.
+L'Action crée automatiquement :
 
-Usage : suivre le bootstrap Payload, schéma, access policies et migrations.
+### AppFactory Board
 
-### 5. Data & Quality
-Filtre `Area = Data` ou `Automotive Domain`.
+Board groupé par `Status`, utilisé pour le flux quotidien.
 
-Usage : référentiel, normalisation, imports et dataset pilote.
+Des vues supplémentaires pourront être ajoutées manuellement sans modifier le moteur d'automatisation, par exemple :
 
-### 6. Launch Gates
-Filtre/label logique couvrant sécurité, observabilité, leads, dataset, access control et E2E.
+- MVP Roadmap — groupée par `Phase` ;
+- Ready Queue — `Status = Ready` ;
+- Launch Gates — sécurité, observabilité, E2E et dataset pilote.
 
 ## WIP
 
 Pour une petite équipe :
+
 - 2 à 3 issues `In Progress` maximum ;
 - une grosse feature active par développeur ;
 - ne pas lancer une UX dealer dédiée tant que Payload Admin couvre encore le besoin ;
-- terminer les fondations avant d’ouvrir des features post-MVP.
+- terminer les fondations avant d'ouvrir des features post-MVP.
 
-## Automations utiles
+## Backlog initial
 
-- nouvelle issue -> `Inbox` ;
-- issue sélectionnée -> `Ready` ;
-- travail commencé -> `In Progress` ;
-- PR ouverte -> `In Review` ;
-- dépendance externe -> `Blocked` ;
-- issue fermée -> `Done`.
-
-## Backlog initial révisé
-
-Epic : **#15 — AgenAuto MVP — Foundation to pilot launch**.
+Epic : **#15 — AgenAuto MVP — Payload Headless Core to Cameroon pilot**.
 
 Séquence cible :
 
@@ -142,16 +165,28 @@ Séquence cible :
            Pilot Launch
 ```
 
+## Secret requis
+
+Le workflow attend un repository Actions secret nommé :
+
+```text
+PROJECT_TOKEN
+```
+
+Ce token doit avoir accès à GitHub Projects v2 pour le compte `EagleFox31`. Il n'est jamais stocké dans le repository et n'est pas imprimé par l'Action.
+
 ## Règle AppFactory appliquée au board
 
 Le board ne doit pas encourager à recréer des capacités déjà fournies par la brique Headless Core.
 
-Avant d’ajouter une issue générique du type :
+Avant d'ajouter une issue générique du type :
+
 - construire CRUD X ;
 - créer admin Y ;
 - implémenter auth Z ;
 
-on vérifie si Payload couvre déjà la capacité et si la bonne tâche n’est pas plutôt :
+on vérifie si Payload couvre déjà la capacité et si la bonne tâche n'est pas plutôt :
+
 - configurer la collection ;
 - définir les access policies ;
 - ajouter les invariants métier ;
