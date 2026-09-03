@@ -1,0 +1,49 @@
+name: Assemble AgenAuto document
+
+on:
+  push:
+    paths:
+      - '.b64parts/READY'
+
+permissions:
+  contents: write
+
+jobs:
+  assemble:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Rebuild and validate DOCX
+        shell: bash
+        run: |
+          set -euo pipefail
+          cat .b64parts/part* | base64 --decode > docs/Concept_AppFactory_AgenAuto.docx
+          test "$(stat -c%s docs/Concept_AppFactory_AgenAuto.docx)" -eq 50175
+          python - <<'PY'
+          import zipfile
+          path = 'docs/Concept_AppFactory_AgenAuto.docx'
+          with zipfile.ZipFile(path) as z:
+              bad = z.testzip()
+              if bad:
+                  raise SystemExit(f'Invalid DOCX ZIP member: {bad}')
+              assert 'word/document.xml' in z.namelist()
+          print('DOCX validation OK')
+          PY
+
+      - name: Commit final document and clean staging files
+        shell: bash
+        run: |
+          set -euo pipefail
+          rm -rf .b64parts
+          rm -f .github/workflows/assemble-docx.yml
+          rmdir .github/workflows 2>/dev/null || true
+          rmdir .github 2>/dev/null || true
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A
+          git commit -m "docs: add AgenAuto AppFactory concept document"
+          git push
