@@ -1,18 +1,12 @@
-/* THIS FILE FOLLOWS THE OFFICIAL PAYLOAD APP ROUTER PATTERN. */
+/* THIS FILE FOLLOWS THE PAYLOAD v3.88.0 APP ROUTER PATTERN. */
 import config from '@payload-config'
 import '@payloadcms/next/css'
 import type { ServerFunctionClient } from 'payload'
-import {
-  generatePayloadViewport,
-  handleServerFunctions,
-  RootLayout,
-} from '@payloadcms/next/layouts'
+import { handleServerFunctions, RootLayout } from '@payloadcms/next/layouts'
 import type { ReactNode } from 'react'
 
 import { importMap } from './admin/importMap.js'
 import './custom.css'
-
-export const generateViewport = generatePayloadViewport
 
 type Args = {
   children: ReactNode
