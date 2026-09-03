@@ -7,7 +7,7 @@ on:
   workflow_dispatch:
 
 permissions:
-  contents: write
+  contents: read
 
 jobs:
   validate:
@@ -50,30 +50,19 @@ jobs:
           corepack prepare pnpm@10.20.0 --activate
           pnpm --version
 
-      - name: Install dependencies
-        run: |
-          if [ -f pnpm-lock.yaml ]; then
-            pnpm install --frozen-lockfile
-          else
-            pnpm install --no-frozen-lockfile
-          fi
+      - name: Install dependencies from lockfile
+        run: pnpm install --frozen-lockfile
 
-      - name: Generate Payload import map
+      - name: Regenerate Payload import map
         run: pnpm --dir apps/web generate:importmap
 
-      - name: Generate Payload types
+      - name: Regenerate Payload types
         run: pnpm --dir apps/web generate:types
 
-      - name: Generate initial migration when missing
-        shell: bash
-        run: |
-          if compgen -G "apps/web/src/migrations/*.ts" > /dev/null; then
-            echo "Committed migrations already exist; generation skipped."
-          else
-            pnpm --dir apps/web payload migrate:create initial-foundation --skip-empty
-          fi
+      - name: Verify generated files are committed
+        run: git diff --exit-code -- apps/web/src/payload-types.ts 'apps/web/src/app/(payload)/admin/importMap.js'
 
-      - name: Apply migrations to empty PostgreSQL database
+      - name: Apply committed migrations to empty PostgreSQL database
         run: pnpm --dir apps/web payload migrate
 
       - name: Check migration status
@@ -87,29 +76,3 @@ jobs:
 
       - name: Build
         run: pnpm --dir apps/web build
-
-      - name: Persist generated foundation artifacts
-        if: github.ref_name == 'feat/bootstrap-payload-foundation' && github.actor != 'github-actions[bot]'
-        shell: bash
-        run: |
-          git config user.name "github-actions[bot]"
-          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add -- pnpm-lock.yaml apps/web/src/payload-types.ts 'apps/web/src/app/(payload)/admin/importMap.js' apps/web/src/migrations
-
-          if git diff --cached --quiet; then
-            echo "Generated foundation artifacts are already committed."
-          else
-            git commit -m "chore: commit generated Payload foundation artifacts"
-            git push origin "HEAD:${GITHUB_REF_NAME}"
-          fi
-
-      - name: Archive generated foundation artifacts
-        uses: actions/upload-artifact@v4
-        with:
-          name: agenauto-bootstrap-generated
-          if-no-files-found: error
-          path: |
-            pnpm-lock.yaml
-            apps/web/src/payload-types.ts
-            apps/web/src/app/(payload)/admin/importMap.js
-            apps/web/src/migrations/
