@@ -3,6 +3,15 @@ import path from 'node:path'
 import { fileURLToPath } from 'node:url'
 import { buildConfig } from 'payload'
 
+import {
+  Brands,
+  Generations,
+  SpecificationDefinitions,
+  Trims,
+  TrimSpecifications,
+  VehicleModels,
+} from './collections/automotive'
+import { Media } from './collections/platform/Media'
 import { Users } from './collections/platform/Users'
 
 const filename = fileURLToPath(import.meta.url)
@@ -18,7 +27,16 @@ export default buildConfig({
       titleSuffix: ' — AgenAuto',
     },
   },
-  collections: [Users],
+  collections: [
+    Users,
+    Media,
+    Brands,
+    VehicleModels,
+    Generations,
+    Trims,
+    SpecificationDefinitions,
+    TrimSpecifications,
+  ],
   db: postgresAdapter({
     pool: {
       connectionString: process.env.DATABASE_URL || '',
