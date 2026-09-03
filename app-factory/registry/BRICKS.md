@@ -11,6 +11,7 @@
 | Data Ingestion | Build / Adapt | CSV, Excel, API, collectors, matching | Payload jobs + optional Python service |
 | Shared UI | Build / Adapt | Product-grade reusable components | `packages/ui` + licensed OSS where useful |
 | Observability | Integrate | Error monitoring and diagnostics | Sentry first |
+| Project Automation | Reuse | Bootstrap Projects v2, backlog metadata and Issue/PR lifecycle synchronization | `EagleFox31/appfactory-project-automation@v1` |
 | Delivery Factory | Build / Reuse | CI, quality gates, release conventions | GitHub Actions + repo conventions |
 
 ## Rule
