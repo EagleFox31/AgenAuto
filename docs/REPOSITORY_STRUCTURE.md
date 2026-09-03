@@ -20,6 +20,7 @@ AgenAuto/
 │           │   ├── discovery/
 │           │   ├── comparison/
 │           │   └── leads/
+│           ├── hooks/
 │           ├── jobs/
 │           └── lib/
 │
@@ -91,6 +92,9 @@ Logique produit qui ne doit pas être diluée dans le CMS.
 
 ### `src/access`
 Politiques RBAC et scopes dealer.
+
+### `src/hooks`
+Hooks Payload limités aux préoccupations de cycle de vie des collections. La logique métier complexe reste dans `features` ou `packages/automotive-domain`.
 
 ### `src/jobs`
 Jobs applicatifs légers gérés côté Payload.
