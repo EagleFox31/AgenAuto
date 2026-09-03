@@ -149,6 +149,8 @@ Chaque évolution significative doit respecter les mêmes règles :
 - décisions structurantes documentées sous forme d’ADR ;
 - aucune dépendance open source intégrée sans vérification de licence.
 
+Le dépôt fournit un formulaire d’Issue structuré et un template de Pull Request afin que ces règles soient appliquées dans le workflow quotidien.
+
 ## Plan de livraison
 
 Le développement est découpé en incréments exploitables :
@@ -163,6 +165,8 @@ Le MVP doit permettre à un utilisateur de découvrir des véhicules neufs, comp
 
 Le backlog opérationnel est suivi dans les **GitHub Issues**. Les epics structurent les grands chantiers et les issues d’implémentation sont liées aux critères d’acceptation du MVP.
 
+🎯 **[Epic MVP — Foundation to pilot launch](https://github.com/EagleFox31/AgenAuto/issues/15)**
+
 Le repo privilégie un backlog lisible et exécutable plutôt qu’une accumulation de tickets. Les priorités sont organisées autour de :
 
 - **P0 — Foundation / Blocking**
@@ -170,12 +174,17 @@ Le repo privilégie un backlog lisible et exécutable plutôt qu’une accumulat
 - **P2 — MVP Completion**
 - **P3 — Post-MVP**
 
+Un GitHub Project `AgenAuto Delivery` est recommandé pour visualiser ce backlog en gardant les Issues comme source de vérité.
+
+➡️ [Configuration recommandée du Project](docs/PROJECT_BOARD.md)
+
 ## Documentation
 
 - [Concept produit AppFactory — Word](docs/Concept_AppFactory_AgenAuto.docx)
 - [Architecture](docs/ARCHITECTURE.md)
 - [Méthodologie AppFactory](docs/APP_FACTORY.md)
 - [Roadmap et plan de travail](docs/ROADMAP.md)
+- [GitHub Project / Delivery Board](docs/PROJECT_BOARD.md)
 
 ## Statut
 
