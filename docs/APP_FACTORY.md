@@ -2,56 +2,81 @@
 
 ## 1. Pourquoi AppFactory
 
-AgenAuto est conçu comme un produit durable, mais son développement doit rester rapide et maîtrisé. L’approche AppFactory permet de séparer clairement ce qui fait la valeur métier du produit de ce qui doit devenir une capacité d’ingénierie standard.
+AgenAuto est conçu comme un produit durable, mais son développement doit rester rapide et maîtrisé. L’approche AppFactory sépare ce qui fait réellement la valeur métier du produit de ce qui doit être industrialisé et réutilisé.
 
-Le principe : **ne pas réinventer les fondations à chaque feature et ne pas transformer le produit en laboratoire d’architecture.**
+Le principe : **ne pas réinventer les fondations à chaque produit, sans transformer l’architecture en collection de briques inutiles.**
 
-## 2. Les trois couches
+## 2. Les quatre couches
 
 ### Product Core
 
-Briques strictement métier :
-- Vehicle Catalog
-- Specifications
-- Dealers
-- Offers
-- Search
-- Comparison
+Capacités strictement métier AgenAuto :
+- Vehicle Catalog semantics
+- Vehicle Specifications
+- Dealers & Market Mapping
+- Dealer Offers
+- Search & Discovery rules
+- Vehicle Comparison
 - Leads
-- Data Ingestion
-- Dealer Portal
+- Data Provenance & Freshness
+- Automotive Data Quality
+- Ingestion & Matching rules
 
-Ces modules doivent pouvoir évoluer avec le marché automobile sans être couplés à des détails d’infrastructure.
+Ce sont les capacités que nous devons comprendre et maîtriser parce qu’elles portent la différenciation du produit.
+
+### Headless Core Brick
+
+Payload CMS devient une brique AppFactory réutilisable pour fournir :
+- collections / relations ;
+- PostgreSQL + migrations ;
+- Admin Panel ;
+- authentication ;
+- RBAC / access control ;
+- REST / Local API ;
+- media ;
+- hooks ;
+- jobs applicatifs ;
+- CRUD générique ;
+- workflows administratifs simples.
+
+Le Headless Core est **configuré par le produit**, mais n’est pas le produit.
+
+AgenAuto lui apporte :
+- collections automobiles ;
+- access policies dealer/admin ;
+- validations métier ;
+- hooks de provenance ;
+- custom endpoints lorsque nécessaire ;
+- règles de publication ;
+- projections utilisées par la recherche et le comparateur.
 
 ### Platform Bricks
 
-Briques transverses réutilisables :
-- Identity & RBAC
-- Audit Trail
-- Notifications
-- File/Object Storage
+Briques transverses qui restent indépendantes du CMS lorsque cela a du sens :
 - Observability
+- Notifications
+- Object Storage
 - Analytics
 - Feature Flags
-- Rate Limiting
-- Background Jobs
+- Rate Limiting / Anti-Abuse
+- External Integrations
 - Data Import Framework
 - Error Handling
 - Configuration
 
-Une brique transversale possède :
+Une brique transverse possède :
 - une responsabilité claire ;
 - un contrat stable ;
 - une documentation minimale ;
-- des tests ;
+- des tests adaptés ;
 - une configuration par environnement ;
-- des métriques ou logs utiles si elle est critique.
+- des logs/métriques lorsqu’elle est critique.
 
 ### Delivery Factory
 
-Le socle d’exécution :
+Socle d’exécution :
 - conventions Git ;
-- Pull Requests ;
+- branches et Pull Requests ;
 - CI ;
 - tests ;
 - lint/typecheck ;
@@ -59,71 +84,126 @@ Le socle d’exécution :
 - Docker ;
 - staging ;
 - release process ;
-- dependency scanning ;
-- documentation des décisions.
+- dependency/security scanning ;
+- documentation des décisions ;
+- contrôle des licences open source.
 
 ## 3. Règle Build / Reuse / Integrate
 
-Avant d’implémenter une brique, on décide explicitement :
+Avant toute implémentation, on décide explicitement :
 
 ### Reuse
-Réutiliser un composant interne ou open source quand il répond correctement au besoin et que sa licence est compatible.
+Réutiliser une capacité open source ou interne lorsqu’elle couvre correctement le besoin et que sa licence est compatible.
+
+Exemple AgenAuto : Payload pour admin, auth, CRUD, access control et APIs génériques.
 
 ### Integrate
-Intégrer un service externe lorsqu’il apporte une capacité non différenciante avec un coût opérationnel raisonnable.
+Intégrer un service externe lorsque la capacité est non différenciante et que le coût opérationnel est acceptable.
+
+Exemples futurs : email transactionnel, analytics, monitoring, object storage.
 
 ### Build
-Construire en interne lorsque la capacité porte la différenciation métier, la maîtrise des données ou un avantage structurel.
+Construire en interne lorsque la capacité porte la différenciation métier, la qualité des données ou un avantage structurel.
 
-Pour AgenAuto, le **catalogue canonique, le moteur de comparaison, le mapping des offres et la normalisation automobile** font partie des capacités à maîtriser fortement en interne.
+Pour AgenAuto, nous construisons ou contrôlons fortement :
+- modèle automobile canonique ;
+- dictionnaire de spécifications ;
+- moteur de comparaison ;
+- provenance et fraîcheur ;
+- matching des offres ;
+- normalisation automobile ;
+- règles de data quality ;
+- future decision intelligence.
 
-## 4. Open source : règle de sérieux
+## 4. Règle d’utilisation du CMS
+
+Un Headless CMS n’est pas une excuse pour déplacer toute la logique métier dans des formulaires et hooks improvisés.
+
+Nous distinguons :
+
+### Configuration CMS légitime
+- relations ;
+- champs ;
+- validations simples ;
+- access control ;
+- lifecycle hooks courts ;
+- publication ;
+- opérations administratives.
+
+### Domaine AgenAuto explicite
+- normalisation d’unités ;
+- comparaison ;
+- matching ambigu ;
+- scoring de confiance ;
+- règles de fraîcheur ;
+- transformations complexes ;
+- logique de recommandation.
+
+Les fonctions de domaine doivent rester testables sans dépendre directement de l’interface Admin.
+
+## 5. Python comme brique spécialisée
+
+Python n’est plus le backend principal du produit.
+
+Il est utilisé lorsque son écosystème apporte un avantage concret :
+- CSV/Excel complexes ;
+- batch data processing ;
+- Polars/Pandas ;
+- matching ;
+- parsers ;
+- collecteurs autorisés ;
+- extraction documentaire ;
+- analyse de qualité.
+
+Le service Python communique avec le Headless Core via des contrats explicites et ne possède pas une base métier parallèle.
+
+## 6. Open source : règle de sérieux
 
 Un repo GitHub public n’est pas automatiquement réutilisable.
 
-Avant toute intégration :
+Avant intégration :
 - licence identifiée ;
-- compatibilité avec notre usage vérifiée ;
+- compatibilité vérifiée ;
+- activité du projet évaluée ;
 - dépendances examinées ;
-- activité du projet regardée ;
 - code critique audité ;
 - attribution conservée lorsque requise.
 
-Les repos sans licence servent uniquement de référence fonctionnelle ou architecturale, sauf autorisation explicite de leur auteur.
+Les repos sans licence servent uniquement de référence fonctionnelle ou architecturale, sauf autorisation explicite.
 
-## 5. Definition of Ready
+## 7. Definition of Ready
 
-Une issue est prête à être développée lorsque :
-- le problème utilisateur ou technique est clair ;
+Une issue est prête lorsque :
+- le problème est clair ;
 - le périmètre est défini ;
 - les critères d’acceptation sont écrits ;
-- les dépendances connues sont identifiées ;
-- aucune décision structurante indispensable n’est laissée implicite.
+- les dépendances sont identifiées ;
+- la décision Build / Reuse / Integrate est explicite si nécessaire ;
+- aucune décision d’architecture bloquante n’est laissée implicite.
 
-## 6. Definition of Done
+## 8. Definition of Done
 
-Une feature n’est pas terminée parce qu’elle « marche sur ma machine ».
-
-Selon son niveau de risque, elle doit inclure :
+Selon le niveau de risque :
 - code revu ;
 - tests ;
 - lint/typecheck ;
-- migrations ;
+- migration Payload si le schéma change ;
+- access control vérifié ;
 - gestion des erreurs ;
-- autorisations ;
 - logs/observabilité ;
 - documentation ;
 - critères d’acceptation vérifiés ;
-- déploiement staging réussi.
+- staging validé.
 
-## 7. Flux Git
+Une collection qui existe dans l’Admin mais dont les permissions, invariants ou migrations ne sont pas maîtrisés n’est pas « terminée ».
 
-Convention proposée :
+## 9. Flux Git
 
 ```text
 main
   ├── feat/<scope>-<description>
   ├── fix/<scope>-<description>
+  ├── refactor/<scope>-<description>
   ├── chore/<description>
   └── docs/<description>
 ```
@@ -131,22 +211,24 @@ main
 Conventional commits :
 - `feat:`
 - `fix:`
+- `refactor:`
 - `chore:`
 - `docs:`
-- `refactor:`
 - `test:`
 - `ci:`
 
-Chaque PR doit expliquer :
-- pourquoi le changement existe ;
+Chaque PR décrit :
+- pourquoi ;
 - ce qui change ;
-- comment le tester ;
-- les impacts données/API ;
-- les risques connus.
+- comment tester ;
+- impacts données/schema ;
+- impacts access control ;
+- impacts API ;
+- risques connus.
 
-## 8. Quality Gates
+## 10. Quality Gates
 
-Le pipeline minimal doit progressivement imposer :
+Pipeline cible :
 
 ```text
 install
@@ -154,82 +236,84 @@ install
   -> typecheck
   -> unit tests
   -> integration tests
+  -> Payload migration/schema checks
   -> build
-  -> security/dependency checks
-  -> artifact
+  -> dependency/security checks
 ```
 
-Les E2E sont réservés aux parcours à forte valeur :
-- recherche véhicule ;
+Pour le service Python, si présent :
+
+```text
+ruff
+  -> typecheck ciblé
+  -> pytest
+```
+
+E2E critiques :
+- recherche ;
 - comparaison ;
-- soumission d’un lead ;
-- création/modification d’une offre concessionnaire ;
-- import de données critique.
+- lead ;
+- mise à jour d’une offre dealer ;
+- import/review de données.
 
-## 9. Observability by default
+## 11. Data Quality comme domaine de première classe
 
-Les opérations critiques doivent être corrélables.
+Chaque observation structurante peut porter :
+- `source` ;
+- `observedAt` ;
+- `verifiedAt` ;
+- `confidenceScore` ;
+- `reviewStatus`.
 
-Identifiants recommandés :
+Les corrections importantes restent auditables.
+
+Le CMS facilite l’opération, mais **la qualité des données reste une responsabilité produit**.
+
+## 12. Observability by default
+
+Identifiants utiles :
 - `request_id`
 - `user_id`
 - `dealer_id`
 - `lead_id`
 - `import_run_id`
 
-Les erreurs applicatives sont capturées dans Sentry. Les logs backend sont structurés. Les imports doivent exposer nombre de lignes reçues, acceptées, rejetées et nécessitant une revue.
+Les erreurs critiques sont capturées. Les imports exposent au minimum : reçus, acceptés, rejetés et nécessitant une revue.
 
-## 10. Data Quality comme brique produit
+## 13. ADR — Architecture Decision Records
 
-AgenAuto dépend directement de la qualité de ses données. La qualité n’est donc pas une tâche secondaire mais un domaine de première classe.
-
-Chaque donnée structurante peut porter :
-- `source`
-- `observed_at`
-- `verified_at`
-- `confidence_score`
-- `review_status`
-
-Les corrections humaines importantes doivent être auditables.
-
-## 11. ADR — Architecture Decision Records
-
-Une ADR est créée pour toute décision qui :
-- change la structure du système ;
-- introduit une dépendance majeure ;
+Une ADR est créée lorsqu’une décision :
+- change une frontière du système ;
+- introduit une dépendance structurante ;
 - crée une contrainte durable ;
 - touche les données sensibles ;
-- modifie les frontières de domaine.
+- modifie la stratégie d’exécution.
 
-Format minimal :
+ADR actuels :
+- Payload comme Headless Core ;
+- séparation Canonical Vehicle / Dealer Offer.
 
-```text
-Context
-Decision
-Alternatives considered
-Consequences
-Status
-```
+## 14. Ce que nous refusons
 
-## 12. Ce que nous refusons
-
+- recoder un admin générique sans raison ;
+- recoder auth/RBAC alors que le Headless Core les couvre ;
 - microservices prématurés ;
-- frameworks ajoutés sans besoin mesurable ;
-- duplication de modèles véhicule entre concessionnaires ;
-- scraping comme unique stratégie de données ;
+- Redis ou moteur de recherche ajouté « au cas où » ;
+- logique métier complexe cachée uniquement dans l’Admin ;
+- duplication de modèles véhicule par concessionnaire ;
+- scraping comme source unique ;
 - secrets dans Git ;
 - PR géantes sans contexte ;
-- dépendances open source non licenciées copiées dans le produit ;
-- features non observables sur les flux critiques ;
+- dépendances non licenciées copiées ;
 - backlog rempli de tickets vagues.
 
-## 13. Mesure de maturité
+## 15. Mesure de maturité d’une brique
 
-Une brique AppFactory est considérée mature lorsqu’elle est :
-- utilisée par au moins un flux réel ;
+Une brique AppFactory est mature lorsqu’elle est :
+- utilisée dans un flux réel ;
 - documentée ;
 - testée ;
-- observable ;
+- observable lorsque nécessaire ;
 - configurable ;
 - suffisamment découplée pour être réutilisée sans copier-coller massif.
 
