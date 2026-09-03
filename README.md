@@ -103,6 +103,28 @@ Python reste utilisé comme **service spécialisé d’ingestion et de data proc
 ➡️ [Headless Core](docs/HEADLESS_CORE.md)  
 ➡️ [ADR-001 — Payload comme Headless Core](docs/adr/ADR-001-payload-headless-core.md)
 
+## Quick start
+
+Prérequis : **Node.js >= 24.15**, **pnpm 10/11** et **Docker**.
+
+```bash
+corepack enable
+corepack prepare pnpm@10.20.0 --activate
+pnpm install
+pnpm db:up
+```
+
+Créer ensuite `apps/web/.env` à partir de `apps/web/.env.example`, générer un `PAYLOAD_SECRET` local, puis :
+
+```bash
+pnpm dev
+```
+
+- Frontend : `http://localhost:3000`
+- Payload Admin : `http://localhost:3000/admin`
+
+➡️ [Guide de développement local détaillé](apps/web/README.md)
+
 ## Méthodologie AppFactory
 
 AgenAuto est construit avec notre approche **AppFactory** : nous industrialisons les capacités non différenciantes afin de concentrer l’effort sur la valeur métier.
