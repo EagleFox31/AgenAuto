@@ -5,7 +5,7 @@
   "type": "module",
   "scripts": {
     "dev": "cross-env NODE_OPTIONS=--no-deprecation next dev",
-    "build": "cross-env NODE_OPTIONS=\"--no-deprecation --max-old-space-size=4096\" payload build",
+    "build": "cross-env NODE_OPTIONS=\"--no-deprecation --max-old-space-size=4096\" next build",
     "start": "cross-env NODE_OPTIONS=--no-deprecation next start",
     "lint": "cross-env NODE_OPTIONS=--no-deprecation eslint .",
     "typecheck": "tsc --noEmit",
@@ -20,20 +20,21 @@
     "@payloadcms/db-postgres": "3.88.0",
     "@payloadcms/next": "3.88.0",
     "@payloadcms/ui": "3.88.0",
-    "cross-env": "10.1.0",
-    "graphql": "^16.11.0",
-    "next": "16.3.1",
+    "cross-env": "^7.0.3",
+    "graphql": "^16.8.1",
+    "next": "16.3.0",
     "payload": "3.88.0",
     "react": "19.2.6",
-    "react-dom": "19.2.6"
+    "react-dom": "19.2.6",
+    "sharp": "0.34.2"
   },
   "devDependencies": {
-    "@types/node": "24.12.3",
+    "@types/node": "22.19.9",
     "@types/react": "19.2.14",
     "@types/react-dom": "19.2.3",
     "eslint": "^9.16.0",
-    "eslint-config-next": "16.3.1",
-    "typescript": "6.0.3"
+    "eslint-config-next": "16.3.0",
+    "typescript": "5.7.3"
   },
   "engines": {
     "node": ">=24.15.0",
