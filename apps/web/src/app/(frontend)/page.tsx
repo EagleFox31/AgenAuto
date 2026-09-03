@@ -1,3 +1,5 @@
+import Link from 'next/link'
+
 const foundations = [
   'Next.js public application',
   'Payload Headless Core',
@@ -18,9 +20,9 @@ export default function HomePage() {
         </p>
 
         <div className="actions">
-          <a className="primary" href="/admin">
+          <Link className="primary" href="/admin">
             Ouvrir Payload Admin
-          </a>
+          </Link>
           <a className="secondary" href="https://github.com/EagleFox31/AgenAuto">
             Voir le repository
           </a>
