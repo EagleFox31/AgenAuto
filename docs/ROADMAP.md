@@ -9,68 +9,78 @@ Le MVP doit permettre à un utilisateur de :
 3. consulter une fiche véhicule normalisée ;
 4. comparer plusieurs finitions ;
 5. identifier les distributeurs officiels associés ;
-6. consulter une offre quand un prix ou une disponibilité est disponible ;
+6. consulter une offre lorsqu’un prix ou une disponibilité est disponible ;
 7. demander un devis ou un essai ;
 8. transmettre au concessionnaire un lead structuré et traçable.
 
-Le MVP n’a pas besoin de gérer le paiement d’un véhicule, l’assurance, le financement complet ou la reprise.
+Le MVP n’a pas besoin de gérer le paiement du véhicule, l’assurance complète, le financement ou la reprise.
 
 ---
 
-## Phase 0 — Product Foundation
+## Phase 0 — Headless Core Foundation
 
-**But : disposer d’un socle de développement stable avant les features.**
+**But : disposer très vite d’un backend/admin exploitable sans recoder les primitives génériques.**
 
 Livrables :
-- structure monorepo ;
-- environnement local Docker ;
-- API FastAPI initiale ;
-- applications frontend initiales ;
-- PostgreSQL + migrations ;
-- conventions de configuration ;
+- Next.js + Payload initialisés ;
+- PostgreSQL connecté ;
+- environnement local documenté ;
+- migrations Payload ;
+- collection `users` avec rôles initiaux ;
+- access control de base ;
+- Admin Panel fonctionnel ;
 - CI de base ;
 - gestion des secrets ;
-- premiers ADR ;
-- health checks ;
+- ADR-001 / ADR-002 ;
 - observabilité minimale.
 
 Exit criteria :
 - clone -> setup -> run documenté ;
-- frontend et API communiquent en local ;
-- migration DB automatisée ;
+- Payload Admin accessible en local ;
+- PostgreSQL + migration reproductibles ;
+- un utilisateur admin peut s’authentifier ;
 - CI verte sur une PR minimale.
 
 ---
 
-## Phase 1 — Canonical Vehicle Catalog
+## Phase 1 — Automotive Schema & Canonical Catalog
 
-**But : créer la source de vérité automobile.**
+**But : transformer le Headless Core en véritable plateforme automobile.**
 
-Livrables :
+Collections / domaines :
 - Brand ;
 - VehicleModel ;
 - Generation ;
 - Trim ;
 - SpecificationDefinition ;
 - TrimSpecification ;
-- MediaAsset ;
-- API CRUD admin ;
-- endpoints publics de consultation ;
-- validations d’unités et formats.
+- MediaAsset.
+
+Livrables :
+- collections Payload ;
+- relations ;
+- indexes ;
+- validations ;
+- dictionnaire de specs ;
+- normalisation d’unités ;
+- règles de publication ;
+- données publiques exposées via Payload/API ;
+- tests des invariants critiques.
 
 Exit criteria :
-- une marque peut contenir plusieurs modèles ;
-- un modèle peut contenir générations et finitions ;
+- une marque contient plusieurs modèles ;
+- un modèle contient générations et finitions ;
 - les specs sont comparables entre finitions ;
-- les valeurs inconnues restent explicitement inconnues.
+- les valeurs inconnues restent inconnues ;
+- les migrations sont versionnées.
 
 ---
 
-## Phase 2 — Dealers & Offers
+## Phase 2 — Dealers, Offers & Market Observations
 
 **But : relier le référentiel technique au marché réel.**
 
-Livrables :
+Collections / domaines :
 - Dealer ;
 - DealerLocation ;
 - DealerBrand ;
@@ -78,20 +88,47 @@ Livrables :
 - PriceHistory ;
 - AvailabilitySnapshot ;
 - WarrantyTerm ;
-- promotions ;
-- endpoints concessionnaires/offres.
+- Promotion.
+
+Livrables :
+- relations dealer -> location -> offer ;
+- offre -> trim canonique ;
+- prix historisés ;
+- disponibilité datée ;
+- source et date d’observation ;
+- access policies dealer/admin.
 
 Exit criteria :
 - une finition canonique peut avoir plusieurs offres ;
-- les prix sont historisés ;
-- les offres indiquent leur source et date d’observation ;
-- les agences sont localisables.
+- les prix ne sont jamais stockés comme propriété canonique du véhicule ;
+- les observations de marché sont datées et sourcées ;
+- un dealer ne peut pas modifier le référentiel canonique hors périmètre autorisé.
 
 ---
 
-## Phase 3 — Discovery & Search
+## Phase 3 — Data Quality & Pilot Dataset
 
-**But : rendre le catalogue réellement utilisable par un acheteur.**
+**But : valider tôt le modèle avec des données réelles au lieu de développer dans le vide.**
+
+Livrables :
+- 5 à 8 marques pilotes ;
+- modèles/finitions réellement commercialisés ;
+- 30 à 50 specs comparables ;
+- source par donnée structurante ;
+- review status ;
+- détection de doublons ;
+- corrections auditables.
+
+Exit criteria :
+- chaque finition publiée a une source identifiable ;
+- le dataset alimente déjà fiches et comparaison ;
+- aucune valeur fictive n’est utilisée pour masquer un manque de données.
+
+---
+
+## Phase 4 — Discovery & Search
+
+**But : rendre le catalogue utile aux acheteurs.**
 
 Filtres MVP :
 - marque ;
@@ -103,153 +140,152 @@ Filtres MVP :
 - ville/disponibilité lorsque la donnée existe.
 
 Livrables :
-- recherche PostgreSQL ;
+- requêtes PostgreSQL/Payload optimisées ;
 - filtres combinables ;
 - pagination ;
 - tri ;
 - URLs partageables ;
-- pages marques et modèles SEO-friendly.
+- pages marques/modèles SEO-friendly ;
+- états données partielles.
 
 Exit criteria :
 - résultats reproductibles ;
-- filtres compatibles mobile ;
-- temps de réponse acceptable sur le dataset pilote.
+- expérience mobile et desktop utilisable ;
+- performance mesurée sur le dataset pilote.
 
 ---
 
-## Phase 4 — Vehicle Comparison
+## Phase 5 — Vehicle Comparison
 
-**But : faire du comparateur la feature signature du produit.**
+**But : faire du comparateur la feature signature.**
 
 Livrables :
 - sélection de 2 à 4 finitions ;
-- tableau de comparaison normalisé ;
-- regroupement des specs par catégorie ;
+- projection normalisée ;
+- regroupement par catégorie ;
+- conversion/normalisation d’unités ;
 - mise en évidence des différences ;
-- affichage des données manquantes ;
-- comparaison des offres disponibles ;
+- données inconnues explicites ;
+- contexte des offres disponibles ;
 - lien partageable.
 
 Exit criteria :
-- aucune comparaison basée sur des unités incohérentes ;
-- différences lisibles sur desktop et mobile ;
-- comparaison robuste aux données partielles.
+- aucune comparaison sur unités incohérentes ;
+- comparaison robuste aux données partielles ;
+- différences lisibles sur desktop et mobile.
 
 ---
 
-## Phase 5 — Leads & Test Drives
+## Phase 6 — Leads & Test Drives
 
 **But : transformer la découverte en valeur commerciale mesurable.**
 
 Livrables :
-- demande de devis ;
-- demande d’essai ;
-- consentement utilisateur ;
-- qualification du besoin ;
-- affectation concessionnaire/agence ;
-- statut du lead ;
-- historique ;
-- anti-spam/rate limiting ;
-- notification interne.
+- quote request ;
+- test-drive request ;
+- contact request ;
+- consentement ;
+- source d’acquisition ;
+- dealer/location ciblé ;
+- historique de statut ;
+- anti-abus ;
+- notification asynchrone via Payload Jobs si adaptée.
 
 Exit criteria :
-- chaque lead est traçable de la page source au concessionnaire ;
-- données personnelles minimisées ;
-- aucun lead critique perdu silencieusement.
+- chaque lead est traçable ;
+- aucun échec critique n’est silencieux ;
+- les données personnelles sont minimisées.
 
 ---
 
-## Phase 6 — Data Ingestion Factory
+## Phase 7 — Ingestion Factory
 
 **But : réduire le coût de maintien du catalogue et des offres.**
 
 Canaux :
+- Payload Admin ;
 - CSV ;
 - Excel ;
-- API ;
-- saisie portail ;
+- API partenaire ;
+- saisie dealer ;
 - collecteur autorisé.
 
 Pipeline :
 
 ```text
 Source
-  -> RawRecord
-  -> Validation
+  -> Raw observation
+  -> Validate
   -> Normalize
   -> Match
-  -> Confidence
-  -> Human Review if needed
-  -> Publish
+  -> Confidence / Review
+  -> Publish to Payload
 ```
 
-Livrables :
-- ImportRun ;
-- mapping de colonnes ;
-- validation ;
-- journal d’erreurs ;
-- score de confiance ;
-- preview avant publication ;
-- rollback/rejet ;
-- métriques d’import.
+Approche :
+- Payload porte `data-sources`, `import-runs`, review et publication ;
+- TypeScript/Payload suffit pour les imports simples ;
+- Python est introduit pour les traitements data complexes.
 
 Exit criteria :
-- aucun import ne modifie silencieusement une entité canonique ambiguë ;
-- échecs et rejets sont visibles ;
-- imports rejouables de manière contrôlée.
+- aucun import ambigu ne modifie silencieusement le canonique ;
+- rejets et erreurs sont visibles ;
+- les opérations sont traçables ;
+- le service Python, s’il existe, n’est pas une deuxième source de vérité.
 
 ---
 
-## Phase 7 — Dealer Portal
+## Phase 8 — Dealer Operations
 
-**But : permettre aux partenaires de maintenir leurs offres sans dépendre de l’équipe AgenAuto.**
+**But : permettre aux partenaires de maintenir les données commerciales avec le minimum de développement spécifique.**
 
-Livrables :
-- authentification B2B ;
-- RBAC ;
-- gestion agences ;
-- gestion offres ;
-- prix ;
-- disponibilité ;
-- promotions ;
-- leads ;
-- analytics simples ;
-- historique des changements.
+Approche progressive :
+1. Payload Admin avec access control dealer ;
+2. composants/vues custom ;
+3. interface dealer dédiée uniquement si les workflows le justifient.
+
+Livrables MVP :
+- authentification dealer ;
+- scope organisationnel ;
+- gestion offres/prix/disponibilité ;
+- lecture et traitement des leads ;
+- audit des changements.
 
 Exit criteria :
-- un dealer ne peut modifier que son périmètre ;
-- les changements sensibles sont audités ;
-- les données peuvent nécessiter validation AgenAuto selon le type de champ.
+- un dealer ne voit/modifie que son périmètre ;
+- il ne peut pas altérer les specs canoniques ;
+- les changements commerciaux sont traçables.
 
 ---
 
-## Phase 8 — Pilot Launch
+## Phase 9 — Pilot Launch
 
-**But : lancer un pilote crédible avec un périmètre contrôlé.**
+**But : lancer un pilote crédible avec un périmètre maîtrisé.**
 
 Cible proposée :
 - 3 à 5 distributeurs ;
-- principales marques et modèles neufs ;
+- 5 à 8 marques solides ;
 - Douala + Yaoundé en priorité ;
-- dataset vérifié manuellement avant ouverture.
+- dataset vérifié manuellement.
 
-Pré-requis :
+Launch gates :
 - monitoring ;
 - backups ;
 - Sentry ;
 - analytics ;
-- politique de confidentialité ;
-- gestion des consentements ;
+- privacy/consent ;
+- access control testé ;
+- E2E critiques ;
 - runbook incident ;
-- canal de correction de données.
+- canal de correction des données.
 
-Mesures pilotes :
-- nombre de véhicules/finitions fiables ;
-- couverture des prix ;
-- taux de comparaison ;
-- leads par session ;
-- taux de leads qualifiés ;
+Mesures :
+- couverture des modèles/finitions ;
+- couverture prix ;
 - fraîcheur des offres ;
+- taux de comparaison ;
+- leads/session ;
+- taux de leads qualifiés ;
 - erreurs de données signalées.
 
 ---
@@ -257,22 +293,22 @@ Mesures pilotes :
 # Post-MVP
 
 ## V1.1 — Decision Intelligence
-- recommandations selon budget et usage ;
+- recommandations selon budget/usage ;
 - scoring explicable ;
 - shortlist ;
-- alternatives proches ;
+- alternatives ;
 - alertes prix/disponibilité.
 
 ## V1.2 — Ownership Economics
-- coût total de possession ;
-- consommation estimée ;
+- TCO ;
+- consommation ;
 - entretien ;
 - assurance ;
 - financement ;
 - valeur de revente estimée.
 
 ## V1.3 — Certified Used
-Uniquement si le positionnement reste contrôlé : véhicules d’occasion certifiés provenant de partenaires vérifiés, sans basculer dans une marketplace générale d’annonces.
+Occasion certifiée provenant de partenaires vérifiés, sans basculer dans une marketplace générale d’annonces.
 
 ## V2 — Regional Expansion
 - multi-country ;
@@ -284,58 +320,41 @@ Uniquement si le positionnement reste contrôlé : véhicules d’occasion certi
 
 ---
 
-# Ordre de priorité
+# Priorités
 
-## P0 — Blocking Foundation
-- repo / CI / environments ;
-- data model ;
+## P0 — Foundation
+- Payload / Next.js / Postgres ;
+- schema foundation ;
+- auth/access control ;
+- CI ;
 - migrations ;
-- architecture ;
-- sécurité minimale.
+- ADR.
 
 ## P1 — MVP Core
-- catalog ;
-- dealers ;
-- offers ;
-- search ;
-- compare.
+- canonical catalog ;
+- dealers/offers ;
+- data quality pilot ;
+- discovery ;
+- comparison.
 
 ## P2 — MVP Completion
 - leads ;
 - ingestion ;
-- admin ;
-- dealer portal ;
-- observability approfondie.
+- dealer operations ;
+- observability/security ;
+- E2E ;
+- pilot launch.
 
 ## P3 — Post-MVP
 - recommendations ;
 - TCO ;
-- finance/insurance ;
+- financing/insurance integrations ;
 - alerts ;
-- expansion.
-
----
-
-# Pilot dataset strategy
-
-Pour éviter de développer dans le vide, le produit doit disposer tôt d’un petit dataset réel et vérifié.
-
-Ordre recommandé :
-1. définir 5 à 8 marques pilotes ;
-2. sélectionner les modèles réellement commercialisés ;
-3. capturer les finitions ;
-4. normaliser ~30 à 50 champs réellement comparables ;
-5. attacher les distributeurs et agences ;
-6. ajouter les prix uniquement lorsque la source est suffisamment fiable ;
-7. dater chaque observation.
-
-Le but du dataset pilote est de tester le modèle de données, pas de prétendre couvrir immédiatement tout le marché.
+- regional expansion.
 
 ---
 
 # Gouvernance du backlog
-
-Le backlog GitHub suit trois niveaux :
 
 ```text
 EPIC
@@ -343,11 +362,11 @@ EPIC
       -> implementation task si nécessaire
 ```
 
-Une issue doit rester suffisamment petite pour produire un résultat vérifiable. Les epics servent à regrouper le contexte et les dépendances, pas à masquer un chantier de plusieurs semaines dans un ticket unique.
+Une issue doit produire un résultat vérifiable. L’usage d’un Headless Core doit au contraire **réduire** le nombre de tickets génériques : nous ne créons pas des tickets séparés pour recoder CRUD, auth ou admin lorsqu’ils peuvent être configurés proprement dans Payload.
 
-Rythme conseillé :
-- sélectionner un petit nombre d’issues actives ;
+Rythme :
 - limiter le WIP ;
-- terminer les fondations avant d’ouvrir trop de features ;
-- mettre à jour les ADR quand une décision d’architecture change ;
-- clôturer explicitement les tickets abandonnés avec la raison `not planned`.
+- finir P0 avant de disperser l’effort ;
+- travailler tôt avec un dataset réel ;
+- mettre à jour les ADR lorsque l’architecture change ;
+- clôturer les travaux devenus inutiles plutôt que les garder « pour plus tard ».
