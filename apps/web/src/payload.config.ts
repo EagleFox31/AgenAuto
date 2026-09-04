@@ -3,7 +3,10 @@ import path from 'node:path'
 import { fileURLToPath } from 'node:url'
 import { buildConfig } from 'payload'
 
-import { secureCanonicalCollection } from './access/collectionSecurity'
+import {
+  secureCanonicalAssetCollection,
+  secureCanonicalCollection,
+} from './access/collectionSecurity'
 import {
   Brands,
   Generations,
@@ -34,7 +37,7 @@ export default buildConfig({
     Users,
     DealerOrganizations,
     AuditLogs,
-    secureCanonicalCollection(Media),
+    secureCanonicalAssetCollection(Media),
     secureCanonicalCollection(Brands),
     secureCanonicalCollection(VehicleModels),
     secureCanonicalCollection(Generations),
