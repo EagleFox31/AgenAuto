@@ -3,6 +3,7 @@ import path from 'node:path'
 import { fileURLToPath } from 'node:url'
 import { buildConfig } from 'payload'
 
+import { secureCanonicalCollection } from './access/collectionSecurity'
 import {
   Brands,
   Generations,
@@ -11,6 +12,8 @@ import {
   TrimSpecifications,
   VehicleModels,
 } from './collections/automotive'
+import { AuditLogs } from './collections/platform/AuditLogs'
+import { DealerOrganizations } from './collections/platform/DealerOrganizations'
 import { Media } from './collections/platform/Media'
 import { Users } from './collections/platform/Users'
 
@@ -29,13 +32,15 @@ export default buildConfig({
   },
   collections: [
     Users,
-    Media,
-    Brands,
-    VehicleModels,
-    Generations,
-    Trims,
-    SpecificationDefinitions,
-    TrimSpecifications,
+    DealerOrganizations,
+    AuditLogs,
+    secureCanonicalCollection(Media),
+    secureCanonicalCollection(Brands),
+    secureCanonicalCollection(VehicleModels),
+    secureCanonicalCollection(Generations),
+    secureCanonicalCollection(Trims),
+    secureCanonicalCollection(SpecificationDefinitions),
+    secureCanonicalCollection(TrimSpecifications),
   ],
   db: postgresAdapter({
     pool: {

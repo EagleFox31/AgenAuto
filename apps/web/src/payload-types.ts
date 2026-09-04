@@ -68,6 +68,8 @@ export interface Config {
   blocks: {};
   collections: {
     users: User;
+    'dealer-organizations': DealerOrganization;
+    'audit-logs': AuditLog;
     media: Media;
     brands: Brand;
     'vehicle-models': VehicleModel;
@@ -83,6 +85,8 @@ export interface Config {
   collectionsJoins: {};
   collectionsSelect: {
     users: UsersSelect<false> | UsersSelect<true>;
+    'dealer-organizations': DealerOrganizationsSelect<false> | DealerOrganizationsSelect<true>;
+    'audit-logs': AuditLogsSelect<false> | AuditLogsSelect<true>;
     media: MediaSelect<false> | MediaSelect<true>;
     brands: BrandsSelect<false> | BrandsSelect<true>;
     'vehicle-models': VehicleModelsSelect<false> | VehicleModelsSelect<true>;
@@ -135,6 +139,10 @@ export interface UserAuthOperations {
  */
 export interface User {
   id: number;
+  name?: string | null;
+  role: 'admin' | 'data_editor' | 'dealer_manager' | 'dealer_agent';
+  dealerOrganization?: (number | null) | DealerOrganization;
+  status: 'active' | 'suspended';
   updatedAt: string;
   createdAt: string;
   email: string;
@@ -153,6 +161,39 @@ export interface User {
     | null;
   password?: string | null;
   collection: 'users';
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "dealer-organizations".
+ */
+export interface DealerOrganization {
+  id: number;
+  name: string;
+  slug: string;
+  status: 'active' | 'suspended';
+  updatedAt: string;
+  createdAt: string;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "audit-logs".
+ */
+export interface AuditLog {
+  id: number;
+  actorId?: string | null;
+  actorEmail?: string | null;
+  actorRole?: ('admin' | 'data_editor' | 'dealer_manager' | 'dealer_agent') | null;
+  dealerOrganizationId?: string | null;
+  action: 'create' | 'update' | 'delete';
+  targetCollection: string;
+  targetDocumentId: string;
+  changedFields?:
+    | {
+        field: string;
+        id?: string | null;
+      }[]
+    | null;
+  occurredAt: string;
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
@@ -367,6 +408,14 @@ export interface PayloadLockedDocument {
         value: number | User;
       } | null)
     | ({
+        relationTo: 'dealer-organizations';
+        value: number | DealerOrganization;
+      } | null)
+    | ({
+        relationTo: 'audit-logs';
+        value: number | AuditLog;
+      } | null)
+    | ({
         relationTo: 'media';
         value: number | Media;
       } | null)
@@ -441,6 +490,10 @@ export interface PayloadMigration {
  * via the `definition` "users_select".
  */
 export interface UsersSelect<T extends boolean = true> {
+  name?: T;
+  role?: T;
+  dealerOrganization?: T;
+  status?: T;
   updatedAt?: T;
   createdAt?: T;
   email?: T;
@@ -457,6 +510,37 @@ export interface UsersSelect<T extends boolean = true> {
         createdAt?: T;
         expiresAt?: T;
       };
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "dealer-organizations_select".
+ */
+export interface DealerOrganizationsSelect<T extends boolean = true> {
+  name?: T;
+  slug?: T;
+  status?: T;
+  updatedAt?: T;
+  createdAt?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "audit-logs_select".
+ */
+export interface AuditLogsSelect<T extends boolean = true> {
+  actorId?: T;
+  actorEmail?: T;
+  actorRole?: T;
+  dealerOrganizationId?: T;
+  action?: T;
+  targetCollection?: T;
+  targetDocumentId?: T;
+  changedFields?:
+    | T
+    | {
+        field?: T;
+        id?: T;
+      };
+  occurredAt?: T;
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
