@@ -16,6 +16,7 @@ import {
 import { canManageCanonical, relationshipId } from './rbac.js'
 
 const canonicalRead: Access = ({ req }) => canonicalReadAccess(req.user)
+const publicRead: Access = () => true
 const canonicalWrite: Access = ({ req }) => canManageCanonical(req.user)
 const internalQualityRead = ({ req }: { req: PayloadRequest }) => canManageCanonical(req.user)
 
@@ -153,6 +154,24 @@ const QUALITY_FIELDS: Field[] = [
   },
 ]
 
+function withCanonicalMutationSecurity(collection: CollectionConfig, read: Access): CollectionConfig {
+  return {
+    ...collection,
+    access: {
+      ...collection.access,
+      read,
+      create: canonicalWrite,
+      update: canonicalWrite,
+      delete: canonicalWrite,
+    },
+    hooks: {
+      ...collection.hooks,
+      afterChange: [...(collection.hooks?.afterChange || []), auditAfterChange],
+      afterDelete: [...(collection.hooks?.afterDelete || []), auditAfterDelete],
+    },
+  }
+}
+
 function qualityWorkflowHook(collectionSlug: string): CollectionBeforeChangeHook {
   return async ({ data, originalDoc, operation, req }) => {
     if (!data) return data
@@ -215,35 +234,32 @@ function qualityWorkflowHook(collectionSlug: string): CollectionBeforeChangeHook
   }
 }
 
+export function secureCanonicalAssetCollection(collection: CollectionConfig): CollectionConfig {
+  return withCanonicalMutationSecurity(collection, publicRead)
+}
+
 export function secureCanonicalCollection(collection: CollectionConfig): CollectionConfig {
+  const secured = withCanonicalMutationSecurity(collection, canonicalRead)
+
   return {
-    ...collection,
+    ...secured,
     admin: {
-      ...collection.admin,
+      ...secured.admin,
       defaultColumns: Array.from(new Set([
-        ...(collection.admin?.defaultColumns || []),
+        ...(secured.admin?.defaultColumns || []),
         'catalogStatus',
       ])),
     },
-    access: {
-      ...collection.access,
-      read: canonicalRead,
-      create: canonicalWrite,
-      update: canonicalWrite,
-      delete: canonicalWrite,
-    },
     fields: [
-      ...collection.fields,
+      ...secured.fields,
       ...QUALITY_FIELDS,
     ],
     hooks: {
-      ...collection.hooks,
+      ...secured.hooks,
       beforeChange: [
-        ...(collection.hooks?.beforeChange || []),
+        ...(secured.hooks?.beforeChange || []),
         qualityWorkflowHook(collection.slug),
       ],
-      afterChange: [...(collection.hooks?.afterChange || []), auditAfterChange],
-      afterDelete: [...(collection.hooks?.afterDelete || []), auditAfterDelete],
     },
   }
 }
