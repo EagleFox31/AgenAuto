@@ -9,7 +9,6 @@ const securityWrapper = fs.readFileSync('apps/web/src/access/collectionSecurity.
 
 test('canonical collections are wrapped by server-side write authorization', () => {
   for (const collection of [
-    'Media',
     'Brands',
     'VehicleModels',
     'Generations',
@@ -20,9 +19,19 @@ test('canonical collections are wrapped by server-side write authorization', () 
     assert.match(payloadConfig, new RegExp(`secureCanonicalCollection\\(${collection}\\)`))
   }
 
+  assert.match(payloadConfig, /secureCanonicalAssetCollection\(Media\)/)
   assert.match(securityWrapper, /create: canonicalWrite/)
   assert.match(securityWrapper, /update: canonicalWrite/)
   assert.match(securityWrapper, /delete: canonicalWrite/)
+})
+
+test('canonical catalog uses review status, provenance and publish-only public reads', () => {
+  assert.match(securityWrapper, /name: 'catalogStatus'/)
+  assert.match(securityWrapper, /name: 'sourceReference'/)
+  assert.match(securityWrapper, /name: 'qualityFlags'/)
+  assert.match(securityWrapper, /read: canonicalRead/)
+  assert.match(securityWrapper, /qualityWorkflowHook\(collection\.slug\)/)
+  assert.match(securityWrapper, /parent\.catalogStatus !== 'published'/)
 })
 
 test('self-service user updates strip privilege-bearing fields', () => {
