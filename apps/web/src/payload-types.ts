@@ -68,6 +68,13 @@ export interface Config {
   blocks: {};
   collections: {
     users: User;
+    media: Media;
+    brands: Brand;
+    'vehicle-models': VehicleModel;
+    generations: Generation;
+    trims: Trim;
+    'specification-definitions': SpecificationDefinition;
+    'trim-specifications': TrimSpecification;
     'payload-kv': PayloadKv;
     'payload-locked-documents': PayloadLockedDocument;
     'payload-preferences': PayloadPreference;
@@ -76,6 +83,13 @@ export interface Config {
   collectionsJoins: {};
   collectionsSelect: {
     users: UsersSelect<false> | UsersSelect<true>;
+    media: MediaSelect<false> | MediaSelect<true>;
+    brands: BrandsSelect<false> | BrandsSelect<true>;
+    'vehicle-models': VehicleModelsSelect<false> | VehicleModelsSelect<true>;
+    generations: GenerationsSelect<false> | GenerationsSelect<true>;
+    trims: TrimsSelect<false> | TrimsSelect<true>;
+    'specification-definitions': SpecificationDefinitionsSelect<false> | SpecificationDefinitionsSelect<true>;
+    'trim-specifications': TrimSpecificationsSelect<false> | TrimSpecificationsSelect<true>;
     'payload-kv': PayloadKvSelect<false> | PayloadKvSelect<true>;
     'payload-locked-documents': PayloadLockedDocumentsSelect<false> | PayloadLockedDocumentsSelect<true>;
     'payload-preferences': PayloadPreferencesSelect<false> | PayloadPreferencesSelect<true>;
@@ -142,6 +156,190 @@ export interface User {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "media".
+ */
+export interface Media {
+  id: number;
+  alt: string;
+  kind: 'brand-logo' | 'vehicle' | 'interior' | 'technical' | 'other';
+  sourceUrl?: string | null;
+  attribution?: string | null;
+  licenseNote?: string | null;
+  updatedAt: string;
+  createdAt: string;
+  url?: string | null;
+  thumbnailURL?: string | null;
+  filename?: string | null;
+  mimeType?: string | null;
+  filesize?: number | null;
+  width?: number | null;
+  height?: number | null;
+  focalX?: number | null;
+  focalY?: number | null;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "brands".
+ */
+export interface Brand {
+  id: number;
+  name: string;
+  slug: string;
+  countryOfOrigin?: string | null;
+  website?: string | null;
+  logo?: (number | null) | Media;
+  description?: string | null;
+  updatedAt: string;
+  createdAt: string;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "vehicle-models".
+ */
+export interface VehicleModel {
+  id: number;
+  brand: number | Brand;
+  name: string;
+  slug: string;
+  identityKey: string;
+  modelCode?: string | null;
+  heroImage?: (number | null) | Media;
+  gallery?: (number | Media)[] | null;
+  description?: string | null;
+  updatedAt: string;
+  createdAt: string;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "generations".
+ */
+export interface Generation {
+  id: number;
+  model: number | VehicleModel;
+  name: string;
+  slug: string;
+  identityKey: string;
+  generationCode?: string | null;
+  productionStartYear?: number | null;
+  productionEndYear?: number | null;
+  gallery?: (number | Media)[] | null;
+  notes?: string | null;
+  updatedAt: string;
+  createdAt: string;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "trims".
+ */
+export interface Trim {
+  id: number;
+  generation: number | Generation;
+  name: string;
+  slug: string;
+  identityKey: string;
+  modelYearStart?: number | null;
+  modelYearEnd?: number | null;
+  bodyStyle?:
+    | (
+        | 'city-car'
+        | 'hatchback'
+        | 'sedan'
+        | 'wagon'
+        | 'suv'
+        | 'crossover'
+        | 'pickup'
+        | 'van-mpv'
+        | 'coupe'
+        | 'convertible'
+        | 'commercial'
+        | 'other'
+      )
+    | null;
+  fuelType?: ('petrol' | 'diesel' | 'hybrid' | 'plug-in-hybrid' | 'electric' | 'lpg' | 'other') | null;
+  transmission?: ('manual' | 'automatic' | 'cvt' | 'dct' | 'automated-manual' | 'single-speed' | 'other') | null;
+  driveType?: ('fwd' | 'rwd' | 'awd' | '4wd' | 'other') | null;
+  seats?: number | null;
+  doors?: number | null;
+  gallery?: (number | Media)[] | null;
+  notes?: string | null;
+  updatedAt: string;
+  createdAt: string;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "specification-definitions".
+ */
+export interface SpecificationDefinition {
+  id: number;
+  key: string;
+  label: string;
+  category:
+    | 'engine'
+    | 'electric-system'
+    | 'performance'
+    | 'drivetrain'
+    | 'dimensions'
+    | 'capacity'
+    | 'efficiency'
+    | 'chassis'
+    | 'safety'
+    | 'comfort'
+    | 'other';
+  valueType: 'number' | 'text' | 'boolean' | 'option';
+  unit?:
+    | (
+        | 'mm'
+        | 'cm'
+        | 'm'
+        | 'l'
+        | 'cm3'
+        | 'kw'
+        | 'hp'
+        | 'nm'
+        | 'kg'
+        | 'km-h'
+        | 'l-100km'
+        | 'kwh-100km'
+        | 'km'
+        | 'g-km'
+        | 's'
+        | 'percent'
+      )
+    | null;
+  allowedOptions?:
+    | {
+        label: string;
+        value: string;
+        id?: string | null;
+      }[]
+    | null;
+  comparable?: boolean | null;
+  filterable?: boolean | null;
+  sortOrder?: number | null;
+  description?: string | null;
+  updatedAt: string;
+  createdAt: string;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "trim-specifications".
+ */
+export interface TrimSpecification {
+  id: number;
+  trim: number | Trim;
+  definition: number | SpecificationDefinition;
+  identityKey: string;
+  valueStatus: 'known' | 'unknown' | 'not-applicable';
+  numberValue?: number | null;
+  textValue?: string | null;
+  booleanValue?: ('true' | 'false') | null;
+  optionValue?: string | null;
+  sourceNote?: string | null;
+  updatedAt: string;
+  createdAt: string;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "payload-kv".
  */
 export interface PayloadKv {
@@ -163,10 +361,39 @@ export interface PayloadKv {
  */
 export interface PayloadLockedDocument {
   id: number;
-  document?: {
-    relationTo: 'users';
-    value: number | User;
-  } | null;
+  document?:
+    | ({
+        relationTo: 'users';
+        value: number | User;
+      } | null)
+    | ({
+        relationTo: 'media';
+        value: number | Media;
+      } | null)
+    | ({
+        relationTo: 'brands';
+        value: number | Brand;
+      } | null)
+    | ({
+        relationTo: 'vehicle-models';
+        value: number | VehicleModel;
+      } | null)
+    | ({
+        relationTo: 'generations';
+        value: number | Generation;
+      } | null)
+    | ({
+        relationTo: 'trims';
+        value: number | Trim;
+      } | null)
+    | ({
+        relationTo: 'specification-definitions';
+        value: number | SpecificationDefinition;
+      } | null)
+    | ({
+        relationTo: 'trim-specifications';
+        value: number | TrimSpecification;
+      } | null);
   globalSlug?: string | null;
   user: {
     relationTo: 'users';
@@ -230,6 +457,138 @@ export interface UsersSelect<T extends boolean = true> {
         createdAt?: T;
         expiresAt?: T;
       };
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "media_select".
+ */
+export interface MediaSelect<T extends boolean = true> {
+  alt?: T;
+  kind?: T;
+  sourceUrl?: T;
+  attribution?: T;
+  licenseNote?: T;
+  updatedAt?: T;
+  createdAt?: T;
+  url?: T;
+  thumbnailURL?: T;
+  filename?: T;
+  mimeType?: T;
+  filesize?: T;
+  width?: T;
+  height?: T;
+  focalX?: T;
+  focalY?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "brands_select".
+ */
+export interface BrandsSelect<T extends boolean = true> {
+  name?: T;
+  slug?: T;
+  countryOfOrigin?: T;
+  website?: T;
+  logo?: T;
+  description?: T;
+  updatedAt?: T;
+  createdAt?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "vehicle-models_select".
+ */
+export interface VehicleModelsSelect<T extends boolean = true> {
+  brand?: T;
+  name?: T;
+  slug?: T;
+  identityKey?: T;
+  modelCode?: T;
+  heroImage?: T;
+  gallery?: T;
+  description?: T;
+  updatedAt?: T;
+  createdAt?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "generations_select".
+ */
+export interface GenerationsSelect<T extends boolean = true> {
+  model?: T;
+  name?: T;
+  slug?: T;
+  identityKey?: T;
+  generationCode?: T;
+  productionStartYear?: T;
+  productionEndYear?: T;
+  gallery?: T;
+  notes?: T;
+  updatedAt?: T;
+  createdAt?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "trims_select".
+ */
+export interface TrimsSelect<T extends boolean = true> {
+  generation?: T;
+  name?: T;
+  slug?: T;
+  identityKey?: T;
+  modelYearStart?: T;
+  modelYearEnd?: T;
+  bodyStyle?: T;
+  fuelType?: T;
+  transmission?: T;
+  driveType?: T;
+  seats?: T;
+  doors?: T;
+  gallery?: T;
+  notes?: T;
+  updatedAt?: T;
+  createdAt?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "specification-definitions_select".
+ */
+export interface SpecificationDefinitionsSelect<T extends boolean = true> {
+  key?: T;
+  label?: T;
+  category?: T;
+  valueType?: T;
+  unit?: T;
+  allowedOptions?:
+    | T
+    | {
+        label?: T;
+        value?: T;
+        id?: T;
+      };
+  comparable?: T;
+  filterable?: T;
+  sortOrder?: T;
+  description?: T;
+  updatedAt?: T;
+  createdAt?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "trim-specifications_select".
+ */
+export interface TrimSpecificationsSelect<T extends boolean = true> {
+  trim?: T;
+  definition?: T;
+  identityKey?: T;
+  valueStatus?: T;
+  numberValue?: T;
+  textValue?: T;
+  booleanValue?: T;
+  optionValue?: T;
+  sourceNote?: T;
+  updatedAt?: T;
+  createdAt?: T;
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
