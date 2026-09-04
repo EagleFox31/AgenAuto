@@ -1,0 +1,101 @@
+name: CI
+
+on:
+  pull_request:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ci-${{ github.workflow }}-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  quality:
+    name: Payload, tests and build
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+
+    services:
+      postgres:
+        image: postgres:16-alpine
+        env:
+          POSTGRES_DB: agenauto
+          POSTGRES_USER: agenauto
+          POSTGRES_PASSWORD: agenauto-ci
+        ports:
+          - 5432:5432
+        options: >-
+          --health-cmd "pg_isready -U agenauto -d agenauto"
+          --health-interval 5s
+          --health-timeout 5s
+          --health-retries 10
+
+    env:
+      CI: true
+      DATABASE_URL: postgresql://agenauto:agenauto-ci@localhost:5432/agenauto
+      PAYLOAD_SECRET: ci-only-placeholder-not-a-production-secret
+      NEXT_PUBLIC_APP_URL: http://localhost:3000
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v4
+        with:
+          version: 10.20.0
+          run_install: false
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 24.15.0
+          cache: pnpm
+
+      - name: Install dependencies from lockfile
+        run: pnpm install --frozen-lockfile
+
+      - name: Audit critical production dependencies
+        run: pnpm audit --prod --audit-level=critical
+
+      - name: Regenerate Payload artifacts
+        run: |
+          pnpm generate:importmap
+          pnpm generate:types
+
+      - name: Verify generated Payload artifacts are committed
+        run: git diff --exit-code -- apps/web/src/payload-types.ts 'apps/web/src/app/(payload)/admin/importMap.js'
+
+      - name: Apply committed migrations to empty PostgreSQL
+        run: pnpm migrate
+
+      - name: Check migration status
+        run: pnpm migrate:status
+
+      - name: Detect Payload schema and migration drift
+        shell: bash
+        run: |
+          pnpm --dir apps/web payload migrate:create ci_schema_drift --skip-empty
+          drift="$(git status --porcelain -- apps/web/src/migrations)"
+          if [ -n "$drift" ]; then
+            echo "Payload schema drift detected. Commit a reviewed migration before merging:"
+            echo "$drift"
+            exit 1
+          fi
+
+      - name: Unit and architecture tests
+        run: pnpm test
+
+      - name: Lint
+        run: pnpm lint
+
+      - name: Typecheck
+        run: pnpm typecheck
+
+      - name: Production build
+        run: pnpm build

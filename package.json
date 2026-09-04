@@ -9,6 +9,7 @@
     "build": "pnpm --dir apps/web build",
     "lint": "pnpm --dir apps/web lint",
     "typecheck": "pnpm --dir apps/web typecheck",
+    "test": "node --test",
     "payload": "pnpm --dir apps/web payload",
     "generate:types": "pnpm --dir apps/web generate:types",
     "generate:importmap": "pnpm --dir apps/web generate:importmap",
