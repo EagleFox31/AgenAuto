@@ -1,0 +1,5420 @@
+{
+  "schema_version": 1,
+  "dataset": "cameroon-pilot-cfao-suzuki",
+  "generated_at": "2026-09-05T22:01:59Z",
+  "collector": "cfao_suzuki",
+  "distributor": "CFAO Mobility Cameroon (CAMI Motors)",
+  "publication_policy": "draft_only_until_payload_review",
+  "vehicles": [
+    {
+      "brand": "Suzuki",
+      "model": "Across",
+      "source": {
+        "url": "https://suzuki.cami-cfao.com/en/range/suzuki-cameroon-cami/New_Across",
+        "observed_at": "2026-09-05T22:01:39Z",
+        "distributor": "CFAO Mobility Cameroon (CAMI Motors)",
+        "source_type": "official_web",
+        "country": "CM",
+        "confidence": "A"
+      },
+      "page_title": "New Across | SUZUKI",
+      "category": null,
+      "variants": [
+        "Every journey deserves an upgrade. With its bold design, advanced features and premium comfort, the new Suzuki Across transforms your everyday drive."
+      ],
+      "specs": [
+        {
+          "raw_label": "Fuel type",
+          "raw_value": "Petrol",
+          "canonical_key": "fuel_type",
+          "unit": null
+        },
+        {
+          "raw_label": "Displacement (cc)",
+          "raw_value": "1462",
+          "canonical_key": "engine_displacement_ml",
+          "unit": "mL"
+        },
+        {
+          "raw_label": "Wheelbase (mm)",
+          "raw_value": "2600",
+          "canonical_key": "wheelbase_mm",
+          "unit": "mm"
+        },
+        {
+          "raw_label": "Dimensions (Lxwxh) in mm",
+          "raw_value": "4360x1795x1655",
+          "canonical_key": "dimensions_mm",
+          "unit": "mm"
+        },
+        {
+          "raw_label": "Ground clearance (mm)",
+          "raw_value": "210",
+          "canonical_key": "ground_clearance_mm",
+          "unit": "mm"
+        },
+        {
+          "raw_label": "Transmission",
+          "raw_value": "Front 2 WD, All time 4x4",
+          "canonical_key": "drivetrain",
+          "unit": null
+        },
+        {
+          "raw_label": "Gearbox",
+          "raw_value": "6-speed Automatic",
+          "canonical_key": "transmission",
+          "unit": null
+        },
+        {
+          "raw_label": "Curb weight (kg)",
+          "raw_value": "1250",
+          "canonical_key": "curb_weight_kg",
+          "unit": "kg"
+        },
+        {
+          "raw_label": "Number of seats",
+          "raw_value": "5",
+          "canonical_key": "seats",
+          "unit": null
+        },
+        {
+          "raw_label": "Fuel tank capacity (L)",
+          "raw_value": "45",
+          "canonical_key": "fuel_tank_l",
+          "unit": "L"
+        },
+        {
+          "raw_label": "Rear suspension",
+          "raw_value": "Torsion bar",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Manufacturer Warranty",
+          "raw_value": "3 years / 100.000 km (whichever comes first)",
+          "canonical_key": "manufacturer_warranty",
+          "unit": null
+        },
+        {
+          "raw_label": "Retail Network",
+          "raw_value": "SUZUKI",
+          "canonical_key": null,
+          "unit": null
+        }
+      ],
+      "content_hash": "87943ed2e2a309f4c5b9196b3ff3fcfd90c8d3e325d53a013ad8f697006ff6a4",
+      "review_status": "draft",
+      "quality_flags": []
+    },
+    {
+      "brand": "Suzuki",
+      "model": "Alto",
+      "source": {
+        "url": "https://suzuki.cami-cfao.com/en/range/suzuki-cameroon-cami/alto",
+        "observed_at": "2026-09-05T22:01:41Z",
+        "distributor": "CFAO Mobility Cameroon (CAMI Motors)",
+        "source_type": "official_web",
+        "country": "CM",
+        "confidence": "A"
+      },
+      "page_title": "Suzuki / Range / Vehicle / Dealers / Purchase / Alto",
+      "category": "Compacts",
+      "variants": [
+        "ALTO ALTO K10 RC 998cc GL MT Audio",
+        "ALTO ALTO K10 RC 998cc GL MT w/o Audio",
+        "ALTO ALTO K10 RC 998cc GA MT"
+      ],
+      "specs": [
+        {
+          "raw_label": "Displacement (cc)",
+          "raw_value": "998",
+          "canonical_key": "engine_displacement_ml",
+          "unit": "mL"
+        },
+        {
+          "raw_label": "Fuel System",
+          "raw_value": "multipoint injection",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Fuel type",
+          "raw_value": "Petrol",
+          "canonical_key": "fuel_type",
+          "unit": null
+        },
+        {
+          "raw_label": "Max power kW/rpm",
+          "raw_value": "49/5500",
+          "canonical_key": "max_power_kw_rpm",
+          "unit": null
+        },
+        {
+          "raw_label": "Max torque Nm",
+          "raw_value": "89/3500",
+          "canonical_key": "max_torque_nm",
+          "unit": "N·m"
+        },
+        {
+          "raw_label": "Number of cylinders",
+          "raw_value": "3",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Body style",
+          "raw_value": "Compacts",
+          "canonical_key": "body_style",
+          "unit": null
+        },
+        {
+          "raw_label": "Chassis",
+          "raw_value": "Full unit body",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Keys Type",
+          "raw_value": "Classic",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Number of doors",
+          "raw_value": "5",
+          "canonical_key": "doors",
+          "unit": null
+        },
+        {
+          "raw_label": "Rear doors",
+          "raw_value": "2",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Dimensions (Lxwxh) in mm",
+          "raw_value": "3530X1490X1520",
+          "canonical_key": "dimensions_mm",
+          "unit": "mm"
+        },
+        {
+          "raw_label": "Front tread (mm)",
+          "raw_value": "1315",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Rear tread (mm)",
+          "raw_value": "1320",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Turning radius (m)",
+          "raw_value": "4,5",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Wheelbase (mm)",
+          "raw_value": "2380",
+          "canonical_key": "wheelbase_mm",
+          "unit": "mm"
+        },
+        {
+          "raw_label": "Gearbox",
+          "raw_value": "Manual",
+          "canonical_key": "transmission",
+          "unit": null
+        },
+        {
+          "raw_label": "Transmission",
+          "raw_value": "Front 2 WD",
+          "canonical_key": "drivetrain",
+          "unit": null
+        },
+        {
+          "raw_label": "Curb weight (kg)",
+          "raw_value": "747",
+          "canonical_key": "curb_weight_kg",
+          "unit": "kg"
+        },
+        {
+          "raw_label": "Fuel tank capacity (L)",
+          "raw_value": "27",
+          "canonical_key": "fuel_tank_l",
+          "unit": "L"
+        },
+        {
+          "raw_label": "Gross vehicle weight (kg)",
+          "raw_value": "1168",
+          "canonical_key": "gross_vehicle_weight_kg",
+          "unit": "kg"
+        },
+        {
+          "raw_label": "Number of seats",
+          "raw_value": "5",
+          "canonical_key": "seats",
+          "unit": null
+        },
+        {
+          "raw_label": "Trunk volume (L)",
+          "raw_value": "214",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Front brake",
+          "raw_value": "Ventilated discs",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Rear brake",
+          "raw_value": "Drums",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Front suspension",
+          "raw_value": "MacPherson strut",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Rear suspension",
+          "raw_value": "Torsion bar",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Type pneu",
+          "raw_value": "Normal",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Tyre dimension",
+          "raw_value": "145/80R13",
+          "canonical_key": "tyre_dimension",
+          "unit": null
+        },
+        {
+          "raw_label": "ABS",
+          "raw_value": "Yes",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Demister",
+          "raw_value": "Rear windows",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Electronic stability control",
+          "raw_value": "ESP",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Headlamps",
+          "raw_value": "Halogen",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Immobilizer",
+          "raw_value": "Yes",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Seatbelt warning",
+          "raw_value": "Yes",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Active headrests",
+          "raw_value": "Yes",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Airbags",
+          "raw_value": "Side, Passenger, Driver, Curtains",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Headrests",
+          "raw_value": "Front, Rear",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "ISOFIX fixings",
+          "raw_value": "Rear, Front",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Seatbelts - 2nd row",
+          "raw_value": "3 points",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Seatbelts - Front",
+          "raw_value": "3 points",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Seatbelts – Rear",
+          "raw_value": "3 points",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Spare wheel",
+          "raw_value": "Yes",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Spare Wheel Type",
+          "raw_value": "Steel",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Adjustable side mirrors",
+          "raw_value": "Manuals",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Bumper - Front&Rear",
+          "raw_value": "Body colour",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Door handles",
+          "raw_value": "Black",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Door mirrors",
+          "raw_value": "Black",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Folding side mirrors",
+          "raw_value": "Electric",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Front bumpers",
+          "raw_value": "Body colour",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Front grill",
+          "raw_value": "Black",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Rear bumpers",
+          "raw_value": "Body colour",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Wheels",
+          "raw_value": "Steel",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Air conditioning",
+          "raw_value": "Manual",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Audio system",
+          "raw_value": "JBL",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Central door locking",
+          "raw_value": "Yes",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Cup holder(s)",
+          "raw_value": "Front",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Loud speakers",
+          "raw_value": "2",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Plug 12V",
+          "raw_value": "1",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Power Steering",
+          "raw_value": "Yes",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Power windows",
+          "raw_value": "Front",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Radio",
+          "raw_value": "Radio",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Sequential electric windows",
+          "raw_value": "Front",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Steering wheel",
+          "raw_value": "Urethane",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Sun visor",
+          "raw_value": "Yes",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Upholstery",
+          "raw_value": "Fabric",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "ISOFIX fixings",
+          "raw_value": "Front, Rear",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Airbags",
+          "raw_value": "Curtains, Side, Passenger, Driver",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Bumper - Front&Rear",
+          "raw_value": "Black",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Door handles",
+          "raw_value": "Body colour",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Folding side mirrors",
+          "raw_value": "Manuals",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Front bumpers",
+          "raw_value": "Black",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Rear bumpers",
+          "raw_value": "Black",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Manufacturer Warranty",
+          "raw_value": "3 years / 100.000 km (whichever comes first)",
+          "canonical_key": "manufacturer_warranty",
+          "unit": null
+        },
+        {
+          "raw_label": "Retail Network",
+          "raw_value": "SUZUKI",
+          "canonical_key": null,
+          "unit": null
+        }
+      ],
+      "content_hash": "121c591b4f8056671a46a429ab78cd2d030f42c4854864c11633d0f8e5541c16",
+      "review_status": "draft",
+      "quality_flags": [
+        "many_unmapped_specs"
+      ]
+    },
+    {
+      "brand": "Suzuki",
+      "model": "Baleno",
+      "source": {
+        "url": "https://suzuki.cami-cfao.com/en/range/suzuki-cameroon-cami/Baleno",
+        "observed_at": "2026-09-05T22:01:32Z",
+        "distributor": "CFAO Mobility Cameroon (CAMI Motors)",
+        "source_type": "official_web",
+        "country": "CM",
+        "confidence": "A"
+      },
+      "page_title": "Baleno",
+      "category": "Compacts",
+      "variants": [
+        "NEW BALENO BALENO GL 5D 1462p AT Alloy 7\" Audio",
+        "NEW BALENO BALENO GL 5P 1462e AT 7\" Audio",
+        "NEW BALENO BALENO GL 5D 1462p MT Alloy 7\" Audio",
+        "NEW BALENO BALENO GL 5D 1462p MT 7\" Audio",
+        "NEW BALENO BALENO GLX AT 5P 1462e 9\" inch Audio w/o clamp"
+      ],
+      "specs": [
+        {
+          "raw_label": "Displacement (cc)",
+          "raw_value": "1462",
+          "canonical_key": "engine_displacement_ml",
+          "unit": "mL"
+        },
+        {
+          "raw_label": "Engine Type",
+          "raw_value": "Cylinder in line",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Fuel System",
+          "raw_value": "multipoint injection",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Fuel type",
+          "raw_value": "Petrol",
+          "canonical_key": "fuel_type",
+          "unit": null
+        },
+        {
+          "raw_label": "Max power kW/rpm",
+          "raw_value": "77 / 6000",
+          "canonical_key": "max_power_kw_rpm",
+          "unit": null
+        },
+        {
+          "raw_label": "Max torque Nm",
+          "raw_value": "138 / 4400",
+          "canonical_key": "max_torque_nm",
+          "unit": "N·m"
+        },
+        {
+          "raw_label": "Number of cylinders",
+          "raw_value": "4",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Valves/cylinder",
+          "raw_value": "4",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Body style",
+          "raw_value": "Compacts",
+          "canonical_key": "body_style",
+          "unit": null
+        },
+        {
+          "raw_label": "Number of doors",
+          "raw_value": "5",
+          "canonical_key": "doors",
+          "unit": null
+        },
+        {
+          "raw_label": "Dimensions (Lxwxh) in mm",
+          "raw_value": "3990 x 1745 x 1500",
+          "canonical_key": "dimensions_mm",
+          "unit": "mm"
+        },
+        {
+          "raw_label": "Front tread (mm)",
+          "raw_value": "1,515",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Ground clearance (mm)",
+          "raw_value": "150",
+          "canonical_key": "ground_clearance_mm",
+          "unit": "mm"
+        },
+        {
+          "raw_label": "Rear tread (mm)",
+          "raw_value": "1,520",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Turning radius (m)",
+          "raw_value": "4,9",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Wheelbase (mm)",
+          "raw_value": "2520",
+          "canonical_key": "wheelbase_mm",
+          "unit": "mm"
+        },
+        {
+          "raw_label": "Gearbox",
+          "raw_value": "Automatic",
+          "canonical_key": "transmission",
+          "unit": null
+        },
+        {
+          "raw_label": "Curb weight (kg)",
+          "raw_value": "985",
+          "canonical_key": "curb_weight_kg",
+          "unit": "kg"
+        },
+        {
+          "raw_label": "Fuel tank capacity (L)",
+          "raw_value": "37",
+          "canonical_key": "fuel_tank_l",
+          "unit": "L"
+        },
+        {
+          "raw_label": "Gross vehicle weight (kg)",
+          "raw_value": "1 430",
+          "canonical_key": "gross_vehicle_weight_kg",
+          "unit": "kg"
+        },
+        {
+          "raw_label": "Number of seats",
+          "raw_value": "5",
+          "canonical_key": "seats",
+          "unit": null
+        },
+        {
+          "raw_label": "Front brake",
+          "raw_value": "Ventilated discs",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Rear brake",
+          "raw_value": "Drums",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Front suspension",
+          "raw_value": "MacPherson strut",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Rear suspension",
+          "raw_value": "Torsion bar",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Tyre dimension",
+          "raw_value": "185/65R15",
+          "canonical_key": "tyre_dimension",
+          "unit": null
+        },
+        {
+          "raw_label": "Max speed (km/h)",
+          "raw_value": "170",
+          "canonical_key": "max_speed_kmh",
+          "unit": "km/h"
+        },
+        {
+          "raw_label": "ABS",
+          "raw_value": "Yes",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Cruise control",
+          "raw_value": "Yes",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Demister",
+          "raw_value": "Rear windows",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Electronic stability control",
+          "raw_value": "ESP",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Eletronic Brakeforce distribution (EBD)",
+          "raw_value": "Yes",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Fog lamps",
+          "raw_value": "Front",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Headlamps",
+          "raw_value": "Halogen",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Hill-start assist control",
+          "raw_value": "Yes",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Immobilizer",
+          "raw_value": "Yes",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Seatbelt warning",
+          "raw_value": "Yes",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Side turn lamp",
+          "raw_value": "Yes",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Active headrests",
+          "raw_value": "Yes",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Airbags",
+          "raw_value": "Side, Curtains, Passenger, Driver",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Anti-theft alarm",
+          "raw_value": "Yes",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "ISOFIX fixings",
+          "raw_value": "Front",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Spare Wheel Type",
+          "raw_value": "Steel",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Adjustable side mirrors",
+          "raw_value": "Electric",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Door handles",
+          "raw_value": "Body colour",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Door mirrors",
+          "raw_value": "Body colour",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Folding side mirrors",
+          "raw_value": "Electric",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Front grill",
+          "raw_value": "Chrome",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Wheels",
+          "raw_value": "Steel with hubcap",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Air conditioning",
+          "raw_value": "Automatic",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Audio system",
+          "raw_value": "JBL",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Camera",
+          "raw_value": "Rear",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Central armrest",
+          "raw_value": "Front",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Central door locking",
+          "raw_value": "Yes",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Connectivity",
+          "raw_value": "USB, Bluetooth",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Cup holder(s)",
+          "raw_value": "Front",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Driver footrest",
+          "raw_value": "Yes",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Handsfree kit",
+          "raw_value": "Yes",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Loud speakers",
+          "raw_value": "4",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Luggage compartment",
+          "raw_value": "Yes",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Plug 12V",
+          "raw_value": "1",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Power Steering",
+          "raw_value": "Yes",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Power windows",
+          "raw_value": "Rear, Front",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Steering wheel",
+          "raw_value": "Leather",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Steering wheel audio control",
+          "raw_value": "Yes",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Sun visor",
+          "raw_value": "Yes",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Sunvisor with mirror",
+          "raw_value": "Driver & Passenger",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Tinted windows",
+          "raw_value": "Yes",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Touchscreen",
+          "raw_value": "7\"",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Upholstery",
+          "raw_value": "Fabric",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "USB charging ports",
+          "raw_value": "Rear",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Gearbox",
+          "raw_value": "Manual",
+          "canonical_key": "transmission",
+          "unit": null
+        },
+        {
+          "raw_label": "Curb weight (kg)",
+          "raw_value": "975",
+          "canonical_key": "curb_weight_kg",
+          "unit": "kg"
+        },
+        {
+          "raw_label": "Max speed (km/h)",
+          "raw_value": "180",
+          "canonical_key": "max_speed_kmh",
+          "unit": "km/h"
+        },
+        {
+          "raw_label": "Airbags",
+          "raw_value": "Passenger, Driver, Side, Curtains",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Front tread (mm)",
+          "raw_value": "1,505",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Rear tread (mm)",
+          "raw_value": "1,510",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Tyre dimension",
+          "raw_value": "195/55R16",
+          "canonical_key": "tyre_dimension",
+          "unit": null
+        },
+        {
+          "raw_label": "Headlamps",
+          "raw_value": "LED",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Door handles",
+          "raw_value": "Chrome",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Wheels",
+          "raw_value": "Aluminium",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Camera",
+          "raw_value": "Front / Rear / Side",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Day/night automatic rearview mirror",
+          "raw_value": "Yes",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Driver seat",
+          "raw_value": "Height adjustable",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Head-up display",
+          "raw_value": "Yes",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Power windows",
+          "raw_value": "Front, Rear",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Privacy windows",
+          "raw_value": "Rear",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Push & start system",
+          "raw_value": "Yes",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Speakers Tweeter (Front)",
+          "raw_value": "Yes",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Touchscreen",
+          "raw_value": "9\"",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Transmission",
+          "raw_value": "Front 2 WD",
+          "canonical_key": "drivetrain",
+          "unit": null
+        },
+        {
+          "raw_label": "Gearbox",
+          "raw_value": "Manual, Automatic",
+          "canonical_key": "transmission",
+          "unit": null
+        },
+        {
+          "raw_label": "Manufacturer Warranty",
+          "raw_value": "3 years / 100.000 km (whichever comes first)",
+          "canonical_key": "manufacturer_warranty",
+          "unit": null
+        },
+        {
+          "raw_label": "Retail Network",
+          "raw_value": "SUZUKI",
+          "canonical_key": null,
+          "unit": null
+        }
+      ],
+      "content_hash": "d274a27150027d1abc59daea2c08413d94555d905b406da84298187ef50e0be9",
+      "review_status": "draft",
+      "quality_flags": [
+        "many_unmapped_specs"
+      ]
+    },
+    {
+      "brand": "Suzuki",
+      "model": "Celerio",
+      "source": {
+        "url": "https://suzuki.cami-cfao.com/en/range/suzuki-cameroon-cami/celerio",
+        "observed_at": "2026-09-05T22:01:43Z",
+        "distributor": "CFAO Mobility Cameroon (CAMI Motors)",
+        "source_type": "official_web",
+        "country": "CM",
+        "confidence": "A"
+      },
+      "page_title": "Suzuki / Range / Vehicle / Dealers / Purchase / Celerio",
+      "category": "Compacts",
+      "variants": [
+        "CELERIO CELERIO GL 5D 998p AMT",
+        "CELERIO CELERIO GL 5D 998p MT",
+        "CELERIO CELERIO MC GA 5D 998p MT"
+      ],
+      "specs": [
+        {
+          "raw_label": "Displacement (cc)",
+          "raw_value": "998",
+          "canonical_key": "engine_displacement_ml",
+          "unit": "mL"
+        },
+        {
+          "raw_label": "Fuel type",
+          "raw_value": "Petrol",
+          "canonical_key": "fuel_type",
+          "unit": null
+        },
+        {
+          "raw_label": "Max torque Nm",
+          "raw_value": "89",
+          "canonical_key": "max_torque_nm",
+          "unit": "N·m"
+        },
+        {
+          "raw_label": "Number of cylinders",
+          "raw_value": "3",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Body style",
+          "raw_value": "Compacts",
+          "canonical_key": "body_style",
+          "unit": null
+        },
+        {
+          "raw_label": "Chassis",
+          "raw_value": "Full unit body",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Keys Type",
+          "raw_value": "Classic",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Number of doors",
+          "raw_value": "5",
+          "canonical_key": "doors",
+          "unit": null
+        },
+        {
+          "raw_label": "Rear doors",
+          "raw_value": "2",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Dimensions (Lxwxh) in mm",
+          "raw_value": "3695x1655x1555",
+          "canonical_key": "dimensions_mm",
+          "unit": "mm"
+        },
+        {
+          "raw_label": "Ground clearance (mm)",
+          "raw_value": "170",
+          "canonical_key": "ground_clearance_mm",
+          "unit": "mm"
+        },
+        {
+          "raw_label": "Wheelbase (mm)",
+          "raw_value": "2435",
+          "canonical_key": "wheelbase_mm",
+          "unit": "mm"
+        },
+        {
+          "raw_label": "Gearbox",
+          "raw_value": "Automatic (AMT)",
+          "canonical_key": "transmission",
+          "unit": null
+        },
+        {
+          "raw_label": "Transmission",
+          "raw_value": "Front 2 WD",
+          "canonical_key": "drivetrain",
+          "unit": null
+        },
+        {
+          "raw_label": "Curb weight (kg)",
+          "raw_value": "830",
+          "canonical_key": "curb_weight_kg",
+          "unit": "kg"
+        },
+        {
+          "raw_label": "Fuel tank capacity (L)",
+          "raw_value": "32",
+          "canonical_key": "fuel_tank_l",
+          "unit": "L"
+        },
+        {
+          "raw_label": "Gross vehicle weight (kg)",
+          "raw_value": "1260",
+          "canonical_key": "gross_vehicle_weight_kg",
+          "unit": "kg"
+        },
+        {
+          "raw_label": "Number of seats",
+          "raw_value": "5",
+          "canonical_key": "seats",
+          "unit": null
+        },
+        {
+          "raw_label": "Trunk volume (L)",
+          "raw_value": "295",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Front brake",
+          "raw_value": "Ventilated discs",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Rear brake",
+          "raw_value": "Drums",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Front suspension",
+          "raw_value": "MacPherson strut",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Rear suspension",
+          "raw_value": "Torsion bar",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Type pneu",
+          "raw_value": "Normal",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Tyre dimension",
+          "raw_value": "175/60",
+          "canonical_key": "tyre_dimension",
+          "unit": null
+        },
+        {
+          "raw_label": "ABS",
+          "raw_value": "Yes",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Adaptive headlights",
+          "raw_value": "Yes",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Daytime running lights",
+          "raw_value": "Halogen",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Electronic stability control",
+          "raw_value": "ESP",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Fog lamps",
+          "raw_value": "Front",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Headlamps",
+          "raw_value": "Halogen",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Hill-start assist control",
+          "raw_value": "Yes",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Immobilizer",
+          "raw_value": "Yes",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Seatbelt warning",
+          "raw_value": "Yes",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Adjustable side mirrors",
+          "raw_value": "Electric",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Bumper - Front&Rear",
+          "raw_value": "Body colour",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Door handles",
+          "raw_value": "Body colour",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Door mirrors",
+          "raw_value": "Body colour",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Folding side mirrors",
+          "raw_value": "Electric",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Front bumpers",
+          "raw_value": "Body colour",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Front grill",
+          "raw_value": "Chrome",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Rear bumpers",
+          "raw_value": "Body colour",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Suspension",
+          "raw_value": "Standard",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Wheels",
+          "raw_value": "Alloy",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Air conditioning",
+          "raw_value": "Manual",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Audio system",
+          "raw_value": "JBL",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Central door locking",
+          "raw_value": "Yes",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Central door locking while driving",
+          "raw_value": "Yes",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Connectivity",
+          "raw_value": "Bluetooth, USB",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Electric Tailgate",
+          "raw_value": "Opener",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Front seats",
+          "raw_value": "2",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Loud speakers",
+          "raw_value": "4",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Plug 12V",
+          "raw_value": "1",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Power windows",
+          "raw_value": "Front, Rear",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Steering wheel",
+          "raw_value": "Urethane",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Steering wheel audio control",
+          "raw_value": "Yes",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Sun visor",
+          "raw_value": "Yes",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Sunvisor with mirror",
+          "raw_value": "Driver & Passenger",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Upholstery",
+          "raw_value": "Fabric",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "USB charging ports",
+          "raw_value": "Front",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Airbags",
+          "raw_value": "Driver, Curtains, Side, Passenger",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Headrests",
+          "raw_value": "Rear, Front",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "ISOFIX fixings",
+          "raw_value": "Rear, Front",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Seatbelt pretentioner",
+          "raw_value": "Front",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Seatbelts - 2nd row",
+          "raw_value": "3 points",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Seatbelts - Front",
+          "raw_value": "3 points",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Seatbelts – Rear",
+          "raw_value": "3 points",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Spare wheel",
+          "raw_value": "Yes",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Spare Wheel Type",
+          "raw_value": "Steel",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Dimensions (Lxwxh) in mm",
+          "raw_value": "3695 x 1655 x 1555",
+          "canonical_key": "dimensions_mm",
+          "unit": "mm"
+        },
+        {
+          "raw_label": "Turning radius (m)",
+          "raw_value": "4,7",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Gearbox",
+          "raw_value": "Manual",
+          "canonical_key": "transmission",
+          "unit": null
+        },
+        {
+          "raw_label": "Tyre dimension",
+          "raw_value": "165/70",
+          "canonical_key": "tyre_dimension",
+          "unit": null
+        },
+        {
+          "raw_label": "2nd row seats",
+          "raw_value": "Folding 40/60",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Connectivity",
+          "raw_value": "USB",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Cup holder(s)",
+          "raw_value": "Front",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Information display",
+          "raw_value": "Basic",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Loud speakers",
+          "raw_value": "2",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Active headrests",
+          "raw_value": "Yes",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Adjustable side mirrors",
+          "raw_value": "Manuals",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Door handles",
+          "raw_value": "Black",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Door mirrors",
+          "raw_value": "Black",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Folding side mirrors",
+          "raw_value": "Manuals",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Wheels",
+          "raw_value": "Steel",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Fuel System",
+          "raw_value": "multipoint injection",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Gearbox",
+          "raw_value": "Manual, Automatic, Automatic (AMT)",
+          "canonical_key": "transmission",
+          "unit": null
+        },
+        {
+          "raw_label": "Manufacturer Warranty",
+          "raw_value": "3 years / 100.000 km (whichever comes first)",
+          "canonical_key": "manufacturer_warranty",
+          "unit": null
+        },
+        {
+          "raw_label": "Retail Network",
+          "raw_value": "SUZUKI",
+          "canonical_key": null,
+          "unit": null
+        }
+      ],
+      "content_hash": "032c2d53b172ffd26aad64042e104355f1749fac037baeeae4ddb08e12f342bd",
+      "review_status": "draft",
+      "quality_flags": [
+        "many_unmapped_specs"
+      ]
+    },
+    {
+      "brand": "Suzuki",
+      "model": "Dzire",
+      "source": {
+        "url": "https://suzuki.cami-cfao.com/en/range/suzuki-cameroon-cami/New-Dzire",
+        "observed_at": "2026-09-05T22:01:35Z",
+        "distributor": "CFAO Mobility Cameroon (CAMI Motors)",
+        "source_type": "official_web",
+        "country": "CM",
+        "confidence": "A"
+      },
+      "page_title": "New Dzire: the agile, economical sedan",
+      "category": null,
+      "variants": [],
+      "specs": [
+        {
+          "raw_label": "Fuel type",
+          "raw_value": "Petrol",
+          "canonical_key": "fuel_type",
+          "unit": null
+        },
+        {
+          "raw_label": "Displacement (cc)",
+          "raw_value": "1197",
+          "canonical_key": "engine_displacement_ml",
+          "unit": "mL"
+        },
+        {
+          "raw_label": "Wheelbase (mm)",
+          "raw_value": "2450",
+          "canonical_key": "wheelbase_mm",
+          "unit": "mm"
+        },
+        {
+          "raw_label": "Dimensions (Lxwxh) in mm",
+          "raw_value": "3995x1735x1525",
+          "canonical_key": "dimensions_mm",
+          "unit": "mm"
+        },
+        {
+          "raw_label": "Transmission",
+          "raw_value": "Front 2 WD",
+          "canonical_key": "drivetrain",
+          "unit": null
+        },
+        {
+          "raw_label": "Gearbox",
+          "raw_value": "Automatic CVT, Manual",
+          "canonical_key": "transmission",
+          "unit": null
+        },
+        {
+          "raw_label": "Curb weight (kg)",
+          "raw_value": "940",
+          "canonical_key": "curb_weight_kg",
+          "unit": "kg"
+        },
+        {
+          "raw_label": "Number of seats",
+          "raw_value": "5",
+          "canonical_key": "seats",
+          "unit": null
+        },
+        {
+          "raw_label": "Fuel tank capacity (L)",
+          "raw_value": "37",
+          "canonical_key": "fuel_tank_l",
+          "unit": "L"
+        },
+        {
+          "raw_label": "Rear suspension",
+          "raw_value": "Torsion bar, Coil type",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Manufacturer Warranty",
+          "raw_value": "3 years / 100.000 km (whichever comes first)",
+          "canonical_key": "manufacturer_warranty",
+          "unit": null
+        },
+        {
+          "raw_label": "Retail Network",
+          "raw_value": "SUZUKI",
+          "canonical_key": null,
+          "unit": null
+        }
+      ],
+      "content_hash": "bb5c4105b959a48db042a4845f5c953dc76961f21b8fa1e32d5c0f6995e79105",
+      "review_status": "draft",
+      "quality_flags": [
+        "no_trim_names_extracted"
+      ]
+    },
+    {
+      "brand": "Suzuki",
+      "model": "Eeco",
+      "source": {
+        "url": "https://suzuki.cami-cfao.com/en/range/suzuki-cameroon-cami/eeco",
+        "observed_at": "2026-09-05T22:01:45Z",
+        "distributor": "CFAO Mobility Cameroon (CAMI Motors)",
+        "source_type": "official_web",
+        "country": "CM",
+        "confidence": "A"
+      },
+      "page_title": "Suzuki / Range / Vehicle / Dealers / Purchase / Eeco",
+      "category": "Small Bus",
+      "variants": [
+        "EECO EECO CARGO 2WD 5D 1197p MT",
+        "EECO EECO VAN 2WD 7D 1197p MT"
+      ],
+      "specs": [
+        {
+          "raw_label": "Displacement (cc)",
+          "raw_value": "1197",
+          "canonical_key": "engine_displacement_ml",
+          "unit": "mL"
+        },
+        {
+          "raw_label": "Fuel System",
+          "raw_value": "multipoint injection",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Fuel type",
+          "raw_value": "Petrol",
+          "canonical_key": "fuel_type",
+          "unit": null
+        },
+        {
+          "raw_label": "Max power kW/rpm",
+          "raw_value": "59/6,000",
+          "canonical_key": "max_power_kw_rpm",
+          "unit": null
+        },
+        {
+          "raw_label": "Max torque mKg/rpm",
+          "raw_value": "104/3,000",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Max torque Nm",
+          "raw_value": "104/3,000",
+          "canonical_key": "max_torque_nm",
+          "unit": "N·m"
+        },
+        {
+          "raw_label": "Number of cylinders",
+          "raw_value": "4",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Body style",
+          "raw_value": "Small Bus",
+          "canonical_key": "body_style",
+          "unit": null
+        },
+        {
+          "raw_label": "Number of doors",
+          "raw_value": "5",
+          "canonical_key": "doors",
+          "unit": null
+        },
+        {
+          "raw_label": "Dimensions (Lxwxh) in mm",
+          "raw_value": "3675x1475x1825",
+          "canonical_key": "dimensions_mm",
+          "unit": "mm"
+        },
+        {
+          "raw_label": "Front tread (mm)",
+          "raw_value": "1280",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Ground clearance (mm)",
+          "raw_value": "160",
+          "canonical_key": "ground_clearance_mm",
+          "unit": "mm"
+        },
+        {
+          "raw_label": "Rear tread (mm)",
+          "raw_value": "1290",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Turning radius (m)",
+          "raw_value": "4,5",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Wheelbase (mm)",
+          "raw_value": "2350",
+          "canonical_key": "wheelbase_mm",
+          "unit": "mm"
+        },
+        {
+          "raw_label": "Gearbox",
+          "raw_value": "Manual",
+          "canonical_key": "transmission",
+          "unit": null
+        },
+        {
+          "raw_label": "Curb weight (kg)",
+          "raw_value": "935",
+          "canonical_key": "curb_weight_kg",
+          "unit": "kg"
+        },
+        {
+          "raw_label": "Fuel tank capacity (L)",
+          "raw_value": "32",
+          "canonical_key": "fuel_tank_l",
+          "unit": "L"
+        },
+        {
+          "raw_label": "Gross vehicle weight (kg)",
+          "raw_value": "1540",
+          "canonical_key": "gross_vehicle_weight_kg",
+          "unit": "kg"
+        },
+        {
+          "raw_label": "Number of seats",
+          "raw_value": "2",
+          "canonical_key": "seats",
+          "unit": null
+        },
+        {
+          "raw_label": "Payload (kg)",
+          "raw_value": "615",
+          "canonical_key": "payload_kg",
+          "unit": "kg"
+        },
+        {
+          "raw_label": "Front brake",
+          "raw_value": "Ventilated discs",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Rear brake",
+          "raw_value": "Drums",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Front suspension",
+          "raw_value": "MacPherson strut",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Rear suspension",
+          "raw_value": "Multi-link",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Tyre dimension",
+          "raw_value": "155 R13",
+          "canonical_key": "tyre_dimension",
+          "unit": null
+        },
+        {
+          "raw_label": "ABS",
+          "raw_value": "Yes",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Demister",
+          "raw_value": "Rear windows",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Electronic stability control",
+          "raw_value": "ESP",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Headlamps",
+          "raw_value": "Halogen",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Immobilizer",
+          "raw_value": "Yes",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Parking sensor",
+          "raw_value": "Rear",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Seatbelt warning",
+          "raw_value": "Yes",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Adjustable side mirrors",
+          "raw_value": "Manuals",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Sliding side door",
+          "raw_value": "Right and Left",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Wheels",
+          "raw_value": "Steel",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Air conditioning",
+          "raw_value": "Manual",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Loud speakers",
+          "raw_value": "2",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Plug 12V",
+          "raw_value": "1",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Power Steering",
+          "raw_value": "Yes",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Steering wheel",
+          "raw_value": "Urethane",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Sun visor",
+          "raw_value": "Yes",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Upholstery",
+          "raw_value": "Vinyl",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Airbags",
+          "raw_value": "Driver, Passenger",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Displacement (cc)",
+          "raw_value": "1,197",
+          "canonical_key": "engine_displacement_ml",
+          "unit": "mL"
+        },
+        {
+          "raw_label": "Engine Type",
+          "raw_value": "Cylinder in line",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Max power kW/rpm",
+          "raw_value": "59/6000",
+          "canonical_key": "max_power_kw_rpm",
+          "unit": null
+        },
+        {
+          "raw_label": "Body style",
+          "raw_value": "Van",
+          "canonical_key": "body_style",
+          "unit": null
+        },
+        {
+          "raw_label": "Dimensions (Lxwxh) in mm",
+          "raw_value": "3,675 x 1,475 x 1,825",
+          "canonical_key": "dimensions_mm",
+          "unit": "mm"
+        },
+        {
+          "raw_label": "Front tread (mm)",
+          "raw_value": "1,280",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Rear tread (mm)",
+          "raw_value": "1,290",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Turning radius (m)",
+          "raw_value": "4.5",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Wheelbase (mm)",
+          "raw_value": "2,350",
+          "canonical_key": "wheelbase_mm",
+          "unit": "mm"
+        },
+        {
+          "raw_label": "Transmission",
+          "raw_value": "Front 2 WD",
+          "canonical_key": "drivetrain",
+          "unit": null
+        },
+        {
+          "raw_label": "Curb weight (kg)",
+          "raw_value": "970",
+          "canonical_key": "curb_weight_kg",
+          "unit": "kg"
+        },
+        {
+          "raw_label": "Gross vehicle weight (kg)",
+          "raw_value": "1,540",
+          "canonical_key": "gross_vehicle_weight_kg",
+          "unit": "kg"
+        },
+        {
+          "raw_label": "Number of seats",
+          "raw_value": "7",
+          "canonical_key": "seats",
+          "unit": null
+        },
+        {
+          "raw_label": "Rear suspension",
+          "raw_value": "Multi-link rear suspension",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Tyre dimension",
+          "raw_value": "155R13",
+          "canonical_key": "tyre_dimension",
+          "unit": null
+        },
+        {
+          "raw_label": "Max speed (km/h)",
+          "raw_value": "NO DATA",
+          "canonical_key": "max_speed_kmh",
+          "unit": "km/h"
+        },
+        {
+          "raw_label": "Wheels",
+          "raw_value": "Steel with hubcap",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Airbags",
+          "raw_value": "Passenger, Driver",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Manufacturer Warranty",
+          "raw_value": "3 years / 100.000 km (whichever comes first)",
+          "canonical_key": "manufacturer_warranty",
+          "unit": null
+        },
+        {
+          "raw_label": "Retail Network",
+          "raw_value": "SUZUKI",
+          "canonical_key": null,
+          "unit": null
+        }
+      ],
+      "content_hash": "f34998e9f566601bc59c4841ac2417da13b20ec7989cde98ed87766a5b79167e",
+      "review_status": "draft",
+      "quality_flags": [
+        "many_unmapped_specs"
+      ]
+    },
+    {
+      "brand": "Suzuki",
+      "model": "Ertiga",
+      "source": {
+        "url": "https://suzuki.cami-cfao.com/en/range/suzuki-cameroon-cami/ertiga",
+        "observed_at": "2026-09-05T22:01:47Z",
+        "distributor": "CFAO Mobility Cameroon (CAMI Motors)",
+        "source_type": "official_web",
+        "country": "CM",
+        "confidence": "A"
+      },
+      "page_title": "ERTIGA | SUZUKI Perfect family car!",
+      "category": "Station wagon",
+      "variants": [
+        "New Ertiga ERTIGA GA 5D 1462p MT",
+        "New Ertiga ERTIGA GL 5D 1462p MT",
+        "New Ertiga ERTIGA GL 5D 1462p AT",
+        "New Ertiga ERTIGA GLX 5D 1462p MT",
+        "New Ertiga ERTIGA GLX 5D 1462p AT"
+      ],
+      "specs": [
+        {
+          "raw_label": "Displacement (cc)",
+          "raw_value": "1462",
+          "canonical_key": "engine_displacement_ml",
+          "unit": "mL"
+        },
+        {
+          "raw_label": "Fuel System",
+          "raw_value": "multipoint injection",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Fuel type",
+          "raw_value": "Petrol",
+          "canonical_key": "fuel_type",
+          "unit": null
+        },
+        {
+          "raw_label": "Max power kW/rpm",
+          "raw_value": "105 / 6000",
+          "canonical_key": "max_power_kw_rpm",
+          "unit": null
+        },
+        {
+          "raw_label": "Max torque Nm",
+          "raw_value": "138 / 4400",
+          "canonical_key": "max_torque_nm",
+          "unit": "N·m"
+        },
+        {
+          "raw_label": "Number of cylinders",
+          "raw_value": "4",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Valves/cylinder",
+          "raw_value": "4",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Body style",
+          "raw_value": "Station wagon",
+          "canonical_key": "body_style",
+          "unit": null
+        },
+        {
+          "raw_label": "Number of doors",
+          "raw_value": "5",
+          "canonical_key": "doors",
+          "unit": null
+        },
+        {
+          "raw_label": "Dimensions (Lxwxh) in mm",
+          "raw_value": "4395 x 1735 x 1690",
+          "canonical_key": "dimensions_mm",
+          "unit": "mm"
+        },
+        {
+          "raw_label": "Ground clearance (mm)",
+          "raw_value": "180",
+          "canonical_key": "ground_clearance_mm",
+          "unit": "mm"
+        },
+        {
+          "raw_label": "Wheelbase (mm)",
+          "raw_value": "2740",
+          "canonical_key": "wheelbase_mm",
+          "unit": "mm"
+        },
+        {
+          "raw_label": "Gearbox",
+          "raw_value": "Manual",
+          "canonical_key": "transmission",
+          "unit": null
+        },
+        {
+          "raw_label": "Curb weight (kg)",
+          "raw_value": "1,165",
+          "canonical_key": "curb_weight_kg",
+          "unit": "kg"
+        },
+        {
+          "raw_label": "Fuel tank capacity (L)",
+          "raw_value": "45",
+          "canonical_key": "fuel_tank_l",
+          "unit": "L"
+        },
+        {
+          "raw_label": "Gross vehicle weight (kg)",
+          "raw_value": "1,735",
+          "canonical_key": "gross_vehicle_weight_kg",
+          "unit": "kg"
+        },
+        {
+          "raw_label": "Number of seats",
+          "raw_value": "7",
+          "canonical_key": "seats",
+          "unit": null
+        },
+        {
+          "raw_label": "Front brake",
+          "raw_value": "Ventilated discs",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Rear brake",
+          "raw_value": "Drums",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Front suspension",
+          "raw_value": "Coil type",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Rear suspension",
+          "raw_value": "Torsion bar",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Tyre dimension",
+          "raw_value": "185/65R15",
+          "canonical_key": "tyre_dimension",
+          "unit": null
+        },
+        {
+          "raw_label": "Max speed (km/h)",
+          "raw_value": "NO DATA",
+          "canonical_key": "max_speed_kmh",
+          "unit": "km/h"
+        },
+        {
+          "raw_label": "ABS",
+          "raw_value": "Yes",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Demister",
+          "raw_value": "Rear windows",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Electronic stability control",
+          "raw_value": "ESP",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Headlamps",
+          "raw_value": "Halogen",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Immobilizer",
+          "raw_value": "Yes",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Side turn lamp",
+          "raw_value": "Yes",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Adjustable side mirrors",
+          "raw_value": "Manuals",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Door handles",
+          "raw_value": "Black",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Door mirrors",
+          "raw_value": "Black",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Folding side mirrors",
+          "raw_value": "Electric",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Mudguards",
+          "raw_value": "Front, Rear",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Wheels",
+          "raw_value": "Steel with hubcap",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Air conditioning",
+          "raw_value": "Manual",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Camera",
+          "raw_value": "Rear",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Central door locking",
+          "raw_value": "Yes",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Cup holder(s)",
+          "raw_value": "Front",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Front seats",
+          "raw_value": "2",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Loud speakers",
+          "raw_value": "2",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Plug 12V",
+          "raw_value": "1",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Power Steering",
+          "raw_value": "Yes",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Power windows",
+          "raw_value": "Rear, Front",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Steering wheel",
+          "raw_value": "Urethane",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Sunvisor with mirror",
+          "raw_value": "Passenger",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Upholstery",
+          "raw_value": "Fabric",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Airbags",
+          "raw_value": "Passenger, Driver",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Spare Wheel Type",
+          "raw_value": "Steel",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Displacement (cc)",
+          "raw_value": "1 462",
+          "canonical_key": "engine_displacement_ml",
+          "unit": "mL"
+        },
+        {
+          "raw_label": "Front tread (mm)",
+          "raw_value": "1510",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Rear tread (mm)",
+          "raw_value": "1520",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Turning radius (m)",
+          "raw_value": "5.2",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Max speed (km/h)",
+          "raw_value": "no data",
+          "canonical_key": "max_speed_kmh",
+          "unit": "km/h"
+        },
+        {
+          "raw_label": "Cruise control",
+          "raw_value": "Yes",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Eletronic Brakeforce distribution (EBD)",
+          "raw_value": "Yes",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Adjustable side mirrors",
+          "raw_value": "Electric",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Door handles",
+          "raw_value": "Body colour",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Door mirrors",
+          "raw_value": "Body colour",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Front grill",
+          "raw_value": "Chrome",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Connectivity",
+          "raw_value": "Aux, USB",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Power windows",
+          "raw_value": "Front",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Tinted windows",
+          "raw_value": "Yes",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Gearbox",
+          "raw_value": "Automatic",
+          "canonical_key": "transmission",
+          "unit": null
+        },
+        {
+          "raw_label": "Connectivity",
+          "raw_value": "USB, Aux",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Dimensions (Lxwxh) in mm",
+          "raw_value": "4395x1735x1690",
+          "canonical_key": "dimensions_mm",
+          "unit": "mm"
+        },
+        {
+          "raw_label": "Curb weight (kg)",
+          "raw_value": "1,155",
+          "canonical_key": "curb_weight_kg",
+          "unit": "kg"
+        },
+        {
+          "raw_label": "Automatic light control system",
+          "raw_value": "Yes",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Door unlock alert",
+          "raw_value": "Yes",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Fog lamps",
+          "raw_value": "Front",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "High position brake lamp",
+          "raw_value": "Yes",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Door handles",
+          "raw_value": "Chrome",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Mudguards",
+          "raw_value": "Rear, Front",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Wheels",
+          "raw_value": "Alloy",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Air conditioning",
+          "raw_value": "Automatic",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Push & start system",
+          "raw_value": "Yes",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Steering wheel",
+          "raw_value": "Leather",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Steering wheel audio control",
+          "raw_value": "Yes",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Touchscreen",
+          "raw_value": "7\"",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Max power kW/rpm",
+          "raw_value": "105/6000",
+          "canonical_key": "max_power_kw_rpm",
+          "unit": null
+        },
+        {
+          "raw_label": "Max torque Nm",
+          "raw_value": "138/4400",
+          "canonical_key": "max_torque_nm",
+          "unit": "N·m"
+        },
+        {
+          "raw_label": "Dimensions (Lxwxh) in mm",
+          "raw_value": "4395*1735*1690",
+          "canonical_key": "dimensions_mm",
+          "unit": "mm"
+        },
+        {
+          "raw_label": "Curb weight (kg)",
+          "raw_value": "1,170",
+          "canonical_key": "curb_weight_kg",
+          "unit": "kg"
+        },
+        {
+          "raw_label": "Hill-start assist control",
+          "raw_value": "Yes",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Wheels",
+          "raw_value": "Aluminium",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Connectivity",
+          "raw_value": "USB, Aux, Bluetooth",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Keyless entry system",
+          "raw_value": "Yes",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Loud speakers",
+          "raw_value": "4",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Radio",
+          "raw_value": "Radio",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Airbags",
+          "raw_value": "Driver, Passenger",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Anti-theft alarm",
+          "raw_value": "Yes",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Gearbox",
+          "raw_value": "Manual, Automatic",
+          "canonical_key": "transmission",
+          "unit": null
+        },
+        {
+          "raw_label": "Manufacturer Warranty",
+          "raw_value": "3 years / 100.000 km (whichever comes first)",
+          "canonical_key": "manufacturer_warranty",
+          "unit": null
+        },
+        {
+          "raw_label": "Retail Network",
+          "raw_value": "SUZUKI",
+          "canonical_key": null,
+          "unit": null
+        }
+      ],
+      "content_hash": "a1f93957fa0c70728d84916188c87dc3fcde26a5583c5a4946ab49dea9c0d788",
+      "review_status": "draft",
+      "quality_flags": [
+        "many_unmapped_specs"
+      ]
+    },
+    {
+      "brand": "Suzuki",
+      "model": "FRONX",
+      "source": {
+        "url": "https://suzuki.cami-cfao.com/en/range/suzuki-cameroon-cami/FRONX",
+        "observed_at": "2026-09-05T22:01:33Z",
+        "distributor": "CFAO Mobility Cameroon (CAMI Motors)",
+        "source_type": "official_web",
+        "country": "CM",
+        "confidence": "A"
+      },
+      "page_title": "Suzuki / Range / Vehicle / Dealers / Purchase / Fronx",
+      "category": "SUV",
+      "variants": [
+        "FRONX FRONX GLX 5D 1462p AT",
+        "FRONX FRONX GL 5D 1462p AT",
+        "FRONX FRONX GL 2WD 5D 1462p MT"
+      ],
+      "specs": [
+        {
+          "raw_label": "Displacement (cc)",
+          "raw_value": "1462",
+          "canonical_key": "engine_displacement_ml",
+          "unit": "mL"
+        },
+        {
+          "raw_label": "Fuel System",
+          "raw_value": "multipoint injection",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Fuel type",
+          "raw_value": "Petrol",
+          "canonical_key": "fuel_type",
+          "unit": null
+        },
+        {
+          "raw_label": "Max power kW/rpm",
+          "raw_value": "75.8 / 6,000",
+          "canonical_key": "max_power_kw_rpm",
+          "unit": null
+        },
+        {
+          "raw_label": "Max torque Nm",
+          "raw_value": "136.8 / 4,400",
+          "canonical_key": "max_torque_nm",
+          "unit": "N·m"
+        },
+        {
+          "raw_label": "Number of cylinders",
+          "raw_value": "4",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Body style",
+          "raw_value": "SUV",
+          "canonical_key": "body_style",
+          "unit": null
+        },
+        {
+          "raw_label": "Number of doors",
+          "raw_value": "5",
+          "canonical_key": "doors",
+          "unit": null
+        },
+        {
+          "raw_label": "Dimensions (Lxwxh) in mm",
+          "raw_value": "3995 x 1765 x 1550",
+          "canonical_key": "dimensions_mm",
+          "unit": "mm"
+        },
+        {
+          "raw_label": "Front tread (mm)",
+          "raw_value": "1,520",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Ground clearance (mm)",
+          "raw_value": "170",
+          "canonical_key": "ground_clearance_mm",
+          "unit": "mm"
+        },
+        {
+          "raw_label": "Rear tread (mm)",
+          "raw_value": "1,530",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Turning radius (m)",
+          "raw_value": "4,8",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Wheelbase (mm)",
+          "raw_value": "2520",
+          "canonical_key": "wheelbase_mm",
+          "unit": "mm"
+        },
+        {
+          "raw_label": "Gearbox",
+          "raw_value": "Automatic",
+          "canonical_key": "transmission",
+          "unit": null
+        },
+        {
+          "raw_label": "Curb weight (kg)",
+          "raw_value": "1065",
+          "canonical_key": "curb_weight_kg",
+          "unit": "kg"
+        },
+        {
+          "raw_label": "Fuel tank capacity (L)",
+          "raw_value": "37",
+          "canonical_key": "fuel_tank_l",
+          "unit": "L"
+        },
+        {
+          "raw_label": "Gross vehicle weight (kg)",
+          "raw_value": "1480",
+          "canonical_key": "gross_vehicle_weight_kg",
+          "unit": "kg"
+        },
+        {
+          "raw_label": "Number of seats",
+          "raw_value": "5",
+          "canonical_key": "seats",
+          "unit": null
+        },
+        {
+          "raw_label": "Front brake",
+          "raw_value": "Ventilated discs",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Rear brake",
+          "raw_value": "Drums",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Front suspension",
+          "raw_value": "MacPherson strut",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Rear suspension",
+          "raw_value": "Torsion bar",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Tyre dimension",
+          "raw_value": "195/60 R16",
+          "canonical_key": "tyre_dimension",
+          "unit": null
+        },
+        {
+          "raw_label": "Max speed (km/h)",
+          "raw_value": "165",
+          "canonical_key": "max_speed_kmh",
+          "unit": "km/h"
+        },
+        {
+          "raw_label": "ABS",
+          "raw_value": "Yes",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Cruise control",
+          "raw_value": "Yes",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Electronic stability control",
+          "raw_value": "ESP",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Eletronic Brakeforce distribution (EBD)",
+          "raw_value": "Yes",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Headlamps",
+          "raw_value": "LED",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Immobilizer",
+          "raw_value": "Yes",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Adjustable side mirrors",
+          "raw_value": "Electric",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Door handles",
+          "raw_value": "Body colour",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Door mirrors",
+          "raw_value": "Body colour",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Front grill",
+          "raw_value": "Chrome",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Wheels",
+          "raw_value": "Alloy",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Air conditioning",
+          "raw_value": "Automatic",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Audio system",
+          "raw_value": "JBL",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Central door locking",
+          "raw_value": "Yes",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Cup holder(s)",
+          "raw_value": "Front",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Day/night automatic rearview mirror",
+          "raw_value": "Yes",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Driver footrest",
+          "raw_value": "Yes",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Electric power steering",
+          "raw_value": "Yes",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Head-up display",
+          "raw_value": "Yes",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Keyless entry system",
+          "raw_value": "Yes",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Plug 12V",
+          "raw_value": "1",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Power Steering",
+          "raw_value": "Yes",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Push & start system",
+          "raw_value": "Yes",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Steering wheel",
+          "raw_value": "Leather",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Steering wheel audio control",
+          "raw_value": "Yes",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Sun visor",
+          "raw_value": "Yes",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Touchscreen",
+          "raw_value": "9\"",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Upholstery",
+          "raw_value": "Fabric",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "USB charging ports",
+          "raw_value": "Rear",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Wireless Charging",
+          "raw_value": "Yes",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Airbags",
+          "raw_value": "Curtains, Side, Passenger, Driver",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Spare Wheel Type",
+          "raw_value": "Steel",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Max power kW/rpm",
+          "raw_value": "77 / 6,000",
+          "canonical_key": "max_power_kw_rpm",
+          "unit": null
+        },
+        {
+          "raw_label": "Max torque Nm",
+          "raw_value": "138 / 4,400",
+          "canonical_key": "max_torque_nm",
+          "unit": "N·m"
+        },
+        {
+          "raw_label": "Dimensions (Lxwxh) in mm",
+          "raw_value": "3995 X 1765 X 1550",
+          "canonical_key": "dimensions_mm",
+          "unit": "mm"
+        },
+        {
+          "raw_label": "Curb weight (kg)",
+          "raw_value": "1015",
+          "canonical_key": "curb_weight_kg",
+          "unit": "kg"
+        },
+        {
+          "raw_label": "Max speed (km/h)",
+          "raw_value": "170",
+          "canonical_key": "max_speed_kmh",
+          "unit": "km/h"
+        },
+        {
+          "raw_label": "Demister",
+          "raw_value": "Rear windows",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Touchscreen",
+          "raw_value": "7\"",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Airbags",
+          "raw_value": "Curtains, Side, Driver, Passenger",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Gearbox",
+          "raw_value": "Manual",
+          "canonical_key": "transmission",
+          "unit": null
+        },
+        {
+          "raw_label": "Curb weight (kg)",
+          "raw_value": "1010",
+          "canonical_key": "curb_weight_kg",
+          "unit": "kg"
+        },
+        {
+          "raw_label": "Max speed (km/h)",
+          "raw_value": "175",
+          "canonical_key": "max_speed_kmh",
+          "unit": "km/h"
+        },
+        {
+          "raw_label": "Camera",
+          "raw_value": "Rear",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Connectivity",
+          "raw_value": "Aux, Bluetooth",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Airbags",
+          "raw_value": "Driver, Passenger, Curtains, Side",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Dimensions (Lxwxh) in mm",
+          "raw_value": "3 995 x 1765 x 1 550",
+          "canonical_key": "dimensions_mm",
+          "unit": "mm"
+        },
+        {
+          "raw_label": "Gearbox",
+          "raw_value": "Manual, Automatic",
+          "canonical_key": "transmission",
+          "unit": null
+        },
+        {
+          "raw_label": "Curb weight (kg)",
+          "raw_value": "1,010",
+          "canonical_key": "curb_weight_kg",
+          "unit": "kg"
+        },
+        {
+          "raw_label": "Manufacturer Warranty",
+          "raw_value": "3 years / 100.000 km (whichever comes first)",
+          "canonical_key": "manufacturer_warranty",
+          "unit": null
+        },
+        {
+          "raw_label": "Retail Network",
+          "raw_value": "SUZUKI",
+          "canonical_key": null,
+          "unit": null
+        }
+      ],
+      "content_hash": "a16f3d013150e5f1f125d7537534f86cd044d6102fcedd49e6128d2b8c04e3bc",
+      "review_status": "draft",
+      "quality_flags": [
+        "many_unmapped_specs"
+      ]
+    },
+    {
+      "brand": "Suzuki",
+      "model": "Grand Vitara",
+      "source": {
+        "url": "https://suzuki.cami-cfao.com/en/range/suzuki-cameroon-cami/grand-vitara",
+        "observed_at": "2026-09-05T22:01:49Z",
+        "distributor": "CFAO Mobility Cameroon (CAMI Motors)",
+        "source_type": "official_web",
+        "country": "CM",
+        "confidence": "A"
+      },
+      "page_title": "Grand Vitara | SUZUKI",
+      "category": "SUV",
+      "variants": [
+        "Every road is a new story, a new discovery and there is a new breed of SUV that can conquer them all. With its bold design and sophisticated interiors, the Grand Vitara is here to dominate every road.",
+        "Grand Vitara GRAND VITARA GL 2WD 1462p MT",
+        "Grand Vitara GRAND VITARA GL 2WD 1462p AT",
+        "Grand Vitara GRAND VITARA GLX 4x2 1462p MT",
+        "Grand Vitara GRAND VITARA GLX 4x2 1462p AT",
+        "Grand Vitara GRAND VITARA GLX 4WD 1462h AT"
+      ],
+      "specs": [
+        {
+          "raw_label": "Displacement (cc)",
+          "raw_value": "1462",
+          "canonical_key": "engine_displacement_ml",
+          "unit": "mL"
+        },
+        {
+          "raw_label": "Engine Type",
+          "raw_value": "Cylinder in line",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Fuel System",
+          "raw_value": "multipoint injection",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Fuel type",
+          "raw_value": "Petrol",
+          "canonical_key": "fuel_type",
+          "unit": null
+        },
+        {
+          "raw_label": "Max power kW/rpm",
+          "raw_value": "TBD",
+          "canonical_key": "max_power_kw_rpm",
+          "unit": null
+        },
+        {
+          "raw_label": "Max torque Nm",
+          "raw_value": "TBD",
+          "canonical_key": "max_torque_nm",
+          "unit": "N·m"
+        },
+        {
+          "raw_label": "Number of cylinders",
+          "raw_value": "4",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Body style",
+          "raw_value": "SUV",
+          "canonical_key": "body_style",
+          "unit": null
+        },
+        {
+          "raw_label": "Number of doors",
+          "raw_value": "5",
+          "canonical_key": "doors",
+          "unit": null
+        },
+        {
+          "raw_label": "Dimensions (Lxwxh) in mm",
+          "raw_value": "4345 x 1795 x 1645",
+          "canonical_key": "dimensions_mm",
+          "unit": "mm"
+        },
+        {
+          "raw_label": "Front tread (mm)",
+          "raw_value": "1,530",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Ground clearance (mm)",
+          "raw_value": "210",
+          "canonical_key": "ground_clearance_mm",
+          "unit": "mm"
+        },
+        {
+          "raw_label": "Rear tread (mm)",
+          "raw_value": "1,535",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Turning radius (m)",
+          "raw_value": "5,4",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Wheelbase (mm)",
+          "raw_value": "2600",
+          "canonical_key": "wheelbase_mm",
+          "unit": "mm"
+        },
+        {
+          "raw_label": "Gearbox",
+          "raw_value": "Manual",
+          "canonical_key": "transmission",
+          "unit": null
+        },
+        {
+          "raw_label": "Curb weight (kg)",
+          "raw_value": "1,160",
+          "canonical_key": "curb_weight_kg",
+          "unit": "kg"
+        },
+        {
+          "raw_label": "Fuel tank capacity (L)",
+          "raw_value": "45",
+          "canonical_key": "fuel_tank_l",
+          "unit": "L"
+        },
+        {
+          "raw_label": "Gross vehicle weight (kg)",
+          "raw_value": "1,620",
+          "canonical_key": "gross_vehicle_weight_kg",
+          "unit": "kg"
+        },
+        {
+          "raw_label": "Number of seats",
+          "raw_value": "5",
+          "canonical_key": "seats",
+          "unit": null
+        },
+        {
+          "raw_label": "Front brake",
+          "raw_value": "Ventilated discs",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Rear brake",
+          "raw_value": "Discs",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Front suspension",
+          "raw_value": "MacPherson strut",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Rear suspension",
+          "raw_value": "Torsion bar",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Tyre dimension",
+          "raw_value": "215/60R17",
+          "canonical_key": "tyre_dimension",
+          "unit": null
+        },
+        {
+          "raw_label": "Max speed (km/h)",
+          "raw_value": "165",
+          "canonical_key": "max_speed_kmh",
+          "unit": "km/h"
+        },
+        {
+          "raw_label": "ABS",
+          "raw_value": "Yes",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Cruise control",
+          "raw_value": "Yes",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Electronic stability control",
+          "raw_value": "ESP",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Eletronic Brakeforce distribution (EBD)",
+          "raw_value": "Yes",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Headlamps",
+          "raw_value": "LED",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Hill-start assist control",
+          "raw_value": "Yes",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Immobilizer",
+          "raw_value": "Yes",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Adjustable side mirrors",
+          "raw_value": "Electric",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Door handles",
+          "raw_value": "Body colour",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Door mirrors",
+          "raw_value": "Body colour",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Folding side mirrors",
+          "raw_value": "Electric",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Front grill",
+          "raw_value": "Chrome",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Wheels",
+          "raw_value": "Alloy",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Air conditioning",
+          "raw_value": "Automatic",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Camera",
+          "raw_value": "Rear",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Cup holder(s)",
+          "raw_value": "Front, Rear",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Keyless entry system",
+          "raw_value": "Yes",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Plug 12V",
+          "raw_value": "1",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Power Steering",
+          "raw_value": "Yes",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Push & start system",
+          "raw_value": "Yes",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Steering wheel",
+          "raw_value": "Leather",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Sun visor",
+          "raw_value": "Yes",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Sunvisor with mirror",
+          "raw_value": "Driver & Passenger",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Touchscreen",
+          "raw_value": "7\"",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Upholstery",
+          "raw_value": "Fabric",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Airbags",
+          "raw_value": "Curtains, Side, Passenger, Driver",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Spare Wheel Type",
+          "raw_value": "Alloy",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Gearbox",
+          "raw_value": "Automatic",
+          "canonical_key": "transmission",
+          "unit": null
+        },
+        {
+          "raw_label": "Curb weight (kg)",
+          "raw_value": "1,170",
+          "canonical_key": "curb_weight_kg",
+          "unit": "kg"
+        },
+        {
+          "raw_label": "Gross vehicle weight (kg)",
+          "raw_value": "1,630",
+          "canonical_key": "gross_vehicle_weight_kg",
+          "unit": "kg"
+        },
+        {
+          "raw_label": "Max speed (km/h)",
+          "raw_value": "170",
+          "canonical_key": "max_speed_kmh",
+          "unit": "km/h"
+        },
+        {
+          "raw_label": "Roof rails",
+          "raw_value": "Yes",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Airbags",
+          "raw_value": "Curtains, Driver, Passenger, Side",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "ISOFIX fixings",
+          "raw_value": "Rear, Front",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Max power kW/rpm",
+          "raw_value": "75.8/6,000",
+          "canonical_key": "max_power_kw_rpm",
+          "unit": null
+        },
+        {
+          "raw_label": "Max torque mKg/rpm",
+          "raw_value": "136.8/4,400",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Valves/cylinder",
+          "raw_value": "4",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Keys Type",
+          "raw_value": "SmartKey",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Curb weight (kg)",
+          "raw_value": "1,190",
+          "canonical_key": "curb_weight_kg",
+          "unit": "kg"
+        },
+        {
+          "raw_label": "Gross vehicle weight (kg)",
+          "raw_value": "1,650",
+          "canonical_key": "gross_vehicle_weight_kg",
+          "unit": "kg"
+        },
+        {
+          "raw_label": "Max speed (km/h)",
+          "raw_value": "160",
+          "canonical_key": "max_speed_kmh",
+          "unit": "km/h"
+        },
+        {
+          "raw_label": "Daytime running lights",
+          "raw_value": "LED",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Door unlock alert",
+          "raw_value": "Yes",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Parking sensor",
+          "raw_value": "Rear",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Seatbelt warning",
+          "raw_value": "Yes",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Adjustable steering wheel",
+          "raw_value": "Height adjustable",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Camera",
+          "raw_value": "Front / Rear / Side",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Central armrest",
+          "raw_value": "Front",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Central door locking",
+          "raw_value": "Yes",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Connectivity",
+          "raw_value": "USB",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Cup holder(s)",
+          "raw_value": "Front",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Day/night automatic rearview mirror",
+          "raw_value": "Yes",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Driver footrest",
+          "raw_value": "Yes",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Driver seat",
+          "raw_value": "Height adjustable",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Front seats",
+          "raw_value": "2",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Gearshift & Brake lever",
+          "raw_value": "Chrome",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Head-up display",
+          "raw_value": "Yes",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Information display",
+          "raw_value": "LCD 7\"",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Loud speakers",
+          "raw_value": "4",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Panoramic Sunroof",
+          "raw_value": "Yes",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Power windows",
+          "raw_value": "Rear, Front",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Room lamps",
+          "raw_value": "Yes",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Steering wheel audio control",
+          "raw_value": "Yes",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Touchscreen",
+          "raw_value": "9\"",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Upholstery",
+          "raw_value": "Synthetic leather",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Wireless Charging",
+          "raw_value": "Yes",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Airbags",
+          "raw_value": "Driver, Passenger, Side, Curtains",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Anti-theft alarm",
+          "raw_value": "Yes",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Brake assist",
+          "raw_value": "Yes",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Headrests",
+          "raw_value": "Rear, Front",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "ISOFIX fixings",
+          "raw_value": "Rear",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Seatbelts - 2nd row",
+          "raw_value": "3 x 3 points",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Seatbelts - Front",
+          "raw_value": "2 x 3 points",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Curb weight (kg)",
+          "raw_value": "1,220",
+          "canonical_key": "curb_weight_kg",
+          "unit": "kg"
+        },
+        {
+          "raw_label": "Gross vehicle weight (kg)",
+          "raw_value": "1680",
+          "canonical_key": "gross_vehicle_weight_kg",
+          "unit": "kg"
+        },
+        {
+          "raw_label": "Headrests",
+          "raw_value": "Front, Rear",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Engine Type",
+          "raw_value": "Mild Hybrid",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Curb weight (kg)",
+          "raw_value": "1,295",
+          "canonical_key": "curb_weight_kg",
+          "unit": "kg"
+        },
+        {
+          "raw_label": "Gross vehicle weight (kg)",
+          "raw_value": "1,755",
+          "canonical_key": "gross_vehicle_weight_kg",
+          "unit": "kg"
+        },
+        {
+          "raw_label": "Max speed (km/h)",
+          "raw_value": "TBD",
+          "canonical_key": "max_speed_kmh",
+          "unit": "km/h"
+        },
+        {
+          "raw_label": "Sunroof",
+          "raw_value": "Manual",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Airbags",
+          "raw_value": "Side, Passenger, Curtains, Driver",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Dimensions (Lxwxh) in mm",
+          "raw_value": "4345x1795x1645",
+          "canonical_key": "dimensions_mm",
+          "unit": "mm"
+        },
+        {
+          "raw_label": "Gearbox",
+          "raw_value": "Manual, Automatic, Electronic gearbow system",
+          "canonical_key": "transmission",
+          "unit": null
+        },
+        {
+          "raw_label": "Curb weight (kg)",
+          "raw_value": "1160",
+          "canonical_key": "curb_weight_kg",
+          "unit": "kg"
+        },
+        {
+          "raw_label": "Manufacturer Warranty",
+          "raw_value": "3 years / 100.000 km (whichever comes first)",
+          "canonical_key": "manufacturer_warranty",
+          "unit": null
+        },
+        {
+          "raw_label": "Retail Network",
+          "raw_value": "SUZUKI",
+          "canonical_key": null,
+          "unit": null
+        }
+      ],
+      "content_hash": "45f860796e2ef17da52714804facd1f19afc2d272c7cc92bb1cc458d8139335c",
+      "review_status": "draft",
+      "quality_flags": [
+        "many_unmapped_specs"
+      ]
+    },
+    {
+      "brand": "Suzuki",
+      "model": "Jimny",
+      "source": {
+        "url": "https://suzuki.cami-cfao.com/en/range/suzuki-cameroon-cami/jimny",
+        "observed_at": "2026-09-05T22:01:51Z",
+        "distributor": "CFAO Mobility Cameroon (CAMI Motors)",
+        "source_type": "official_web",
+        "country": "CM",
+        "confidence": "A"
+      },
+      "page_title": "JIMNY | SUZUKI Compact 4x4",
+      "category": null,
+      "variants": [],
+      "specs": [
+        {
+          "raw_label": "Fuel type",
+          "raw_value": "Petrol",
+          "canonical_key": "fuel_type",
+          "unit": null
+        },
+        {
+          "raw_label": "Displacement (cc)",
+          "raw_value": "1462",
+          "canonical_key": "engine_displacement_ml",
+          "unit": "mL"
+        },
+        {
+          "raw_label": "Fuel System",
+          "raw_value": "multipoint injection",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Wheelbase (mm)",
+          "raw_value": "2250",
+          "canonical_key": "wheelbase_mm",
+          "unit": "mm"
+        },
+        {
+          "raw_label": "Dimensions (Lxwxh) in mm",
+          "raw_value": "3650 X 1645 X 1720",
+          "canonical_key": "dimensions_mm",
+          "unit": "mm"
+        },
+        {
+          "raw_label": "Ground clearance (mm)",
+          "raw_value": "210",
+          "canonical_key": "ground_clearance_mm",
+          "unit": "mm"
+        },
+        {
+          "raw_label": "Gearbox",
+          "raw_value": "Manual, Automatic",
+          "canonical_key": "transmission",
+          "unit": null
+        },
+        {
+          "raw_label": "Curb weight (kg)",
+          "raw_value": "1110",
+          "canonical_key": "curb_weight_kg",
+          "unit": "kg"
+        },
+        {
+          "raw_label": "Number of seats",
+          "raw_value": "4",
+          "canonical_key": "seats",
+          "unit": null
+        },
+        {
+          "raw_label": "Fuel tank capacity (L)",
+          "raw_value": "40",
+          "canonical_key": "fuel_tank_l",
+          "unit": "L"
+        },
+        {
+          "raw_label": "Rear suspension",
+          "raw_value": "Coil type",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Manufacturer Warranty",
+          "raw_value": "3 years / 100.000 km (whichever comes first)",
+          "canonical_key": "manufacturer_warranty",
+          "unit": null
+        },
+        {
+          "raw_label": "Retail Network",
+          "raw_value": "SUZUKI",
+          "canonical_key": null,
+          "unit": null
+        }
+      ],
+      "content_hash": "4a1158f717fc5a3602ccf421c081e5cb33f2a3e0f2ed829617e27388739248ef",
+      "review_status": "draft",
+      "quality_flags": [
+        "no_trim_names_extracted"
+      ]
+    },
+    {
+      "brand": "Suzuki",
+      "model": "Jimny 5 doors",
+      "source": {
+        "url": "https://suzuki.cami-cfao.com/en/range/suzuki-cameroon-cami/jimny-5-doors",
+        "observed_at": "2026-09-05T22:01:53Z",
+        "distributor": "CFAO Mobility Cameroon (CAMI Motors)",
+        "source_type": "official_web",
+        "country": "CM",
+        "confidence": "A"
+      },
+      "page_title": "jimny-5-doors",
+      "category": "SUV",
+      "variants": [],
+      "specs": [
+        {
+          "raw_label": "Displacement (cc)",
+          "raw_value": "1462",
+          "canonical_key": "engine_displacement_ml",
+          "unit": "mL"
+        },
+        {
+          "raw_label": "Fuel System",
+          "raw_value": "multipoint injection",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Fuel type",
+          "raw_value": "Petrol",
+          "canonical_key": "fuel_type",
+          "unit": null
+        },
+        {
+          "raw_label": "Max power HP/rpm",
+          "raw_value": "102 / 6000",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Max torque Nm",
+          "raw_value": "130 /4 000",
+          "canonical_key": "max_torque_nm",
+          "unit": "N·m"
+        },
+        {
+          "raw_label": "Number of cylinders",
+          "raw_value": "4",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Valves/cylinder",
+          "raw_value": "4",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Body style",
+          "raw_value": "SUV",
+          "canonical_key": "body_style",
+          "unit": null
+        },
+        {
+          "raw_label": "Number of doors",
+          "raw_value": "5",
+          "canonical_key": "doors",
+          "unit": null
+        },
+        {
+          "raw_label": "Dimensions (Lxwxh) in mm",
+          "raw_value": "3985x1645x1720",
+          "canonical_key": "dimensions_mm",
+          "unit": "mm"
+        },
+        {
+          "raw_label": "Front tread (mm)",
+          "raw_value": "1395",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Ground clearance (mm)",
+          "raw_value": "210",
+          "canonical_key": "ground_clearance_mm",
+          "unit": "mm"
+        },
+        {
+          "raw_label": "Rear tread (mm)",
+          "raw_value": "1405",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Turning radius (m)",
+          "raw_value": "5,7",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Wheelbase (mm)",
+          "raw_value": "2590",
+          "canonical_key": "wheelbase_mm",
+          "unit": "mm"
+        },
+        {
+          "raw_label": "Gearbox",
+          "raw_value": "Manual",
+          "canonical_key": "transmission",
+          "unit": null
+        },
+        {
+          "raw_label": "Curb weight (kg)",
+          "raw_value": "1,200",
+          "canonical_key": "curb_weight_kg",
+          "unit": "kg"
+        },
+        {
+          "raw_label": "Fuel tank capacity (L)",
+          "raw_value": "40",
+          "canonical_key": "fuel_tank_l",
+          "unit": "L"
+        },
+        {
+          "raw_label": "Gross vehicle weight (kg)",
+          "raw_value": "1545",
+          "canonical_key": "gross_vehicle_weight_kg",
+          "unit": "kg"
+        },
+        {
+          "raw_label": "Number of seats",
+          "raw_value": "4",
+          "canonical_key": "seats",
+          "unit": null
+        },
+        {
+          "raw_label": "Front brake",
+          "raw_value": "Discs",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Rear brake",
+          "raw_value": "Drums",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Front suspension",
+          "raw_value": "Coil type",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Rear suspension",
+          "raw_value": "Coil type",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Tyre dimension",
+          "raw_value": "195/80R15",
+          "canonical_key": "tyre_dimension",
+          "unit": null
+        },
+        {
+          "raw_label": "Max speed (km/h)",
+          "raw_value": "155",
+          "canonical_key": "max_speed_kmh",
+          "unit": "km/h"
+        },
+        {
+          "raw_label": "ABS",
+          "raw_value": "Yes",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Cruise control",
+          "raw_value": "Yes",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Demister",
+          "raw_value": "Rear windows",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Downhill assist control",
+          "raw_value": "Yes",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Electronic stability control",
+          "raw_value": "ESP",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Fog lamps",
+          "raw_value": "Front",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Headlamps",
+          "raw_value": "LED",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "High position brake lamp",
+          "raw_value": "Yes",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Immobilizer",
+          "raw_value": "Yes",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Adjustable side mirrors",
+          "raw_value": "Electric",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Door handles",
+          "raw_value": "Body colour",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Door mirrors",
+          "raw_value": "Black",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Folding side mirrors",
+          "raw_value": "Manuals",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Front grill",
+          "raw_value": "Black",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Wheels",
+          "raw_value": "Alloy",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Air conditioning",
+          "raw_value": "Automatic",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Camera",
+          "raw_value": "Rear",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Connectivity",
+          "raw_value": "Bluetooth",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Cup holder(s)",
+          "raw_value": "Front, Rear",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Plug 12V",
+          "raw_value": "1",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Power Steering",
+          "raw_value": "Yes",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Power windows",
+          "raw_value": "Front",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Radio",
+          "raw_value": "Radio CD / MP3",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Steering wheel",
+          "raw_value": "Leather",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Sun visor",
+          "raw_value": "Yes",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Sunvisor with mirror",
+          "raw_value": "Driver & Passenger",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Tinted windows",
+          "raw_value": "Yes",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Touchscreen",
+          "raw_value": "9\"",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Upholstery",
+          "raw_value": "Fabric",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Airbags",
+          "raw_value": "Passenger, Driver, Side",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "ISOFIX fixings",
+          "raw_value": "Rear",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Spare Wheel Type",
+          "raw_value": "Alloy",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Gearbox",
+          "raw_value": "Automatic",
+          "canonical_key": "transmission",
+          "unit": null
+        },
+        {
+          "raw_label": "Curb weight (kg)",
+          "raw_value": "1,215",
+          "canonical_key": "curb_weight_kg",
+          "unit": "kg"
+        },
+        {
+          "raw_label": "Max speed (km/h)",
+          "raw_value": "140",
+          "canonical_key": "max_speed_kmh",
+          "unit": "km/h"
+        },
+        {
+          "raw_label": "Airbags",
+          "raw_value": "Driver, Passenger, Side",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Max torque Nm",
+          "raw_value": "130 / 4000",
+          "canonical_key": "max_torque_nm",
+          "unit": "N·m"
+        },
+        {
+          "raw_label": "2nd row seats",
+          "raw_value": "Folding",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Air conditioning",
+          "raw_value": "Manual",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Central door locking",
+          "raw_value": "Yes",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Steering wheel",
+          "raw_value": "Urethane",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Touchscreen",
+          "raw_value": "7\"",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "VHF Radio",
+          "raw_value": "Yes",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Headlamps",
+          "raw_value": "Halogen",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Hill-start assist control",
+          "raw_value": "Yes",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Airbags",
+          "raw_value": "Passenger, Driver",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Gearbox",
+          "raw_value": "Manual, Automatic",
+          "canonical_key": "transmission",
+          "unit": null
+        },
+        {
+          "raw_label": "Manufacturer Warranty",
+          "raw_value": "3 years / 100.000 km (whichever comes first)",
+          "canonical_key": "manufacturer_warranty",
+          "unit": null
+        },
+        {
+          "raw_label": "Retail Network",
+          "raw_value": "SUZUKI",
+          "canonical_key": null,
+          "unit": null
+        }
+      ],
+      "content_hash": "a0e5026e0f8a45e29ed455dd4c4dfbeef448f231f0572c499e98277264607b2a",
+      "review_status": "draft",
+      "quality_flags": [
+        "no_trim_names_extracted",
+        "many_unmapped_specs"
+      ]
+    },
+    {
+      "brand": "Suzuki",
+      "model": "S-Presso",
+      "source": {
+        "url": "https://suzuki.cami-cfao.com/en/range/suzuki-cameroon-cami/spresso",
+        "observed_at": "2026-09-05T22:01:56Z",
+        "distributor": "CFAO Mobility Cameroon (CAMI Motors)",
+        "source_type": "official_web",
+        "country": "CM",
+        "confidence": "A"
+      },
+      "page_title": "S-PRESSO | SUZUKI",
+      "category": "Compacts",
+      "variants": [],
+      "specs": [
+        {
+          "raw_label": "Displacement (cc)",
+          "raw_value": "998",
+          "canonical_key": "engine_displacement_ml",
+          "unit": "mL"
+        },
+        {
+          "raw_label": "Fuel System",
+          "raw_value": "multipoint injection",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Fuel type",
+          "raw_value": "Petrol",
+          "canonical_key": "fuel_type",
+          "unit": null
+        },
+        {
+          "raw_label": "Max power kW/rpm",
+          "raw_value": "49 / 5500",
+          "canonical_key": "max_power_kw_rpm",
+          "unit": null
+        },
+        {
+          "raw_label": "Max torque Nm",
+          "raw_value": "89 / 3500",
+          "canonical_key": "max_torque_nm",
+          "unit": "N·m"
+        },
+        {
+          "raw_label": "Number of cylinders",
+          "raw_value": "3",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Valves/cylinder",
+          "raw_value": "4",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Body style",
+          "raw_value": "Compacts",
+          "canonical_key": "body_style",
+          "unit": null
+        },
+        {
+          "raw_label": "Keys Type",
+          "raw_value": "Classic",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Number of doors",
+          "raw_value": "5",
+          "canonical_key": "doors",
+          "unit": null
+        },
+        {
+          "raw_label": "Dimensions (Lxwxh) in mm",
+          "raw_value": "3565*1520*1567",
+          "canonical_key": "dimensions_mm",
+          "unit": "mm"
+        },
+        {
+          "raw_label": "Front tread (mm)",
+          "raw_value": "1316",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Ground clearance (mm)",
+          "raw_value": "180",
+          "canonical_key": "ground_clearance_mm",
+          "unit": "mm"
+        },
+        {
+          "raw_label": "Rear tread (mm)",
+          "raw_value": "1318",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Turning radius (m)",
+          "raw_value": "4,5",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Wheelbase (mm)",
+          "raw_value": "2380",
+          "canonical_key": "wheelbase_mm",
+          "unit": "mm"
+        },
+        {
+          "raw_label": "Gearbox",
+          "raw_value": "Manual",
+          "canonical_key": "transmission",
+          "unit": null
+        },
+        {
+          "raw_label": "Curb weight (kg)",
+          "raw_value": "779",
+          "canonical_key": "curb_weight_kg",
+          "unit": "kg"
+        },
+        {
+          "raw_label": "Fuel tank capacity (L)",
+          "raw_value": "27",
+          "canonical_key": "fuel_tank_l",
+          "unit": "L"
+        },
+        {
+          "raw_label": "Gross vehicle weight (kg)",
+          "raw_value": "1170",
+          "canonical_key": "gross_vehicle_weight_kg",
+          "unit": "kg"
+        },
+        {
+          "raw_label": "Number of seats",
+          "raw_value": "5",
+          "canonical_key": "seats",
+          "unit": null
+        },
+        {
+          "raw_label": "Front brake",
+          "raw_value": "Ventilated discs",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Rear brake",
+          "raw_value": "Drums",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Front suspension",
+          "raw_value": "MacPherson strut",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Rear suspension",
+          "raw_value": "Torsion bar",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Tyre dimension",
+          "raw_value": "165/70R14",
+          "canonical_key": "tyre_dimension",
+          "unit": null
+        },
+        {
+          "raw_label": "Max speed (km/h)",
+          "raw_value": "NO DATA",
+          "canonical_key": "max_speed_kmh",
+          "unit": "km/h"
+        },
+        {
+          "raw_label": "ABS",
+          "raw_value": "Yes",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Demister",
+          "raw_value": "Rear windows",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Electronic stability control",
+          "raw_value": "ESP",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Headlamps",
+          "raw_value": "Halogen",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Parking sensor",
+          "raw_value": "Rear",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Seatbelt warning",
+          "raw_value": "Yes",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Adjustable side mirrors",
+          "raw_value": "Electric",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Bumper - Front&Rear",
+          "raw_value": "Body colour",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Door handles",
+          "raw_value": "Body colour",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Door mirrors",
+          "raw_value": "Body colour",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Folding side mirrors",
+          "raw_value": "Manuals",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Front bumpers",
+          "raw_value": "Body colour",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Front grill",
+          "raw_value": "Black",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Wheels",
+          "raw_value": "Steel with hubcap",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Air conditioning",
+          "raw_value": "Manual",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Central door locking",
+          "raw_value": "Yes",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Connectivity",
+          "raw_value": "Bluetooth, USB",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Handsfree kit",
+          "raw_value": "Yes",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Loud speakers",
+          "raw_value": "2",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Plug 12V",
+          "raw_value": "1",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Power Steering",
+          "raw_value": "Yes",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Power windows",
+          "raw_value": "Front",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Steering wheel",
+          "raw_value": "Urethane",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Steering wheel audio control",
+          "raw_value": "Yes",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Upholstery",
+          "raw_value": "Fabric",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Airbags",
+          "raw_value": "Passenger",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "ISOFIX fixings",
+          "raw_value": "Rear",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Spare Wheel Type",
+          "raw_value": "Steel",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Max power HP/rpm",
+          "raw_value": "68 / 5500",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Max torque Nm",
+          "raw_value": "90 / 3500",
+          "canonical_key": "max_torque_nm",
+          "unit": "N·m"
+        },
+        {
+          "raw_label": "Curb weight (kg)",
+          "raw_value": "770",
+          "canonical_key": "curb_weight_kg",
+          "unit": "kg"
+        },
+        {
+          "raw_label": "Hill-start assist control",
+          "raw_value": "Yes",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Immobilizer",
+          "raw_value": "Yes",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Connectivity",
+          "raw_value": "USB, Bluetooth",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Radio",
+          "raw_value": "Radio CD / MP3",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Max torque Nm",
+          "raw_value": "89/3500",
+          "canonical_key": "max_torque_nm",
+          "unit": "N·m"
+        },
+        {
+          "raw_label": "Trunk volume (L)",
+          "raw_value": "239",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Wheels",
+          "raw_value": "Steel",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Sun visor",
+          "raw_value": "Yes",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Cup holder(s)",
+          "raw_value": "Rear",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Gearbox",
+          "raw_value": "Automatic",
+          "canonical_key": "transmission",
+          "unit": null
+        },
+        {
+          "raw_label": "Wheels",
+          "raw_value": "Aluminium",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Curb weight (kg)",
+          "raw_value": "765",
+          "canonical_key": "curb_weight_kg",
+          "unit": "kg"
+        },
+        {
+          "raw_label": "Max speed (km/h)",
+          "raw_value": "no data",
+          "canonical_key": "max_speed_kmh",
+          "unit": "km/h"
+        },
+        {
+          "raw_label": "Gearbox",
+          "raw_value": "Manual, Automatic",
+          "canonical_key": "transmission",
+          "unit": null
+        },
+        {
+          "raw_label": "Manufacturer Warranty",
+          "raw_value": "3 years / 100.000 km (whichever comes first)",
+          "canonical_key": "manufacturer_warranty",
+          "unit": null
+        },
+        {
+          "raw_label": "Retail Network",
+          "raw_value": "SUZUKI",
+          "canonical_key": null,
+          "unit": null
+        }
+      ],
+      "content_hash": "69e2dcc4734b244591820c3046a794e2ac9423845ac17a98e038df2894c63aad",
+      "review_status": "draft",
+      "quality_flags": [
+        "no_trim_names_extracted",
+        "many_unmapped_specs"
+      ]
+    },
+    {
+      "brand": "Suzuki",
+      "model": "Super Carry",
+      "source": {
+        "url": "https://suzuki.cami-cfao.com/en/range/suzuki-cameroon-cami/super-carry",
+        "observed_at": "2026-09-05T22:01:57Z",
+        "distributor": "CFAO Mobility Cameroon (CAMI Motors)",
+        "source_type": "official_web",
+        "country": "CM",
+        "confidence": "A"
+      },
+      "page_title": "SUPER CARRY | SUZUKI Useful and practical",
+      "category": "Pick-up single cabin",
+      "variants": [
+        "Super Carry SUPER CARRY 2D 2WD 1197p MT"
+      ],
+      "specs": [
+        {
+          "raw_label": "Displacement (cc)",
+          "raw_value": "1197",
+          "canonical_key": "engine_displacement_ml",
+          "unit": "mL"
+        },
+        {
+          "raw_label": "Fuel System",
+          "raw_value": "multipoint injection",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Fuel type",
+          "raw_value": "Petrol",
+          "canonical_key": "fuel_type",
+          "unit": null
+        },
+        {
+          "raw_label": "Max power kW/rpm",
+          "raw_value": "59/6,000",
+          "canonical_key": "max_power_kw_rpm",
+          "unit": null
+        },
+        {
+          "raw_label": "Max torque Nm",
+          "raw_value": "104/2,900",
+          "canonical_key": "max_torque_nm",
+          "unit": "N·m"
+        },
+        {
+          "raw_label": "Number of cylinders",
+          "raw_value": "4",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Body style",
+          "raw_value": "Pick-up single cabin",
+          "canonical_key": "body_style",
+          "unit": null
+        },
+        {
+          "raw_label": "Number of doors",
+          "raw_value": "2",
+          "canonical_key": "doors",
+          "unit": null
+        },
+        {
+          "raw_label": "Dimensions (Lxwxh) in mm",
+          "raw_value": "3800 x 1562 x 1883",
+          "canonical_key": "dimensions_mm",
+          "unit": "mm"
+        },
+        {
+          "raw_label": "Front tread (mm)",
+          "raw_value": "1345",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Ground clearance (mm)",
+          "raw_value": "175",
+          "canonical_key": "ground_clearance_mm",
+          "unit": "mm"
+        },
+        {
+          "raw_label": "Rear tread (mm)",
+          "raw_value": "1330",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Turning radius (m)",
+          "raw_value": "4,3",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Wheelbase (mm)",
+          "raw_value": "2110",
+          "canonical_key": "wheelbase_mm",
+          "unit": "mm"
+        },
+        {
+          "raw_label": "Gearbox",
+          "raw_value": "Manual",
+          "canonical_key": "transmission",
+          "unit": null
+        },
+        {
+          "raw_label": "Transmission",
+          "raw_value": "Front 2 WD",
+          "canonical_key": "drivetrain",
+          "unit": null
+        },
+        {
+          "raw_label": "Curb weight (kg)",
+          "raw_value": "870",
+          "canonical_key": "curb_weight_kg",
+          "unit": "kg"
+        },
+        {
+          "raw_label": "Fuel tank capacity (L)",
+          "raw_value": "30",
+          "canonical_key": "fuel_tank_l",
+          "unit": "L"
+        },
+        {
+          "raw_label": "Gross vehicle weight (kg)",
+          "raw_value": "1600",
+          "canonical_key": "gross_vehicle_weight_kg",
+          "unit": "kg"
+        },
+        {
+          "raw_label": "Number of seats",
+          "raw_value": "2",
+          "canonical_key": "seats",
+          "unit": null
+        },
+        {
+          "raw_label": "Front brake",
+          "raw_value": "Ventilated discs",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Rear brake",
+          "raw_value": "Drums",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Front suspension",
+          "raw_value": "Coil type",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Rear suspension",
+          "raw_value": "Leaf",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Tyre dimension",
+          "raw_value": "155R13LT8PR",
+          "canonical_key": "tyre_dimension",
+          "unit": null
+        },
+        {
+          "raw_label": "Max speed (km/h)",
+          "raw_value": "NO DATA",
+          "canonical_key": "max_speed_kmh",
+          "unit": "km/h"
+        },
+        {
+          "raw_label": "Adjustable side mirrors",
+          "raw_value": "Manuals",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Door mirrors",
+          "raw_value": "Black",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Folding side mirrors",
+          "raw_value": "Manuals",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Front grill",
+          "raw_value": "Body colour",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Wheels",
+          "raw_value": "Steel with hubcap",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Headlamps",
+          "raw_value": "Halogen",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Headrests",
+          "raw_value": "Front",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Seatbelts - Front",
+          "raw_value": "3 x 3 points",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Spare Wheel Type",
+          "raw_value": "Steel",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Plug 12V",
+          "raw_value": "1",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Sun visor",
+          "raw_value": "Yes",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Manufacturer Warranty",
+          "raw_value": "3 years / 100.000 km (whichever comes first)",
+          "canonical_key": "manufacturer_warranty",
+          "unit": null
+        },
+        {
+          "raw_label": "Retail Network",
+          "raw_value": "SUZUKI",
+          "canonical_key": null,
+          "unit": null
+        }
+      ],
+      "content_hash": "adbd29fc3684eef7c5c8ed0a141c5d31c0be10501fc88e85daeaba4bf6ce634c",
+      "review_status": "draft",
+      "quality_flags": [
+        "many_unmapped_specs"
+      ]
+    },
+    {
+      "brand": "Suzuki",
+      "model": "Swift",
+      "source": {
+        "url": "https://suzuki.cami-cfao.com/en/range/suzuki-cameroon-cami/New-swift",
+        "observed_at": "2026-09-05T22:01:37Z",
+        "distributor": "CFAO Mobility Cameroon (CAMI Motors)",
+        "source_type": "official_web",
+        "country": "CM",
+        "confidence": "A"
+      },
+      "page_title": "New Swift",
+      "category": null,
+      "variants": [],
+      "specs": [
+        {
+          "raw_label": "Fuel type",
+          "raw_value": "Petrol",
+          "canonical_key": "fuel_type",
+          "unit": null
+        },
+        {
+          "raw_label": "Displacement (cc)",
+          "raw_value": "1197",
+          "canonical_key": "engine_displacement_ml",
+          "unit": "mL"
+        },
+        {
+          "raw_label": "Fuel System",
+          "raw_value": "multipoint injection",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Wheelbase (mm)",
+          "raw_value": "2450",
+          "canonical_key": "wheelbase_mm",
+          "unit": "mm"
+        },
+        {
+          "raw_label": "Dimensions (Lxwxh) in mm",
+          "raw_value": "3860 x 1735 x 1520",
+          "canonical_key": "dimensions_mm",
+          "unit": "mm"
+        },
+        {
+          "raw_label": "Ground clearance (mm)",
+          "raw_value": "145",
+          "canonical_key": "ground_clearance_mm",
+          "unit": "mm"
+        },
+        {
+          "raw_label": "Transmission",
+          "raw_value": "Front 2 WD",
+          "canonical_key": "drivetrain",
+          "unit": null
+        },
+        {
+          "raw_label": "Gearbox",
+          "raw_value": "Automatic, Manual, Automatic CVT",
+          "canonical_key": "transmission",
+          "unit": null
+        },
+        {
+          "raw_label": "Curb weight (kg)",
+          "raw_value": "945",
+          "canonical_key": "curb_weight_kg",
+          "unit": "kg"
+        },
+        {
+          "raw_label": "Number of seats",
+          "raw_value": "5",
+          "canonical_key": "seats",
+          "unit": null
+        },
+        {
+          "raw_label": "Fuel tank capacity (L)",
+          "raw_value": "37",
+          "canonical_key": "fuel_tank_l",
+          "unit": "L"
+        },
+        {
+          "raw_label": "Rear suspension",
+          "raw_value": "Torsion bar",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Manufacturer Warranty",
+          "raw_value": "3 years / 100.000 km (whichever comes first)",
+          "canonical_key": "manufacturer_warranty",
+          "unit": null
+        },
+        {
+          "raw_label": "Retail Network",
+          "raw_value": "SUZUKI",
+          "canonical_key": null,
+          "unit": null
+        }
+      ],
+      "content_hash": "e37fd07a7ac75f24c1dca30c26ccf214cf6599084d6e781819e66883192d02a2",
+      "review_status": "draft",
+      "quality_flags": [
+        "no_trim_names_extracted"
+      ]
+    }
+  ]
+}
