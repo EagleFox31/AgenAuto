@@ -11,7 +11,12 @@ from crawlee.request_loaders import ThrottlingRequestManager
 from crawlee.storages import RequestQueue
 
 from ..models import SpecObservation, VehicleCandidate
-from ..normalization import canonical_display_model, normalize_space, normalize_spec, normalized_token
+from ..normalization import (
+    canonical_display_model,
+    normalize_space,
+    normalize_spec,
+    normalized_token,
+)
 from ..provenance import content_hash, official_web_source
 
 DISTRIBUTOR = "CFAO Mobility Cameroon (CAMI Motors)"
@@ -175,7 +180,10 @@ def parse_vehicle_page(
         quality_flags.append("many_unmapped_specs")
 
     factual_text = "\n".join(
-        [*(f"variant: {variant}" for variant in variants), *(f"{s.raw_label}: {s.raw_value}" for s in specs)]
+        [
+            *(f"variant: {variant}" for variant in variants),
+            *(f"{spec.raw_label}: {spec.raw_value}" for spec in specs),
+        ]
     )
     return VehicleCandidate(
         brand=config.brand,
