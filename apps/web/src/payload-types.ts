@@ -77,6 +77,13 @@ export interface Config {
     trims: Trim;
     'specification-definitions': SpecificationDefinition;
     'trim-specifications': TrimSpecification;
+    'dealer-locations': DealerLocation;
+    'dealer-brands': DealerBrand;
+    offers: Offer;
+    'price-history': PriceHistory;
+    'availability-snapshots': AvailabilitySnapshot;
+    promotions: Promotion;
+    'warranty-terms': WarrantyTerm;
     'payload-kv': PayloadKv;
     'payload-locked-documents': PayloadLockedDocument;
     'payload-preferences': PayloadPreference;
@@ -94,6 +101,13 @@ export interface Config {
     trims: TrimsSelect<false> | TrimsSelect<true>;
     'specification-definitions': SpecificationDefinitionsSelect<false> | SpecificationDefinitionsSelect<true>;
     'trim-specifications': TrimSpecificationsSelect<false> | TrimSpecificationsSelect<true>;
+    'dealer-locations': DealerLocationsSelect<false> | DealerLocationsSelect<true>;
+    'dealer-brands': DealerBrandsSelect<false> | DealerBrandsSelect<true>;
+    offers: OffersSelect<false> | OffersSelect<true>;
+    'price-history': PriceHistorySelect<false> | PriceHistorySelect<true>;
+    'availability-snapshots': AvailabilitySnapshotsSelect<false> | AvailabilitySnapshotsSelect<true>;
+    promotions: PromotionsSelect<false> | PromotionsSelect<true>;
+    'warranty-terms': WarrantyTermsSelect<false> | WarrantyTermsSelect<true>;
     'payload-kv': PayloadKvSelect<false> | PayloadKvSelect<true>;
     'payload-locked-documents': PayloadLockedDocumentsSelect<false> | PayloadLockedDocumentsSelect<true>;
     'payload-preferences': PayloadPreferencesSelect<false> | PayloadPreferencesSelect<true>;
@@ -169,7 +183,12 @@ export interface User {
 export interface DealerOrganization {
   id: number;
   name: string;
+  legalName?: string | null;
   slug: string;
+  website?: string | null;
+  phone?: string | null;
+  email?: string | null;
+  description?: string | null;
   status: 'active' | 'suspended';
   updatedAt: string;
   createdAt: string;
@@ -513,6 +532,130 @@ export interface TrimSpecification {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "dealer-locations".
+ */
+export interface DealerLocation {
+  id: number;
+  dealerOrganization: number | DealerOrganization;
+  name: string;
+  slug: string;
+  identityKey: string;
+  city: string;
+  address: string;
+  phone?: string | null;
+  email?: string | null;
+  latitude?: number | null;
+  longitude?: number | null;
+  status: 'active' | 'inactive';
+  updatedAt: string;
+  createdAt: string;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "dealer-brands".
+ */
+export interface DealerBrand {
+  id: number;
+  dealerOrganization: number | DealerOrganization;
+  brand: number | Brand;
+  identityKey: string;
+  status: 'active' | 'inactive';
+  officialSince?: string | null;
+  sourceReference: string;
+  observedAt: string;
+  notes?: string | null;
+  updatedAt: string;
+  createdAt: string;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "offers".
+ */
+export interface Offer {
+  id: number;
+  dealerOrganization: number | DealerOrganization;
+  location?: (number | null) | DealerLocation;
+  trim: number | Trim;
+  headline: string;
+  externalReference?: string | null;
+  status: 'active' | 'inactive' | 'archived';
+  sourceReference: string;
+  observedAt: string;
+  notes?: string | null;
+  updatedAt: string;
+  createdAt: string;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "price-history".
+ */
+export interface PriceHistory {
+  id: number;
+  dealerOrganization: number | DealerOrganization;
+  offer: number | Offer;
+  amount: number;
+  currency: 'XAF';
+  priceType: 'list' | 'from' | 'promotional';
+  observedAt: string;
+  sourceReference: string;
+  notes?: string | null;
+  updatedAt: string;
+  createdAt: string;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "availability-snapshots".
+ */
+export interface AvailabilitySnapshot {
+  id: number;
+  dealerOrganization: number | DealerOrganization;
+  offer: number | Offer;
+  availability: 'in_stock' | 'limited' | 'order_only' | 'out_of_stock' | 'unknown';
+  quantity?: number | null;
+  observedAt: string;
+  sourceReference: string;
+  notes?: string | null;
+  updatedAt: string;
+  createdAt: string;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "promotions".
+ */
+export interface Promotion {
+  id: number;
+  dealerOrganization: number | DealerOrganization;
+  offer: number | Offer;
+  title: string;
+  description?: string | null;
+  startsAt?: string | null;
+  endsAt?: string | null;
+  status: 'draft' | 'active' | 'expired';
+  sourceReference: string;
+  observedAt: string;
+  updatedAt: string;
+  createdAt: string;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "warranty-terms".
+ */
+export interface WarrantyTerm {
+  id: number;
+  dealerOrganization: number | DealerOrganization;
+  offer: number | Offer;
+  months?: number | null;
+  distanceKm?: number | null;
+  coverage: string;
+  status: 'active' | 'inactive';
+  sourceReference: string;
+  observedAt: string;
+  notes?: string | null;
+  updatedAt: string;
+  createdAt: string;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "payload-kv".
  */
 export interface PayloadKv {
@@ -574,6 +717,34 @@ export interface PayloadLockedDocument {
     | ({
         relationTo: 'trim-specifications';
         value: number | TrimSpecification;
+      } | null)
+    | ({
+        relationTo: 'dealer-locations';
+        value: number | DealerLocation;
+      } | null)
+    | ({
+        relationTo: 'dealer-brands';
+        value: number | DealerBrand;
+      } | null)
+    | ({
+        relationTo: 'offers';
+        value: number | Offer;
+      } | null)
+    | ({
+        relationTo: 'price-history';
+        value: number | PriceHistory;
+      } | null)
+    | ({
+        relationTo: 'availability-snapshots';
+        value: number | AvailabilitySnapshot;
+      } | null)
+    | ({
+        relationTo: 'promotions';
+        value: number | Promotion;
+      } | null)
+    | ({
+        relationTo: 'warranty-terms';
+        value: number | WarrantyTerm;
       } | null);
   globalSlug?: string | null;
   user: {
@@ -649,7 +820,12 @@ export interface UsersSelect<T extends boolean = true> {
  */
 export interface DealerOrganizationsSelect<T extends boolean = true> {
   name?: T;
+  legalName?: T;
   slug?: T;
+  website?: T;
+  phone?: T;
+  email?: T;
+  description?: T;
   status?: T;
   updatedAt?: T;
   createdAt?: T;
@@ -899,6 +1075,123 @@ export interface TrimSpecificationsSelect<T extends boolean = true> {
   reviewNotes?: T;
   reviewedBy?: T;
   reviewedAt?: T;
+  updatedAt?: T;
+  createdAt?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "dealer-locations_select".
+ */
+export interface DealerLocationsSelect<T extends boolean = true> {
+  dealerOrganization?: T;
+  name?: T;
+  slug?: T;
+  identityKey?: T;
+  city?: T;
+  address?: T;
+  phone?: T;
+  email?: T;
+  latitude?: T;
+  longitude?: T;
+  status?: T;
+  updatedAt?: T;
+  createdAt?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "dealer-brands_select".
+ */
+export interface DealerBrandsSelect<T extends boolean = true> {
+  dealerOrganization?: T;
+  brand?: T;
+  identityKey?: T;
+  status?: T;
+  officialSince?: T;
+  sourceReference?: T;
+  observedAt?: T;
+  notes?: T;
+  updatedAt?: T;
+  createdAt?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "offers_select".
+ */
+export interface OffersSelect<T extends boolean = true> {
+  dealerOrganization?: T;
+  location?: T;
+  trim?: T;
+  headline?: T;
+  externalReference?: T;
+  status?: T;
+  sourceReference?: T;
+  observedAt?: T;
+  notes?: T;
+  updatedAt?: T;
+  createdAt?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "price-history_select".
+ */
+export interface PriceHistorySelect<T extends boolean = true> {
+  dealerOrganization?: T;
+  offer?: T;
+  amount?: T;
+  currency?: T;
+  priceType?: T;
+  observedAt?: T;
+  sourceReference?: T;
+  notes?: T;
+  updatedAt?: T;
+  createdAt?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "availability-snapshots_select".
+ */
+export interface AvailabilitySnapshotsSelect<T extends boolean = true> {
+  dealerOrganization?: T;
+  offer?: T;
+  availability?: T;
+  quantity?: T;
+  observedAt?: T;
+  sourceReference?: T;
+  notes?: T;
+  updatedAt?: T;
+  createdAt?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "promotions_select".
+ */
+export interface PromotionsSelect<T extends boolean = true> {
+  dealerOrganization?: T;
+  offer?: T;
+  title?: T;
+  description?: T;
+  startsAt?: T;
+  endsAt?: T;
+  status?: T;
+  sourceReference?: T;
+  observedAt?: T;
+  updatedAt?: T;
+  createdAt?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "warranty-terms_select".
+ */
+export interface WarrantyTermsSelect<T extends boolean = true> {
+  dealerOrganization?: T;
+  offer?: T;
+  months?: T;
+  distanceKm?: T;
+  coverage?: T;
+  status?: T;
+  sourceReference?: T;
+  observedAt?: T;
+  notes?: T;
   updatedAt?: T;
   createdAt?: T;
 }
