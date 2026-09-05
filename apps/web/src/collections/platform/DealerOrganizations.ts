@@ -1,6 +1,11 @@
 import type { CollectionConfig } from 'payload'
 
-import { dealerScopeForUser, isAdmin } from '../../access/rbac.js'
+import {
+  isPlatformMarketUser,
+  publicActiveOrDealerRead,
+  scopedDealerMutation,
+} from '../../access/marketAccess.js'
+import { isAdmin } from '../../access/rbac.js'
 import { auditAfterChange, auditAfterDelete } from '../../hooks/audit'
 
 function normalizeSlug(value: unknown): string {
@@ -16,29 +21,33 @@ function normalizeSlug(value: unknown): string {
 export const DealerOrganizations: CollectionConfig = {
   slug: 'dealer-organizations',
   admin: {
-    group: 'Platform',
+    group: 'Market',
     useAsTitle: 'name',
-    defaultColumns: ['name', 'slug', 'status', 'updatedAt'],
+    defaultColumns: ['name', 'legalName', 'slug', 'status', 'updatedAt'],
   },
   access: {
-    read: ({ req }) => dealerScopeForUser(req.user, 'id'),
-    create: ({ req }) => isAdmin(req.user),
-    update: ({ req }) => isAdmin(req.user),
+    read: ({ req }) => publicActiveOrDealerRead(req.user, 'id'),
+    create: ({ req }) => isPlatformMarketUser(req.user),
+    update: ({ req }) => scopedDealerMutation(req.user, 'structure', 'id'),
     delete: ({ req }) => isAdmin(req.user),
   },
   fields: [
-    {
-      name: 'name',
-      type: 'text',
-      required: true,
-    },
+    { name: 'name', type: 'text', required: true },
+    { name: 'legalName', type: 'text' },
     {
       name: 'slug',
       type: 'text',
       required: true,
       unique: true,
       index: true,
+      access: {
+        update: ({ req }) => isPlatformMarketUser(req.user),
+      },
     },
+    { name: 'website', type: 'text' },
+    { name: 'phone', type: 'text' },
+    { name: 'email', type: 'email' },
+    { name: 'description', type: 'textarea' },
     {
       name: 'status',
       type: 'select',
@@ -49,13 +58,22 @@ export const DealerOrganizations: CollectionConfig = {
         { label: 'Suspended', value: 'suspended' },
       ],
       index: true,
+      access: {
+        update: ({ req }) => isPlatformMarketUser(req.user),
+      },
     },
   ],
   hooks: {
     beforeValidate: [
-      ({ data }) => {
+      ({ data, originalDoc, req }) => {
         if (!data) return data
-        data.slug = normalizeSlug(data.slug || data.name)
+
+        if (isPlatformMarketUser(req.user)) {
+          data.slug = normalizeSlug(data.slug || data.name || originalDoc?.slug)
+        } else if (originalDoc?.slug) {
+          data.slug = originalDoc.slug
+        }
+
         return data
       },
     ],
