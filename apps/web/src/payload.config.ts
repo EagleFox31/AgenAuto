@@ -15,6 +15,15 @@ import {
   TrimSpecifications,
   VehicleModels,
 } from './collections/automotive'
+import {
+  AvailabilitySnapshots,
+  DealerBrands,
+  DealerLocations,
+  Offers,
+  PriceHistory,
+  Promotions,
+  WarrantyTerms,
+} from './collections/market'
 import { AuditLogs } from './collections/platform/AuditLogs'
 import { DealerOrganizations } from './collections/platform/DealerOrganizations'
 import { Media } from './collections/platform/Media'
@@ -44,6 +53,13 @@ export default buildConfig({
     secureCanonicalCollection(Trims),
     secureCanonicalCollection(SpecificationDefinitions),
     secureCanonicalCollection(TrimSpecifications),
+    DealerLocations,
+    DealerBrands,
+    Offers,
+    PriceHistory,
+    AvailabilitySnapshots,
+    Promotions,
+    WarrantyTerms,
   ],
   db: postgresAdapter({
     pool: {
