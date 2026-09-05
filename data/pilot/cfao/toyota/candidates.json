@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "dataset": "cameroon-pilot-cfao-toyota",
-  "generated_at": "2026-09-05T22:01:59Z",
+  "generated_at": "2026-09-05T23:25:15Z",
   "collector": "cfao_toyota",
   "distributor": "CFAO Mobility Cameroon (CAMI Motors)",
   "publication_policy": "draft_only_until_payload_review",
@@ -11,7 +11,7 @@
       "model": "Belta",
       "source": {
         "url": "https://toyota.cami-cfao.com/en/range/toyota-cameroon-cami/belta",
-        "observed_at": "2026-09-05T22:00:49Z",
+        "observed_at": "2026-09-05T23:24:05Z",
         "distributor": "CFAO Mobility Cameroon (CAMI Motors)",
         "source_type": "official_web",
         "country": "CM",
@@ -20,7 +20,6 @@
       "page_title": "BELTA | TOYOTA Journey in style",
       "category": "Sedan",
       "variants": [
-        "Luxury is at your fingertips with the new Toyota Belta. It is generously comfortable thanks to a spacious interior in high-end fabric or leather seats, front and rear air conditioning depending on the version, and a luggage space with a capacity of 478L. This sedan is equipped with an advanced multimedia infotainment system with 7\" touch screen controls. So stay safely connected with Android Auto, Apple CarPlay and much more. Enjoy the city safely and discover new sensations with the Toyota Belta.",
         "Belta 1.5 Petrol LIFE 5-Manual",
         "Belta 1.5 Petrol LIFE 4-Auto",
         "Belta 1.5 Petrol DELUXE 5-Manual",
@@ -752,21 +751,9 @@
           "raw_value": "Manual, Automatic",
           "canonical_key": "transmission",
           "unit": null
-        },
-        {
-          "raw_label": "Manufacturer Warranty",
-          "raw_value": "5 years / 150 000 Km",
-          "canonical_key": "manufacturer_warranty",
-          "unit": null
-        },
-        {
-          "raw_label": "Retail Network",
-          "raw_value": "TOYOTA",
-          "canonical_key": null,
-          "unit": null
         }
       ],
-      "content_hash": "b7e5e48d0263951e882fdb4438b431532f10654dd8687f3f83aacd12501c3509",
+      "content_hash": "b0fa1925c54d559f630b4b767487eb21312312cbcacd3c20bb9622095aa10fde",
       "review_status": "draft",
       "quality_flags": [
         "many_unmapped_specs"
@@ -777,7 +764,7 @@
       "model": "Coaster",
       "source": {
         "url": "https://toyota.cami-cfao.com/en/range/toyota-cameroon-cami/coaster",
-        "observed_at": "2026-09-05T22:00:51Z",
+        "observed_at": "2026-09-05T23:24:07Z",
         "distributor": "CFAO Mobility Cameroon (CAMI Motors)",
         "source_type": "official_web",
         "country": "CM",
@@ -786,7 +773,6 @@
       "page_title": "COASTER | TOYOTA Designed for long working life and exceptional economy.",
       "category": "Bus",
       "variants": [
-        "The Toyota Coaster sets the benchmark for collective transport. Designed for reliability, it combines optimized capacity, low operating costs, and maximum safety. A solution built for long-term commercial success and sustainable profitability.",
         "Coaster 4.2L Bus Standard 30-Seats",
         "Coaster 4.2L Bus Comfort Safety 30-Seats",
         "Coaster 4.2L Bus Deluxe 30-Seats",
@@ -1274,12 +1260,6 @@
           "unit": null
         },
         {
-          "raw_label": "Manufacturer's warranty",
-          "raw_value": "3 years / 100 000 km",
-          "canonical_key": "manufacturer_warranty",
-          "unit": null
-        },
-        {
           "raw_label": "Seatbelt pretentioner",
           "raw_value": "Front",
           "canonical_key": null,
@@ -1350,21 +1330,9 @@
           "raw_value": "3350",
           "canonical_key": "curb_weight_kg",
           "unit": "kg"
-        },
-        {
-          "raw_label": "Manufacturer Warranty",
-          "raw_value": "3 years / 100 000 Km",
-          "canonical_key": "manufacturer_warranty",
-          "unit": null
-        },
-        {
-          "raw_label": "Retail Network",
-          "raw_value": "TOYOTA",
-          "canonical_key": null,
-          "unit": null
         }
       ],
-      "content_hash": "a22b71940f5d5e1f9896aafaaddd4fabb86ca3147e9d1cfd217659f647c07e3e",
+      "content_hash": "084bf76d38f14fd653f838d1b78018682033ee3e7b7d002f9b263e45dfff7b12",
       "review_status": "draft",
       "quality_flags": [
         "many_unmapped_specs"
@@ -1375,7 +1343,7 @@
       "model": "Corolla Cross",
       "source": {
         "url": "https://toyota.cami-cfao.com/en/range/toyota-cameroon-cami/corolla-cross",
-        "observed_at": "2026-09-05T22:00:55Z",
+        "observed_at": "2026-09-05T23:24:11Z",
         "distributor": "CFAO Mobility Cameroon (CAMI Motors)",
         "source_type": "official_web",
         "country": "CM",
@@ -1384,7 +1352,6 @@
       "page_title": "Corolla Cross – SUV Toyota | Prix & Disponibilité",
       "category": "SUV",
       "variants": [
-        "The Corolla Cross combines the timeless elegance of the Corolla with the strength of an SUV. With its bold design, advanced technologies, and premium comfort, it becomes the perfect companion for your city drives as well as your weekend getaways.",
         "Corolla Cross 1.8L Limited CVT",
         "Corolla Cross 1.8L Executive CVT",
         "Corolla Cross 1.8L GR-S CVT"
@@ -2181,21 +2148,9 @@
           "raw_value": "Torsion bar, Torsion bar GR-S",
           "canonical_key": null,
           "unit": null
-        },
-        {
-          "raw_label": "Manufacturer Warranty",
-          "raw_value": "3 years / 100 000 Km",
-          "canonical_key": "manufacturer_warranty",
-          "unit": null
-        },
-        {
-          "raw_label": "Retail Network",
-          "raw_value": "TOYOTA",
-          "canonical_key": null,
-          "unit": null
         }
       ],
-      "content_hash": "5302c3fd31e5155aaf9cb19b95f38a07e08a0445c714d81cc853c9ac136d65c9",
+      "content_hash": "72737fc5271813a7ace0043e7e0d963e3ffe35bd897f4cc252b3f8de4d50bd4d",
       "review_status": "draft",
       "quality_flags": [
         "many_unmapped_specs"
@@ -2206,7 +2161,7 @@
       "model": "Corolla Sedan",
       "source": {
         "url": "https://toyota.cami-cfao.com/en/range/toyota-cameroon-cami/corolla-Sedan",
-        "observed_at": "2026-09-05T22:00:53Z",
+        "observed_at": "2026-09-05T23:24:09Z",
         "distributor": "CFAO Mobility Cameroon (CAMI Motors)",
         "source_type": "official_web",
         "country": "CM",
@@ -2215,7 +2170,6 @@
       "page_title": "COROLLA | TOYOTA Accessible excellence.",
       "category": "Sedan",
       "variants": [
-        "Discover the Corolla Sedan, the three-box sedan that combines a prestigious design, premium comfort, and legendary reliability. It stands as the global benchmark for compact sedans.",
         "Corolla Sedan 1.8L Limited CVT"
       ],
       "specs": [
@@ -2800,21 +2754,9 @@
           "raw_value": "0 to 100km/h : 11",
           "canonical_key": null,
           "unit": null
-        },
-        {
-          "raw_label": "Manufacturer Warranty",
-          "raw_value": "3 years / 100 000 Km",
-          "canonical_key": "manufacturer_warranty",
-          "unit": null
-        },
-        {
-          "raw_label": "Retail Network",
-          "raw_value": "TOYOTA",
-          "canonical_key": null,
-          "unit": null
         }
       ],
-      "content_hash": "07f783ffbbd09a6be384deb6624486729be9e9a707230b9cf5b1c4c1c74f92d9",
+      "content_hash": "75f6cd57671b72db43944df21e304b2b04682c2f8e9e031e649c0e0aef68b2d3",
       "review_status": "draft",
       "quality_flags": [
         "many_unmapped_specs"
@@ -2825,7 +2767,7 @@
       "model": "Fortuner",
       "source": {
         "url": "https://toyota.cami-cfao.com/en/range/toyota-cameroon-cami/fortuner",
-        "observed_at": "2026-09-05T22:00:57Z",
+        "observed_at": "2026-09-05T23:24:13Z",
         "distributor": "CFAO Mobility Cameroon (CAMI Motors)",
         "source_type": "official_web",
         "country": "CM",
@@ -2834,7 +2776,6 @@
       "page_title": "FORTUNER | TOYOTA Luxury & Technology",
       "category": "SUV",
       "variants": [
-        "Discover the Fortuner, a 7-seat 4x4 designed for those who demand strength and comfort. Built on a ladder-frame chassis, it inherits the legendary reliability of the Hilux and the off-road capabilities of the Land Cruiser lineage. Ideal for professionals and families alike, it blends power, safety, and elegance.",
         "Fortuner 2.7L Comfort 6-Auto 4x4",
         "Fortuner 2.4L Comfort 6-Auto 4x4",
         "Fortuner 2.4L Executive 6-Auto 4x4",
@@ -3879,21 +3820,9 @@
           "raw_value": "7,4",
           "canonical_key": "consumption_l_100km",
           "unit": "L/100km"
-        },
-        {
-          "raw_label": "Manufacturer Warranty",
-          "raw_value": "3 years / 100 000 Km",
-          "canonical_key": "manufacturer_warranty",
-          "unit": null
-        },
-        {
-          "raw_label": "Retail Network",
-          "raw_value": "TOYOTA",
-          "canonical_key": null,
-          "unit": null
         }
       ],
-      "content_hash": "92878d22793b649cc5d2f6184672dac908771162001c0c7e6b54e58d8f4274cf",
+      "content_hash": "e01ee7e028aee8b2732ec891bbdbb854c5248bbcc658dd94327ff8e46c80c844",
       "review_status": "draft",
       "quality_flags": [
         "many_unmapped_specs"
@@ -3904,7 +3833,7 @@
       "model": "Hiace",
       "source": {
         "url": "https://toyota.cami-cfao.com/en/range/toyota-cameroon-cami/hiace",
-        "observed_at": "2026-09-05T22:00:59Z",
+        "observed_at": "2026-09-05T23:24:15Z",
         "distributor": "CFAO Mobility Cameroon (CAMI Motors)",
         "source_type": "official_web",
         "country": "CM",
@@ -3913,7 +3842,6 @@
       "page_title": "HIACE | TOYOTA Designed specifically to adapt to contemporary lifestyles.",
       "category": "Small Bus",
       "variants": [
-        "Designed to meet the demands of passenger transport, the Toyota Hiace Bus combines legendary durability with optimal seating capacity. A true pillar of professional mobility, it ensures reliable performance on every journey—whether for urban transit, tourism, or intercity travel.",
         "Hiace BUS 3.0L Bus 15-Seats A/C",
         "Hiace BUS 2.5L Bus 15-Seats A/C",
         "Hiace BUS 3.0L Bus High roof 15-Seats A/C",
@@ -4645,21 +4573,9 @@
           "raw_value": "0 to 100km/h : 31.1",
           "canonical_key": null,
           "unit": null
-        },
-        {
-          "raw_label": "Manufacturer Warranty",
-          "raw_value": "3 years / 100 000 Km",
-          "canonical_key": "manufacturer_warranty",
-          "unit": null
-        },
-        {
-          "raw_label": "Retail Network",
-          "raw_value": "TOYOTA",
-          "canonical_key": null,
-          "unit": null
         }
       ],
-      "content_hash": "13af04c15f5146e0e4b2c91a35da90b7c13639fac6fc1980f857f0610685d0fa",
+      "content_hash": "dc461d6176686759d1eeeea14a94beefa5226dca9a944b17d11ce4e5a4133f68",
       "review_status": "draft",
       "quality_flags": [
         "many_unmapped_specs"
@@ -4670,7 +4586,7 @@
       "model": "Hiace GD",
       "source": {
         "url": "https://toyota.cami-cfao.com/en/range/toyota-cameroon-cami/Hiace-GD",
-        "observed_at": "2026-09-05T22:00:45Z",
+        "observed_at": "2026-09-05T23:24:01Z",
         "distributor": "CFAO Mobility Cameroon (CAMI Motors)",
         "source_type": "official_web",
         "country": "CM",
@@ -5233,21 +5149,9 @@
           "raw_value": "Leaf, Torsion bar",
           "canonical_key": null,
           "unit": null
-        },
-        {
-          "raw_label": "Manufacturer Warranty",
-          "raw_value": "3 years / 100 000 Km",
-          "canonical_key": "manufacturer_warranty",
-          "unit": null
-        },
-        {
-          "raw_label": "Retail Network",
-          "raw_value": "TOYOTA",
-          "canonical_key": null,
-          "unit": null
         }
       ],
-      "content_hash": "152cc9a18df85268f6377bcf6ffc28498fe593c6bba8a5f4888a6372536e36c4",
+      "content_hash": "d6cb19e950975faf2b402754f09b653b34fbf40ddc4009f6ba9d9b1eab3ece21",
       "review_status": "draft",
       "quality_flags": [
         "many_unmapped_specs"
@@ -5258,7 +5162,7 @@
       "model": "Hiace van",
       "source": {
         "url": "https://toyota.cami-cfao.com/en/range/toyota-cameroon-cami/hiace-van",
-        "observed_at": "2026-09-05T22:01:01Z",
+        "observed_at": "2026-09-05T23:24:17Z",
         "distributor": "CFAO Mobility Cameroon (CAMI Motors)",
         "source_type": "official_web",
         "country": "CM",
@@ -5816,21 +5720,9 @@
           "raw_value": "1710",
           "canonical_key": "curb_weight_kg",
           "unit": "kg"
-        },
-        {
-          "raw_label": "Manufacturer Warranty",
-          "raw_value": "3 years / 100 000 Km",
-          "canonical_key": "manufacturer_warranty",
-          "unit": null
-        },
-        {
-          "raw_label": "Retail Network",
-          "raw_value": "TOYOTA",
-          "canonical_key": null,
-          "unit": null
         }
       ],
-      "content_hash": "52dc7c1854ff5bade523684139f68e95f5e61d4538fa9de14345137424257381",
+      "content_hash": "12feeb2fa1c8c85c56af8311b4a5c912129f3bd7fcf0347e5b9dc8d4b784390c",
       "review_status": "draft",
       "quality_flags": [
         "many_unmapped_specs"
@@ -5841,7 +5733,7 @@
       "model": "Hilux",
       "source": {
         "url": "https://toyota.cami-cfao.com/en/range/toyota-cameroon-cami/hilux",
-        "observed_at": "2026-09-05T22:01:04Z",
+        "observed_at": "2026-09-05T23:24:20Z",
         "distributor": "CFAO Mobility Cameroon (CAMI Motors)",
         "source_type": "official_web",
         "country": "CM",
@@ -5850,7 +5742,6 @@
       "page_title": "HILUX | TOYOTA Built to last and endure.",
       "category": "Pick-up single cabin",
       "variants": [
-        "The Hilux is more than a pickup—it’s a legend. Designed for demanding professionals and modern adventurers, it combines industrial toughness, versatility, and contemporary comfort. Whether it’s hard work or far-off journeys, the Hilux is ready to take on every challenge.",
         "Hilux 3.0L Country Single Cab 5-MT 4x4",
         "Hilux 3.0L Country Double Cab 5-MT 4x4",
         "Hilux 2.4GD Comfort Single Cab 6-MT 4x4",
@@ -6372,12 +6263,6 @@
           "raw_label": "Headrests",
           "raw_value": "Front",
           "canonical_key": null,
-          "unit": null
-        },
-        {
-          "raw_label": "Manufacturer's warranty",
-          "raw_value": "3 years / 100 000 km",
-          "canonical_key": "manufacturer_warranty",
           "unit": null
         },
         {
@@ -7393,21 +7278,9 @@
           "raw_value": "1769",
           "canonical_key": "curb_weight_kg",
           "unit": "kg"
-        },
-        {
-          "raw_label": "Manufacturer Warranty",
-          "raw_value": "3 years / 100 000 Km",
-          "canonical_key": "manufacturer_warranty",
-          "unit": null
-        },
-        {
-          "raw_label": "Retail Network",
-          "raw_value": "TOYOTA",
-          "canonical_key": null,
-          "unit": null
         }
       ],
-      "content_hash": "1503224cb9eae93ad18c0e0fba3f2f124d035734d0ad689b0ba64ae9bfa44c19",
+      "content_hash": "928cd318dfa28ea4e59059edb065836ba61cf7f7a20896e76945a65c82d0e6a4",
       "review_status": "draft",
       "quality_flags": [
         "many_unmapped_specs"
@@ -7418,7 +7291,7 @@
       "model": "Land Cruiser 300",
       "source": {
         "url": "https://toyota.cami-cfao.com/en/range/toyota-cameroon-cami/land-cruiser-300",
-        "observed_at": "2026-09-05T22:01:06Z",
+        "observed_at": "2026-09-05T23:24:21Z",
         "distributor": "CFAO Mobility Cameroon (CAMI Motors)",
         "source_type": "official_web",
         "country": "CM",
@@ -7427,7 +7300,6 @@
       "page_title": "LAND CRUISER 300 | TOYOTA Writes a new page in this legendary story.",
       "category": "Station wagon",
       "variants": [
-        "The Land Cruiser 300 captures Toyota’s legendary strength and reliability. Built on the GA-F platform of the New Global Architecture (TNGA)*, It retains its separate chassis for maximum durability, while lightening its structure to offer superior handling and improved suspension.",
         "Land Cruiser 300 LC300 3.5L VX 10-AT",
         "Land Cruiser 300 LC300 3.3L VX 10-AT",
         "Land Cruiser 300 LC300 3.5L Turbo Petrol VX-R 10-AT",
@@ -8659,21 +8531,9 @@
           "raw_value": "0 to 100km/h : 7.8",
           "canonical_key": null,
           "unit": null
-        },
-        {
-          "raw_label": "Manufacturer Warranty",
-          "raw_value": "3 years / 100 000 Km",
-          "canonical_key": "manufacturer_warranty",
-          "unit": null
-        },
-        {
-          "raw_label": "Retail Network",
-          "raw_value": "TOYOTA",
-          "canonical_key": null,
-          "unit": null
         }
       ],
-      "content_hash": "58ab769e1dc3dd7339fb0bda4a264ed07ec8dd23cca85fea95ee8848a93befe3",
+      "content_hash": "f884e77b3d75f6d4aa43ae81796ba05b48052a72420373d7a81a669309272db7",
       "review_status": "draft",
       "quality_flags": [
         "many_unmapped_specs"
@@ -8684,7 +8544,7 @@
       "model": "Land Cruiser 76",
       "source": {
         "url": "https://toyota.cami-cfao.com/en/range/toyota-cameroon-cami/land-cruiser-76",
-        "observed_at": "2026-09-05T22:01:07Z",
+        "observed_at": "2026-09-05T23:24:23Z",
         "distributor": "CFAO Mobility Cameroon (CAMI Motors)",
         "source_type": "official_web",
         "country": "CM",
@@ -8693,7 +8553,6 @@
       "page_title": "LAND CRUISER 70 Series | TOYOTA Meet the rugged African legend !",
       "category": "Station wagon",
       "variants": [
-        "The Land Cruiser 76 is the icon of 4x4 station wagons. Built to last, it combines simple mechanics, legendary toughness, and uncompromising off-road capability. A vehicle designed for those who value reliability above all else.",
         "Land Cruiser 76 LC76 4.2L Standard 5-MT 4x4",
         "Land Cruiser 76 LC76 2.8L GD Standard 5-MT 4x4",
         "Land Cruiser 76 LC76 2.8L GD Deluxe 6-AT 4x4"
@@ -9544,21 +9403,9 @@
           "raw_value": "2245",
           "canonical_key": "curb_weight_kg",
           "unit": "kg"
-        },
-        {
-          "raw_label": "Manufacturer Warranty",
-          "raw_value": "3 years / 100 000 Km",
-          "canonical_key": "manufacturer_warranty",
-          "unit": null
-        },
-        {
-          "raw_label": "Retail Network",
-          "raw_value": "TOYOTA",
-          "canonical_key": null,
-          "unit": null
         }
       ],
-      "content_hash": "c3473425642fa05cc853db0f8674d8ce7267fa0d10d1fb4e5170e2523edc8f5f",
+      "content_hash": "cc237ea7a234610167099de90dbb1412c3b1be5850def4a14053011132e6e77d",
       "review_status": "draft",
       "quality_flags": [
         "many_unmapped_specs"
@@ -9569,7 +9416,7 @@
       "model": "Land Cruiser 78",
       "source": {
         "url": "https://toyota.cami-cfao.com/en/range/toyota-cameroon-cami/land-cruiser-78",
-        "observed_at": "2026-09-05T22:01:09Z",
+        "observed_at": "2026-09-05T23:24:25Z",
         "distributor": "CFAO Mobility Cameroon (CAMI Motors)",
         "source_type": "official_web",
         "country": "CM",
@@ -9578,7 +9425,6 @@
       "page_title": "LAND CRUISER 70 Series | TOYOTA Meet the rugged African legend !",
       "category": "Station wagon",
       "variants": [
-        "The Land Cruiser 78, nicknamed “Troopy,” is more than a 4x4—it’s the ultimate benchmark for personnel transport and expedition missions. Engineered for extreme reliability, it offers exceptional interior space and a heavy-duty architecture built to withstand the harshest conditions.",
         "Land Cruiser 78 4.2L Hard Top 5-Manual 4x4",
         "Land Cruiser 78 2.8L GD Hard Top 6-AT 4x4",
         "Land Cruiser 78 2.8L GD Hard Top 5-MT 4x4"
@@ -10297,21 +10143,9 @@
           "raw_value": "2555",
           "canonical_key": "curb_weight_kg",
           "unit": "kg"
-        },
-        {
-          "raw_label": "Manufacturer Warranty",
-          "raw_value": "3 years / 100 000 Km",
-          "canonical_key": "manufacturer_warranty",
-          "unit": null
-        },
-        {
-          "raw_label": "Retail Network",
-          "raw_value": "TOYOTA",
-          "canonical_key": null,
-          "unit": null
         }
       ],
-      "content_hash": "36ff525e1b3e0c7995e14ed5fd35b25400db5e8e0cb11d68b20aa88239aede7b",
+      "content_hash": "c95be72007a7029bc9da5cd5e69f2190691b93ea52f2f47645df3b47b02d42f9",
       "review_status": "draft",
       "quality_flags": [
         "many_unmapped_specs"
@@ -10322,7 +10156,7 @@
       "model": "Land Cruiser 79",
       "source": {
         "url": "https://toyota.cami-cfao.com/en/range/toyota-cameroon-cami/land-cruiser-79",
-        "observed_at": "2026-09-05T22:01:11Z",
+        "observed_at": "2026-09-05T23:24:27Z",
         "distributor": "CFAO Mobility Cameroon (CAMI Motors)",
         "source_type": "official_web",
         "country": "CM",
@@ -10331,7 +10165,6 @@
       "page_title": "LAND CRUISER 70 Series | TOYOTA Meet the rugged African legend !",
       "category": "Pick-up single cabin",
       "variants": [
-        "The Land Cruiser 79 is the ultimate benchmark among 4x4 pickups for the most demanding environments. Built for maximum payload, it combines legendary toughness, simplified mechanics, and Toyota reliability. Ideal for humanitarian work, mining operations, or logistical missions, it leaves no room for compromise.",
         "Land Cruiser 79 LC79 2.8L GD Single cab 5-MT 4X4",
         "Land Cruiser 79 LC79 4.2L Pick-up Double Cab 5-MT 4x4",
         "Land Cruiser 79 LC79 2.8L GD Single cab 6-AT 4X4",
@@ -11247,21 +11080,9 @@
           "raw_value": "2540",
           "canonical_key": "curb_weight_kg",
           "unit": "kg"
-        },
-        {
-          "raw_label": "Manufacturer Warranty",
-          "raw_value": "3 years / 100 000 Km",
-          "canonical_key": "manufacturer_warranty",
-          "unit": null
-        },
-        {
-          "raw_label": "Retail Network",
-          "raw_value": "TOYOTA",
-          "canonical_key": null,
-          "unit": null
         }
       ],
-      "content_hash": "42b8e0b061b3018ad1b098e407718abe7d79bb530da6c529a16219ddaa2f15eb",
+      "content_hash": "8671ace43c90ab251defa7777ddd15f1a792b86727e30a519b584cb25a9fd6a6",
       "review_status": "draft",
       "quality_flags": [
         "many_unmapped_specs"
@@ -11272,7 +11093,7 @@
       "model": "Land Cruiser Prado",
       "source": {
         "url": "https://toyota.cami-cfao.com/en/range/toyota-cameroon-cami/prado",
-        "observed_at": "2026-09-05T22:01:14Z",
+        "observed_at": "2026-09-05T23:24:29Z",
         "distributor": "CFAO Mobility Cameroon (CAMI Motors)",
         "source_type": "official_web",
         "country": "CM",
@@ -11281,7 +11102,6 @@
       "page_title": "TOYOYA LAND CRUISER PRADO | 70 years of heritage",
       "category": "SUV",
       "variants": [
-        "The Land Cruiser Prado captures Toyota’s 4x4 heritage, combining off-road endurance with high-end on-road comfort. Built on a body-on-frame chassis, it delivers unmatched structural strength, ensuring safety and longevity even on the toughest terrains",
         "Land Cruiser Prado 2.8L Turbo Diesel All Rounder 8A/T",
         "Land Cruiser Prado 2.7L Petrol Limited 6A/T",
         "Land Cruiser Prado 2.8L Turbo Diesel Limited 8A/T",
@@ -12600,21 +12420,9 @@
           "raw_value": "Automatic",
           "canonical_key": null,
           "unit": null
-        },
-        {
-          "raw_label": "Manufacturer Warranty",
-          "raw_value": "3 years / 100 000 Km",
-          "canonical_key": "manufacturer_warranty",
-          "unit": null
-        },
-        {
-          "raw_label": "Retail Network",
-          "raw_value": "TOYOTA",
-          "canonical_key": null,
-          "unit": null
         }
       ],
-      "content_hash": "53614be9e0231b527639a7921a516860766ee52bdbca82441790f7cbca121e8d",
+      "content_hash": "b3c45023d89e57d46e56f26993a7361cf3176b20c816c1ef770221e7af86ab2e",
       "review_status": "draft",
       "quality_flags": [
         "many_unmapped_specs"
@@ -12625,7 +12433,7 @@
       "model": "RAV4",
       "source": {
         "url": "https://toyota.cami-cfao.com/en/range/toyota-cameroon-cami/rav4",
-        "observed_at": "2026-09-05T22:01:15Z",
+        "observed_at": "2026-09-05T23:24:31Z",
         "distributor": "CFAO Mobility Cameroon (CAMI Motors)",
         "source_type": "official_web",
         "country": "CM",
@@ -12634,7 +12442,6 @@
       "page_title": "RAV4 | TOYOTA The SUV. Redefined.",
       "category": "SUV",
       "variants": [
-        "Since 1994, the RAV4 has set the benchmark for innovation and reliability in the SUV segment. Today, it enters its sixth generation with a bold design, powerful engines, and advanced technologies for a smooth, connected driving experience.",
         "RAV4 2.0L Active CVT 4X2",
         "RAV4 2.0L Comfort CVT 4X4",
         "RAV4 2.0L Adventure CVT 4X4"
@@ -13611,21 +13418,9 @@
           "raw_value": "0 to 100km/h : 10.3",
           "canonical_key": null,
           "unit": null
-        },
-        {
-          "raw_label": "Manufacturer Warranty",
-          "raw_value": "3 years / 100 000 Km",
-          "canonical_key": "manufacturer_warranty",
-          "unit": null
-        },
-        {
-          "raw_label": "Retail Network",
-          "raw_value": "TOYOTA",
-          "canonical_key": null,
-          "unit": null
         }
       ],
-      "content_hash": "eea5a9c8e581bade83cbad2a0c67a821f16910d01416bec9012d38d783e7fcbe",
+      "content_hash": "1c1e3d6ecac233fc632d6aba31d9af743150baad18b3b667f502def950dfec74",
       "review_status": "draft",
       "quality_flags": [
         "many_unmapped_specs"
@@ -13636,7 +13431,7 @@
       "model": "Rumion",
       "source": {
         "url": "https://toyota.cami-cfao.com/en/range/toyota-cameroon-cami/toyota-rumion",
-        "observed_at": "2026-09-05T22:01:23Z",
+        "observed_at": "2026-09-05T23:24:39Z",
         "distributor": "CFAO Mobility Cameroon (CAMI Motors)",
         "source_type": "official_web",
         "country": "CM",
@@ -14394,21 +14189,9 @@
           "raw_value": "1135",
           "canonical_key": "curb_weight_kg",
           "unit": "kg"
-        },
-        {
-          "raw_label": "Manufacturer Warranty",
-          "raw_value": "5 years / 150 000 Km",
-          "canonical_key": "manufacturer_warranty",
-          "unit": null
-        },
-        {
-          "raw_label": "Retail Network",
-          "raw_value": "TOYOTA",
-          "canonical_key": null,
-          "unit": null
         }
       ],
-      "content_hash": "b2701ad0164770d1ebacee85284d9dcfd3bdde663f8a122d4f99d6be1bd5798c",
+      "content_hash": "4b1f0e7c88fbf65bf204be5149ad4a841d98a0141628666cc9dced8b98f3582c",
       "review_status": "draft",
       "quality_flags": [
         "many_unmapped_specs"
@@ -14419,7 +14202,7 @@
       "model": "Rush",
       "source": {
         "url": "https://toyota.cami-cfao.com/en/range/toyota-cameroon-cami/rush",
-        "observed_at": "2026-09-05T22:01:17Z",
+        "observed_at": "2026-09-05T23:24:33Z",
         "distributor": "CFAO Mobility Cameroon (CAMI Motors)",
         "source_type": "official_web",
         "country": "CM",
@@ -14428,7 +14211,6 @@
       "page_title": "RUSH | TOYOTA New SUV generation",
       "category": "SUV",
       "variants": [
-        "Choose your ideal journey between city and family road with the Rush. Available with manual or automatic transmissions, this multi-talented SUV meets all your requirements. It has a 220 mm ground clearance and great suspensions system that allows comfortable driving in and out of town. A low fuel consumption is guaranteed with its powerful 1,5L engine. It can take up to 7 passengers in addition to luggage. Let’s the Rush be your best partner to go on a family adventure keeping you safe, comfortable and entertained with full compliment of advanced multimedia system.",
         "Rush 1.5L City 5-Manual",
         "Rush 1.5L City 4-Auto"
       ],
@@ -15004,12 +14786,6 @@
           "unit": null
         },
         {
-          "raw_label": "Manufacturer's warranty",
-          "raw_value": "3 years / 100 000 km",
-          "canonical_key": "manufacturer_warranty",
-          "unit": null
-        },
-        {
           "raw_label": "Number of spare wheels",
           "raw_value": "1",
           "canonical_key": null,
@@ -15146,21 +14922,9 @@
           "raw_value": "Manual, Automatic",
           "canonical_key": "transmission",
           "unit": null
-        },
-        {
-          "raw_label": "Manufacturer Warranty",
-          "raw_value": "3 years / 100 000 Km",
-          "canonical_key": "manufacturer_warranty",
-          "unit": null
-        },
-        {
-          "raw_label": "Retail Network",
-          "raw_value": "TOYOTA",
-          "canonical_key": null,
-          "unit": null
         }
       ],
-      "content_hash": "0fbb78c80b287e1e1c6e5a757cb5c3f72eced99818121a9667f3b9631ed07c19",
+      "content_hash": "7f365f1790d1ac0ab868056bf8902804a138a1b1480ce33f50a9862c34e96c87",
       "review_status": "draft",
       "quality_flags": [
         "many_unmapped_specs"
@@ -15171,7 +14935,7 @@
       "model": "Starlet",
       "source": {
         "url": "https://toyota.cami-cfao.com/en/range/toyota-cameroon-cami/starlet",
-        "observed_at": "2026-09-05T22:01:19Z",
+        "observed_at": "2026-09-05T23:24:35Z",
         "distributor": "CFAO Mobility Cameroon (CAMI Motors)",
         "source_type": "official_web",
         "country": "CM",
@@ -15180,7 +14944,6 @@
       "page_title": "STARLET | TOYOTA Your best ally in the city",
       "category": "Hatchback",
       "variants": [
-        "The Starlet is the compact city car designed for smart, economical mobility. Fuel efficiency, simplified maintenance, and Toyota’s legendary reliability make it the ideal choice for individuals and transport professionals alike.",
         "New Starlet 1.5 Petrol LIFE 5-Manual",
         "New Starlet 1.5 Petrol LIFE 4-Automatic",
         "New Starlet 1.5 Petrol STYLE 5-Manual",
@@ -15973,21 +15736,9 @@
           "raw_value": "Manual, Automatic",
           "canonical_key": "transmission",
           "unit": null
-        },
-        {
-          "raw_label": "Manufacturer Warranty",
-          "raw_value": "5 years / 150 000 Km",
-          "canonical_key": "manufacturer_warranty",
-          "unit": null
-        },
-        {
-          "raw_label": "Retail Network",
-          "raw_value": "TOYOTA",
-          "canonical_key": null,
-          "unit": null
         }
       ],
-      "content_hash": "abbbbd2456acbdf6749dd56dc834d5461c8fd839014e40cd0988c9f5c2dccf4d",
+      "content_hash": "4cdb0c041c3ee41cdaabdb33d9dba245a4a77270685d433ced043d0b2ace17fb",
       "review_status": "draft",
       "quality_flags": [
         "many_unmapped_specs"
@@ -15998,7 +15749,7 @@
       "model": "Starlet Cross",
       "source": {
         "url": "https://toyota.cami-cfao.com/en/range/toyota-cameroon-cami/starlet-cross",
-        "observed_at": "2026-09-05T22:01:21Z",
+        "observed_at": "2026-09-05T23:24:37Z",
         "distributor": "CFAO Mobility Cameroon (CAMI Motors)",
         "source_type": "official_web",
         "country": "CM",
@@ -16007,7 +15758,6 @@
       "page_title": "STARLET CROSS | TOYOTA Your best ally in the city",
       "category": "SUV",
       "variants": [
-        "The Starlet Cross reinvents urban driving with intuitive, connected technologies. Compact and versatile, it integrates smart solutions to simplify your daily life and make every journey more enjoyable.",
         "Starlet Cross 1.5 Petrol STYLE 5-Manual",
         "Starlet Cross 1.5 Petrol STYLE 4-Automatic",
         "Starlet Cross 1.5 Petrol DELUXE 4-Automatic"
@@ -16714,21 +16464,9 @@
           "raw_value": "Manual, Automatic",
           "canonical_key": "transmission",
           "unit": null
-        },
-        {
-          "raw_label": "Manufacturer Warranty",
-          "raw_value": "3 years / 100 000 Km",
-          "canonical_key": "manufacturer_warranty",
-          "unit": null
-        },
-        {
-          "raw_label": "Retail Network",
-          "raw_value": "TOYOTA",
-          "canonical_key": null,
-          "unit": null
         }
       ],
-      "content_hash": "8a98f7d208ed05bbd70ffb31e364be1b0d85ef7e66969b2935203af80bfc48f7",
+      "content_hash": "5d85bf5eeb39fafd7fedc23031833f940e386a1a86cc9e1b1ce48a9988dfda4b",
       "review_status": "draft",
       "quality_flags": [
         "many_unmapped_specs"
@@ -16739,7 +16477,7 @@
       "model": "Urban Cruiser",
       "source": {
         "url": "https://toyota.cami-cfao.com/en/range/toyota-cameroon-cami/urban-cruiser",
-        "observed_at": "2026-09-05T22:01:28Z",
+        "observed_at": "2026-09-05T23:24:43Z",
         "distributor": "CFAO Mobility Cameroon (CAMI Motors)",
         "source_type": "official_web",
         "country": "CM",
@@ -16748,7 +16486,6 @@
       "page_title": "URBAN CRUISER | TOYOTA Hit the streets and go find your fun",
       "category": "SUV",
       "variants": [
-        "Designed for the city and ready for adventure, the Urban Cruiser blends bold design, smart technologies, and outstanding efficiency. Compact yet versatile, it’s the perfect partner for your urban journeys and weekend getaways.",
         "Urban Cruiser 1.5 Petrol STYLE 5-Manual",
         "Urban Cruiser Urban Cruiser 1.5L 4AT DELUXE",
         "Urban Cruiser 1.5 Petrol STYLE 4-Automatic",
@@ -17624,21 +17361,9 @@
           "raw_value": "Manual, Automatic, 4-speed Automatic",
           "canonical_key": "transmission",
           "unit": null
-        },
-        {
-          "raw_label": "Manufacturer Warranty",
-          "raw_value": "5 years / 150 000 Km",
-          "canonical_key": "manufacturer_warranty",
-          "unit": null
-        },
-        {
-          "raw_label": "Retail Network",
-          "raw_value": "TOYOTA",
-          "canonical_key": null,
-          "unit": null
         }
       ],
-      "content_hash": "ac625073cd846031519dd014350b25f2d67694d83d26154d4e6e8f78f3b1e44d",
+      "content_hash": "3385e42106a7fd990f40c73175062818eff64ca4ba7593dd263db3f8133bbef9",
       "review_status": "draft",
       "quality_flags": [
         "many_unmapped_specs"
@@ -17649,7 +17374,7 @@
       "model": "Vitz",
       "source": {
         "url": "https://toyota.cami-cfao.com/en/range/toyota-cameroon-cami/toyota-vitz",
-        "observed_at": "2026-09-05T22:01:25Z",
+        "observed_at": "2026-09-05T23:24:41Z",
         "distributor": "CFAO Mobility Cameroon (CAMI Motors)",
         "source_type": "official_web",
         "country": "CM",
@@ -17658,7 +17383,6 @@
       "page_title": "Toyota Vitz | Where less gives you more",
       "category": "Compacts",
       "variants": [
-        "Discover the Toyota Vitz, the compact city car designed for economic performance and smart mobility. Minimal fuel consumption, exceptional agility, and Toyota reliability—everything you need to optimize your daily journeys.",
         "Vitz 1.0 Petrol LIFE 5-Manual",
         "Vitz 1.0 Petrol STYLE 5-Manual",
         "Vitz 1.0 Petrol STYLE AMT-Automatic"
@@ -18239,21 +17963,9 @@
           "raw_value": "Manual, Automatic (AMT)",
           "canonical_key": "transmission",
           "unit": null
-        },
-        {
-          "raw_label": "Manufacturer Warranty",
-          "raw_value": "3 years / 100 000 Km",
-          "canonical_key": "manufacturer_warranty",
-          "unit": null
-        },
-        {
-          "raw_label": "Retail Network",
-          "raw_value": "TOYOTA",
-          "canonical_key": null,
-          "unit": null
         }
       ],
-      "content_hash": "799bbaefd56959fb7bea73e55407d7868f8fe965c8e8c55c201c1208ccfab10b",
+      "content_hash": "d9a69121ddfdc553d0fd5e60286fa43e1f1c837ee136264fb4dd571227c7477d",
       "review_status": "draft",
       "quality_flags": [
         "many_unmapped_specs"

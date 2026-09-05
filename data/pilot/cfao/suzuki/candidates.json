@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "dataset": "cameroon-pilot-cfao-suzuki",
-  "generated_at": "2026-09-05T22:01:59Z",
+  "generated_at": "2026-09-05T23:25:15Z",
   "collector": "cfao_suzuki",
   "distributor": "CFAO Mobility Cameroon (CAMI Motors)",
   "publication_policy": "draft_only_until_payload_review",
@@ -11,7 +11,7 @@
       "model": "Across",
       "source": {
         "url": "https://suzuki.cami-cfao.com/en/range/suzuki-cameroon-cami/New_Across",
-        "observed_at": "2026-09-05T22:01:39Z",
+        "observed_at": "2026-09-05T23:24:55Z",
         "distributor": "CFAO Mobility Cameroon (CAMI Motors)",
         "source_type": "official_web",
         "country": "CM",
@@ -19,9 +19,7 @@
       },
       "page_title": "New Across | SUZUKI",
       "category": null,
-      "variants": [
-        "Every journey deserves an upgrade. With its bold design, advanced features and premium comfort, the new Suzuki Across transforms your everyday drive."
-      ],
+      "variants": [],
       "specs": [
         {
           "raw_label": "Fuel type",
@@ -88,30 +86,20 @@
           "raw_value": "Torsion bar",
           "canonical_key": null,
           "unit": null
-        },
-        {
-          "raw_label": "Manufacturer Warranty",
-          "raw_value": "3 years / 100.000 km (whichever comes first)",
-          "canonical_key": "manufacturer_warranty",
-          "unit": null
-        },
-        {
-          "raw_label": "Retail Network",
-          "raw_value": "SUZUKI",
-          "canonical_key": null,
-          "unit": null
         }
       ],
-      "content_hash": "87943ed2e2a309f4c5b9196b3ff3fcfd90c8d3e325d53a013ad8f697006ff6a4",
+      "content_hash": "4f31d74c9838a7091346995f8c57b15743a0cd94dec4dd0f65edf20dcdc69a6e",
       "review_status": "draft",
-      "quality_flags": []
+      "quality_flags": [
+        "no_trim_names_extracted"
+      ]
     },
     {
       "brand": "Suzuki",
       "model": "Alto",
       "source": {
         "url": "https://suzuki.cami-cfao.com/en/range/suzuki-cameroon-cami/alto",
-        "observed_at": "2026-09-05T22:01:41Z",
+        "observed_at": "2026-09-05T23:24:57Z",
         "distributor": "CFAO Mobility Cameroon (CAMI Motors)",
         "source_type": "official_web",
         "country": "CM",
@@ -562,21 +550,9 @@
           "raw_value": "Black",
           "canonical_key": null,
           "unit": null
-        },
-        {
-          "raw_label": "Manufacturer Warranty",
-          "raw_value": "3 years / 100.000 km (whichever comes first)",
-          "canonical_key": "manufacturer_warranty",
-          "unit": null
-        },
-        {
-          "raw_label": "Retail Network",
-          "raw_value": "SUZUKI",
-          "canonical_key": null,
-          "unit": null
         }
       ],
-      "content_hash": "121c591b4f8056671a46a429ab78cd2d030f42c4854864c11633d0f8e5541c16",
+      "content_hash": "f228c3276d0192bf65269feb40f0311d26f80f8eda9b963b177394effae55349",
       "review_status": "draft",
       "quality_flags": [
         "many_unmapped_specs"
@@ -587,7 +563,7 @@
       "model": "Baleno",
       "source": {
         "url": "https://suzuki.cami-cfao.com/en/range/suzuki-cameroon-cami/Baleno",
-        "observed_at": "2026-09-05T22:01:32Z",
+        "observed_at": "2026-09-05T23:24:48Z",
         "distributor": "CFAO Mobility Cameroon (CAMI Motors)",
         "source_type": "official_web",
         "country": "CM",
@@ -1154,21 +1130,9 @@
           "raw_value": "Manual, Automatic",
           "canonical_key": "transmission",
           "unit": null
-        },
-        {
-          "raw_label": "Manufacturer Warranty",
-          "raw_value": "3 years / 100.000 km (whichever comes first)",
-          "canonical_key": "manufacturer_warranty",
-          "unit": null
-        },
-        {
-          "raw_label": "Retail Network",
-          "raw_value": "SUZUKI",
-          "canonical_key": null,
-          "unit": null
         }
       ],
-      "content_hash": "d274a27150027d1abc59daea2c08413d94555d905b406da84298187ef50e0be9",
+      "content_hash": "5004428684661ad7c0070ee0d9b5710b178dd1be15290db9ddaeade4e2db5de9",
       "review_status": "draft",
       "quality_flags": [
         "many_unmapped_specs"
@@ -1179,7 +1143,7 @@
       "model": "Celerio",
       "source": {
         "url": "https://suzuki.cami-cfao.com/en/range/suzuki-cameroon-cami/celerio",
-        "observed_at": "2026-09-05T22:01:43Z",
+        "observed_at": "2026-09-05T23:24:59Z",
         "distributor": "CFAO Mobility Cameroon (CAMI Motors)",
         "source_type": "official_web",
         "country": "CM",
@@ -1708,21 +1672,9 @@
           "raw_value": "Manual, Automatic, Automatic (AMT)",
           "canonical_key": "transmission",
           "unit": null
-        },
-        {
-          "raw_label": "Manufacturer Warranty",
-          "raw_value": "3 years / 100.000 km (whichever comes first)",
-          "canonical_key": "manufacturer_warranty",
-          "unit": null
-        },
-        {
-          "raw_label": "Retail Network",
-          "raw_value": "SUZUKI",
-          "canonical_key": null,
-          "unit": null
         }
       ],
-      "content_hash": "032c2d53b172ffd26aad64042e104355f1749fac037baeeae4ddb08e12f342bd",
+      "content_hash": "46e84baa3cb13f9d7bcdfa4850084a3a07772db679960f24369afa320be46794",
       "review_status": "draft",
       "quality_flags": [
         "many_unmapped_specs"
@@ -1733,7 +1685,7 @@
       "model": "Dzire",
       "source": {
         "url": "https://suzuki.cami-cfao.com/en/range/suzuki-cameroon-cami/New-Dzire",
-        "observed_at": "2026-09-05T22:01:35Z",
+        "observed_at": "2026-09-05T23:24:51Z",
         "distributor": "CFAO Mobility Cameroon (CAMI Motors)",
         "source_type": "official_web",
         "country": "CM",
@@ -1802,21 +1754,9 @@
           "raw_value": "Torsion bar, Coil type",
           "canonical_key": null,
           "unit": null
-        },
-        {
-          "raw_label": "Manufacturer Warranty",
-          "raw_value": "3 years / 100.000 km (whichever comes first)",
-          "canonical_key": "manufacturer_warranty",
-          "unit": null
-        },
-        {
-          "raw_label": "Retail Network",
-          "raw_value": "SUZUKI",
-          "canonical_key": null,
-          "unit": null
         }
       ],
-      "content_hash": "bb5c4105b959a48db042a4845f5c953dc76961f21b8fa1e32d5c0f6995e79105",
+      "content_hash": "740e4a8ce2846a48a23735f1cf12b6c6113524224f26b85ea75876ce6cf0b3fe",
       "review_status": "draft",
       "quality_flags": [
         "no_trim_names_extracted"
@@ -1827,7 +1767,7 @@
       "model": "Eeco",
       "source": {
         "url": "https://suzuki.cami-cfao.com/en/range/suzuki-cameroon-cami/eeco",
-        "observed_at": "2026-09-05T22:01:45Z",
+        "observed_at": "2026-09-05T23:25:01Z",
         "distributor": "CFAO Mobility Cameroon (CAMI Motors)",
         "source_type": "official_web",
         "country": "CM",
@@ -2211,21 +2151,9 @@
           "raw_value": "Passenger, Driver",
           "canonical_key": null,
           "unit": null
-        },
-        {
-          "raw_label": "Manufacturer Warranty",
-          "raw_value": "3 years / 100.000 km (whichever comes first)",
-          "canonical_key": "manufacturer_warranty",
-          "unit": null
-        },
-        {
-          "raw_label": "Retail Network",
-          "raw_value": "SUZUKI",
-          "canonical_key": null,
-          "unit": null
         }
       ],
-      "content_hash": "f34998e9f566601bc59c4841ac2417da13b20ec7989cde98ed87766a5b79167e",
+      "content_hash": "2bdca5f8dabeff5d6edcef3f56ca57edcb66cc4d9663212fe25eaf6bec8d6f32",
       "review_status": "draft",
       "quality_flags": [
         "many_unmapped_specs"
@@ -2236,7 +2164,7 @@
       "model": "Ertiga",
       "source": {
         "url": "https://suzuki.cami-cfao.com/en/range/suzuki-cameroon-cami/ertiga",
-        "observed_at": "2026-09-05T22:01:47Z",
+        "observed_at": "2026-09-05T23:25:03Z",
         "distributor": "CFAO Mobility Cameroon (CAMI Motors)",
         "source_type": "official_web",
         "country": "CM",
@@ -2803,21 +2731,9 @@
           "raw_value": "Manual, Automatic",
           "canonical_key": "transmission",
           "unit": null
-        },
-        {
-          "raw_label": "Manufacturer Warranty",
-          "raw_value": "3 years / 100.000 km (whichever comes first)",
-          "canonical_key": "manufacturer_warranty",
-          "unit": null
-        },
-        {
-          "raw_label": "Retail Network",
-          "raw_value": "SUZUKI",
-          "canonical_key": null,
-          "unit": null
         }
       ],
-      "content_hash": "a1f93957fa0c70728d84916188c87dc3fcde26a5583c5a4946ab49dea9c0d788",
+      "content_hash": "c776105586164ec0fd8be964f95176dc853ce595ede5faf6d637b6a3748c37a2",
       "review_status": "draft",
       "quality_flags": [
         "many_unmapped_specs"
@@ -2828,7 +2744,7 @@
       "model": "FRONX",
       "source": {
         "url": "https://suzuki.cami-cfao.com/en/range/suzuki-cameroon-cami/FRONX",
-        "observed_at": "2026-09-05T22:01:33Z",
+        "observed_at": "2026-09-05T23:24:49Z",
         "distributor": "CFAO Mobility Cameroon (CAMI Motors)",
         "source_type": "official_web",
         "country": "CM",
@@ -3285,21 +3201,9 @@
           "raw_value": "1,010",
           "canonical_key": "curb_weight_kg",
           "unit": "kg"
-        },
-        {
-          "raw_label": "Manufacturer Warranty",
-          "raw_value": "3 years / 100.000 km (whichever comes first)",
-          "canonical_key": "manufacturer_warranty",
-          "unit": null
-        },
-        {
-          "raw_label": "Retail Network",
-          "raw_value": "SUZUKI",
-          "canonical_key": null,
-          "unit": null
         }
       ],
-      "content_hash": "a16f3d013150e5f1f125d7537534f86cd044d6102fcedd49e6128d2b8c04e3bc",
+      "content_hash": "da3ff35f356aa4de2ec8954bb868fab578d80226293c5235e37f31617fb03d59",
       "review_status": "draft",
       "quality_flags": [
         "many_unmapped_specs"
@@ -3310,7 +3214,7 @@
       "model": "Grand Vitara",
       "source": {
         "url": "https://suzuki.cami-cfao.com/en/range/suzuki-cameroon-cami/grand-vitara",
-        "observed_at": "2026-09-05T22:01:49Z",
+        "observed_at": "2026-09-05T23:25:05Z",
         "distributor": "CFAO Mobility Cameroon (CAMI Motors)",
         "source_type": "official_web",
         "country": "CM",
@@ -3319,7 +3223,6 @@
       "page_title": "Grand Vitara | SUZUKI",
       "category": "SUV",
       "variants": [
-        "Every road is a new story, a new discovery and there is a new breed of SUV that can conquer them all. With its bold design and sophisticated interiors, the Grand Vitara is here to dominate every road.",
         "Grand Vitara GRAND VITARA GL 2WD 1462p MT",
         "Grand Vitara GRAND VITARA GL 2WD 1462p AT",
         "Grand Vitara GRAND VITARA GLX 4x2 1462p MT",
@@ -3992,21 +3895,9 @@
           "raw_value": "1160",
           "canonical_key": "curb_weight_kg",
           "unit": "kg"
-        },
-        {
-          "raw_label": "Manufacturer Warranty",
-          "raw_value": "3 years / 100.000 km (whichever comes first)",
-          "canonical_key": "manufacturer_warranty",
-          "unit": null
-        },
-        {
-          "raw_label": "Retail Network",
-          "raw_value": "SUZUKI",
-          "canonical_key": null,
-          "unit": null
         }
       ],
-      "content_hash": "45f860796e2ef17da52714804facd1f19afc2d272c7cc92bb1cc458d8139335c",
+      "content_hash": "76912d171fd974870cb7609a112890330cddd958950cf3d96434b47367c00a54",
       "review_status": "draft",
       "quality_flags": [
         "many_unmapped_specs"
@@ -4017,7 +3908,7 @@
       "model": "Jimny",
       "source": {
         "url": "https://suzuki.cami-cfao.com/en/range/suzuki-cameroon-cami/jimny",
-        "observed_at": "2026-09-05T22:01:51Z",
+        "observed_at": "2026-09-05T23:25:07Z",
         "distributor": "CFAO Mobility Cameroon (CAMI Motors)",
         "source_type": "official_web",
         "country": "CM",
@@ -4092,21 +3983,9 @@
           "raw_value": "Coil type",
           "canonical_key": null,
           "unit": null
-        },
-        {
-          "raw_label": "Manufacturer Warranty",
-          "raw_value": "3 years / 100.000 km (whichever comes first)",
-          "canonical_key": "manufacturer_warranty",
-          "unit": null
-        },
-        {
-          "raw_label": "Retail Network",
-          "raw_value": "SUZUKI",
-          "canonical_key": null,
-          "unit": null
         }
       ],
-      "content_hash": "4a1158f717fc5a3602ccf421c081e5cb33f2a3e0f2ed829617e27388739248ef",
+      "content_hash": "040522992cb9d23dde56a46770c42be887be5996d21991b3d094db8105c98fcf",
       "review_status": "draft",
       "quality_flags": [
         "no_trim_names_extracted"
@@ -4117,7 +3996,7 @@
       "model": "Jimny 5 doors",
       "source": {
         "url": "https://suzuki.cami-cfao.com/en/range/suzuki-cameroon-cami/jimny-5-doors",
-        "observed_at": "2026-09-05T22:01:53Z",
+        "observed_at": "2026-09-05T23:25:09Z",
         "distributor": "CFAO Mobility Cameroon (CAMI Motors)",
         "source_type": "official_web",
         "country": "CM",
@@ -4564,21 +4443,9 @@
           "raw_value": "Manual, Automatic",
           "canonical_key": "transmission",
           "unit": null
-        },
-        {
-          "raw_label": "Manufacturer Warranty",
-          "raw_value": "3 years / 100.000 km (whichever comes first)",
-          "canonical_key": "manufacturer_warranty",
-          "unit": null
-        },
-        {
-          "raw_label": "Retail Network",
-          "raw_value": "SUZUKI",
-          "canonical_key": null,
-          "unit": null
         }
       ],
-      "content_hash": "a0e5026e0f8a45e29ed455dd4c4dfbeef448f231f0572c499e98277264607b2a",
+      "content_hash": "e60a040a7f63fbfd80ec70a0dfef9e5544a8968ed80dd559139c3faae6fb390a",
       "review_status": "draft",
       "quality_flags": [
         "no_trim_names_extracted",
@@ -4590,7 +4457,7 @@
       "model": "S-Presso",
       "source": {
         "url": "https://suzuki.cami-cfao.com/en/range/suzuki-cameroon-cami/spresso",
-        "observed_at": "2026-09-05T22:01:56Z",
+        "observed_at": "2026-09-05T23:25:11Z",
         "distributor": "CFAO Mobility Cameroon (CAMI Motors)",
         "source_type": "official_web",
         "country": "CM",
@@ -5031,21 +4898,9 @@
           "raw_value": "Manual, Automatic",
           "canonical_key": "transmission",
           "unit": null
-        },
-        {
-          "raw_label": "Manufacturer Warranty",
-          "raw_value": "3 years / 100.000 km (whichever comes first)",
-          "canonical_key": "manufacturer_warranty",
-          "unit": null
-        },
-        {
-          "raw_label": "Retail Network",
-          "raw_value": "SUZUKI",
-          "canonical_key": null,
-          "unit": null
         }
       ],
-      "content_hash": "69e2dcc4734b244591820c3046a794e2ac9423845ac17a98e038df2894c63aad",
+      "content_hash": "689a6b7b72726de5bb66571f8d2c0d19dee9351944d051308154f6451d5db9e2",
       "review_status": "draft",
       "quality_flags": [
         "no_trim_names_extracted",
@@ -5057,7 +4912,7 @@
       "model": "Super Carry",
       "source": {
         "url": "https://suzuki.cami-cfao.com/en/range/suzuki-cameroon-cami/super-carry",
-        "observed_at": "2026-09-05T22:01:57Z",
+        "observed_at": "2026-09-05T23:25:13Z",
         "distributor": "CFAO Mobility Cameroon (CAMI Motors)",
         "source_type": "official_web",
         "country": "CM",
@@ -5290,21 +5145,9 @@
           "raw_value": "Yes",
           "canonical_key": null,
           "unit": null
-        },
-        {
-          "raw_label": "Manufacturer Warranty",
-          "raw_value": "3 years / 100.000 km (whichever comes first)",
-          "canonical_key": "manufacturer_warranty",
-          "unit": null
-        },
-        {
-          "raw_label": "Retail Network",
-          "raw_value": "SUZUKI",
-          "canonical_key": null,
-          "unit": null
         }
       ],
-      "content_hash": "adbd29fc3684eef7c5c8ed0a141c5d31c0be10501fc88e85daeaba4bf6ce634c",
+      "content_hash": "3692336adfe30cc26305ef5dce6c111e4a2b06042c348bc36449023be324f9d4",
       "review_status": "draft",
       "quality_flags": [
         "many_unmapped_specs"
@@ -5315,7 +5158,7 @@
       "model": "Swift",
       "source": {
         "url": "https://suzuki.cami-cfao.com/en/range/suzuki-cameroon-cami/New-swift",
-        "observed_at": "2026-09-05T22:01:37Z",
+        "observed_at": "2026-09-05T23:24:53Z",
         "distributor": "CFAO Mobility Cameroon (CAMI Motors)",
         "source_type": "official_web",
         "country": "CM",
@@ -5396,21 +5239,9 @@
           "raw_value": "Torsion bar",
           "canonical_key": null,
           "unit": null
-        },
-        {
-          "raw_label": "Manufacturer Warranty",
-          "raw_value": "3 years / 100.000 km (whichever comes first)",
-          "canonical_key": "manufacturer_warranty",
-          "unit": null
-        },
-        {
-          "raw_label": "Retail Network",
-          "raw_value": "SUZUKI",
-          "canonical_key": null,
-          "unit": null
         }
       ],
-      "content_hash": "e37fd07a7ac75f24c1dca30c26ccf214cf6599084d6e781819e66883192d02a2",
+      "content_hash": "e8ef9cd6377cfe4f9e275b89b26c484f3766530247058e732f54ed25712b8194",
       "review_status": "draft",
       "quality_flags": [
         "no_trim_names_extracted"
