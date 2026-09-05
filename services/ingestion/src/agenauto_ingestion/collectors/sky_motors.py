@@ -1,10 +1,13 @@
 from __future__ import annotations
 
 from collections.abc import Iterable
+from dataclasses import replace
 from urllib.parse import urljoin, urlparse
 
 from bs4 import BeautifulSoup
 from crawlee.crawlers import BeautifulSoupCrawler, BeautifulSoupCrawlingContext
+from crawlee.request_loaders import ThrottlingRequestManager
+from crawlee.storages import RequestQueue
 
 from ..models import SpecObservation, VehicleCandidate
 from ..normalization import canonical_jetour_model, normalize_space, normalize_spec
@@ -51,7 +54,11 @@ def _iter_colon_pairs(soup: BeautifulSoup) -> Iterable[tuple[str, str]]:
         yield pair
 
 
-def parse_vehicle_page(html: str, url: str, observed_at: str | None = None) -> VehicleCandidate:
+def parse_vehicle_page(
+    html: str,
+    url: str,
+    observed_at: str | None = None,
+) -> VehicleCandidate:
     if not _is_allowed_url(url):
         raise ValueError("Sky Motors collector only accepts official Sky Motors URLs.")
 
@@ -95,12 +102,53 @@ def parse_vehicle_page(html: str, url: str, observed_at: str | None = None) -> V
     )
 
 
-async def discover_vehicle_urls() -> list[str]:
-    discovered: set[str] = set()
-    crawler = BeautifulSoupCrawler(
-        max_requests_per_crawl=1,
+def _candidate_preference_key(candidate: VehicleCandidate) -> tuple[int, int, int, int, str]:
+    mapped_specs = sum(spec.canonical_key is not None for spec in candidate.specs)
+    return (
+        -mapped_specs,
+        -len(candidate.specs),
+        len(candidate.quality_flags),
+        -len(candidate.variants),
+        candidate.source.url,
+    )
+
+
+def dedupe_vehicle_candidates(candidates: Iterable[VehicleCandidate]) -> list[VehicleCandidate]:
+    grouped: dict[str, list[VehicleCandidate]] = {}
+    for candidate in candidates:
+        grouped.setdefault(candidate.model, []).append(candidate)
+
+    deduped: list[VehicleCandidate] = []
+    for model in sorted(grouped):
+        group = grouped[model]
+        chosen = sorted(group, key=_candidate_preference_key)[0]
+        if len(group) > 1:
+            flags = tuple(
+                dict.fromkeys((*chosen.quality_flags, "duplicate_model_pages_detected"))
+            )
+            chosen = replace(chosen, quality_flags=flags)
+        deduped.append(chosen)
+
+    return deduped
+
+
+async def _build_crawler(max_requests_per_crawl: int) -> BeautifulSoupCrawler:
+    request_queue = await RequestQueue.open()
+    request_manager = ThrottlingRequestManager(
+        inner=request_queue,
+        domains=sorted(ALLOWED_HOSTS),
+        request_manager_opener=RequestQueue.open,
+    )
+    return BeautifulSoupCrawler(
+        request_manager=request_manager,
+        max_requests_per_crawl=max_requests_per_crawl,
         respect_robots_txt_file=True,
     )
+
+
+async def discover_vehicle_urls() -> list[str]:
+    discovered: set[str] = set()
+    crawler = await _build_crawler(max_requests_per_crawl=1)
 
     @crawler.router.default_handler
     async def handle_catalog(context: BeautifulSoupCrawlingContext) -> None:
@@ -115,14 +163,11 @@ async def discover_vehicle_urls() -> list[str]:
 async def crawl_sky_motors() -> list[VehicleCandidate]:
     urls = await discover_vehicle_urls()
     candidates: list[VehicleCandidate] = []
-    crawler = BeautifulSoupCrawler(
-        max_requests_per_crawl=len(urls),
-        respect_robots_txt_file=True,
-    )
+    crawler = await _build_crawler(max_requests_per_crawl=len(urls))
 
     @crawler.router.default_handler
     async def handle_vehicle(context: BeautifulSoupCrawlingContext) -> None:
         candidates.append(parse_vehicle_page(str(context.soup), str(context.request.url)))
 
     await crawler.run(urls)
-    return sorted(candidates, key=lambda candidate: candidate.model)
+    return dedupe_vehicle_candidates(candidates)
