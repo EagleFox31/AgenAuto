@@ -21,7 +21,9 @@ def validate_dataset(path: Path, minimum_models: int = 5) -> None:
     payload = json.loads(path.read_text(encoding="utf-8"))
     vehicles = payload.get("vehicles", [])
     if len(vehicles) < minimum_models:
-        raise ValueError(f"Expected at least {minimum_models} Jetour models, found {len(vehicles)}.")
+        raise ValueError(
+            f"Expected at least {minimum_models} Jetour models, found {len(vehicles)}."
+        )
 
     models: set[str] = set()
     for vehicle in vehicles:
@@ -65,7 +67,10 @@ def run_sky_motors(output_root: Path) -> Path:
             "vehicle_count": len(vehicles),
             "models": [candidate.model for candidate in vehicles],
             "source_urls": [candidate.source.url for candidate in vehicles],
-            "notes": "Factual structured observations only; no marketing copy, images or brochure files.",
+            "notes": (
+                "Factual structured observations only; no marketing copy, "
+                "images or brochure files."
+            ),
         },
     )
     validate_dataset(output_path)
