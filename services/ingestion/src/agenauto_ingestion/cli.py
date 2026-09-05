@@ -6,10 +6,15 @@ import json
 from pathlib import Path
 from urllib.parse import urlparse
 
-from .collectors.cfao import CFAO_BRANDS, DISTRIBUTOR as CFAO_DISTRIBUTOR, crawl_cfao
+from .collectors.cfao import CFAO_BRANDS, crawl_cfao
+from .collectors.cfao import DISTRIBUTOR as CFAO_DISTRIBUTOR
 from .collectors.sky_motors import (
     ALLOWED_HOSTS as SKY_ALLOWED_HOSTS,
+)
+from .collectors.sky_motors import (
     DISTRIBUTOR as SKY_DISTRIBUTOR,
+)
+from .collectors.sky_motors import (
     crawl_sky_motors,
 )
 from .provenance import utc_now_iso
