@@ -8,7 +8,7 @@
 | Discovery/Search | Build on platform | Filters, ranking, SEO projections | Payload/PostgreSQL first |
 | Dealer Market Model | Build on platform | Dealers, offers, price history, availability | Payload collections |
 | Lead Workflow | Build on platform | Quote/test-drive/contact intent | Payload + AgenAuto feature logic |
-| Data Ingestion | Build / Adapt | CSV, Excel, API, collectors, matching | Payload jobs + optional Python service |
+| Data Ingestion | Build / Adapt | Public-source collectors, CSV/Excel/PDF parsing, matching and confidence | `services/ingestion` on Crawlee Python + Payload review/promotion boundary |
 | Shared UI | Build / Adapt | Product-grade reusable components | `packages/ui` + licensed OSS where useful |
 | Observability | Integrate | Error monitoring and diagnostics | Sentry first |
 | Project Automation | Reuse | Bootstrap Projects v2, backlog metadata and Issue/PR lifecycle synchronization | `EagleFox31/appfactory-project-automation@v1` |

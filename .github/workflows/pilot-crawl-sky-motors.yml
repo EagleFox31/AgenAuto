@@ -1,0 +1,52 @@
+name: Pilot crawl - Sky Motors
+
+on:
+  push:
+    branches:
+      - feat/cameroon-pilot-ingestion
+    paths:
+      - 'services/ingestion/**'
+      - '.github/workflows/pilot-crawl-sky-motors.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  crawl-and-validate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - name: Checkout pilot branch
+        uses: actions/checkout@v4
+        with:
+          ref: feat/cameroon-pilot-ingestion
+          fetch-depth: 0
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+          cache: pip
+          cache-dependency-path: services/ingestion/pyproject.toml
+      - name: Install ingestion service
+        run: python -m pip install -e 'services/ingestion[dev]'
+      - name: Lint
+        run: ruff check services/ingestion
+      - name: Tests
+        run: pytest services/ingestion/tests
+      - name: Crawl official Sky Motors Jetour catalogue
+        run: agenauto-ingest sky-motors --output-root data/pilot/sky-motors
+      - name: Validate generated pilot data
+        run: agenauto-ingest validate --input data/pilot/sky-motors/candidates.json --minimum-models 5
+      - name: Commit factual pilot observations
+        shell: bash
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add data/pilot/sky-motors/candidates.json data/pilot/sky-motors/manifest.json
+          if git diff --cached --quiet; then
+            echo 'No pilot data changes.'
+            exit 0
+          fi
+          git commit -m 'data: refresh Sky Motors Jetour pilot observations [skip ci]'
+          git push origin HEAD:feat/cameroon-pilot-ingestion

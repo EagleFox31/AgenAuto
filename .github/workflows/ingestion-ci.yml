@@ -1,0 +1,44 @@
+name: Ingestion CI
+
+on:
+  pull_request:
+    paths:
+      - 'services/ingestion/**'
+      - 'data/pilot/**'
+      - '.github/workflows/ingestion-ci.yml'
+  push:
+    branches: [main]
+    paths:
+      - 'services/ingestion/**'
+      - 'data/pilot/**'
+      - '.github/workflows/ingestion-ci.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  python-ingestion:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+          cache: pip
+          cache-dependency-path: services/ingestion/pyproject.toml
+      - name: Install ingestion service
+        run: python -m pip install -e 'services/ingestion[dev]'
+      - name: Lint
+        run: ruff check services/ingestion
+      - name: Tests
+        run: pytest services/ingestion/tests
+      - name: Validate committed Sky Motors dataset when present
+        shell: bash
+        run: |
+          if [ -f data/pilot/sky-motors/candidates.json ]; then
+            agenauto-ingest validate --input data/pilot/sky-motors/candidates.json
+          else
+            echo 'Sky Motors generated dataset not committed yet.'
+          fi
