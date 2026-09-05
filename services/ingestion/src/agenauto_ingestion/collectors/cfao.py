@@ -238,7 +238,12 @@ async def _build_crawler(
         domains=sorted(config.allowed_hosts),
         request_manager_opener=RequestQueue.open,
     )
-    concurrency = ConcurrencySettings(max_concurrency=2, max_tasks_per_minute=30)
+    concurrency = ConcurrencySettings(
+        min_concurrency=1,
+        desired_concurrency=2,
+        max_concurrency=2,
+        max_tasks_per_minute=30,
+    )
     return BeautifulSoupCrawler(
         request_manager=request_manager,
         concurrency_settings=concurrency,
