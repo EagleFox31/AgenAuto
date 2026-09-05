@@ -16,6 +16,7 @@ from ..provenance import content_hash, official_web_source
 BASE_URL = "https://www.skymotors-cameroun.com"
 CATALOG_URL = f"{BASE_URL}/tous-les-vehicules"
 ALLOWED_HOSTS = {"skymotors-cameroun.com", "www.skymotors-cameroun.com"}
+DISTRIBUTOR = "Sky Motors Company"
 
 
 def _is_allowed_url(url: str) -> bool:
@@ -92,7 +93,7 @@ def parse_vehicle_page(
     return VehicleCandidate(
         brand="Jetour",
         model=model,
-        source=official_web_source(url, observed_at),
+        source=official_web_source(url, DISTRIBUTOR, observed_at),
         page_title=title,
         category=category,
         variants=tuple(dict.fromkeys(variants)),

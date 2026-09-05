@@ -8,8 +8,8 @@ from typing import Any
 class SourceReference:
     url: str
     observed_at: str
+    distributor: str
     source_type: str = "official_web"
-    distributor: str = "Sky Motors Company"
     country: str = "CM"
     confidence: str = "A"
 

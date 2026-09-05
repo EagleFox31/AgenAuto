@@ -14,5 +14,13 @@ def content_hash(value: str) -> str:
     return sha256(value.encode("utf-8")).hexdigest()
 
 
-def official_web_source(url: str, observed_at: str | None = None) -> SourceReference:
-    return SourceReference(url=url, observed_at=observed_at or utc_now_iso())
+def official_web_source(
+    url: str,
+    distributor: str,
+    observed_at: str | None = None,
+) -> SourceReference:
+    return SourceReference(
+        url=url,
+        observed_at=observed_at or utc_now_iso(),
+        distributor=distributor,
+    )
