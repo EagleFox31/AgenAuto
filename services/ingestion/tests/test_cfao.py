@@ -28,15 +28,20 @@ def test_cfao_vehicle_page_extracts_trim_names_specs_and_provenance() -> None:
       <head><title>HILUX | TOYOTA</title></head>
       <body>
         <h1>Toyota-Hilux</h1>
+        <h3>
+          The Toyota Hilux combines legendary toughness with comfort and technology.
+        </h3>
+        <h3>Hilux 2.4GD Comfort Single Cab 6-MT 4x4</h3>
         <p>Fuel type : Diesel</p>
         <p>Dimensions (Lxwxh) in mm : 5325 x 1800 x 1795</p>
-        <h3>Hilux 2.4GD Comfort Single Cab 6-MT 4x4</h3>
         <table>
           <tr><td>Displacement (cc)</td><td>2393</td></tr>
           <tr><td>Wheelbase (mm)</td><td>3085</td></tr>
           <tr><td>Number of seats</td><td>3</td></tr>
           <tr><td>Fuel tank capacity (L)</td><td>80</td></tr>
           <tr><td>Gearbox</td><td>Manual</td></tr>
+          <tr><td>Manufacturer Warranty</td><td>3 years / 100.000 km</td></tr>
+          <tr><td>Retail Network</td><td>TOYOTA</td></tr>
         </table>
       </body>
     </html>
@@ -57,6 +62,8 @@ def test_cfao_vehicle_page_extracts_trim_names_specs_and_provenance() -> None:
     assert any(spec.canonical_key == "engine_displacement_ml" for spec in candidate.specs)
     assert any(spec.canonical_key == "wheelbase_mm" for spec in candidate.specs)
     assert any(spec.canonical_key == "fuel_tank_l" for spec in candidate.specs)
+    assert all(spec.raw_label != "Manufacturer Warranty" for spec in candidate.specs)
+    assert all(spec.raw_label != "Retail Network" for spec in candidate.specs)
     assert is_usable_vehicle_candidate(candidate)
 
 

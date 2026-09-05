@@ -20,6 +20,31 @@ from ..normalization import (
 from ..provenance import content_hash, official_web_source
 
 DISTRIBUTOR = "CFAO Mobility Cameroon (CAMI Motors)"
+MARKET_ONLY_SPEC_LABELS = frozenset(
+    {
+        "manufacturer s warranty",
+        "manufacturer warranty",
+        "retail network",
+    }
+)
+TRIM_MARKERS = frozenset(
+    {
+        "active",
+        "comfort",
+        "deluxe",
+        "executive",
+        "ga",
+        "gl",
+        "glx",
+        "gx",
+        "life",
+        "limited",
+        "premium",
+        "style",
+        "vx",
+        "vxl",
+    }
+)
 
 
 @dataclass(frozen=True, slots=True)
@@ -125,22 +150,35 @@ def _extract_model(soup: BeautifulSoup, config: CfaoBrandConfig, url: str) -> st
     return model
 
 
+def _looks_like_trim_heading(text: str, model: str) -> bool:
+    token = normalized_token(text)
+    model_token = normalized_token(model)
+    if not text or token == model_token or model_token not in token:
+        return False
+    if "technical specifications" in token:
+        return False
+    if len(text) > 120 or len(text.split()) > 16:
+        return False
+    if any(mark in text for mark in ".!?"):
+        return False
+    if any(char.isdigit() for char in text):
+        return True
+    return bool(TRIM_MARKERS.intersection(token.split()))
+
+
 def _extract_variants(soup: BeautifulSoup, model: str) -> tuple[str, ...]:
     variants: list[str] = []
-    model_token = normalized_token(model)
 
     for heading in soup.find_all(["h3", "h4"]):
         text = normalize_space(heading.get_text(" ", strip=True))
-        token = normalized_token(text)
-        if not text or token == model_token:
-            continue
-        if model_token not in token:
-            continue
-        if "technical specifications" in token:
-            continue
-        variants.append(text)
+        if _looks_like_trim_heading(text, model):
+            variants.append(text)
 
     return tuple(dict.fromkeys(variants))
+
+
+def _is_market_only_spec(label: str) -> bool:
+    return normalized_token(label) in MARKET_ONLY_SPEC_LABELS
 
 
 def parse_vehicle_page(
@@ -161,6 +199,8 @@ def parse_vehicle_page(
     category: str | None = None
     seen_specs: set[tuple[str, str]] = set()
     for label, value in _iter_structured_pairs(soup):
+        if _is_market_only_spec(label):
+            continue
         observation = normalize_spec(label, value)
         signature = (observation.raw_label, observation.raw_value)
         if signature in seen_specs:

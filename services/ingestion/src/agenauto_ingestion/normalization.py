@@ -62,8 +62,6 @@ SPEC_ALIASES: dict[str, tuple[str, str | None]] = {
     "braked towing capacity kg": ("braked_towing_capacity_kg", "kg"),
     "number of doors": ("doors", None),
     "tyre dimension": ("tyre_dimension", None),
-    "manufacturer s warranty": ("manufacturer_warranty", None),
-    "manufacturer warranty": ("manufacturer_warranty", None),
 }
 
 
