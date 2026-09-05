@@ -1,0 +1,1942 @@
+{
+  "schema_version": 1,
+  "dataset": "cameroon-pilot-sky-motors-jetour",
+  "generated_at": "2026-09-05T20:09:35Z",
+  "collector": "sky_motors_jetour",
+  "publication_policy": "draft_only_until_payload_review",
+  "vehicles": [
+    {
+      "brand": "Jetour",
+      "model": "Dashing",
+      "source": {
+        "url": "https://www.skymotors-cameroun.com/jetour-dashing",
+        "observed_at": "2026-09-05T20:09:34Z",
+        "source_type": "official_web",
+        "distributor": "Sky Motors Company",
+        "country": "CM",
+        "confidence": "A"
+      },
+      "page_title": "Jetour DASHING | SKY MOTORS CAMEROUN",
+      "category": "SUV",
+      "variants": [
+        "1.5T - 6MT/6DCT - 1.6T GDI"
+      ],
+      "specs": [
+        {
+          "raw_label": "Cylindrée (ml)",
+          "raw_value": "1598",
+          "canonical_key": "engine_displacement_ml",
+          "unit": "mL"
+        },
+        {
+          "raw_label": "Puissance maximale (kW)",
+          "raw_value": "197",
+          "canonical_key": "max_power_kw",
+          "unit": "kW"
+        },
+        {
+          "raw_label": "Couple maximum (N·m)",
+          "raw_value": "290",
+          "canonical_key": "max_torque_nm",
+          "unit": "N·m"
+        },
+        {
+          "raw_label": "Pour répondre aux préférences des consommateurs, le Jetour DASHING est disponible en deux combinaisons de couleurs intérieures",
+          "raw_value": "noir et rouge ou gris et blanc . Les sièges sont en daim, ce qui offre non seulement un excellent confort d'assise mais également une qualité haut de gamme.",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Le Jetour DASHING est disponible en deux combinaisons de couleurs intérieures",
+          "raw_value": "noir et rouge ou gris et blanc. Les sièges sont en daim, ce qui offre un excellent confort d'assise et également une qualité haut de gamme.",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Catégorie",
+          "raw_value": "SUV",
+          "canonical_key": "body_category",
+          "unit": null
+        },
+        {
+          "raw_label": "Variantes du produit",
+          "raw_value": "1.5T - 6MT/6DCT - 1.6T GDI",
+          "canonical_key": "product_variants",
+          "unit": null
+        },
+        {
+          "raw_label": "Nom du modèle",
+          "raw_value": "DASHING",
+          "canonical_key": "model_name",
+          "unit": null
+        },
+        {
+          "raw_label": "Traction",
+          "raw_value": "4x4 et 4x2",
+          "canonical_key": "drivetrain",
+          "unit": null
+        },
+        {
+          "raw_label": "Longueur x Largeur x Hauteur (mm)",
+          "raw_value": "4590 X 1900 X 1685",
+          "canonical_key": "dimensions_mm",
+          "unit": "mm"
+        },
+        {
+          "raw_label": "Empattement (mm)",
+          "raw_value": "2720",
+          "canonical_key": "wheelbase_mm",
+          "unit": "mm"
+        },
+        {
+          "raw_label": "Garde au sol minimale (mm)",
+          "raw_value": "160",
+          "canonical_key": "ground_clearance_mm",
+          "unit": "mm"
+        },
+        {
+          "raw_label": "Structure de l'habitacle",
+          "raw_value": "SUV (5 portes avec 5 places)",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Nombre de place",
+          "raw_value": "5",
+          "canonical_key": "seats",
+          "unit": null
+        },
+        {
+          "raw_label": "Capacité du réservoir de carburant (L)",
+          "raw_value": "57",
+          "canonical_key": "fuel_tank_l",
+          "unit": "L"
+        },
+        {
+          "raw_label": "Type de moteur",
+          "raw_value": "Kunpeng 1.5TCI - 1.6TGDI",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Cylindrée du moteur",
+          "raw_value": "1498/1998",
+          "canonical_key": "engine_displacement_ml",
+          "unit": "mL"
+        },
+        {
+          "raw_label": "Puissance maximale (Ps)",
+          "raw_value": "197/284",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Puissance maximale (kW)/vitesse de puissance maximale (RPM)",
+          "raw_value": "115-145/5500",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Couple maximal (N·m)/Vitesse de couple maximale (RPM)",
+          "raw_value": "230-290/2000-4000",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Norme d'émission",
+          "raw_value": "China VI B",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Type de transmission",
+          "raw_value": "7DCT",
+          "canonical_key": "transmission",
+          "unit": null
+        },
+        {
+          "raw_label": "Vitesse maximale (km/h)",
+          "raw_value": "180",
+          "canonical_key": "max_speed_kmh",
+          "unit": "km/h"
+        },
+        {
+          "raw_label": "Consommation de carburant (L/100km)",
+          "raw_value": "7.7",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Mode conduite",
+          "raw_value": "FF",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Type de puissance",
+          "raw_value": "EPS",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Type de suspension avant/ arrière",
+          "raw_value": "Macpherson independent suspension /Multiple link independent suspension",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Type de frein avant/arrière",
+          "raw_value": "Type à disque ventilé avant/type à disque solide arrière",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Type de frein de stationnement",
+          "raw_value": "EPB - EPB + MAINTIEN AUTOMATIQUE",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Spécification des pneus avant/arrière",
+          "raw_value": "235/55 R19 - 255/45 R20",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Spécifications du pneu de secours",
+          "raw_value": "Mini-pneu de secours temporaire",
+          "canonical_key": null,
+          "unit": null
+        }
+      ],
+      "content_hash": "0e4ccdd1b4dace4ba09308dd9e93e71f57aac05a8dbcb4f3eda869846c501c18",
+      "review_status": "draft",
+      "quality_flags": [
+        "many_unmapped_specs"
+      ]
+    },
+    {
+      "brand": "Jetour",
+      "model": "T1",
+      "source": {
+        "url": "https://skymotors-cameroun.com/jetour-t1",
+        "observed_at": "2026-09-05T20:09:34Z",
+        "source_type": "official_web",
+        "distributor": "Sky Motors Company",
+        "country": "CM",
+        "confidence": "A"
+      },
+      "page_title": "JETOUR T1 | SKY MOTORS CAMEROUN",
+      "category": "SUV",
+      "variants": [
+        "1.5TD - 7DCT / 2.0TD - 8AT"
+      ],
+      "specs": [
+        {
+          "raw_label": "Cylindrée (ml)",
+          "raw_value": "1998",
+          "canonical_key": "engine_displacement_ml",
+          "unit": "mL"
+        },
+        {
+          "raw_label": "Puissance maximale (kW)",
+          "raw_value": "187",
+          "canonical_key": "max_power_kw",
+          "unit": "kW"
+        },
+        {
+          "raw_label": "Couple maximum (N·m)",
+          "raw_value": "390",
+          "canonical_key": "max_torque_nm",
+          "unit": "N·m"
+        },
+        {
+          "raw_label": "Le véhicule propose sept modes de conduite",
+          "raw_value": "Sable, Neige, Sport, Éco, Boue, Roche et Autoroute.",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Catégorie",
+          "raw_value": "SUV",
+          "canonical_key": "body_category",
+          "unit": null
+        },
+        {
+          "raw_label": "Étiquette du produit",
+          "raw_value": "1.5TD - 7DCT / 2.0TD - 8AT",
+          "canonical_key": "product_variants",
+          "unit": null
+        },
+        {
+          "raw_label": "Nom du modèle",
+          "raw_value": "T1",
+          "canonical_key": "model_name",
+          "unit": null
+        },
+        {
+          "raw_label": "Traction",
+          "raw_value": "4x4",
+          "canonical_key": "drivetrain",
+          "unit": null
+        },
+        {
+          "raw_label": "Moteur",
+          "raw_value": "1.5TD - 2.0TD",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Type de transmission",
+          "raw_value": "7DCT - 8AT",
+          "canonical_key": "transmission",
+          "unit": null
+        },
+        {
+          "raw_label": "Structure de la carrosserie",
+          "raw_value": "Carrosserie monocoque",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Vitesse maximale (km/h)",
+          "raw_value": "180",
+          "canonical_key": "max_speed_kmh",
+          "unit": "km/h"
+        },
+        {
+          "raw_label": "Couleur",
+          "raw_value": "Blanc/Noir/Argent/Vert/Or",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Couleur intérieure",
+          "raw_value": "Noir et orange /Noir et vert/Noir et gris",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Longueur (mm)",
+          "raw_value": "4705 (avec housse de roue de secours) / 4612 (sans housse de roue de secours)",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Largeur (mm)",
+          "raw_value": "1967",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Hauteur (mm)",
+          "raw_value": "1843",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Empattement (mm)",
+          "raw_value": "2800",
+          "canonical_key": "wheelbase_mm",
+          "unit": "mm"
+        },
+        {
+          "raw_label": "Empattement avant (mm)",
+          "raw_value": "1690",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Empattement arrière (mm)",
+          "raw_value": "1700",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Suspension avant (mm)",
+          "raw_value": "918",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Suspension arrière (mm)",
+          "raw_value": "987",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Garde au sol minimale (mm)",
+          "raw_value": "190",
+          "canonical_key": "ground_clearance_mm",
+          "unit": "mm"
+        },
+        {
+          "raw_label": "Nombre de portes (chacune)",
+          "raw_value": "5",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Nombre de places (PCS)",
+          "raw_value": "5",
+          "canonical_key": "seats",
+          "unit": null
+        },
+        {
+          "raw_label": "Volume du réservoir (L)",
+          "raw_value": "70",
+          "canonical_key": "fuel_tank_l",
+          "unit": "L"
+        },
+        {
+          "raw_label": "Capacité des bagages (L)",
+          "raw_value": "574",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Poids d'entretien (kg)",
+          "raw_value": "1619 - 1811",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Cylindrée (mL)",
+          "raw_value": "1499 - 1998",
+          "canonical_key": "engine_displacement_ml",
+          "unit": "mL"
+        },
+        {
+          "raw_label": "Puissance maximale (kW)",
+          "raw_value": "135 - 187",
+          "canonical_key": "max_power_kw",
+          "unit": "kW"
+        },
+        {
+          "raw_label": "Régime de puissance maximale (tr/min)",
+          "raw_value": "5500",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Couple maximal (N·m)",
+          "raw_value": "290 -390",
+          "canonical_key": "max_torque_nm",
+          "unit": "N·m"
+        },
+        {
+          "raw_label": "Régime de couple maximal (tr/min)",
+          "raw_value": "2000-3500 / 1750-4000",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Type de carburant",
+          "raw_value": "Essence",
+          "canonical_key": "fuel_type",
+          "unit": null
+        },
+        {
+          "raw_label": "Norme de protection de l'environnement",
+          "raw_value": "Euro VI B",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Type de conduite",
+          "raw_value": "FF / AWD",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Type de suspension avant",
+          "raw_value": "MacPherson",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Type de suspension arrière",
+          "raw_value": "Multilink",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Type de direction assistée",
+          "raw_value": "Alimentation électrique",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Type de frein avant",
+          "raw_value": "Frein à disque ventilé",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Frein arrière",
+          "raw_value": "Disque",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Mode de freinage de stationnement",
+          "raw_value": "Frein de stationnement électronique (EPB)",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Spécification des pneus",
+          "raw_value": "235/65 R18 - 235/60 R19",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Spécification du pneu de secours",
+          "raw_value": "Pneu de secours non pleine grandeur",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "TPMS (Système de surveillance de la pression des pneus)",
+          "raw_value": "Affichage de la pression des pneus",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Avertissement de déverrouillage des ceintures de sécurité",
+          "raw_value": "Rangée avant",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Verrouillage d'urgence des ceintures de sécurité",
+          "raw_value": "Rangée arrière",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Ceinture de sécurité à limite de charge",
+          "raw_value": "Rangée avant",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Système de surveillance de la vue arrière",
+          "raw_value": "Système d'image panoramique automatique à 360°",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Régulateur de vitesse",
+          "raw_value": "Système de régulation de vitesse",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Type de frein à main",
+          "raw_value": "EPB",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Matériau de la jante",
+          "raw_value": "Aluminium",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Type de clé",
+          "raw_value": "Télécommande (avec démarrage à distance)",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Pédale latérale",
+          "raw_value": "Fixe",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Couverture de compartiment avant",
+          "raw_value": "(à moitié)",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Matériau du volant",
+          "raw_value": "Cuir",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Réglage de la position du volant",
+          "raw_value": "Manuel 4 directions",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Taille de l'écran multifonction",
+          "raw_value": "Chromatique",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Compteur LCD (anglais, espagnol, russe, arabe, farsi, ouzbek, portugais)",
+          "raw_value": "10,25 pouces",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Points d'ancrage métalliques pour le coffre",
+          "raw_value": "6",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Points d'ancrage pour sangles de coffre (2 à gauche)",
+          "raw_value": "6",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Source de lumière faible",
+          "raw_value": "LED",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Feux de route",
+          "raw_value": "LED",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Fonction d'éclairage",
+          "raw_value": "Phares matriciels",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Mode de contrôle de la température du climatiseur",
+          "raw_value": "Climatisation automatique double",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Disposition des sièges",
+          "raw_value": "2+3",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Matériau des sièges",
+          "raw_value": "PVC (noir) / Tissu+PVC (vert foncé)",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Mode de réglage du siège principal",
+          "raw_value": "Manuel 6 directions",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Réglage du siège auxiliaire (sans repose-jambes, interférence avec un extincteur)",
+          "raw_value": "Manuel 4 directions",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Réglage électrique des sièges principal/passager",
+          "raw_value": "Siège conducteur /-Siège passager",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Fonction siège principal",
+          "raw_value": "Chauffage électrique des sièges",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Fonction siège passager",
+          "raw_value": "Chauffage électrique des sièges",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Inclinaison des sièges arrière",
+          "raw_value": "Choisir une pile",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Écran tactile audio et divertissement",
+          "raw_value": "Écran tactile divertissement",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Taille de l'écran multifonction (anglais, espagnol, russe, arabe, farsi, ukrainien, portugais, etc.)",
+          "raw_value": "15,6 pouces",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Zone de commande vocale",
+          "raw_value": "Siège conducteur + siège passager + siège arrière",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Commande vocale intelligente (anglais, espagnol, russe, arabe, portugais)",
+          "raw_value": "Système multimédia / Téléphone / Climatisation",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Interface multimédia / de charge",
+          "raw_value": "USB",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Rangée avant",
+          "raw_value": "1 USB + 1 Type-C / Rangée arrière : 1 USB + 1 Type-C",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Nombre de haut-parleurs (PCS)",
+          "raw_value": "6",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Fonction de lève-vitre à une touche",
+          "raw_value": "Tout le véhicule",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Fonction rétroviseur extérieur",
+          "raw_value": "Verre de rétroviseur réglable électriquement / Rétroviseur extérieur chauffant / Rétroviseur extérieur rabattable / Éclairage laser",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Fonction rétroviseur intérieur",
+          "raw_value": "Rétroviseur intérieur à atténuation manuelle",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Miroir de courtoisie conducteur/copilote",
+          "raw_value": "Siège conducteur / Siège passager",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Fonction essuie-glace à capteur",
+          "raw_value": "Capteurs de précipitations",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Puce moteur",
+          "raw_value": "Qualcomm Snapdragon 8155",
+          "canonical_key": null,
+          "unit": null
+        }
+      ],
+      "content_hash": "052c4b9f4fcaf978e8de7a6f5cee76ceee5d52a966f1a4aeaaf072c9015c561c",
+      "review_status": "draft",
+      "quality_flags": [
+        "many_unmapped_specs",
+        "duplicate_model_pages_detected"
+      ]
+    },
+    {
+      "brand": "Jetour",
+      "model": "T2",
+      "source": {
+        "url": "https://www.skymotors-cameroun.com/jetour-t2",
+        "observed_at": "2026-09-05T20:09:35Z",
+        "source_type": "official_web",
+        "distributor": "Sky Motors Company",
+        "country": "CM",
+        "confidence": "A"
+      },
+      "page_title": "JETOUR T2 | SKY MOTORS CAMEROUN",
+      "category": "SUV",
+      "variants": [
+        "1.5TD+7DCT"
+      ],
+      "specs": [
+        {
+          "raw_label": "Cylindrée (ml)",
+          "raw_value": "1498 / 1998",
+          "canonical_key": "engine_displacement_ml",
+          "unit": "mL"
+        },
+        {
+          "raw_label": "Puissance maximale (kW)",
+          "raw_value": "135 / 187",
+          "canonical_key": "max_power_kw",
+          "unit": "kW"
+        },
+        {
+          "raw_label": "Couple maximum (N·m)",
+          "raw_value": "290 / 390",
+          "canonical_key": "max_torque_nm",
+          "unit": "N·m"
+        },
+        {
+          "raw_label": "Qualité",
+          "raw_value": "des équipements complets répondant à toutes vos imaginations",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Puissance",
+          "raw_value": "un mélange d'explosivité et d'endurance",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Catégorie",
+          "raw_value": "SUV",
+          "canonical_key": "body_category",
+          "unit": null
+        },
+        {
+          "raw_label": "Étiquette du produit",
+          "raw_value": "1.5TD+7DCT",
+          "canonical_key": "product_variants",
+          "unit": null
+        },
+        {
+          "raw_label": "Nom du modèle",
+          "raw_value": "T2",
+          "canonical_key": "model_name",
+          "unit": null
+        },
+        {
+          "raw_label": "Traction",
+          "raw_value": "4x4",
+          "canonical_key": "drivetrain",
+          "unit": null
+        },
+        {
+          "raw_label": "Moteur",
+          "raw_value": "1.5TD",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Type de transmission",
+          "raw_value": "7DCT",
+          "canonical_key": "transmission",
+          "unit": null
+        },
+        {
+          "raw_label": "Structure de la carrosserie",
+          "raw_value": "Carrosserie monocoque",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Vitesse maximale (km/h)",
+          "raw_value": "180",
+          "canonical_key": "max_speed_kmh",
+          "unit": "km/h"
+        },
+        {
+          "raw_label": "Couleur",
+          "raw_value": "Vert citron/Noir nuit/Orange soleil/Argent neige",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Couleur intérieure",
+          "raw_value": "Noir/Rouge, Vert/Orange",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Longueur (mm)",
+          "raw_value": "4785 (avec housse de roue de secours) / 4612 (sans housse de roue de secours)",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Largeur (mm)",
+          "raw_value": "2006",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Hauteur (mm)",
+          "raw_value": "1870",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Empattement (mm)",
+          "raw_value": "2800",
+          "canonical_key": "wheelbase_mm",
+          "unit": "mm"
+        },
+        {
+          "raw_label": "Empattement avant (mm)",
+          "raw_value": "1690",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Empattement arrière (mm)",
+          "raw_value": "1700",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Suspension avant (mm)",
+          "raw_value": "892",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Suspension arrière (mm)",
+          "raw_value": "1093",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Garde au sol minimale (mm)",
+          "raw_value": "220",
+          "canonical_key": "ground_clearance_mm",
+          "unit": "mm"
+        },
+        {
+          "raw_label": "Nombre de portes (chacune)",
+          "raw_value": "5",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Nombre de places (PCS)",
+          "raw_value": "5",
+          "canonical_key": "seats",
+          "unit": null
+        },
+        {
+          "raw_label": "Volume du réservoir (L)",
+          "raw_value": "70",
+          "canonical_key": "fuel_tank_l",
+          "unit": "L"
+        },
+        {
+          "raw_label": "Poids à vide (kg)",
+          "raw_value": "1700",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Masse totale (kg)",
+          "raw_value": "2075",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Cylindrée (mL)",
+          "raw_value": "1498",
+          "canonical_key": "engine_displacement_ml",
+          "unit": "mL"
+        },
+        {
+          "raw_label": "Puissance maximale (kW)",
+          "raw_value": "135",
+          "canonical_key": "max_power_kw",
+          "unit": "kW"
+        },
+        {
+          "raw_label": "Régime de puissance maximale (tr/min)",
+          "raw_value": "5500",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Couple maximal (N·m)",
+          "raw_value": "290",
+          "canonical_key": "max_torque_nm",
+          "unit": "N·m"
+        },
+        {
+          "raw_label": "Régime de couple maximal (tr/min)",
+          "raw_value": "2000-4000",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Type de carburant",
+          "raw_value": "Essence",
+          "canonical_key": "fuel_type",
+          "unit": null
+        },
+        {
+          "raw_label": "Norme de protection de l'environnement",
+          "raw_value": "Euro VI B",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Type de conduite",
+          "raw_value": "FF",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Type de suspension avant",
+          "raw_value": "MacPherson",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Type de suspension arrière",
+          "raw_value": "Multibras",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Type de direction assistée",
+          "raw_value": "Alimentation électrique",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Type de frein avant",
+          "raw_value": "Frein à disque ventilé",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Frein arrière",
+          "raw_value": "Disque",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Mode de freinage de stationnement",
+          "raw_value": "Frein de stationnement électronique (EPB)",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Spécification des pneus",
+          "raw_value": "●235/65 R18",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Type de pneu",
+          "raw_value": "HT",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "TPMS (Système de surveillance de la pression des pneus)",
+          "raw_value": "Affichage de la pression des pneus",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Avertissement de déverrouillage des ceintures de sécurité",
+          "raw_value": "Rangée avant",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Verrouillage d'urgence des ceintures de sécurité",
+          "raw_value": "Rangée arrière",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Ceinture de sécurité à limite de charge",
+          "raw_value": "Rangée avant",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Système de surveillance de la vue arrière",
+          "raw_value": "Système d'image panoramique automatique à 360°",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Régulateur de vitesse",
+          "raw_value": "Système de régulation de vitesse",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Type de frein à main",
+          "raw_value": "EPB",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Matériau de la jante",
+          "raw_value": "Aluminium",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Type de clé",
+          "raw_value": "Télécommande (avec démarrage à distance)",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Pédale latérale",
+          "raw_value": "Fixe",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Couverture de compartiment avant",
+          "raw_value": "(à moitié)",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Matériau du volant",
+          "raw_value": "Cuir",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Réglage de la position du volant",
+          "raw_value": "Manuel 4 directions",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Taille de l'écran multifonction",
+          "raw_value": "Chromatique",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Compteur LCD (anglais, espagnol, russe, arabe, farsi, ouzbek, portugais)",
+          "raw_value": "10,25 pouces",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Points d'ancrage métalliques pour le coffre",
+          "raw_value": "6",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Points d'ancrage pour sangles de coffre (2 à gauche)",
+          "raw_value": "6",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Source de lumière faible",
+          "raw_value": "LED",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Feux de route",
+          "raw_value": "LED",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Fonction d'éclairage",
+          "raw_value": "Phares matriciels",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Mode de contrôle de la température du climatiseur",
+          "raw_value": "Climatisation automatique double",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Disposition des sièges",
+          "raw_value": "2+3",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Matériau des sièges",
+          "raw_value": "PVC (noir) / Tissu+PVC (vert foncé)",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Mode de réglage du siège principal",
+          "raw_value": "Manuel 6 directions",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Réglage du siège auxiliaire (sans repose-jambes, interférence avec un extincteur)",
+          "raw_value": "Manuel 4 directions",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Réglage électrique des sièges principal/passager",
+          "raw_value": "Siège conducteur /-Siège passager",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Fonction siège principal",
+          "raw_value": "Chauffage électrique des sièges",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Fonction siège passager",
+          "raw_value": "Chauffage électrique des sièges",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Inclinaison des sièges arrière",
+          "raw_value": "Choisir une pile",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Écran tactile audio et divertissement",
+          "raw_value": "Écran tactile divertissement",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Taille de l'écran multifonction (anglais, espagnol, russe, arabe, farsi, ukrainien, portugais, etc.)",
+          "raw_value": "15,6 pouces",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Zone de commande vocale",
+          "raw_value": "Siège conducteur + siège passager + siège arrière",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Commande vocale intelligente (anglais, espagnol, russe, arabe, portugais)",
+          "raw_value": "Système multimédia / Téléphone / Climatisation",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Interface multimédia / de charge",
+          "raw_value": "USB",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Rangée avant",
+          "raw_value": "1 USB + 1 Type-C / Rangée arrière : 1 USB + 1 Type-C",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Nombre de haut-parleurs (PCS)",
+          "raw_value": "6",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Fonction de lève-vitre à une touche",
+          "raw_value": "Tout le véhicule",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Fonction rétroviseur extérieur",
+          "raw_value": "Verre de rétroviseur réglable électriquement / Rétroviseur extérieur chauffant / Rétroviseur extérieur rabattable / Éclairage laser",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Fonction rétroviseur intérieur",
+          "raw_value": "Rétroviseur intérieur à atténuation manuelle",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Miroir de courtoisie conducteur/copilote",
+          "raw_value": "Siège conducteur / Siège passager",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Fonction essuie-glace à capteur",
+          "raw_value": "Capteurs de précipitations",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Puce moteur",
+          "raw_value": "Qualcomm Snapdragon 815",
+          "canonical_key": null,
+          "unit": null
+        }
+      ],
+      "content_hash": "5cb4534601842f34da5d52415f4dd80e8171c562c67fe17623a8ce8a8de1b05e",
+      "review_status": "draft",
+      "quality_flags": [
+        "many_unmapped_specs"
+      ]
+    },
+    {
+      "brand": "Jetour",
+      "model": "X50",
+      "source": {
+        "url": "https://www.skymotors-cameroun.com/jetour-x50",
+        "observed_at": "2026-09-05T20:09:35Z",
+        "source_type": "official_web",
+        "distributor": "Sky Motors Company",
+        "country": "CM",
+        "confidence": "A"
+      },
+      "page_title": "JETOUR X50 | SKY MOTORS CAMEROUN",
+      "category": "Crossover",
+      "variants": [
+        "1.5TD - 6DCT"
+      ],
+      "specs": [
+        {
+          "raw_label": "JETOUR X50 Extérieur",
+          "raw_value": "Prêt pour la ville",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "La calandre inspirée de la cascade du Jetour X50 vous indique ce qu'est cette voiture",
+          "raw_value": "la technologie moderne rencontre un design classique et luxueux.",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Intérieur du JETOUR X50",
+          "raw_value": "Design dynamique de la cabine",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Technologie et sécurité",
+          "raw_value": "Des voyages en toute sécurité​",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Catégorie",
+          "raw_value": "Crossover",
+          "canonical_key": "body_category",
+          "unit": null
+        },
+        {
+          "raw_label": "Étiquette du produit",
+          "raw_value": "1.5TD - 6DCT",
+          "canonical_key": "product_variants",
+          "unit": null
+        },
+        {
+          "raw_label": "Nom du modèle",
+          "raw_value": "X50",
+          "canonical_key": "model_name",
+          "unit": null
+        },
+        {
+          "raw_label": "Moteur",
+          "raw_value": "1.5TD",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Type de transmission",
+          "raw_value": "6DCT",
+          "canonical_key": "transmission",
+          "unit": null
+        },
+        {
+          "raw_label": "Structure de la carrosserie",
+          "raw_value": "Support de charges",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Longueur (mm)",
+          "raw_value": "4397",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Largeur (mm)",
+          "raw_value": "1841",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Hauteur (mm)",
+          "raw_value": "1654",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Empattement (mm)",
+          "raw_value": "2601",
+          "canonical_key": "wheelbase_mm",
+          "unit": "mm"
+        },
+        {
+          "raw_label": "Nombre de portes (chacune)",
+          "raw_value": "5",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Nombre de places (PCS)",
+          "raw_value": "5",
+          "canonical_key": "seats",
+          "unit": null
+        },
+        {
+          "raw_label": "Volume du réservoir (L)",
+          "raw_value": "45",
+          "canonical_key": "fuel_tank_l",
+          "unit": "L"
+        },
+        {
+          "raw_label": "Capacité des bagages (L)",
+          "raw_value": "398/1262",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Cylindrée (mL)",
+          "raw_value": "1498",
+          "canonical_key": "engine_displacement_ml",
+          "unit": "mL"
+        },
+        {
+          "raw_label": "Puissance maximale (kW)",
+          "raw_value": "115",
+          "canonical_key": "max_power_kw",
+          "unit": "kW"
+        },
+        {
+          "raw_label": "Couple maximal (N·m)",
+          "raw_value": "230",
+          "canonical_key": "max_torque_nm",
+          "unit": "N·m"
+        },
+        {
+          "raw_label": "Type de carburant",
+          "raw_value": "Essence",
+          "canonical_key": "fuel_type",
+          "unit": null
+        },
+        {
+          "raw_label": "Norme de protection de l'environnement",
+          "raw_value": "Euro 5+",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Type de conduite",
+          "raw_value": "FF",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Type de suspension avant",
+          "raw_value": "MacPherson",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Type de suspension arrière",
+          "raw_value": "Multilink",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Type de direction assistée",
+          "raw_value": "Alimentation électronique",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Type de phares",
+          "raw_value": "LED",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Feux de jour",
+          "raw_value": "LED",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Type de feux arrière",
+          "raw_value": "LED",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Taille de l'écran du combiné d'instruments",
+          "raw_value": "10,25 pouces",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Revêtement des sièges",
+          "raw_value": "Cuir",
+          "canonical_key": null,
+          "unit": null
+        }
+      ],
+      "content_hash": "ad8deca6987b9f5eeb6e5d04c198fe2df4290f40d7cd01007e699c03138665cf",
+      "review_status": "draft",
+      "quality_flags": [
+        "many_unmapped_specs"
+      ]
+    },
+    {
+      "brand": "Jetour",
+      "model": "X70 Plus",
+      "source": {
+        "url": "https://www.skymotors-cameroun.com/jetour-x70-plus",
+        "observed_at": "2026-09-05T20:09:35Z",
+        "source_type": "official_web",
+        "distributor": "Sky Motors Company",
+        "country": "CM",
+        "confidence": "A"
+      },
+      "page_title": "Jetour X70 PLUS | SKY MOTORS CAMEROUN",
+      "category": "SUV",
+      "variants": [
+        "1.5T+6MT/1.5T+6DCT/1.6TGDI+7DCT"
+      ],
+      "specs": [
+        {
+          "raw_label": "Cylindrée (ml)",
+          "raw_value": "1598",
+          "canonical_key": "engine_displacement_ml",
+          "unit": "mL"
+        },
+        {
+          "raw_label": "Puissance maximale (kW)",
+          "raw_value": "197",
+          "canonical_key": "max_power_kw",
+          "unit": "kW"
+        },
+        {
+          "raw_label": "Couple maximum (N·m)",
+          "raw_value": "290",
+          "canonical_key": "max_torque_nm",
+          "unit": "N·m"
+        },
+        {
+          "raw_label": "Catégorie",
+          "raw_value": "SUV",
+          "canonical_key": "body_category",
+          "unit": null
+        },
+        {
+          "raw_label": "Variantes du produit",
+          "raw_value": "1.5T+6MT/1.5T+6DCT/1.6TGDI+7DCT",
+          "canonical_key": "product_variants",
+          "unit": null
+        },
+        {
+          "raw_label": "Nom du modèle",
+          "raw_value": "X70 PLUS",
+          "canonical_key": "model_name",
+          "unit": null
+        },
+        {
+          "raw_label": "Traction",
+          "raw_value": "4x4 et 4x2",
+          "canonical_key": "drivetrain",
+          "unit": null
+        },
+        {
+          "raw_label": "Longueur x Largeur x Hauteur (mm)",
+          "raw_value": "4749x1900x1720",
+          "canonical_key": "dimensions_mm",
+          "unit": "mm"
+        },
+        {
+          "raw_label": "Empattement (mm)",
+          "raw_value": "2720",
+          "canonical_key": "wheelbase_mm",
+          "unit": "mm"
+        },
+        {
+          "raw_label": "Garde au sol minimale (mm)",
+          "raw_value": "210",
+          "canonical_key": "ground_clearance_mm",
+          "unit": "mm"
+        },
+        {
+          "raw_label": "Structure de l'habitacle",
+          "raw_value": "SUV (5 portes avec 5-7 places)",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Nombre de place",
+          "raw_value": "5/7",
+          "canonical_key": "seats",
+          "unit": null
+        },
+        {
+          "raw_label": "Capacité du réservoir de carburant (L)",
+          "raw_value": "57",
+          "canonical_key": "fuel_tank_l",
+          "unit": "L"
+        },
+        {
+          "raw_label": "Type de moteur",
+          "raw_value": "SQRE4T15C",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Cylindrée du moteur",
+          "raw_value": "1498",
+          "canonical_key": "engine_displacement_ml",
+          "unit": "mL"
+        },
+        {
+          "raw_label": "Puissance maximale (Ps)",
+          "raw_value": "210",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Puissance maximale (kW)/vitesse de puissance maximale (RPM)",
+          "raw_value": "SUV (5 portes avec 5-7 places)",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Couple maximal (N·m)/Vitesse de couple maximale (RPM)",
+          "raw_value": "5/7",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Technologie spécifique au moteur",
+          "raw_value": "TURBO/Intercooler",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Norme d'émission",
+          "raw_value": "China VI",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Type de transmission",
+          "raw_value": "6MT",
+          "canonical_key": "transmission",
+          "unit": null
+        },
+        {
+          "raw_label": "Vitesse maximale (km/h)",
+          "raw_value": "180",
+          "canonical_key": "max_speed_kmh",
+          "unit": "km/h"
+        },
+        {
+          "raw_label": "Consommation de carburant (L/100km)",
+          "raw_value": "7.5",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Mode conduite",
+          "raw_value": "FF",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Type de puissance",
+          "raw_value": "EPS",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Type de suspension avant/ arrière",
+          "raw_value": "Macpherson independent suspension /Multiple link independent suspension",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Structure du véhicule",
+          "raw_value": "Support de charge",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Type de frein avant/arrière",
+          "raw_value": "Frein à disque/frein à disque",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Type de frein de stationnement",
+          "raw_value": "EPB",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Spécification des pneus avant/arrière",
+          "raw_value": "R17R18/R20",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Spécifications du pneu de secours",
+          "raw_value": "Mini-pneu de secours temporaire",
+          "canonical_key": null,
+          "unit": null
+        }
+      ],
+      "content_hash": "89ef435d3d3a837b4a9d146b6692955b55cbe8dc19882a817da58444909d0232",
+      "review_status": "draft",
+      "quality_flags": [
+        "many_unmapped_specs"
+      ]
+    },
+    {
+      "brand": "Jetour",
+      "model": "X90 Plus",
+      "source": {
+        "url": "https://www.skymotors-cameroun.com/jetour-x90-plus",
+        "observed_at": "2026-09-05T20:09:35Z",
+        "source_type": "official_web",
+        "distributor": "Sky Motors Company",
+        "country": "CM",
+        "confidence": "A"
+      },
+      "page_title": "Jetour X90 PLUS | SKY MOTORS CAMEROUN",
+      "category": "SUV",
+      "variants": [
+        "1.6TGDI+7DCT/ 2.0TGDI-7DCT"
+      ],
+      "specs": [
+        {
+          "raw_label": "Cylindrée (ml)",
+          "raw_value": "1598",
+          "canonical_key": "engine_displacement_ml",
+          "unit": "mL"
+        },
+        {
+          "raw_label": "Puissance maximale (kW)",
+          "raw_value": "197",
+          "canonical_key": "max_power_kw",
+          "unit": "kW"
+        },
+        {
+          "raw_label": "Couple maximum (N·m)",
+          "raw_value": "290",
+          "canonical_key": "max_torque_nm",
+          "unit": "N·m"
+        },
+        {
+          "raw_label": "Catégorie",
+          "raw_value": "SUV",
+          "canonical_key": "body_category",
+          "unit": null
+        },
+        {
+          "raw_label": "Variantes du produit",
+          "raw_value": "1.6TGDI+7DCT/ 2.0TGDI-7DCT",
+          "canonical_key": "product_variants",
+          "unit": null
+        },
+        {
+          "raw_label": "Nom du modèle",
+          "raw_value": "X90 PLUS",
+          "canonical_key": "model_name",
+          "unit": null
+        },
+        {
+          "raw_label": "Traction",
+          "raw_value": "4x4 et 4x2",
+          "canonical_key": "drivetrain",
+          "unit": null
+        },
+        {
+          "raw_label": "Longueur x Largeur x Hauteur (mm)",
+          "raw_value": "4858 x 1925 x 1780",
+          "canonical_key": "dimensions_mm",
+          "unit": "mm"
+        },
+        {
+          "raw_label": "Empattement (mm)",
+          "raw_value": "2850",
+          "canonical_key": "wheelbase_mm",
+          "unit": "mm"
+        },
+        {
+          "raw_label": "Garde au sol minimale (mm)",
+          "raw_value": "210",
+          "canonical_key": "ground_clearance_mm",
+          "unit": "mm"
+        },
+        {
+          "raw_label": "Structure de l'habitacle",
+          "raw_value": "SUV (5 portes avec 5-7 places)",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Nombre de place",
+          "raw_value": "5/7",
+          "canonical_key": "seats",
+          "unit": null
+        },
+        {
+          "raw_label": "Capacité du réservoir de carburant (L)",
+          "raw_value": "57",
+          "canonical_key": "fuel_tank_l",
+          "unit": "L"
+        },
+        {
+          "raw_label": "Type de moteur",
+          "raw_value": "SQRF4J16 (1.6)-SQRF4J20 (2.0)",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Cylindrée du moteur",
+          "raw_value": "1598/1998",
+          "canonical_key": "engine_displacement_ml",
+          "unit": "mL"
+        },
+        {
+          "raw_label": "Puissance maximale (Ps)",
+          "raw_value": "197/284",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Puissance maximale (kW)/vitesse de puissance maximale (RPM)",
+          "raw_value": "145-187/5500",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Couple maximal (N·m)/Vitesse de couple maximale (RPM)",
+          "raw_value": "290-390/2000-4000",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Technologie spécifique au moteur",
+          "raw_value": "TURBO Charge",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Norme d'émission",
+          "raw_value": "China VI B",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Type de transmission",
+          "raw_value": "7DCT",
+          "canonical_key": "transmission",
+          "unit": null
+        },
+        {
+          "raw_label": "Vitesse maximale (km/h)",
+          "raw_value": "185",
+          "canonical_key": "max_speed_kmh",
+          "unit": "km/h"
+        },
+        {
+          "raw_label": "Consommation de carburant (L/100km)",
+          "raw_value": "8.1",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Mode conduite",
+          "raw_value": "FF",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Type de puissance",
+          "raw_value": "EPS",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Type de suspension avant/ arrière",
+          "raw_value": "Macpherson independent suspension /Multiple link independent suspension",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Structure du véhicule",
+          "raw_value": "Monocoque",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Type de frein avant/arrière",
+          "raw_value": "Frein à disque/frein à disque",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Type de frein de stationnement",
+          "raw_value": "EPB",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Spécification des pneus avant/arrière",
+          "raw_value": "255/45 R20",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Spécifications du pneu de secours",
+          "raw_value": "Mini-pneu de secours temporaire",
+          "canonical_key": null,
+          "unit": null
+        }
+      ],
+      "content_hash": "f9a9824e2b9a402f79b0fc0a18d0768d783dfd2c15e85d2038316a35707e68e9",
+      "review_status": "draft",
+      "quality_flags": [
+        "many_unmapped_specs"
+      ]
+    }
+  ]
+}

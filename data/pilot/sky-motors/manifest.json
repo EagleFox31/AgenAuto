@@ -1,0 +1,22 @@
+{
+  "schema_version": 1,
+  "generated_at": "2026-09-05T20:09:35Z",
+  "vehicle_count": 6,
+  "models": [
+    "Dashing",
+    "T1",
+    "T2",
+    "X50",
+    "X70 Plus",
+    "X90 Plus"
+  ],
+  "source_urls": [
+    "https://www.skymotors-cameroun.com/jetour-dashing",
+    "https://skymotors-cameroun.com/jetour-t1",
+    "https://www.skymotors-cameroun.com/jetour-t2",
+    "https://www.skymotors-cameroun.com/jetour-x50",
+    "https://www.skymotors-cameroun.com/jetour-x70-plus",
+    "https://www.skymotors-cameroun.com/jetour-x90-plus"
+  ],
+  "notes": "Factual structured observations only; no marketing copy, images or brochure files."
+}
