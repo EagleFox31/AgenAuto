@@ -5,7 +5,8 @@ on:
     branches:
       - feat/cameroon-pilot-ingestion
     paths:
-      - 'services/ingestion/**'
+      - 'services/ingestion/src/agenauto_ingestion/collectors/sky_motors.py'
+      - 'services/ingestion/tests/test_sky_motors.py'
       - '.github/workflows/pilot-crawl-sky-motors.yml'
   workflow_dispatch:
 
@@ -37,7 +38,13 @@ jobs:
       - name: Crawl official Sky Motors Jetour catalogue
         run: agenauto-ingest sky-motors --output-root data/pilot/sky-motors
       - name: Validate generated pilot data
-        run: agenauto-ingest validate --input data/pilot/sky-motors/candidates.json --minimum-models 5
+        run: >-
+          agenauto-ingest validate
+          --input data/pilot/sky-motors/candidates.json
+          --minimum-models 5
+          --brand Jetour
+          --allowed-host skymotors-cameroun.com
+          --allowed-host www.skymotors-cameroun.com
       - name: Commit factual pilot observations
         shell: bash
         run: |
