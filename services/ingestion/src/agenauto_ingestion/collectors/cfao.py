@@ -159,7 +159,7 @@ def _looks_like_trim_heading(text: str, model: str) -> bool:
         return False
     if len(text) > 120 or len(text.split()) > 16:
         return False
-    if any(mark in text for mark in ".!?"):
+    if any(mark in text for mark in "!?") or text.rstrip().endswith("."):
         return False
     if any(char.isdigit() for char in text):
         return True
