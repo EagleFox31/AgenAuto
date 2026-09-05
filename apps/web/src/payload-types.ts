@@ -230,6 +230,28 @@ export interface Brand {
   website?: string | null;
   logo?: (number | null) | Media;
   description?: string | null;
+  catalogStatus: 'draft' | 'in_review' | 'published' | 'rejected';
+  sourceType?: ('manufacturer' | 'official-dealer' | 'regulatory' | 'manual-verification' | 'other') | null;
+  /**
+   * URL, document reference, brochure reference or other traceable source.
+   */
+  sourceReference?: string | null;
+  sourceObservedAt?: string | null;
+  /**
+   * Internal provenance notes; never part of the public catalog projection.
+   */
+  sourceNotes?: string | null;
+  qualityFlags?:
+    | {
+        code: string;
+        severity: 'warning' | 'blocking';
+        note?: string | null;
+        id?: string | null;
+      }[]
+    | null;
+  reviewNotes?: string | null;
+  reviewedBy?: (number | null) | User;
+  reviewedAt?: string | null;
   updatedAt: string;
   createdAt: string;
 }
@@ -247,6 +269,28 @@ export interface VehicleModel {
   heroImage?: (number | null) | Media;
   gallery?: (number | Media)[] | null;
   description?: string | null;
+  catalogStatus: 'draft' | 'in_review' | 'published' | 'rejected';
+  sourceType?: ('manufacturer' | 'official-dealer' | 'regulatory' | 'manual-verification' | 'other') | null;
+  /**
+   * URL, document reference, brochure reference or other traceable source.
+   */
+  sourceReference?: string | null;
+  sourceObservedAt?: string | null;
+  /**
+   * Internal provenance notes; never part of the public catalog projection.
+   */
+  sourceNotes?: string | null;
+  qualityFlags?:
+    | {
+        code: string;
+        severity: 'warning' | 'blocking';
+        note?: string | null;
+        id?: string | null;
+      }[]
+    | null;
+  reviewNotes?: string | null;
+  reviewedBy?: (number | null) | User;
+  reviewedAt?: string | null;
   updatedAt: string;
   createdAt: string;
 }
@@ -265,6 +309,28 @@ export interface Generation {
   productionEndYear?: number | null;
   gallery?: (number | Media)[] | null;
   notes?: string | null;
+  catalogStatus: 'draft' | 'in_review' | 'published' | 'rejected';
+  sourceType?: ('manufacturer' | 'official-dealer' | 'regulatory' | 'manual-verification' | 'other') | null;
+  /**
+   * URL, document reference, brochure reference or other traceable source.
+   */
+  sourceReference?: string | null;
+  sourceObservedAt?: string | null;
+  /**
+   * Internal provenance notes; never part of the public catalog projection.
+   */
+  sourceNotes?: string | null;
+  qualityFlags?:
+    | {
+        code: string;
+        severity: 'warning' | 'blocking';
+        note?: string | null;
+        id?: string | null;
+      }[]
+    | null;
+  reviewNotes?: string | null;
+  reviewedBy?: (number | null) | User;
+  reviewedAt?: string | null;
   updatedAt: string;
   createdAt: string;
 }
@@ -303,6 +369,28 @@ export interface Trim {
   doors?: number | null;
   gallery?: (number | Media)[] | null;
   notes?: string | null;
+  catalogStatus: 'draft' | 'in_review' | 'published' | 'rejected';
+  sourceType?: ('manufacturer' | 'official-dealer' | 'regulatory' | 'manual-verification' | 'other') | null;
+  /**
+   * URL, document reference, brochure reference or other traceable source.
+   */
+  sourceReference?: string | null;
+  sourceObservedAt?: string | null;
+  /**
+   * Internal provenance notes; never part of the public catalog projection.
+   */
+  sourceNotes?: string | null;
+  qualityFlags?:
+    | {
+        code: string;
+        severity: 'warning' | 'blocking';
+        note?: string | null;
+        id?: string | null;
+      }[]
+    | null;
+  reviewNotes?: string | null;
+  reviewedBy?: (number | null) | User;
+  reviewedAt?: string | null;
   updatedAt: string;
   createdAt: string;
 }
@@ -358,6 +446,28 @@ export interface SpecificationDefinition {
   filterable?: boolean | null;
   sortOrder?: number | null;
   description?: string | null;
+  catalogStatus: 'draft' | 'in_review' | 'published' | 'rejected';
+  sourceType?: ('manufacturer' | 'official-dealer' | 'regulatory' | 'manual-verification' | 'other') | null;
+  /**
+   * URL, document reference, brochure reference or other traceable source.
+   */
+  sourceReference?: string | null;
+  sourceObservedAt?: string | null;
+  /**
+   * Internal provenance notes; never part of the public catalog projection.
+   */
+  sourceNotes?: string | null;
+  qualityFlags?:
+    | {
+        code: string;
+        severity: 'warning' | 'blocking';
+        note?: string | null;
+        id?: string | null;
+      }[]
+    | null;
+  reviewNotes?: string | null;
+  reviewedBy?: (number | null) | User;
+  reviewedAt?: string | null;
   updatedAt: string;
   createdAt: string;
 }
@@ -376,6 +486,28 @@ export interface TrimSpecification {
   booleanValue?: ('true' | 'false') | null;
   optionValue?: string | null;
   sourceNote?: string | null;
+  catalogStatus: 'draft' | 'in_review' | 'published' | 'rejected';
+  sourceType?: ('manufacturer' | 'official-dealer' | 'regulatory' | 'manual-verification' | 'other') | null;
+  /**
+   * URL, document reference, brochure reference or other traceable source.
+   */
+  sourceReference?: string | null;
+  sourceObservedAt?: string | null;
+  /**
+   * Internal provenance notes; never part of the public catalog projection.
+   */
+  sourceNotes?: string | null;
+  qualityFlags?:
+    | {
+        code: string;
+        severity: 'warning' | 'blocking';
+        note?: string | null;
+        id?: string | null;
+      }[]
+    | null;
+  reviewNotes?: string | null;
+  reviewedBy?: (number | null) | User;
+  reviewedAt?: string | null;
   updatedAt: string;
   createdAt: string;
 }
@@ -575,6 +707,22 @@ export interface BrandsSelect<T extends boolean = true> {
   website?: T;
   logo?: T;
   description?: T;
+  catalogStatus?: T;
+  sourceType?: T;
+  sourceReference?: T;
+  sourceObservedAt?: T;
+  sourceNotes?: T;
+  qualityFlags?:
+    | T
+    | {
+        code?: T;
+        severity?: T;
+        note?: T;
+        id?: T;
+      };
+  reviewNotes?: T;
+  reviewedBy?: T;
+  reviewedAt?: T;
   updatedAt?: T;
   createdAt?: T;
 }
@@ -591,6 +739,22 @@ export interface VehicleModelsSelect<T extends boolean = true> {
   heroImage?: T;
   gallery?: T;
   description?: T;
+  catalogStatus?: T;
+  sourceType?: T;
+  sourceReference?: T;
+  sourceObservedAt?: T;
+  sourceNotes?: T;
+  qualityFlags?:
+    | T
+    | {
+        code?: T;
+        severity?: T;
+        note?: T;
+        id?: T;
+      };
+  reviewNotes?: T;
+  reviewedBy?: T;
+  reviewedAt?: T;
   updatedAt?: T;
   createdAt?: T;
 }
@@ -608,6 +772,22 @@ export interface GenerationsSelect<T extends boolean = true> {
   productionEndYear?: T;
   gallery?: T;
   notes?: T;
+  catalogStatus?: T;
+  sourceType?: T;
+  sourceReference?: T;
+  sourceObservedAt?: T;
+  sourceNotes?: T;
+  qualityFlags?:
+    | T
+    | {
+        code?: T;
+        severity?: T;
+        note?: T;
+        id?: T;
+      };
+  reviewNotes?: T;
+  reviewedBy?: T;
+  reviewedAt?: T;
   updatedAt?: T;
   createdAt?: T;
 }
@@ -630,6 +810,22 @@ export interface TrimsSelect<T extends boolean = true> {
   doors?: T;
   gallery?: T;
   notes?: T;
+  catalogStatus?: T;
+  sourceType?: T;
+  sourceReference?: T;
+  sourceObservedAt?: T;
+  sourceNotes?: T;
+  qualityFlags?:
+    | T
+    | {
+        code?: T;
+        severity?: T;
+        note?: T;
+        id?: T;
+      };
+  reviewNotes?: T;
+  reviewedBy?: T;
+  reviewedAt?: T;
   updatedAt?: T;
   createdAt?: T;
 }
@@ -654,6 +850,22 @@ export interface SpecificationDefinitionsSelect<T extends boolean = true> {
   filterable?: T;
   sortOrder?: T;
   description?: T;
+  catalogStatus?: T;
+  sourceType?: T;
+  sourceReference?: T;
+  sourceObservedAt?: T;
+  sourceNotes?: T;
+  qualityFlags?:
+    | T
+    | {
+        code?: T;
+        severity?: T;
+        note?: T;
+        id?: T;
+      };
+  reviewNotes?: T;
+  reviewedBy?: T;
+  reviewedAt?: T;
   updatedAt?: T;
   createdAt?: T;
 }
@@ -671,6 +883,22 @@ export interface TrimSpecificationsSelect<T extends boolean = true> {
   booleanValue?: T;
   optionValue?: T;
   sourceNote?: T;
+  catalogStatus?: T;
+  sourceType?: T;
+  sourceReference?: T;
+  sourceObservedAt?: T;
+  sourceNotes?: T;
+  qualityFlags?:
+    | T
+    | {
+        code?: T;
+        severity?: T;
+        note?: T;
+        id?: T;
+      };
+  reviewNotes?: T;
+  reviewedBy?: T;
+  reviewedAt?: T;
   updatedAt?: T;
   createdAt?: T;
 }
