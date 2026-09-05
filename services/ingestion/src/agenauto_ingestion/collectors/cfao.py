@@ -198,6 +198,13 @@ def parse_vehicle_page(
     )
 
 
+def is_usable_vehicle_candidate(candidate: VehicleCandidate) -> bool:
+    model_token = normalized_token(candidate.model)
+    if "cfao mobility" in model_token:
+        return False
+    return bool(candidate.specs)
+
+
 def _candidate_preference_key(candidate: VehicleCandidate) -> tuple[int, int, int, int, str]:
     mapped_specs = sum(spec.canonical_key is not None for spec in candidate.specs)
     return (
@@ -275,9 +282,13 @@ async def crawl_cfao_brand(config: CfaoBrandConfig) -> list[VehicleCandidate]:
 
     @crawler.router.default_handler
     async def handle_vehicle(context: BeautifulSoupCrawlingContext) -> None:
-        candidates.append(
-            parse_vehicle_page(str(context.soup), str(context.request.url), config)
+        candidate = parse_vehicle_page(
+            str(context.soup),
+            str(context.request.url),
+            config,
         )
+        if is_usable_vehicle_candidate(candidate):
+            candidates.append(candidate)
 
     await crawler.run(urls)
     return dedupe_vehicle_candidates(candidates)

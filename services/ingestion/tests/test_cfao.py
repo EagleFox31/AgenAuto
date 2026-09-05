@@ -2,6 +2,7 @@ from agenauto_ingestion.collectors.cfao import (
     DISTRIBUTOR,
     TOYOTA,
     extract_model_links,
+    is_usable_vehicle_candidate,
     parse_vehicle_page,
 )
 
@@ -56,3 +57,23 @@ def test_cfao_vehicle_page_extracts_trim_names_specs_and_provenance() -> None:
     assert any(spec.canonical_key == "engine_displacement_ml" for spec in candidate.specs)
     assert any(spec.canonical_key == "wheelbase_mm" for spec in candidate.specs)
     assert any(spec.canonical_key == "fuel_tank_l" for spec in candidate.specs)
+    assert is_usable_vehicle_candidate(candidate)
+
+
+def test_cfao_generic_landing_content_is_not_a_vehicle_candidate() -> None:
+    html = """
+    <html>
+      <head><title>CFAO MOBILITY - Toyota Cameroon</title></head>
+      <body><h1>CFAO MOBILITY - Toyota Cameroon</h1></body>
+    </html>
+    """
+    candidate = parse_vehicle_page(
+        html,
+        "https://toyota.cami-cfao.com/en/range/toyota-cameroon-cami/legacy-link",
+        TOYOTA,
+        observed_at="2026-09-05T21:40:00Z",
+    )
+
+    assert candidate.model == "CFAO MOBILITY - Toyota Cameroon"
+    assert candidate.specs == ()
+    assert not is_usable_vehicle_candidate(candidate)
