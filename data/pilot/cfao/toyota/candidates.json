@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "dataset": "cameroon-pilot-cfao-toyota",
-  "generated_at": "2026-09-05T23:25:15Z",
+  "generated_at": "2026-09-06T10:38:31Z",
   "collector": "cfao_toyota",
   "distributor": "CFAO Mobility Cameroon (CAMI Motors)",
   "publication_policy": "draft_only_until_payload_review",
@@ -11,7 +11,7 @@
       "model": "Belta",
       "source": {
         "url": "https://toyota.cami-cfao.com/en/range/toyota-cameroon-cami/belta",
-        "observed_at": "2026-09-05T23:24:05Z",
+        "observed_at": "2026-09-06T10:37:21Z",
         "distributor": "CFAO Mobility Cameroon (CAMI Motors)",
         "source_type": "official_web",
         "country": "CM",
@@ -764,7 +764,7 @@
       "model": "Coaster",
       "source": {
         "url": "https://toyota.cami-cfao.com/en/range/toyota-cameroon-cami/coaster",
-        "observed_at": "2026-09-05T23:24:07Z",
+        "observed_at": "2026-09-06T10:37:23Z",
         "distributor": "CFAO Mobility Cameroon (CAMI Motors)",
         "source_type": "official_web",
         "country": "CM",
@@ -1343,7 +1343,7 @@
       "model": "Corolla Cross",
       "source": {
         "url": "https://toyota.cami-cfao.com/en/range/toyota-cameroon-cami/corolla-cross",
-        "observed_at": "2026-09-05T23:24:11Z",
+        "observed_at": "2026-09-06T10:37:27Z",
         "distributor": "CFAO Mobility Cameroon (CAMI Motors)",
         "source_type": "official_web",
         "country": "CM",
@@ -2161,7 +2161,7 @@
       "model": "Corolla Sedan",
       "source": {
         "url": "https://toyota.cami-cfao.com/en/range/toyota-cameroon-cami/corolla-Sedan",
-        "observed_at": "2026-09-05T23:24:09Z",
+        "observed_at": "2026-09-06T10:37:25Z",
         "distributor": "CFAO Mobility Cameroon (CAMI Motors)",
         "source_type": "official_web",
         "country": "CM",
@@ -2767,7 +2767,7 @@
       "model": "Fortuner",
       "source": {
         "url": "https://toyota.cami-cfao.com/en/range/toyota-cameroon-cami/fortuner",
-        "observed_at": "2026-09-05T23:24:13Z",
+        "observed_at": "2026-09-06T10:37:30Z",
         "distributor": "CFAO Mobility Cameroon (CAMI Motors)",
         "source_type": "official_web",
         "country": "CM",
@@ -3833,7 +3833,7 @@
       "model": "Hiace",
       "source": {
         "url": "https://toyota.cami-cfao.com/en/range/toyota-cameroon-cami/hiace",
-        "observed_at": "2026-09-05T23:24:15Z",
+        "observed_at": "2026-09-06T10:37:31Z",
         "distributor": "CFAO Mobility Cameroon (CAMI Motors)",
         "source_type": "official_web",
         "country": "CM",
@@ -4586,7 +4586,7 @@
       "model": "Hiace GD",
       "source": {
         "url": "https://toyota.cami-cfao.com/en/range/toyota-cameroon-cami/Hiace-GD",
-        "observed_at": "2026-09-05T23:24:01Z",
+        "observed_at": "2026-09-06T10:37:17Z",
         "distributor": "CFAO Mobility Cameroon (CAMI Motors)",
         "source_type": "official_web",
         "country": "CM",
@@ -5162,7 +5162,7 @@
       "model": "Hiace van",
       "source": {
         "url": "https://toyota.cami-cfao.com/en/range/toyota-cameroon-cami/hiace-van",
-        "observed_at": "2026-09-05T23:24:17Z",
+        "observed_at": "2026-09-06T10:37:33Z",
         "distributor": "CFAO Mobility Cameroon (CAMI Motors)",
         "source_type": "official_web",
         "country": "CM",
@@ -5733,7 +5733,7 @@
       "model": "Hilux",
       "source": {
         "url": "https://toyota.cami-cfao.com/en/range/toyota-cameroon-cami/hilux",
-        "observed_at": "2026-09-05T23:24:20Z",
+        "observed_at": "2026-09-06T10:37:36Z",
         "distributor": "CFAO Mobility Cameroon (CAMI Motors)",
         "source_type": "official_web",
         "country": "CM",
@@ -7291,7 +7291,7 @@
       "model": "Land Cruiser 300",
       "source": {
         "url": "https://toyota.cami-cfao.com/en/range/toyota-cameroon-cami/land-cruiser-300",
-        "observed_at": "2026-09-05T23:24:21Z",
+        "observed_at": "2026-09-06T10:37:38Z",
         "distributor": "CFAO Mobility Cameroon (CAMI Motors)",
         "source_type": "official_web",
         "country": "CM",
@@ -8544,7 +8544,7 @@
       "model": "Land Cruiser 76",
       "source": {
         "url": "https://toyota.cami-cfao.com/en/range/toyota-cameroon-cami/land-cruiser-76",
-        "observed_at": "2026-09-05T23:24:23Z",
+        "observed_at": "2026-09-06T10:37:39Z",
         "distributor": "CFAO Mobility Cameroon (CAMI Motors)",
         "source_type": "official_web",
         "country": "CM",
@@ -9416,7 +9416,7 @@
       "model": "Land Cruiser 78",
       "source": {
         "url": "https://toyota.cami-cfao.com/en/range/toyota-cameroon-cami/land-cruiser-78",
-        "observed_at": "2026-09-05T23:24:25Z",
+        "observed_at": "2026-09-06T10:37:41Z",
         "distributor": "CFAO Mobility Cameroon (CAMI Motors)",
         "source_type": "official_web",
         "country": "CM",
@@ -10156,7 +10156,7 @@
       "model": "Land Cruiser 79",
       "source": {
         "url": "https://toyota.cami-cfao.com/en/range/toyota-cameroon-cami/land-cruiser-79",
-        "observed_at": "2026-09-05T23:24:27Z",
+        "observed_at": "2026-09-06T10:37:44Z",
         "distributor": "CFAO Mobility Cameroon (CAMI Motors)",
         "source_type": "official_web",
         "country": "CM",
@@ -11093,7 +11093,7 @@
       "model": "Land Cruiser Prado",
       "source": {
         "url": "https://toyota.cami-cfao.com/en/range/toyota-cameroon-cami/prado",
-        "observed_at": "2026-09-05T23:24:29Z",
+        "observed_at": "2026-09-06T10:37:46Z",
         "distributor": "CFAO Mobility Cameroon (CAMI Motors)",
         "source_type": "official_web",
         "country": "CM",
@@ -12433,7 +12433,7 @@
       "model": "RAV4",
       "source": {
         "url": "https://toyota.cami-cfao.com/en/range/toyota-cameroon-cami/rav4",
-        "observed_at": "2026-09-05T23:24:31Z",
+        "observed_at": "2026-09-06T10:37:47Z",
         "distributor": "CFAO Mobility Cameroon (CAMI Motors)",
         "source_type": "official_web",
         "country": "CM",
@@ -13431,7 +13431,7 @@
       "model": "Rumion",
       "source": {
         "url": "https://toyota.cami-cfao.com/en/range/toyota-cameroon-cami/toyota-rumion",
-        "observed_at": "2026-09-05T23:24:39Z",
+        "observed_at": "2026-09-06T10:37:55Z",
         "distributor": "CFAO Mobility Cameroon (CAMI Motors)",
         "source_type": "official_web",
         "country": "CM",
@@ -14202,7 +14202,7 @@
       "model": "Rush",
       "source": {
         "url": "https://toyota.cami-cfao.com/en/range/toyota-cameroon-cami/rush",
-        "observed_at": "2026-09-05T23:24:33Z",
+        "observed_at": "2026-09-06T10:37:49Z",
         "distributor": "CFAO Mobility Cameroon (CAMI Motors)",
         "source_type": "official_web",
         "country": "CM",
@@ -14935,7 +14935,7 @@
       "model": "Starlet",
       "source": {
         "url": "https://toyota.cami-cfao.com/en/range/toyota-cameroon-cami/starlet",
-        "observed_at": "2026-09-05T23:24:35Z",
+        "observed_at": "2026-09-06T10:37:52Z",
         "distributor": "CFAO Mobility Cameroon (CAMI Motors)",
         "source_type": "official_web",
         "country": "CM",
@@ -15749,7 +15749,7 @@
       "model": "Starlet Cross",
       "source": {
         "url": "https://toyota.cami-cfao.com/en/range/toyota-cameroon-cami/starlet-cross",
-        "observed_at": "2026-09-05T23:24:37Z",
+        "observed_at": "2026-09-06T10:37:54Z",
         "distributor": "CFAO Mobility Cameroon (CAMI Motors)",
         "source_type": "official_web",
         "country": "CM",
@@ -16477,7 +16477,7 @@
       "model": "Urban Cruiser",
       "source": {
         "url": "https://toyota.cami-cfao.com/en/range/toyota-cameroon-cami/urban-cruiser",
-        "observed_at": "2026-09-05T23:24:43Z",
+        "observed_at": "2026-09-06T10:38:00Z",
         "distributor": "CFAO Mobility Cameroon (CAMI Motors)",
         "source_type": "official_web",
         "country": "CM",
@@ -17374,7 +17374,7 @@
       "model": "Vitz",
       "source": {
         "url": "https://toyota.cami-cfao.com/en/range/toyota-cameroon-cami/toyota-vitz",
-        "observed_at": "2026-09-05T23:24:41Z",
+        "observed_at": "2026-09-06T10:37:57Z",
         "distributor": "CFAO Mobility Cameroon (CAMI Motors)",
         "source_type": "official_web",
         "country": "CM",

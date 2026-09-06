@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "dataset": "cameroon-pilot-cfao-suzuki",
-  "generated_at": "2026-09-05T23:25:15Z",
+  "generated_at": "2026-09-06T10:38:31Z",
   "collector": "cfao_suzuki",
   "distributor": "CFAO Mobility Cameroon (CAMI Motors)",
   "publication_policy": "draft_only_until_payload_review",
@@ -11,7 +11,7 @@
       "model": "Across",
       "source": {
         "url": "https://suzuki.cami-cfao.com/en/range/suzuki-cameroon-cami/New_Across",
-        "observed_at": "2026-09-05T23:24:55Z",
+        "observed_at": "2026-09-06T10:38:11Z",
         "distributor": "CFAO Mobility Cameroon (CAMI Motors)",
         "source_type": "official_web",
         "country": "CM",
@@ -99,7 +99,7 @@
       "model": "Alto",
       "source": {
         "url": "https://suzuki.cami-cfao.com/en/range/suzuki-cameroon-cami/alto",
-        "observed_at": "2026-09-05T23:24:57Z",
+        "observed_at": "2026-09-06T10:38:13Z",
         "distributor": "CFAO Mobility Cameroon (CAMI Motors)",
         "source_type": "official_web",
         "country": "CM",
@@ -563,7 +563,7 @@
       "model": "Baleno",
       "source": {
         "url": "https://suzuki.cami-cfao.com/en/range/suzuki-cameroon-cami/Baleno",
-        "observed_at": "2026-09-05T23:24:48Z",
+        "observed_at": "2026-09-06T10:38:04Z",
         "distributor": "CFAO Mobility Cameroon (CAMI Motors)",
         "source_type": "official_web",
         "country": "CM",
@@ -1143,7 +1143,7 @@
       "model": "Celerio",
       "source": {
         "url": "https://suzuki.cami-cfao.com/en/range/suzuki-cameroon-cami/celerio",
-        "observed_at": "2026-09-05T23:24:59Z",
+        "observed_at": "2026-09-06T10:38:15Z",
         "distributor": "CFAO Mobility Cameroon (CAMI Motors)",
         "source_type": "official_web",
         "country": "CM",
@@ -1685,7 +1685,7 @@
       "model": "Dzire",
       "source": {
         "url": "https://suzuki.cami-cfao.com/en/range/suzuki-cameroon-cami/New-Dzire",
-        "observed_at": "2026-09-05T23:24:51Z",
+        "observed_at": "2026-09-06T10:38:07Z",
         "distributor": "CFAO Mobility Cameroon (CAMI Motors)",
         "source_type": "official_web",
         "country": "CM",
@@ -1767,7 +1767,7 @@
       "model": "Eeco",
       "source": {
         "url": "https://suzuki.cami-cfao.com/en/range/suzuki-cameroon-cami/eeco",
-        "observed_at": "2026-09-05T23:25:01Z",
+        "observed_at": "2026-09-06T10:38:17Z",
         "distributor": "CFAO Mobility Cameroon (CAMI Motors)",
         "source_type": "official_web",
         "country": "CM",
@@ -2164,7 +2164,7 @@
       "model": "Ertiga",
       "source": {
         "url": "https://suzuki.cami-cfao.com/en/range/suzuki-cameroon-cami/ertiga",
-        "observed_at": "2026-09-05T23:25:03Z",
+        "observed_at": "2026-09-06T10:38:20Z",
         "distributor": "CFAO Mobility Cameroon (CAMI Motors)",
         "source_type": "official_web",
         "country": "CM",
@@ -2744,7 +2744,7 @@
       "model": "FRONX",
       "source": {
         "url": "https://suzuki.cami-cfao.com/en/range/suzuki-cameroon-cami/FRONX",
-        "observed_at": "2026-09-05T23:24:49Z",
+        "observed_at": "2026-09-06T10:38:05Z",
         "distributor": "CFAO Mobility Cameroon (CAMI Motors)",
         "source_type": "official_web",
         "country": "CM",
@@ -3214,7 +3214,7 @@
       "model": "Grand Vitara",
       "source": {
         "url": "https://suzuki.cami-cfao.com/en/range/suzuki-cameroon-cami/grand-vitara",
-        "observed_at": "2026-09-05T23:25:05Z",
+        "observed_at": "2026-09-06T10:38:22Z",
         "distributor": "CFAO Mobility Cameroon (CAMI Motors)",
         "source_type": "official_web",
         "country": "CM",
@@ -3908,7 +3908,7 @@
       "model": "Jimny",
       "source": {
         "url": "https://suzuki.cami-cfao.com/en/range/suzuki-cameroon-cami/jimny",
-        "observed_at": "2026-09-05T23:25:07Z",
+        "observed_at": "2026-09-06T10:38:23Z",
         "distributor": "CFAO Mobility Cameroon (CAMI Motors)",
         "source_type": "official_web",
         "country": "CM",
@@ -3996,7 +3996,7 @@
       "model": "Jimny 5 doors",
       "source": {
         "url": "https://suzuki.cami-cfao.com/en/range/suzuki-cameroon-cami/jimny-5-doors",
-        "observed_at": "2026-09-05T23:25:09Z",
+        "observed_at": "2026-09-06T10:38:25Z",
         "distributor": "CFAO Mobility Cameroon (CAMI Motors)",
         "source_type": "official_web",
         "country": "CM",
@@ -4457,7 +4457,7 @@
       "model": "S-Presso",
       "source": {
         "url": "https://suzuki.cami-cfao.com/en/range/suzuki-cameroon-cami/spresso",
-        "observed_at": "2026-09-05T23:25:11Z",
+        "observed_at": "2026-09-06T10:38:28Z",
         "distributor": "CFAO Mobility Cameroon (CAMI Motors)",
         "source_type": "official_web",
         "country": "CM",
@@ -4912,7 +4912,7 @@
       "model": "Super Carry",
       "source": {
         "url": "https://suzuki.cami-cfao.com/en/range/suzuki-cameroon-cami/super-carry",
-        "observed_at": "2026-09-05T23:25:13Z",
+        "observed_at": "2026-09-06T10:38:29Z",
         "distributor": "CFAO Mobility Cameroon (CAMI Motors)",
         "source_type": "official_web",
         "country": "CM",
@@ -5158,7 +5158,7 @@
       "model": "Swift",
       "source": {
         "url": "https://suzuki.cami-cfao.com/en/range/suzuki-cameroon-cami/New-swift",
-        "observed_at": "2026-09-05T23:24:53Z",
+        "observed_at": "2026-09-06T10:38:09Z",
         "distributor": "CFAO Mobility Cameroon (CAMI Motors)",
         "source_type": "official_web",
         "country": "CM",
