@@ -6,11 +6,13 @@ on:
       - feat/cameroon-pilot-ingestion
     paths:
       - 'services/ingestion/src/agenauto_ingestion/collectors/tractafric.py'
+      - 'services/ingestion/src/agenauto_ingestion/tractafric_quality.py'
       - 'services/ingestion/src/agenauto_ingestion/models.py'
       - 'services/ingestion/src/agenauto_ingestion/normalization.py'
       - 'services/ingestion/src/agenauto_ingestion/provenance.py'
       - 'services/ingestion/src/agenauto_ingestion/cli.py'
       - 'services/ingestion/tests/test_tractafric.py'
+      - 'services/ingestion/tests/test_tractafric_quality.py'
       - 'data/pilot/tractafric/mitsubishi/candidates.json'
       - '.github/workflows/pilot-crawl-tractafric.yml'
   workflow_dispatch:
@@ -96,6 +98,11 @@ jobs:
 
           asyncio.run(main())
           PY
+      - name: Clean and quality-gate Tractafric pilot data
+        run: >-
+          python -m agenauto_ingestion.tractafric_quality
+          --hyundai data/pilot/tractafric/hyundai/candidates.json
+          --mitsubishi data/pilot/tractafric/mitsubishi/candidates.json
       - name: Validate Hyundai pilot data
         run: >-
           agenauto-ingest validate
@@ -147,9 +154,10 @@ jobs:
               'vehicle_count': total,
               'notes': (
                   'Hyundai observations are refreshed from the official brand microsite. '
-                  'Mitsubishi observations are a manually reviewed official Tractafric '
-                  'snapshot because robots.txt disallows automated access; all data remains '
-                  'draft until Payload review.'
+                  'Palisade falls back to its official presentation page when models.html '
+                  'does not expose technical facts. Mitsubishi observations are a manually '
+                  'reviewed official Tractafric snapshot because robots.txt disallows '
+                  'automated access; all data remains draft until Payload review.'
               ),
           }
           (root / 'manifest.json').write_text(
