@@ -3,6 +3,7 @@ from __future__ import annotations
 import re
 from collections.abc import Iterable
 from dataclasses import dataclass, replace
+from itertools import chain
 from urllib.parse import urljoin, urlparse
 
 from bs4 import BeautifulSoup
@@ -36,16 +37,57 @@ MARKET_ONLY_SPEC_LABELS = frozenset(
         "price",
     }
 )
+TRIM_MARKERS = frozenset(
+    {
+        "bva",
+        "bvm",
+        "dc",
+        "gl",
+        "gls",
+        "glx",
+        "h-line",
+        "premium",
+        "sc",
+        "smartstream",
+    }
+)
 
 
 @dataclass(frozen=True, slots=True)
 class TractafricBrandConfig:
     slug: str
     brand: str
+    model_urls: tuple[str, ...]
 
 
-HYUNDAI = TractafricBrandConfig(slug="hyundai", brand="Hyundai")
-MITSUBISHI = TractafricBrandConfig(slug="mitsubishi", brand="Mitsubishi")
+HYUNDAI = TractafricBrandConfig(
+    slug="hyundai",
+    brand="Hyundai",
+    model_urls=(
+        "https://www.tractafrictmc-cameroun.com/fr/vehicle/hyundai/335/"
+        "nouveau-santa-fe/models.html",
+        "https://www.tractafrictmc-cameroun.com/fr/vehicle/hyundai/325/"
+        "nouveau-county/models.html",
+        "https://www.tractafrictmc-cameroun.com/fr/vehicle/hyundai/360/"
+        "all-new-palisade/models.html",
+        "https://www.tractafrictmc-cameroun.com/fr/vehicle/hyundai/20/"
+        "tucson/models.html",
+    ),
+)
+MITSUBISHI = TractafricBrandConfig(
+    slug="mitsubishi",
+    brand="Mitsubishi",
+    model_urls=(
+        "https://www.tractafrictmc-cameroun.com/fr/vehicle/mitsubishi/283/"
+        "eclipse-cross/models.html",
+        "https://www.tractafrictmc-cameroun.com/fr/vehicle/mitsubishi/284/"
+        "outlander/models.html",
+        "https://www.tractafrictmc-cameroun.com/fr/vehicle/mitsubishi/342/"
+        "nouveau-l200/models.html",
+        "https://www.tractafrictmc-cameroun.com/fr/vehicle/mitsubishi/32/"
+        "pajero-sport/models.html",
+    ),
+)
 TRACTAFRIC_BRANDS = (HYUNDAI, MITSUBISHI)
 
 
@@ -69,6 +111,12 @@ def extract_model_links(
     html: str,
     base_url: str = CATALOG_URL,
 ) -> dict[str, list[str]]:
+    """Parse catalogue HTML when supplied manually; live crawl does not hit it.
+
+    Tractafric's robots policy currently blocks automated access to the catalogue
+    listing page. The pilot therefore crawls only the explicit official model URLs
+    declared in each brand config.
+    """
     soup = BeautifulSoup(html, "html.parser")
     links: dict[str, set[str]] = {
         config.slug: set() for config in TRACTAFRIC_BRANDS
@@ -149,6 +197,55 @@ def _iter_structured_pairs(soup: BeautifulSoup) -> Iterable[tuple[str, str]]:
         yield pair
 
 
+def _compact_displacement_value(text: str) -> str | None:
+    match = re.fullmatch(r"(\d{1,4}(?:[.,]\d{3})?)\s*cc", text, flags=re.IGNORECASE)
+    if match is None:
+        return None
+    value = match.group(1)
+    if re.fullmatch(r"\d{1,2}[.,]\d{3}", value):
+        return value.replace(".", "").replace(",", "")
+    return value
+
+
+def _iter_compact_model_specs(soup: BeautifulSoup) -> Iterable[tuple[str, str]]:
+    """Extract Tractafric's compact model-card facts from unlabeled text nodes."""
+    seen: set[tuple[str, str]] = set()
+    for raw in soup.stripped_strings:
+        text = normalize_space(str(raw))
+        token = normalized_token(text)
+        pair: tuple[str, str] | None = None
+
+        if token in {"manuelle", "automatique", "manuelle ou automatique"}:
+            pair = ("Gearbox", text)
+        elif token in {"essence", "diesel"}:
+            pair = ("Fuel type", text)
+        elif re.fullmatch(r"4x[24]", text, flags=re.IGNORECASE):
+            pair = ("Transmission", text)
+        else:
+            displacement = _compact_displacement_value(text)
+            if displacement is not None:
+                pair = ("Displacement (cc)", displacement)
+            elif re.fullmatch(
+                r"[\d\s\u202f.,]+x[\d\s\u202f.,]+x[\d\s\u202f.,]+\s*\(mm\)",
+                text,
+                flags=re.IGNORECASE,
+            ):
+                pair = ("Dimensions (Lxwxh) in mm", text.removesuffix("(mm)").strip())
+            elif re.fullmatch(r"\d+\s+portes?", text, flags=re.IGNORECASE):
+                pair = ("Number of doors", text.split()[0])
+            elif re.fullmatch(r"\d+(?:\s*\+\s*\d+)?\s+si[eè]ges?", text, flags=re.IGNORECASE):
+                pair = ("Number of seats", re.sub(r"\s+si[eè]ges?$", "", text, flags=re.IGNORECASE))
+            elif "cv@tours/min" in token:
+                pair = ("Horse power (HP)", text.split("(", 1)[0].strip())
+            elif "nm@tours/min" in token:
+                pair = ("Max torque Nm", text.split("(", 1)[0].strip())
+
+        if pair is None or pair in seen:
+            continue
+        seen.add(pair)
+        yield pair
+
+
 def _clean_model_name(value: str, brand: str) -> str:
     clean = canonical_display_model(value, brand)
     clean = re.sub(
@@ -186,18 +283,41 @@ def _extract_model(
 def _looks_like_trim_heading(text: str, model: str) -> bool:
     token = normalized_token(text)
     model_token = normalized_token(model)
-    if not text or model_token not in token or token == model_token:
+    if not text or token == model_token:
         return False
     if len(text) > 120 or len(text.split()) > 16:
         return False
     if text.endswith(".") or "!" in text or "?" in text:
         return False
-    return any(char.isdigit() for char in text)
+    if token in {
+        "modeles disponibles",
+        "modèles disponibles",
+        "douala",
+        "yaounde",
+        "yaoundé",
+        "galerie d images",
+    }:
+        return False
+    if re.fullmatch(r"\d+(?:[.,]\d+)?\s*l\s*4x[24]", token):
+        return False
+
+    words = set(token.split())
+    marker_tokens = {normalized_token(marker) for marker in TRIM_MARKERS}
+    if model_token in token:
+        residual = normalize_space(token.replace(model_token, ""))
+        return bool(residual) and (
+            any(char.isdigit() for char in residual)
+            or bool(marker_tokens.intersection(residual.split()))
+        )
+    return (
+        bool(marker_tokens.intersection(words))
+        or any(char.isdigit() for char in text)
+    )
 
 
 def _extract_variants(soup: BeautifulSoup, model: str) -> tuple[str, ...]:
     variants: list[str] = []
-    for heading in soup.find_all(["h3", "h4"]):
+    for heading in soup.find_all(["h1", "h2", "h3", "h4"]):
         text = normalize_space(heading.get_text(" ", strip=True))
         if _looks_like_trim_heading(text, model):
             variants.append(text)
@@ -227,7 +347,8 @@ def parse_vehicle_page(
     specs: list[SpecObservation] = []
     category: str | None = None
     seen_specs: set[tuple[str, str]] = set()
-    for label, value in _iter_structured_pairs(soup):
+    pairs = chain(_iter_structured_pairs(soup), _iter_compact_model_specs(soup))
+    for label, value in pairs:
         if _is_market_only_spec(label):
             continue
         observation = normalize_spec(label, value)
@@ -332,21 +453,15 @@ async def _build_crawler(
 
 
 async def discover_model_urls() -> dict[str, list[str]]:
+    """Return the explicit pilot URLs without crawling the robots-blocked listing."""
     discovered: dict[str, list[str]] = {}
-    crawler = await _build_crawler("tractafric-catalog", 1)
-
-    @crawler.router.default_handler
-    async def handle_catalog(context: BeautifulSoupCrawlingContext) -> None:
-        discovered.update(
-            extract_model_links(str(context.soup), str(context.request.url))
-        )
-
-    await crawler.run([CATALOG_URL])
     for config in TRACTAFRIC_BRANDS:
-        if not discovered.get(config.slug):
-            raise RuntimeError(
-                f"Tractafric catalogue returned no {config.brand} model links."
-            )
+        urls = sorted(config.model_urls)
+        if not urls:
+            raise RuntimeError(f"No Tractafric pilot URLs configured for {config.brand}.")
+        if any(not _is_allowed_url(url) or _config_from_url(url) != config for url in urls):
+            raise RuntimeError(f"Invalid Tractafric pilot URL configured for {config.brand}.")
+        discovered[config.slug] = urls
     return discovered
 
 
