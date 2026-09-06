@@ -18,9 +18,6 @@ from .collectors.sky_motors import (
     crawl_sky_motors,
 )
 from .collectors.tractafric import (
-    ALLOWED_HOSTS as TRACTAFRIC_ALLOWED_HOSTS,
-)
-from .collectors.tractafric import (
     DISTRIBUTOR as TRACTAFRIC_DISTRIBUTOR,
 )
 from .collectors.tractafric import (
