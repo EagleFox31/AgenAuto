@@ -24,7 +24,14 @@ from ..provenance import content_hash, official_web_source
 DISTRIBUTOR = "Tractafric Motors Cameroun"
 CATALOG_URL = "https://www.tractafrictmc-cameroun.com/fr/vehicles/listing.html"
 ALLOWED_HOSTS = frozenset(
-    {"tractafrictmc-cameroun.com", "www.tractafrictmc-cameroun.com"}
+    {
+        "tractafrictmc-cameroun.com",
+        "www.tractafrictmc-cameroun.com",
+        "hyundai-cameroun.com",
+        "www.hyundai-cameroun.com",
+        "mitsubishi.cm",
+        "www.mitsubishi.cm",
+    }
 )
 MARKET_ONLY_SPEC_LABELS = frozenset(
     {
@@ -42,6 +49,7 @@ TRIM_MARKERS = frozenset(
         "bva",
         "bvm",
         "dc",
+        "exclusive",
         "gl",
         "gls",
         "glx",
@@ -64,27 +72,27 @@ HYUNDAI = TractafricBrandConfig(
     slug="hyundai",
     brand="Hyundai",
     model_urls=(
-        "https://www.tractafrictmc-cameroun.com/fr/vehicle/hyundai/335/"
+        "https://www.hyundai-cameroun.com/fr/vehicle/hyundai/335/"
         "nouveau-santa-fe/models.html",
-        "https://www.tractafrictmc-cameroun.com/fr/vehicle/hyundai/325/"
+        "https://www.hyundai-cameroun.com/fr/vehicle/hyundai/325/"
         "nouveau-county/models.html",
-        "https://www.tractafrictmc-cameroun.com/fr/vehicle/hyundai/360/"
+        "https://www.hyundai-cameroun.com/fr/vehicle/hyundai/360/"
         "all-new-palisade/models.html",
-        "https://www.tractafrictmc-cameroun.com/fr/vehicle/hyundai/20/"
-        "tucson/models.html",
+        "https://www.hyundai-cameroun.com/fr/vehicle/hyundai/20/"
+        "nouveau-tucson/models.html",
     ),
 )
 MITSUBISHI = TractafricBrandConfig(
     slug="mitsubishi",
     brand="Mitsubishi",
     model_urls=(
-        "https://www.tractafrictmc-cameroun.com/fr/vehicle/mitsubishi/283/"
+        "https://www.mitsubishi.cm/fr/vehicle/mitsubishi/283/"
         "eclipse-cross/models.html",
-        "https://www.tractafrictmc-cameroun.com/fr/vehicle/mitsubishi/284/"
+        "https://www.mitsubishi.cm/fr/vehicle/mitsubishi/284/"
         "outlander/models.html",
-        "https://www.tractafrictmc-cameroun.com/fr/vehicle/mitsubishi/342/"
+        "https://www.mitsubishi.cm/fr/vehicle/mitsubishi/342/"
         "nouveau-l200/models.html",
-        "https://www.tractafrictmc-cameroun.com/fr/vehicle/mitsubishi/32/"
+        "https://www.mitsubishi.cm/fr/vehicle/mitsubishi/32/"
         "pajero-sport/models.html",
     ),
 )
@@ -111,12 +119,7 @@ def extract_model_links(
     html: str,
     base_url: str = CATALOG_URL,
 ) -> dict[str, list[str]]:
-    """Parse catalogue HTML when supplied manually; live crawl does not hit it.
-
-    Tractafric's robots policy currently blocks automated access to the catalogue
-    listing page. The pilot therefore crawls only the explicit official model URLs
-    declared in each brand config.
-    """
+    """Parse supplied catalogue HTML without using it for the live pilot crawl."""
     soup = BeautifulSoup(html, "html.parser")
     links: dict[str, set[str]] = {
         config.slug: set() for config in TRACTAFRIC_BRANDS
@@ -208,7 +211,7 @@ def _compact_displacement_value(text: str) -> str | None:
 
 
 def _iter_compact_model_specs(soup: BeautifulSoup) -> Iterable[tuple[str, str]]:
-    """Extract Tractafric's compact model-card facts from unlabeled text nodes."""
+    """Extract factual model-card values used by the Tractafric brand microsites."""
     seen: set[tuple[str, str]] = set()
     for raw in soup.stripped_strings:
         text = normalize_space(str(raw))
@@ -230,11 +233,21 @@ def _iter_compact_model_specs(soup: BeautifulSoup) -> Iterable[tuple[str, str]]:
                 text,
                 flags=re.IGNORECASE,
             ):
-                pair = ("Dimensions (Lxwxh) in mm", text.removesuffix("(mm)").strip())
+                pair = (
+                    "Dimensions (Lxwxh) in mm",
+                    re.sub(r"\s*\(mm\)$", "", text, flags=re.IGNORECASE).strip(),
+                )
             elif re.fullmatch(r"\d+\s+portes?", text, flags=re.IGNORECASE):
                 pair = ("Number of doors", text.split()[0])
-            elif re.fullmatch(r"\d+(?:\s*\+\s*\d+)?\s+si[eè]ges?", text, flags=re.IGNORECASE):
-                pair = ("Number of seats", re.sub(r"\s+si[eè]ges?$", "", text, flags=re.IGNORECASE))
+            elif re.fullmatch(
+                r"\d+(?:\s*\+\s*\d+)?\s+si[eè]ges?",
+                text,
+                flags=re.IGNORECASE,
+            ):
+                pair = (
+                    "Number of seats",
+                    re.sub(r"\s+si[eè]ges?$", "", text, flags=re.IGNORECASE),
+                )
             elif "cv@tours/min" in token:
                 pair = ("Horse power (HP)", text.split("(", 1)[0].strip())
             elif "nm@tours/min" in token:
@@ -291,28 +304,24 @@ def _looks_like_trim_heading(text: str, model: str) -> bool:
         return False
     if token in {
         "modeles disponibles",
-        "modèles disponibles",
+        "modeles disponible",
         "douala",
         "yaounde",
-        "yaoundé",
         "galerie d images",
     }:
         return False
     if re.fullmatch(r"\d+(?:[.,]\d+)?\s*l\s*4x[24]", token):
         return False
 
-    words = set(token.split())
     marker_tokens = {normalized_token(marker) for marker in TRIM_MARKERS}
+    words = set(token.split())
     if model_token in token:
         residual = normalize_space(token.replace(model_token, ""))
         return bool(residual) and (
             any(char.isdigit() for char in residual)
             or bool(marker_tokens.intersection(residual.split()))
         )
-    return (
-        bool(marker_tokens.intersection(words))
-        or any(char.isdigit() for char in text)
-    )
+    return bool(marker_tokens.intersection(words))
 
 
 def _extract_variants(soup: BeautifulSoup, model: str) -> tuple[str, ...]:
@@ -453,7 +462,7 @@ async def _build_crawler(
 
 
 async def discover_model_urls() -> dict[str, list[str]]:
-    """Return the explicit pilot URLs without crawling the robots-blocked listing."""
+    """Return explicit official microsite URLs; no blocked catalogue crawl is used."""
     discovered: dict[str, list[str]] = {}
     for config in TRACTAFRIC_BRANDS:
         urls = sorted(config.model_urls)
