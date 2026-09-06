@@ -1,0 +1,147 @@
+{
+  "schema_version": 1,
+  "dataset": "cameroon-pilot-tractafric-mitsubishi",
+  "generated_at": "2026-09-06T15:23:00Z",
+  "collector": "tractafric_mitsubishi_manual_official_snapshot",
+  "distributor": "Tractafric Motors Cameroun",
+  "publication_policy": "draft_only_until_payload_review",
+  "vehicles": [
+    {
+      "brand": "Mitsubishi",
+      "model": "Eclipse Cross",
+      "source": {
+        "url": "https://www.tractafrictmc-cameroun.com/fr/vehicle/mitsubishi/283/eclipse-cross/models.html",
+        "observed_at": "2026-09-06T15:23:00Z",
+        "distributor": "Tractafric Motors Cameroun",
+        "source_type": "official_web_manual_snapshot",
+        "country": "CM",
+        "confidence": "A"
+      },
+      "page_title": "Mitsubishi Eclipse Cross - Modèles disponibles",
+      "category": null,
+      "variants": [
+        "GLS 4x4 2.0e CVT"
+      ],
+      "specs": [
+        {"raw_label": "Gearbox", "raw_value": "Automatique", "canonical_key": "transmission", "unit": null},
+        {"raw_label": "Fuel type", "raw_value": "Essence", "canonical_key": "fuel_type", "unit": null},
+        {"raw_label": "Transmission", "raw_value": "4x4", "canonical_key": "drivetrain", "unit": null},
+        {"raw_label": "Displacement (cc)", "raw_value": "1988", "canonical_key": "engine_displacement_ml", "unit": "mL"},
+        {"raw_label": "Horse power (HP)", "raw_value": "110 @ 6000", "canonical_key": "horsepower_hp", "unit": "hp"},
+        {"raw_label": "Max torque Nm", "raw_value": "198 @ 4200", "canonical_key": "max_torque_nm", "unit": "N·m"},
+        {"raw_label": "Dimensions (Lxwxh) in mm", "raw_value": "4545 x 1805 x 1685", "canonical_key": "dimensions_mm", "unit": "mm"},
+        {"raw_label": "Number of doors", "raw_value": "5", "canonical_key": "doors", "unit": null},
+        {"raw_label": "Number of seats", "raw_value": "5", "canonical_key": "seats", "unit": null},
+        {"raw_label": "Fuel tank capacity (L)", "raw_value": "60", "canonical_key": "fuel_tank_l", "unit": "L"}
+      ],
+      "content_hash": "cd4194c66ea17bc0c5b3975179e0168d116b888a7950c4ad5638294e06aadacc",
+      "review_status": "draft",
+      "quality_flags": [
+        "manual_official_source_snapshot",
+        "automation_blocked_by_robots_txt"
+      ]
+    },
+    {
+      "brand": "Mitsubishi",
+      "model": "Outlander",
+      "source": {
+        "url": "https://www.tractafrictmc-cameroun.com/fr/vehicle/mitsubishi/284/outlander/models.html",
+        "observed_at": "2026-09-06T15:23:00Z",
+        "distributor": "Tractafric Motors Cameroun",
+        "source_type": "official_web_manual_snapshot",
+        "country": "CM",
+        "confidence": "A"
+      },
+      "page_title": "Mitsubishi Outlander - Modèles disponibles",
+      "category": null,
+      "variants": [
+        "Outlander H-Line 3"
+      ],
+      "specs": [
+        {"raw_label": "Gearbox", "raw_value": "Automatique", "canonical_key": "transmission", "unit": null},
+        {"raw_label": "Fuel type", "raw_value": "Essence", "canonical_key": "fuel_type", "unit": null},
+        {"raw_label": "Transmission", "raw_value": "4x4", "canonical_key": "drivetrain", "unit": null},
+        {"raw_label": "Displacement (cc)", "raw_value": "2488", "canonical_key": "engine_displacement_ml", "unit": "mL"},
+        {"raw_label": "Horse power (HP)", "raw_value": "184", "canonical_key": "horsepower_hp", "unit": "hp"},
+        {"raw_label": "Max torque Nm", "raw_value": "245", "canonical_key": "max_torque_nm", "unit": "N·m"},
+        {"raw_label": "Dimensions (Lxwxh) in mm", "raw_value": "4710 x 2144 x 1740", "canonical_key": "dimensions_mm", "unit": "mm"},
+        {"raw_label": "Number of doors", "raw_value": "5", "canonical_key": "doors", "unit": null},
+        {"raw_label": "Number of seats", "raw_value": "7", "canonical_key": "seats", "unit": null}
+      ],
+      "content_hash": "d402e12c6d594797331c20eb2146836bb101d4532f846143fefcab36abcb2c5d",
+      "review_status": "draft",
+      "quality_flags": [
+        "manual_official_source_snapshot",
+        "automation_blocked_by_robots_txt"
+      ]
+    },
+    {
+      "brand": "Mitsubishi",
+      "model": "L200",
+      "source": {
+        "url": "https://www.tractafrictmc-cameroun.com/fr/vehicle/mitsubishi/342/nouveau-l200/models.html",
+        "observed_at": "2026-09-06T15:23:00Z",
+        "distributor": "Tractafric Motors Cameroun",
+        "source_type": "official_web_manual_snapshot",
+        "country": "CM",
+        "confidence": "A"
+      },
+      "page_title": "Mitsubishi Nouveau L200 - Modèles disponibles",
+      "category": null,
+      "variants": [
+        "SC GL BVM"
+      ],
+      "specs": [
+        {"raw_label": "Gearbox", "raw_value": "Manuelle", "canonical_key": "transmission", "unit": null},
+        {"raw_label": "Fuel type", "raw_value": "Diesel", "canonical_key": "fuel_type", "unit": null},
+        {"raw_label": "Transmission", "raw_value": "4x4", "canonical_key": "drivetrain", "unit": null},
+        {"raw_label": "Displacement (cc)", "raw_value": "2442", "canonical_key": "engine_displacement_ml", "unit": "mL"},
+        {"raw_label": "Horse power (HP)", "raw_value": "110/4000", "canonical_key": "horsepower_hp", "unit": "hp"},
+        {"raw_label": "Max torque Nm", "raw_value": "200/3750", "canonical_key": "max_torque_nm", "unit": "N·m"},
+        {"raw_label": "Dimensions (Lxwxh) in mm", "raw_value": "5320 x 1865 x 1765", "canonical_key": "dimensions_mm", "unit": "mm"},
+        {"raw_label": "Number of doors", "raw_value": "2", "canonical_key": "doors", "unit": null},
+        {"raw_label": "Number of seats", "raw_value": "2", "canonical_key": "seats", "unit": null}
+      ],
+      "content_hash": "26cb1de2e4f02f4a2738610a916aee4fcbfcbcab29679d8f646e230c7a53c002",
+      "review_status": "draft",
+      "quality_flags": [
+        "manual_official_source_snapshot",
+        "automation_blocked_by_robots_txt"
+      ]
+    },
+    {
+      "brand": "Mitsubishi",
+      "model": "Pajero Sport",
+      "source": {
+        "url": "https://www.tractafrictmc-cameroun.com/fr/vehicle/mitsubishi/32/pajero-sport/models.html",
+        "observed_at": "2026-09-06T15:23:00Z",
+        "distributor": "Tractafric Motors Cameroun",
+        "source_type": "official_web_manual_snapshot",
+        "country": "CM",
+        "confidence": "A"
+      },
+      "page_title": "Mitsubishi Pajero Sport - Modèles disponibles",
+      "category": null,
+      "variants": [
+        "GLX",
+        "GLS Manuelle"
+      ],
+      "specs": [
+        {"raw_label": "Gearbox", "raw_value": "Manuelle", "canonical_key": "transmission", "unit": null},
+        {"raw_label": "Fuel type", "raw_value": "Diesel", "canonical_key": "fuel_type", "unit": null},
+        {"raw_label": "Transmission", "raw_value": "4x4", "canonical_key": "drivetrain", "unit": null},
+        {"raw_label": "Displacement (cc)", "raw_value": "2477", "canonical_key": "engine_displacement_ml", "unit": "mL"},
+        {"raw_label": "Horse power (HP)", "raw_value": "136", "canonical_key": "horsepower_hp", "unit": "hp"},
+        {"raw_label": "Number of doors", "raw_value": "5", "canonical_key": "doors", "unit": null},
+        {"raw_label": "Number of seats", "raw_value": "7", "canonical_key": "seats", "unit": null}
+      ],
+      "content_hash": "797e1cfcbbfc0816a40cac7aba0739b08d3a71feb16d8b89ee60bafdaf59d013",
+      "review_status": "draft",
+      "quality_flags": [
+        "manual_official_source_snapshot",
+        "automation_blocked_by_robots_txt",
+        "aggregate_page_specs_not_trim_scoped"
+      ]
+    }
+  ]
+}
