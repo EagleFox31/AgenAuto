@@ -17,6 +17,16 @@ from .collectors.sky_motors import (
 from .collectors.sky_motors import (
     crawl_sky_motors,
 )
+from .collectors.tractafric import (
+    ALLOWED_HOSTS as TRACTAFRIC_ALLOWED_HOSTS,
+)
+from .collectors.tractafric import (
+    DISTRIBUTOR as TRACTAFRIC_DISTRIBUTOR,
+)
+from .collectors.tractafric import (
+    TRACTAFRIC_BRANDS,
+    crawl_tractafric,
+)
 from .provenance import utc_now_iso
 
 SCHEMA_VERSION = 1
@@ -24,7 +34,10 @@ SCHEMA_VERSION = 1
 
 def _write_json(path: Path, value: object) -> None:
     path.parent.mkdir(parents=True, exist_ok=True)
-    path.write_text(json.dumps(value, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+    path.write_text(
+        json.dumps(value, ensure_ascii=False, indent=2) + "\n",
+        encoding="utf-8",
+    )
 
 
 def validate_dataset(
@@ -58,7 +71,9 @@ def validate_dataset(
         source = vehicle.get("source") or {}
         host = urlparse(source.get("url", "")).netloc.lower()
         if expected_hosts and host not in expected_hosts:
-            raise ValueError(f"Non-official source found for {brand} {model}: {source.get('url')}")
+            raise ValueError(
+                f"Non-official source found for {brand} {model}: {source.get('url')}"
+            )
         if source.get("confidence") != "A" or not source.get("observed_at"):
             raise ValueError(f"Missing confidence/provenance for {brand} {model}.")
         if not source.get("distributor"):
@@ -66,7 +81,9 @@ def validate_dataset(
         if vehicle.get("review_status") != "draft":
             raise ValueError("Crawler output must remain draft until Payload review.")
         if not vehicle.get("specs"):
-            raise ValueError(f"No structured specifications extracted for {brand} {model}.")
+            raise ValueError(
+                f"No structured specifications extracted for {brand} {model}."
+            )
 
 
 def _dataset_payload(
@@ -167,17 +184,78 @@ def run_cfao(output_root: Path) -> list[Path]:
     return output_paths
 
 
+def run_tractafric(output_root: Path) -> list[Path]:
+    results = asyncio.run(crawl_tractafric())
+    generated_at = utc_now_iso()
+    output_paths: list[Path] = []
+    manifest_brands: list[dict[str, object]] = []
+
+    for config in TRACTAFRIC_BRANDS:
+        vehicles = results[config.slug]
+        output_path = output_root / config.slug / "candidates.json"
+        _write_json(
+            output_path,
+            _dataset_payload(
+                f"cameroon-pilot-tractafric-{config.slug}",
+                f"tractafric_{config.slug}",
+                TRACTAFRIC_DISTRIBUTOR,
+                vehicles,
+                generated_at,
+            ),
+        )
+        output_paths.append(output_path)
+        manifest_brands.append(
+            {
+                "brand": config.brand,
+                "vehicle_count": len(vehicles),
+                "models": [candidate.model for candidate in vehicles],
+                "source_urls": [candidate.source.url for candidate in vehicles],
+            }
+        )
+
+    _write_json(
+        output_root / "manifest.json",
+        {
+            "schema_version": SCHEMA_VERSION,
+            "generated_at": generated_at,
+            "distributor": TRACTAFRIC_DISTRIBUTOR,
+            "brands": manifest_brands,
+            "vehicle_count": sum(len(vehicles) for vehicles in results.values()),
+            "notes": (
+                "Official Tractafric Motors Cameroun factual observations only. "
+                "Commercial fields stay outside canonical vehicle specs."
+            ),
+        },
+    )
+    return output_paths
+
+
 def build_parser() -> argparse.ArgumentParser:
     parser = argparse.ArgumentParser(description="AgenAuto pilot data ingestion")
     subparsers = parser.add_subparsers(dest="command", required=True)
 
-    sky = subparsers.add_parser("sky-motors", help="Crawl official Sky Motors Jetour pages")
+    sky = subparsers.add_parser(
+        "sky-motors",
+        help="Crawl official Sky Motors Jetour pages",
+    )
     sky.add_argument("--output-root", type=Path, required=True)
 
-    cfao = subparsers.add_parser("cfao", help="Crawl official CFAO Toyota and Suzuki pages")
+    cfao = subparsers.add_parser(
+        "cfao",
+        help="Crawl official CFAO Toyota and Suzuki pages",
+    )
     cfao.add_argument("--output-root", type=Path, required=True)
 
-    validate = subparsers.add_parser("validate", help="Validate a generated pilot dataset")
+    tractafric = subparsers.add_parser(
+        "tractafric",
+        help="Crawl official Tractafric Hyundai and Mitsubishi pages",
+    )
+    tractafric.add_argument("--output-root", type=Path, required=True)
+
+    validate = subparsers.add_parser(
+        "validate",
+        help="Validate a generated pilot dataset",
+    )
     validate.add_argument("--input", type=Path, required=True)
     validate.add_argument("--minimum-models", type=int, default=5)
     validate.add_argument("--brand", action="append", default=[])
@@ -193,6 +271,10 @@ def main() -> None:
         return
     if args.command == "cfao":
         for path in run_cfao(args.output_root):
+            print(path)
+        return
+    if args.command == "tractafric":
+        for path in run_tractafric(args.output_root):
             print(path)
         return
     if args.command == "validate":
