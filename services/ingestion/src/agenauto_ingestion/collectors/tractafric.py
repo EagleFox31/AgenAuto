@@ -1,8 +1,8 @@
 from __future__ import annotations
 
+import re
 from collections.abc import Iterable
 from dataclasses import dataclass, replace
-import re
 from urllib.parse import urljoin, urlparse
 
 from bs4 import BeautifulSoup
@@ -366,6 +366,7 @@ async def crawl_tractafric() -> dict[str, list[VehicleCandidate]]:
         async def handle_vehicle(
             context: BeautifulSoupCrawlingContext,
             _config: TractafricBrandConfig = config,
+            _candidates: list[VehicleCandidate] = candidates,
         ) -> None:
             candidate = parse_vehicle_page(
                 str(context.soup),
@@ -373,7 +374,7 @@ async def crawl_tractafric() -> dict[str, list[VehicleCandidate]]:
                 _config,
             )
             if is_usable_vehicle_candidate(candidate):
-                candidates.append(candidate)
+                _candidates.append(candidate)
 
         await crawler.run(urls)
         results[config.slug] = dedupe_vehicle_candidates(candidates)
