@@ -1,16 +1,15 @@
 from __future__ import annotations
 
+import asyncio
 import re
 from collections.abc import Iterable
 from dataclasses import dataclass, replace
 from itertools import chain
 from urllib.parse import urljoin, urlparse
+from urllib.request import Request, urlopen
+from urllib.robotparser import RobotFileParser
 
 from bs4 import BeautifulSoup
-from crawlee import ConcurrencySettings
-from crawlee.crawlers import BeautifulSoupCrawler, BeautifulSoupCrawlingContext
-from crawlee.request_loaders import ThrottlingRequestManager
-from crawlee.storages import RequestQueue
 
 from ..models import SpecObservation, VehicleCandidate
 from ..normalization import (
@@ -23,6 +22,8 @@ from ..provenance import content_hash, official_web_source
 
 DISTRIBUTOR = "Tractafric Motors Cameroun"
 CATALOG_URL = "https://www.tractafrictmc-cameroun.com/fr/vehicles/listing.html"
+USER_AGENT = "AgenAutoPilot/0.1 (+https://github.com/EagleFox31/AgenAuto)"
+REQUEST_INTERVAL_SECONDS = 2.0
 ALLOWED_HOSTS = frozenset(
     {
         "tractafrictmc-cameroun.com",
@@ -437,28 +438,44 @@ def dedupe_vehicle_candidates(
     return output
 
 
-async def _build_crawler(
-    queue_name: str,
-    max_requests_per_crawl: int,
-) -> BeautifulSoupCrawler:
-    request_queue = await RequestQueue.open(name=queue_name)
-    request_manager = ThrottlingRequestManager(
-        inner=request_queue,
-        domains=sorted(ALLOWED_HOSTS),
-        request_manager_opener=RequestQueue.open,
+def _robots_allows(url: str) -> bool:
+    parsed = urlparse(url)
+    robots = RobotFileParser()
+    robots.set_url(f"{parsed.scheme}://{parsed.netloc}/robots.txt")
+    try:
+        robots.read()
+    except OSError as exc:
+        raise RuntimeError(f"Unable to verify robots.txt for {url}: {exc}") from exc
+    return robots.can_fetch(USER_AGENT, url)
+
+
+def _fetch_official_html(url: str, config: TractafricBrandConfig) -> tuple[str, str]:
+    if not _is_allowed_url(url) or _config_from_url(url) != config:
+        raise RuntimeError(f"Invalid Tractafric pilot URL for {config.brand}: {url}")
+    if not _robots_allows(url):
+        raise RuntimeError(f"robots.txt disallows AgenAuto pilot access to {url}")
+
+    request = Request(
+        url,
+        headers={
+            "User-Agent": USER_AGENT,
+            "Accept": "text/html,application/xhtml+xml",
+            "Accept-Language": "fr-FR,fr;q=0.9,en;q=0.7",
+        },
     )
-    concurrency = ConcurrencySettings(
-        min_concurrency=1,
-        desired_concurrency=2,
-        max_concurrency=2,
-        max_tasks_per_minute=30,
-    )
-    return BeautifulSoupCrawler(
-        request_manager=request_manager,
-        concurrency_settings=concurrency,
-        max_requests_per_crawl=max_requests_per_crawl,
-        respect_robots_txt_file=True,
-    )
+    try:
+        with urlopen(request, timeout=20) as response:  # noqa: S310
+            final_url = response.geturl()
+            if not _is_allowed_url(final_url) or _config_from_url(final_url) != config:
+                raise RuntimeError(
+                    f"Unexpected redirect while fetching {config.brand}: {final_url}"
+                )
+            charset = response.headers.get_content_charset() or "utf-8"
+            html = response.read().decode(charset, errors="replace")
+    except OSError as exc:
+        raise RuntimeError(f"Unable to fetch official Tractafric page {url}: {exc}") from exc
+
+    return final_url, html
 
 
 async def discover_model_urls() -> dict[str, list[str]]:
@@ -479,28 +496,19 @@ async def crawl_tractafric() -> dict[str, list[VehicleCandidate]]:
     results: dict[str, list[VehicleCandidate]] = {}
 
     for config in TRACTAFRIC_BRANDS:
-        urls = urls_by_brand[config.slug]
         candidates: list[VehicleCandidate] = []
-        crawler = await _build_crawler(
-            f"tractafric-{config.slug}-vehicles",
-            len(urls),
-        )
+        urls = urls_by_brand[config.slug]
+        for index, url in enumerate(urls):
+            final_url, html = await asyncio.to_thread(_fetch_official_html, url, config)
+            candidate = parse_vehicle_page(html, final_url, config)
+            if not is_usable_vehicle_candidate(candidate):
+                raise RuntimeError(
+                    f"No structured vehicle facts extracted for {config.brand} from {final_url}"
+                )
+            candidates.append(candidate)
+            if index < len(urls) - 1:
+                await asyncio.sleep(REQUEST_INTERVAL_SECONDS)
 
-        @crawler.router.default_handler
-        async def handle_vehicle(
-            context: BeautifulSoupCrawlingContext,
-            _config: TractafricBrandConfig = config,
-            _candidates: list[VehicleCandidate] = candidates,
-        ) -> None:
-            candidate = parse_vehicle_page(
-                str(context.soup),
-                str(context.request.url),
-                _config,
-            )
-            if is_usable_vehicle_candidate(candidate):
-                _candidates.append(candidate)
-
-        await crawler.run(urls)
         results[config.slug] = dedupe_vehicle_candidates(candidates)
 
     return results
