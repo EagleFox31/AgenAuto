@@ -11,6 +11,7 @@ on:
       - 'services/ingestion/src/agenauto_ingestion/provenance.py'
       - 'services/ingestion/src/agenauto_ingestion/cli.py'
       - 'services/ingestion/tests/test_tractafric.py'
+      - 'data/pilot/tractafric/mitsubishi/candidates.json'
       - '.github/workflows/pilot-crawl-tractafric.yml'
   workflow_dispatch:
 
@@ -39,8 +40,62 @@ jobs:
         run: ruff check services/ingestion
       - name: Tests
         run: pytest services/ingestion/tests
-      - name: Crawl official Tractafric Hyundai and Mitsubishi catalogues
-        run: agenauto-ingest tractafric --output-root data/pilot/tractafric
+      - name: Crawl official Tractafric Hyundai microsite
+        shell: bash
+        run: |
+          python - <<'PY'
+          import asyncio
+          from pathlib import Path
+
+          from agenauto_ingestion.cli import _dataset_payload, _write_json
+          from agenauto_ingestion.collectors.tractafric import (
+              DISTRIBUTOR,
+              HYUNDAI,
+              REQUEST_INTERVAL_SECONDS,
+              _fetch_official_html,
+              dedupe_vehicle_candidates,
+              is_usable_vehicle_candidate,
+              parse_vehicle_page,
+          )
+          from agenauto_ingestion.provenance import utc_now_iso
+
+          async def main() -> None:
+              candidates = []
+              urls = list(HYUNDAI.model_urls)
+              for index, url in enumerate(urls):
+                  final_url, html = await asyncio.to_thread(
+                      _fetch_official_html,
+                      url,
+                      HYUNDAI,
+                  )
+                  candidate = parse_vehicle_page(html, final_url, HYUNDAI)
+                  if not is_usable_vehicle_candidate(candidate):
+                      raise RuntimeError(
+                          f"No structured Hyundai vehicle facts extracted from {final_url}"
+                      )
+                  candidates.append(candidate)
+                  if index < len(urls) - 1:
+                      await asyncio.sleep(REQUEST_INTERVAL_SECONDS)
+
+              vehicles = dedupe_vehicle_candidates(candidates)
+              if len(vehicles) != len(urls):
+                  raise RuntimeError(
+                      f"Expected {len(urls)} Hyundai models, extracted {len(vehicles)}"
+                  )
+              generated_at = utc_now_iso()
+              _write_json(
+                  Path('data/pilot/tractafric/hyundai/candidates.json'),
+                  _dataset_payload(
+                      'cameroon-pilot-tractafric-hyundai',
+                      'tractafric_hyundai',
+                      DISTRIBUTOR,
+                      vehicles,
+                      generated_at,
+                  ),
+              )
+
+          asyncio.run(main())
+          PY
       - name: Validate Hyundai pilot data
         run: >-
           agenauto-ingest validate
@@ -49,14 +104,59 @@ jobs:
           --brand Hyundai
           --allowed-host hyundai-cameroun.com
           --allowed-host www.hyundai-cameroun.com
-      - name: Validate Mitsubishi pilot data
+      - name: Validate Mitsubishi manual official snapshot
         run: >-
           agenauto-ingest validate
           --input data/pilot/tractafric/mitsubishi/candidates.json
           --minimum-models 4
           --brand Mitsubishi
-          --allowed-host mitsubishi.cm
-          --allowed-host www.mitsubishi.cm
+          --allowed-host tractafrictmc-cameroun.com
+          --allowed-host www.tractafrictmc-cameroun.com
+      - name: Build Tractafric pilot manifest
+        shell: bash
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+
+          from agenauto_ingestion.provenance import utc_now_iso
+
+          root = Path('data/pilot/tractafric')
+          brands = []
+          total = 0
+          for slug in ('hyundai', 'mitsubishi'):
+              payload = json.loads(
+                  (root / slug / 'candidates.json').read_text(encoding='utf-8')
+              )
+              vehicles = payload['vehicles']
+              total += len(vehicles)
+              brands.append(
+                  {
+                      'brand': vehicles[0]['brand'],
+                      'vehicle_count': len(vehicles),
+                      'models': [vehicle['model'] for vehicle in vehicles],
+                      'source_urls': [vehicle['source']['url'] for vehicle in vehicles],
+                  }
+              )
+
+          manifest = {
+              'schema_version': 1,
+              'generated_at': utc_now_iso(),
+              'distributor': 'Tractafric Motors Cameroun',
+              'brands': brands,
+              'vehicle_count': total,
+              'notes': (
+                  'Hyundai observations are refreshed from the official brand microsite. '
+                  'Mitsubishi observations are a manually reviewed official Tractafric '
+                  'snapshot because robots.txt disallows automated access; all data remains '
+                  'draft until Payload review.'
+              ),
+          }
+          (root / 'manifest.json').write_text(
+              json.dumps(manifest, ensure_ascii=False, indent=2) + '\n',
+              encoding='utf-8',
+          )
+          PY
       - name: Commit factual Tractafric pilot observations
         shell: bash
         run: |
