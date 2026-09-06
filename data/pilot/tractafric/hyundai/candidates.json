@@ -1,0 +1,288 @@
+{
+  "schema_version": 1,
+  "dataset": "cameroon-pilot-tractafric-hyundai",
+  "generated_at": "2026-09-06T15:28:35Z",
+  "collector": "tractafric_hyundai",
+  "distributor": "Tractafric Motors Cameroun",
+  "publication_policy": "draft_only_until_payload_review",
+  "vehicles": [
+    {
+      "brand": "Hyundai",
+      "model": "County",
+      "source": {
+        "url": "https://www.hyundai-cameroun.com/fr/vehicle/hyundai/325/nouveau-county/models.html",
+        "observed_at": "2026-09-06T15:28:30Z",
+        "distributor": "Tractafric Motors Cameroun",
+        "source_type": "official_web",
+        "country": "CM",
+        "confidence": "A"
+      },
+      "page_title": "Modèles disponibles - Hyundai Nouveau County | Hyundai Cameroun",
+      "category": null,
+      "variants": [
+        "County 28 +1 places",
+        "County 32 + 1 places"
+      ],
+      "specs": [
+        {
+          "raw_label": "Tractafric Motors Cameroun BP 4181 Douala - Bassa Cameroun Showroom Heures d'ouverture",
+          "raw_value": "du lundi au vendredi 07h30-12h / 13h00-16h30 samedi 08h00-12h tractafric.motors_cam@tractafric.com Tél : +237 694 18 70 30 Atelier Heures d'ouverture : du lundi au vendredi 07h30-12h 13h00-16h30 / 16h30–18h (permanence), samedi 08h00-12h / 13h00-18h00 Tél : +237 679 53 79 85",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Tractafric Motors Cameroun BP 7028 Yaoundé Cameroun Showroom Heures d'ouverture",
+          "raw_value": "du lundi au vendredi 07h30-12h / 13h00-16h30 samedi 08h00-12h tractafric.motors_cam@tractafric.com Tél : +237 691 72 47 15 Atelier Heures d'ouverture : du lundi au vendredi 07h30-12h 13h00-16h30 / 16h30–18h (permanence), samedi 08h00-12h / 13h00-18h00 Tél : +237 694 05 60 70",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Gearbox",
+          "raw_value": "Manuelle",
+          "canonical_key": "transmission",
+          "unit": null
+        },
+        {
+          "raw_label": "Fuel type",
+          "raw_value": "Diesel",
+          "canonical_key": "fuel_type",
+          "unit": null
+        },
+        {
+          "raw_label": "Transmission",
+          "raw_value": "4x2",
+          "canonical_key": "drivetrain",
+          "unit": null
+        },
+        {
+          "raw_label": "Displacement (cc)",
+          "raw_value": "3907",
+          "canonical_key": "engine_displacement_ml",
+          "unit": "mL"
+        },
+        {
+          "raw_label": "Dimensions (Lxwxh) in mm",
+          "raw_value": "7110x2035x2630",
+          "canonical_key": "dimensions_mm",
+          "unit": "mm"
+        },
+        {
+          "raw_label": "Number of seats",
+          "raw_value": "28 + 1",
+          "canonical_key": "seats",
+          "unit": null
+        },
+        {
+          "raw_label": "Dimensions (Lxwxh) in mm",
+          "raw_value": "7710x2035x2630",
+          "canonical_key": "dimensions_mm",
+          "unit": "mm"
+        },
+        {
+          "raw_label": "Number of seats",
+          "raw_value": "32 + 1",
+          "canonical_key": "seats",
+          "unit": null
+        }
+      ],
+      "content_hash": "566c53a407b906164f1ed7c67f1aaeffd0a42d9ca509e8c49a449b8785728a3c",
+      "review_status": "draft",
+      "quality_flags": []
+    },
+    {
+      "brand": "Hyundai",
+      "model": "Palisade",
+      "source": {
+        "url": "https://www.hyundai-cameroun.com/fr/vehicle/hyundai/360/all-new-palisade/models.html",
+        "observed_at": "2026-09-06T15:28:33Z",
+        "distributor": "Tractafric Motors Cameroun",
+        "source_type": "official_web",
+        "country": "CM",
+        "confidence": "A"
+      },
+      "page_title": "Modèles disponibles - Hyundai All New Palisade | Hyundai Cameroun",
+      "category": null,
+      "variants": [],
+      "specs": [
+        {
+          "raw_label": "Tractafric Motors Cameroun BP 4181 Douala - Bassa Cameroun Showroom Heures d'ouverture",
+          "raw_value": "du lundi au vendredi 07h30-12h / 13h00-16h30 samedi 08h00-12h tractafric.motors_cam@tractafric.com Tél : +237 694 18 70 30 Atelier Heures d'ouverture : du lundi au vendredi 07h30-12h 13h00-16h30 / 16h30–18h (permanence), samedi 08h00-12h / 13h00-18h00 Tél : +237 679 53 79 85",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Tractafric Motors Cameroun BP 7028 Yaoundé Cameroun Showroom Heures d'ouverture",
+          "raw_value": "du lundi au vendredi 07h30-12h / 13h00-16h30 samedi 08h00-12h tractafric.motors_cam@tractafric.com Tél : +237 691 72 47 15 Atelier Heures d'ouverture : du lundi au vendredi 07h30-12h 13h00-16h30 / 16h30–18h (permanence), samedi 08h00-12h / 13h00-18h00 Tél : +237 694 05 60 70",
+          "canonical_key": null,
+          "unit": null
+        }
+      ],
+      "content_hash": "87d533c721cd7fa08f65c8d618d5a8fbaa25cf01db49a57b58d2574a9858f489",
+      "review_status": "draft",
+      "quality_flags": [
+        "few_structured_specs_extracted",
+        "no_trim_names_extracted"
+      ]
+    },
+    {
+      "brand": "Hyundai",
+      "model": "Santa Fe",
+      "source": {
+        "url": "https://www.hyundai-cameroun.com/fr/vehicle/hyundai/335/nouveau-santa-fe/models.html",
+        "observed_at": "2026-09-06T15:28:27Z",
+        "distributor": "Tractafric Motors Cameroun",
+        "source_type": "official_web",
+        "country": "CM",
+        "confidence": "A"
+      },
+      "page_title": "Modèles disponibles - Hyundai Nouveau Santa Fe, Elargissez vos horizo",
+      "category": null,
+      "variants": [
+        "Santa Fe GL",
+        "Santa Fe GLS",
+        "Santa Fe Exclusive"
+      ],
+      "specs": [
+        {
+          "raw_label": "Tractafric Motors Cameroun BP 4181 Douala - Bassa Cameroun Showroom Heures d'ouverture",
+          "raw_value": "du lundi au vendredi 07h30-12h / 13h00-16h30 samedi 08h00-12h tractafric.motors_cam@tractafric.com Tél : +237 694 18 70 30 Atelier Heures d'ouverture : du lundi au vendredi 07h30-12h 13h00-16h30 / 16h30–18h (permanence), samedi 08h00-12h / 13h00-18h00 Tél : +237 679 53 79 85",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Tractafric Motors Cameroun BP 7028 Yaoundé Cameroun Showroom Heures d'ouverture",
+          "raw_value": "du lundi au vendredi 07h30-12h / 13h00-16h30 samedi 08h00-12h tractafric.motors_cam@tractafric.com Tél : +237 691 72 47 15 Atelier Heures d'ouverture : du lundi au vendredi 07h30-12h 13h00-16h30 / 16h30–18h (permanence), samedi 08h00-12h / 13h00-18h00 Tél : +237 694 05 60 70",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Gearbox",
+          "raw_value": "Automatique",
+          "canonical_key": "transmission",
+          "unit": null
+        },
+        {
+          "raw_label": "Fuel type",
+          "raw_value": "Essence",
+          "canonical_key": "fuel_type",
+          "unit": null
+        },
+        {
+          "raw_label": "Transmission",
+          "raw_value": "4x2",
+          "canonical_key": "drivetrain",
+          "unit": null
+        },
+        {
+          "raw_label": "Displacement (cc)",
+          "raw_value": "2497",
+          "canonical_key": "engine_displacement_ml",
+          "unit": "mL"
+        },
+        {
+          "raw_label": "Dimensions (Lxwxh) in mm",
+          "raw_value": "4 830 x 1 900 x 1 770",
+          "canonical_key": "dimensions_mm",
+          "unit": "mm"
+        },
+        {
+          "raw_label": "Number of doors",
+          "raw_value": "5",
+          "canonical_key": "doors",
+          "unit": null
+        },
+        {
+          "raw_label": "Number of seats",
+          "raw_value": "7",
+          "canonical_key": "seats",
+          "unit": null
+        },
+        {
+          "raw_label": "Transmission",
+          "raw_value": "4x4",
+          "canonical_key": "drivetrain",
+          "unit": null
+        }
+      ],
+      "content_hash": "e220cd0e64e01b09ac506a4207c839c8c4abcf037fd65a02f681e21dfdfd4181",
+      "review_status": "draft",
+      "quality_flags": []
+    },
+    {
+      "brand": "Hyundai",
+      "model": "Tucson",
+      "source": {
+        "url": "https://www.hyundai-cameroun.com/fr/vehicle/hyundai/20/nouveau-tucson/models.html",
+        "observed_at": "2026-09-06T15:28:35Z",
+        "distributor": "Tractafric Motors Cameroun",
+        "source_type": "official_web",
+        "country": "CM",
+        "confidence": "A"
+      },
+      "page_title": "Modèles disponibles - Hyundai Nouveau Tucson, Répond à toutes vos e",
+      "category": null,
+      "variants": [
+        "Smartstream G2.0"
+      ],
+      "specs": [
+        {
+          "raw_label": "Tractafric Motors Cameroun BP 4181 Douala - Bassa Cameroun Showroom Heures d'ouverture",
+          "raw_value": "du lundi au vendredi 07h30-12h / 13h00-16h30 samedi 08h00-12h tractafric.motors_cam@tractafric.com Tél : +237 694 18 70 30 Atelier Heures d'ouverture : du lundi au vendredi 07h30-12h 13h00-16h30 / 16h30–18h (permanence), samedi 08h00-12h / 13h00-18h00 Tél : +237 679 53 79 85",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Tractafric Motors Cameroun BP 7028 Yaoundé Cameroun Showroom Heures d'ouverture",
+          "raw_value": "du lundi au vendredi 07h30-12h / 13h00-16h30 samedi 08h00-12h tractafric.motors_cam@tractafric.com Tél : +237 691 72 47 15 Atelier Heures d'ouverture : du lundi au vendredi 07h30-12h 13h00-16h30 / 16h30–18h (permanence), samedi 08h00-12h / 13h00-18h00 Tél : +237 694 05 60 70",
+          "canonical_key": null,
+          "unit": null
+        },
+        {
+          "raw_label": "Gearbox",
+          "raw_value": "Manuelle ou Automatique",
+          "canonical_key": "transmission",
+          "unit": null
+        },
+        {
+          "raw_label": "Fuel type",
+          "raw_value": "Essence",
+          "canonical_key": "fuel_type",
+          "unit": null
+        },
+        {
+          "raw_label": "Transmission",
+          "raw_value": "4x4",
+          "canonical_key": "drivetrain",
+          "unit": null
+        },
+        {
+          "raw_label": "Displacement (cc)",
+          "raw_value": "1999",
+          "canonical_key": "engine_displacement_ml",
+          "unit": "mL"
+        },
+        {
+          "raw_label": "Dimensions (Lxwxh) in mm",
+          "raw_value": "4510x1865x1650",
+          "canonical_key": "dimensions_mm",
+          "unit": "mm"
+        },
+        {
+          "raw_label": "Number of doors",
+          "raw_value": "5",
+          "canonical_key": "doors",
+          "unit": null
+        },
+        {
+          "raw_label": "Number of seats",
+          "raw_value": "5",
+          "canonical_key": "seats",
+          "unit": null
+        }
+      ],
+      "content_hash": "45e4e821db2d6b8190f238011cae0cb53fce8f0b268f8733afa5c8d811ca768f",
+      "review_status": "draft",
+      "quality_flags": []
+    }
+  ]
+}
