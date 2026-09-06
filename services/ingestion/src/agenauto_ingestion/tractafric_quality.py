@@ -15,7 +15,9 @@ from .normalization import normalize_space, normalized_token
 from .provenance import content_hash, utc_now_iso
 
 MINIMUM_MAPPED_SPECS = 3
-HYUNDAI_HOSTS = frozenset({"hyundai-cameroun.com", "www.hyundai-cameroun.com"})
+HYUNDAI_HOSTS = frozenset(
+    {"hyundai-cameroun.com", "www.hyundai-cameroun.com"}
+)
 CONTACT_MARKERS = (
     "tractafric motors cameroun",
     "showroom",
@@ -73,14 +75,20 @@ def _fetch_official_hyundai_html(url: str) -> str:
         with urlopen(request, timeout=20) as response:  # noqa: S310
             final_url = response.geturl()
             final = urlparse(final_url)
-            if final.scheme != "https" or final.netloc.lower() not in HYUNDAI_HOSTS:
+            if (
+                final.scheme != "https"
+                or final.netloc.lower() not in HYUNDAI_HOSTS
+            ):
                 raise RuntimeError(
-                    f"Unexpected redirect while fetching Hyundai presentation: {final_url}"
+                    "Unexpected redirect while fetching Hyundai presentation: "
+                    f"{final_url}"
                 )
             charset = response.headers.get_content_charset() or "utf-8"
             return response.read().decode(charset, errors="replace")
     except OSError as exc:
-        raise RuntimeError(f"Unable to fetch official Hyundai page {url}: {exc}") from exc
+        raise RuntimeError(
+            f"Unable to fetch official Hyundai page {url}: {exc}"
+        ) from exc
 
 
 def extract_palisade_presentation_specs(html: str) -> list[dict[str, object]]:
@@ -100,7 +108,11 @@ def extract_palisade_presentation_specs(html: str) -> list[dict[str, object]]:
             }
         )
 
-    horsepower = re.search(r"\b(\d{2,4})\s+chevaux\b", text, flags=re.IGNORECASE)
+    horsepower = re.search(
+        r"\b(\d{2,4})\s+chevaux\b",
+        text,
+        flags=re.IGNORECASE,
+    )
     if horsepower:
         specs.append(
             {
@@ -156,7 +168,11 @@ def clean_hyundai_dataset(payload: dict[str, object]) -> dict[str, object]:
             if isinstance(spec, dict) and not _is_contact_spec(spec)
         ]
 
-        if vehicle.get("model") == "Palisade" and _mapped_spec_count(vehicle) < MINIMUM_MAPPED_SPECS:
+        needs_palisade_fallback = (
+            vehicle.get("model") == "Palisade"
+            and _mapped_spec_count(vehicle) < MINIMUM_MAPPED_SPECS
+        )
+        if needs_palisade_fallback:
             source = vehicle.get("source") or {}
             if not isinstance(source, dict) or not source.get("url"):
                 raise ValueError("Palisade is missing source provenance.")
@@ -165,7 +181,8 @@ def clean_hyundai_dataset(payload: dict[str, object]) -> dict[str, object]:
             fallback_specs = extract_palisade_presentation_specs(html)
             if len(fallback_specs) < MINIMUM_MAPPED_SPECS:
                 raise ValueError(
-                    "Official Palisade presentation did not expose enough technical facts."
+                    "Official Palisade presentation did not expose enough "
+                    "technical facts."
                 )
             vehicle["specs"] = fallback_specs
             source["url"] = fallback_url
@@ -173,7 +190,9 @@ def clean_hyundai_dataset(payload: dict[str, object]) -> dict[str, object]:
             source["source_type"] = "official_web"
             title = BeautifulSoup(html, "html.parser").title
             if title is not None:
-                vehicle["page_title"] = normalize_space(title.get_text(" ", strip=True))
+                vehicle["page_title"] = normalize_space(
+                    title.get_text(" ", strip=True)
+                )
             flags = [
                 flag
                 for flag in (vehicle.get("quality_flags") or [])
@@ -193,7 +212,9 @@ def validate_tractafric_quality(
 ) -> None:
     vehicles = payload.get("vehicles")
     if not isinstance(vehicles, list) or not vehicles:
-        raise ValueError("Tractafric quality gate requires a non-empty vehicles list.")
+        raise ValueError(
+            "Tractafric quality gate requires a non-empty vehicles list."
+        )
 
     for vehicle in vehicles:
         if not isinstance(vehicle, dict):
@@ -207,12 +228,14 @@ def validate_tractafric_quality(
             if isinstance(spec, dict) and _is_contact_spec(spec)
         ]
         if contact_specs:
-            raise ValueError(f"Contact/showroom data leaked into specs for {brand} {model}.")
+            raise ValueError(
+                f"Contact/showroom data leaked into specs for {brand} {model}."
+            )
         mapped = _mapped_spec_count(vehicle)
         if mapped < minimum_mapped_specs:
             raise ValueError(
-                f"Expected at least {minimum_mapped_specs} mapped technical specs for "
-                f"{brand} {model}, found {mapped}."
+                f"Expected at least {minimum_mapped_specs} mapped technical specs "
+                f"for {brand} {model}, found {mapped}."
             )
 
 
@@ -231,7 +254,9 @@ def _write_json(path: Path, payload: dict[str, object]) -> None:
 
 
 def main() -> None:
-    parser = argparse.ArgumentParser(description="Clean and validate Tractafric pilot data")
+    parser = argparse.ArgumentParser(
+        description="Clean and validate Tractafric pilot data"
+    )
     parser.add_argument("--hyundai", type=Path, required=True)
     parser.add_argument("--mitsubishi", type=Path, required=True)
     args = parser.parse_args()
