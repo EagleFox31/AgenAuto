@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "dataset": "cameroon-pilot-tractafric-hyundai",
-  "generated_at": "2026-09-06T15:28:35Z",
+  "generated_at": "2026-09-06T18:58:27Z",
   "collector": "tractafric_hyundai",
   "distributor": "Tractafric Motors Cameroun",
   "publication_policy": "draft_only_until_payload_review",
@@ -11,7 +11,7 @@
       "model": "County",
       "source": {
         "url": "https://www.hyundai-cameroun.com/fr/vehicle/hyundai/325/nouveau-county/models.html",
-        "observed_at": "2026-09-06T15:28:30Z",
+        "observed_at": "2026-09-06T18:58:22Z",
         "distributor": "Tractafric Motors Cameroun",
         "source_type": "official_web",
         "country": "CM",
@@ -24,18 +24,6 @@
         "County 32 + 1 places"
       ],
       "specs": [
-        {
-          "raw_label": "Tractafric Motors Cameroun BP 4181 Douala - Bassa Cameroun Showroom Heures d'ouverture",
-          "raw_value": "du lundi au vendredi 07h30-12h / 13h00-16h30 samedi 08h00-12h tractafric.motors_cam@tractafric.com Tél : +237 694 18 70 30 Atelier Heures d'ouverture : du lundi au vendredi 07h30-12h 13h00-16h30 / 16h30–18h (permanence), samedi 08h00-12h / 13h00-18h00 Tél : +237 679 53 79 85",
-          "canonical_key": null,
-          "unit": null
-        },
-        {
-          "raw_label": "Tractafric Motors Cameroun BP 7028 Yaoundé Cameroun Showroom Heures d'ouverture",
-          "raw_value": "du lundi au vendredi 07h30-12h / 13h00-16h30 samedi 08h00-12h tractafric.motors_cam@tractafric.com Tél : +237 691 72 47 15 Atelier Heures d'ouverture : du lundi au vendredi 07h30-12h 13h00-16h30 / 16h30–18h (permanence), samedi 08h00-12h / 13h00-18h00 Tél : +237 694 05 60 70",
-          "canonical_key": null,
-          "unit": null
-        },
         {
           "raw_label": "Gearbox",
           "raw_value": "Manuelle",
@@ -85,7 +73,7 @@
           "unit": null
         }
       ],
-      "content_hash": "566c53a407b906164f1ed7c67f1aaeffd0a42d9ca509e8c49a449b8785728a3c",
+      "content_hash": "09b2812995a455d0e1db1144a0e0c351bd561e7c83fd5a069f7493fe261498de",
       "review_status": "draft",
       "quality_flags": []
     },
@@ -93,35 +81,41 @@
       "brand": "Hyundai",
       "model": "Palisade",
       "source": {
-        "url": "https://www.hyundai-cameroun.com/fr/vehicle/hyundai/360/all-new-palisade/models.html",
-        "observed_at": "2026-09-06T15:28:33Z",
+        "url": "https://www.hyundai-cameroun.com/fr/vehicle/hyundai/360/all-new-palisade/show.html",
+        "observed_at": "2026-09-06T18:58:28Z",
         "distributor": "Tractafric Motors Cameroun",
         "source_type": "official_web",
         "country": "CM",
         "confidence": "A"
       },
-      "page_title": "Modèles disponibles - Hyundai All New Palisade | Hyundai Cameroun",
+      "page_title": "Hyundai All New Palisade | Hyundai Cameroun",
       "category": null,
       "variants": [],
       "specs": [
         {
-          "raw_label": "Tractafric Motors Cameroun BP 4181 Douala - Bassa Cameroun Showroom Heures d'ouverture",
-          "raw_value": "du lundi au vendredi 07h30-12h / 13h00-16h30 samedi 08h00-12h tractafric.motors_cam@tractafric.com Tél : +237 694 18 70 30 Atelier Heures d'ouverture : du lundi au vendredi 07h30-12h 13h00-16h30 / 16h30–18h (permanence), samedi 08h00-12h / 13h00-18h00 Tél : +237 679 53 79 85",
-          "canonical_key": null,
+          "raw_label": "Number of seats",
+          "raw_value": "8",
+          "canonical_key": "seats",
           "unit": null
         },
         {
-          "raw_label": "Tractafric Motors Cameroun BP 7028 Yaoundé Cameroun Showroom Heures d'ouverture",
-          "raw_value": "du lundi au vendredi 07h30-12h / 13h00-16h30 samedi 08h00-12h tractafric.motors_cam@tractafric.com Tél : +237 691 72 47 15 Atelier Heures d'ouverture : du lundi au vendredi 07h30-12h 13h00-16h30 / 16h30–18h (permanence), samedi 08h00-12h / 13h00-18h00 Tél : +237 694 05 60 70",
-          "canonical_key": null,
+          "raw_label": "Horse power (HP)",
+          "raw_value": "287",
+          "canonical_key": "horsepower_hp",
+          "unit": "hp"
+        },
+        {
+          "raw_label": "Transmission",
+          "raw_value": "HTRAC traction intégrale",
+          "canonical_key": "drivetrain",
           "unit": null
         }
       ],
-      "content_hash": "87d533c721cd7fa08f65c8d618d5a8fbaa25cf01db49a57b58d2574a9858f489",
+      "content_hash": "b1012af3c908fa17d0502b2da2d52c4417d07272ef2170fd191d6025eeb7e633",
       "review_status": "draft",
       "quality_flags": [
-        "few_structured_specs_extracted",
-        "no_trim_names_extracted"
+        "no_trim_names_extracted",
+        "technical_specs_from_official_presentation_page"
       ]
     },
     {
@@ -129,7 +123,7 @@
       "model": "Santa Fe",
       "source": {
         "url": "https://www.hyundai-cameroun.com/fr/vehicle/hyundai/335/nouveau-santa-fe/models.html",
-        "observed_at": "2026-09-06T15:28:27Z",
+        "observed_at": "2026-09-06T18:58:19Z",
         "distributor": "Tractafric Motors Cameroun",
         "source_type": "official_web",
         "country": "CM",
@@ -143,18 +137,6 @@
         "Santa Fe Exclusive"
       ],
       "specs": [
-        {
-          "raw_label": "Tractafric Motors Cameroun BP 4181 Douala - Bassa Cameroun Showroom Heures d'ouverture",
-          "raw_value": "du lundi au vendredi 07h30-12h / 13h00-16h30 samedi 08h00-12h tractafric.motors_cam@tractafric.com Tél : +237 694 18 70 30 Atelier Heures d'ouverture : du lundi au vendredi 07h30-12h 13h00-16h30 / 16h30–18h (permanence), samedi 08h00-12h / 13h00-18h00 Tél : +237 679 53 79 85",
-          "canonical_key": null,
-          "unit": null
-        },
-        {
-          "raw_label": "Tractafric Motors Cameroun BP 7028 Yaoundé Cameroun Showroom Heures d'ouverture",
-          "raw_value": "du lundi au vendredi 07h30-12h / 13h00-16h30 samedi 08h00-12h tractafric.motors_cam@tractafric.com Tél : +237 691 72 47 15 Atelier Heures d'ouverture : du lundi au vendredi 07h30-12h 13h00-16h30 / 16h30–18h (permanence), samedi 08h00-12h / 13h00-18h00 Tél : +237 694 05 60 70",
-          "canonical_key": null,
-          "unit": null
-        },
         {
           "raw_label": "Gearbox",
           "raw_value": "Automatique",
@@ -204,7 +186,7 @@
           "unit": null
         }
       ],
-      "content_hash": "e220cd0e64e01b09ac506a4207c839c8c4abcf037fd65a02f681e21dfdfd4181",
+      "content_hash": "aa12f6e5b8d56c2f25dd7894196b0e6264ea0e25c2bef7ccc07bae6ef386caa3",
       "review_status": "draft",
       "quality_flags": []
     },
@@ -213,7 +195,7 @@
       "model": "Tucson",
       "source": {
         "url": "https://www.hyundai-cameroun.com/fr/vehicle/hyundai/20/nouveau-tucson/models.html",
-        "observed_at": "2026-09-06T15:28:35Z",
+        "observed_at": "2026-09-06T18:58:27Z",
         "distributor": "Tractafric Motors Cameroun",
         "source_type": "official_web",
         "country": "CM",
@@ -225,18 +207,6 @@
         "Smartstream G2.0"
       ],
       "specs": [
-        {
-          "raw_label": "Tractafric Motors Cameroun BP 4181 Douala - Bassa Cameroun Showroom Heures d'ouverture",
-          "raw_value": "du lundi au vendredi 07h30-12h / 13h00-16h30 samedi 08h00-12h tractafric.motors_cam@tractafric.com Tél : +237 694 18 70 30 Atelier Heures d'ouverture : du lundi au vendredi 07h30-12h 13h00-16h30 / 16h30–18h (permanence), samedi 08h00-12h / 13h00-18h00 Tél : +237 679 53 79 85",
-          "canonical_key": null,
-          "unit": null
-        },
-        {
-          "raw_label": "Tractafric Motors Cameroun BP 7028 Yaoundé Cameroun Showroom Heures d'ouverture",
-          "raw_value": "du lundi au vendredi 07h30-12h / 13h00-16h30 samedi 08h00-12h tractafric.motors_cam@tractafric.com Tél : +237 691 72 47 15 Atelier Heures d'ouverture : du lundi au vendredi 07h30-12h 13h00-16h30 / 16h30–18h (permanence), samedi 08h00-12h / 13h00-18h00 Tél : +237 694 05 60 70",
-          "canonical_key": null,
-          "unit": null
-        },
         {
           "raw_label": "Gearbox",
           "raw_value": "Manuelle ou Automatique",
@@ -280,7 +250,7 @@
           "unit": null
         }
       ],
-      "content_hash": "45e4e821db2d6b8190f238011cae0cb53fce8f0b268f8733afa5c8d811ca768f",
+      "content_hash": "d933842c5b536cfdcc489200e8eed932ba265294d1d59c5773f763864528ef94",
       "review_status": "draft",
       "quality_flags": []
     }

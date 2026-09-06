@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-09-06T15:28:36Z",
+  "generated_at": "2026-09-06T18:58:29Z",
   "distributor": "Tractafric Motors Cameroun",
   "brands": [
     {
@@ -14,7 +14,7 @@
       ],
       "source_urls": [
         "https://www.hyundai-cameroun.com/fr/vehicle/hyundai/325/nouveau-county/models.html",
-        "https://www.hyundai-cameroun.com/fr/vehicle/hyundai/360/all-new-palisade/models.html",
+        "https://www.hyundai-cameroun.com/fr/vehicle/hyundai/360/all-new-palisade/show.html",
         "https://www.hyundai-cameroun.com/fr/vehicle/hyundai/335/nouveau-santa-fe/models.html",
         "https://www.hyundai-cameroun.com/fr/vehicle/hyundai/20/nouveau-tucson/models.html"
       ]
@@ -37,5 +37,5 @@
     }
   ],
   "vehicle_count": 8,
-  "notes": "Hyundai observations are refreshed from the official brand microsite. Mitsubishi observations are a manually reviewed official Tractafric snapshot because robots.txt disallows automated access; all data remains draft until Payload review."
+  "notes": "Hyundai observations are refreshed from the official brand microsite. Palisade falls back to its official presentation page when models.html does not expose technical facts. Mitsubishi observations are a manually reviewed official Tractafric snapshot because robots.txt disallows automated access; all data remains draft until Payload review."
 }
