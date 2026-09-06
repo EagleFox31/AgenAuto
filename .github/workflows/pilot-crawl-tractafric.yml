@@ -47,16 +47,16 @@ jobs:
           --input data/pilot/tractafric/hyundai/candidates.json
           --minimum-models 4
           --brand Hyundai
-          --allowed-host tractafrictmc-cameroun.com
-          --allowed-host www.tractafrictmc-cameroun.com
+          --allowed-host hyundai-cameroun.com
+          --allowed-host www.hyundai-cameroun.com
       - name: Validate Mitsubishi pilot data
         run: >-
           agenauto-ingest validate
           --input data/pilot/tractafric/mitsubishi/candidates.json
           --minimum-models 4
           --brand Mitsubishi
-          --allowed-host tractafrictmc-cameroun.com
-          --allowed-host www.tractafrictmc-cameroun.com
+          --allowed-host mitsubishi.cm
+          --allowed-host www.mitsubishi.cm
       - name: Commit factual Tractafric pilot observations
         shell: bash
         run: |
