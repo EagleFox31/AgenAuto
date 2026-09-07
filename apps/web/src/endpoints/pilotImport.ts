@@ -10,6 +10,24 @@ const EXPECTED_SUMMARY = {
   ready_for_trim_promotion_count: 0,
 } as const
 
+type SpecificationUnit =
+  | 'mm'
+  | 'cm'
+  | 'm'
+  | 'l'
+  | 'cm3'
+  | 'kw'
+  | 'hp'
+  | 'nm'
+  | 'kg'
+  | 'km-h'
+  | 'l-100km'
+  | 'kwh-100km'
+  | 'km'
+  | 'g-km'
+  | 's'
+  | 'percent'
+
 type BrandOperation = {
   name: string
   slug: string
@@ -31,7 +49,7 @@ type DefinitionOperation = {
   label: string
   category: string
   valueType: string
-  unit?: string
+  unit?: SpecificationUnit
   comparable: boolean
   filterable: boolean
 }
@@ -109,7 +127,9 @@ function assertPreviewBranch(): string {
   const sha = process.env.VERCEL_GIT_COMMIT_SHA
 
   if (branch !== PILOT_BRANCH) {
-    throw new Error(`Pilot bootstrap is locked to ${PILOT_BRANCH}; current branch is ${branch || 'unknown'}.`)
+    throw new Error(
+      `Pilot bootstrap is locked to ${PILOT_BRANCH}; current branch is ${branch || 'unknown'}.`,
+    )
   }
   if (!sha || !/^[0-9a-f]{40}$/i.test(sha)) {
     throw new Error('VERCEL_GIT_COMMIT_SHA is unavailable; refusing an unpinned pilot import.')
@@ -139,7 +159,9 @@ function assertPlan(plan: PilotImportPlan): void {
   }
 
   if (plan.reviewCandidates.some((candidate) => candidate.promotionBlockers.length === 0)) {
-    throw new Error('Every pilot candidate must remain blocked pending human Generation/Trim review.')
+    throw new Error(
+      'Every pilot candidate must remain blocked pending human Generation/Trim review.',
+    )
   }
 }
 
@@ -232,6 +254,7 @@ async function applyPlan(req: PayloadRequest, plan: PilotImportPlan) {
   for (const operation of plan.models) {
     const brandId = brandIds.get(operation.brandSlug)
     if (!brandId) throw new Error(`Missing staged brand id for ${operation.brandSlug}.`)
+
     const identityKey = `${brandId}:${operation.slug}`
     const found = await req.payload.find({
       collection: 'vehicle-models',
@@ -250,6 +273,7 @@ async function applyPlan(req: PayloadRequest, plan: PilotImportPlan) {
           brand: brandId,
           name: operation.name,
           slug: operation.slug,
+          identityKey,
           ...canonicalSourceFields(operation),
         },
         overrideAccess: false,
@@ -278,7 +302,17 @@ async function applyPlan(req: PayloadRequest, plan: PilotImportPlan) {
       data: {
         key: definition.key,
         label: definition.label,
-        category: definition.category as 'engine' | 'performance' | 'drivetrain' | 'dimensions' | 'capacity' | 'efficiency' | 'chassis' | 'safety' | 'comfort' | 'other',
+        category: definition.category as
+          | 'engine'
+          | 'performance'
+          | 'drivetrain'
+          | 'dimensions'
+          | 'capacity'
+          | 'efficiency'
+          | 'chassis'
+          | 'safety'
+          | 'comfort'
+          | 'other',
         valueType: definition.valueType as 'text' | 'number' | 'boolean',
         unit: definition.unit,
         comparable: definition.comparable,
@@ -365,12 +399,54 @@ async function applyPlan(req: PayloadRequest, plan: PilotImportPlan) {
   }
 
   const [brands, models, definitions, candidates, generations, trims] = await Promise.all([
-    req.payload.find({ collection: 'brands', limit: 1, depth: 0, overrideAccess: false, user: req.user, req }),
-    req.payload.find({ collection: 'vehicle-models', limit: 1, depth: 0, overrideAccess: false, user: req.user, req }),
-    req.payload.find({ collection: 'specification-definitions', limit: 1, depth: 0, overrideAccess: false, user: req.user, req }),
-    req.payload.find({ collection: 'catalog-ingestion-candidates', limit: 100, depth: 0, overrideAccess: false, user: req.user, req }),
-    req.payload.find({ collection: 'generations', limit: 1, depth: 0, overrideAccess: false, user: req.user, req }),
-    req.payload.find({ collection: 'trims', limit: 1, depth: 0, overrideAccess: false, user: req.user, req }),
+    req.payload.find({
+      collection: 'brands',
+      limit: 1,
+      depth: 0,
+      overrideAccess: false,
+      user: req.user,
+      req,
+    }),
+    req.payload.find({
+      collection: 'vehicle-models',
+      limit: 1,
+      depth: 0,
+      overrideAccess: false,
+      user: req.user,
+      req,
+    }),
+    req.payload.find({
+      collection: 'specification-definitions',
+      limit: 1,
+      depth: 0,
+      overrideAccess: false,
+      user: req.user,
+      req,
+    }),
+    req.payload.find({
+      collection: 'catalog-ingestion-candidates',
+      limit: 100,
+      depth: 0,
+      overrideAccess: false,
+      user: req.user,
+      req,
+    }),
+    req.payload.find({
+      collection: 'generations',
+      limit: 1,
+      depth: 0,
+      overrideAccess: false,
+      user: req.user,
+      req,
+    }),
+    req.payload.find({
+      collection: 'trims',
+      limit: 1,
+      depth: 0,
+      overrideAccess: false,
+      user: req.user,
+      req,
+    }),
   ])
 
   if (
@@ -406,7 +482,11 @@ const getEndpoint: Endpoint = {
   method: 'get',
   handler: async (req) => {
     if (!isAdminRequest(req)) {
-      return htmlPage('Accès refusé', '<h1>Accès refusé</h1><p>Connecte-toi à Payload Admin avec un compte administrateur.</p>', 403)
+      return htmlPage(
+        'Accès refusé',
+        '<h1>Accès refusé</h1><p>Connecte-toi à Payload Admin avec un compte administrateur.</p>',
+        403,
+      )
     }
 
     try {
@@ -414,7 +494,11 @@ const getEndpoint: Endpoint = {
       await assertEmptyPromotionState(req)
     } catch (error) {
       const message = error instanceof Error ? error.message : 'Pilot bootstrap unavailable.'
-      return htmlPage('Import indisponible', `<h1>Import indisponible</h1><p class="danger">${message}</p>`, 409)
+      return htmlPage(
+        'Import indisponible',
+        `<h1>Import indisponible</h1><p class="danger">${message}</p>`,
+        409,
+      )
     }
 
     return htmlPage(
@@ -435,13 +519,29 @@ const postEndpoint: Endpoint = {
   method: 'post',
   handler: async (req) => {
     if (!isAdminRequest(req)) {
-      return htmlPage('Accès refusé', '<h1>Accès refusé</h1><p>Administrateur Payload requis.</p>', 403)
+      return htmlPage(
+        'Accès refusé',
+        '<h1>Accès refusé</h1><p>Administrateur Payload requis.</p>',
+        403,
+      )
     }
 
     try {
-      const form = await req.formData()
+      const readFormData = req.formData
+      if (typeof readFormData !== 'function') {
+        return htmlPage(
+          'Confirmation requise',
+          '<h1>Confirmation requise</h1><p>Le formulaire de confirmation est indisponible.</p>',
+          400,
+        )
+      }
+      const form = await readFormData.call(req)
       if (form.get('confirm') !== 'import-cameroon-pilot') {
-        return htmlPage('Confirmation requise', '<h1>Confirmation requise</h1><p>Utilise le formulaire d’import.</p>', 400)
+        return htmlPage(
+          'Confirmation requise',
+          '<h1>Confirmation requise</h1><p>Utilise le formulaire d’import.</p>',
+          400,
+        )
       }
 
       assertPreviewBranch()
