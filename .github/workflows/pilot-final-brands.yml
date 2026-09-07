@@ -1,0 +1,60 @@
+name: Pilot data - Kia GWM Haval final coverage
+
+on:
+  push:
+    branches:
+      - feat/cameroon-pilot-ingestion
+    paths:
+      - 'data/pilot/km-auto/**'
+      - 'data/pilot/rimco/**'
+      - 'data/pilot/PILOT_SCOPE.md'
+      - 'services/ingestion/src/agenauto_ingestion/final_pilot_quality.py'
+      - 'services/ingestion/tests/test_final_pilot_quality.py'
+      - '.github/workflows/pilot-final-brands.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  validate-final-pilot-brands:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Checkout pilot branch
+        uses: actions/checkout@v4
+        with:
+          ref: feat/cameroon-pilot-ingestion
+          fetch-depth: 0
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+          cache: pip
+          cache-dependency-path: services/ingestion/pyproject.toml
+
+      - name: Install ingestion service
+        run: python -m pip install -e 'services/ingestion[dev]'
+
+      - name: Lint
+        run: ruff check services/ingestion
+
+      - name: Tests
+        run: pytest services/ingestion/tests
+
+      - name: Validate Kia GWM Haval snapshots and build manifests
+        run: python -m agenauto_ingestion.final_pilot_quality --root data/pilot
+
+      - name: Commit pilot manifests
+        shell: bash
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add data/pilot/km-auto/manifest.json data/pilot/rimco/manifest.json data/pilot/manifest.json
+          if git diff --cached --quiet; then
+            echo 'No pilot manifest changes.'
+            exit 0
+          fi
+          git commit -m 'data: refresh complete Cameroon pilot manifest [skip ci]'
+          git push origin HEAD:feat/cameroon-pilot-ingestion
