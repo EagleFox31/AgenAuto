@@ -29,6 +29,7 @@ import { AuditLogs } from './collections/platform/AuditLogs'
 import { DealerOrganizations } from './collections/platform/DealerOrganizations'
 import { Media } from './collections/platform/Media'
 import { Users } from './collections/platform/Users'
+import { pilotImportEndpoints } from './endpoints/pilotImport'
 
 const filename = fileURLToPath(import.meta.url)
 const dirname = path.dirname(filename)
@@ -47,6 +48,7 @@ export default buildConfig({
       titleSuffix: ' — AgenAuto',
     },
   },
+  endpoints: pilotImportEndpoints,
   collections: [
     Users,
     DealerOrganizations,
