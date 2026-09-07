@@ -77,6 +77,7 @@ export interface Config {
     trims: Trim;
     'specification-definitions': SpecificationDefinition;
     'trim-specifications': TrimSpecification;
+    'catalog-ingestion-candidates': CatalogIngestionCandidate;
     'dealer-locations': DealerLocation;
     'dealer-brands': DealerBrand;
     offers: Offer;
@@ -101,6 +102,7 @@ export interface Config {
     trims: TrimsSelect<false> | TrimsSelect<true>;
     'specification-definitions': SpecificationDefinitionsSelect<false> | SpecificationDefinitionsSelect<true>;
     'trim-specifications': TrimSpecificationsSelect<false> | TrimSpecificationsSelect<true>;
+    'catalog-ingestion-candidates': CatalogIngestionCandidatesSelect<false> | CatalogIngestionCandidatesSelect<true>;
     'dealer-locations': DealerLocationsSelect<false> | DealerLocationsSelect<true>;
     'dealer-brands': DealerBrandsSelect<false> | DealerBrandsSelect<true>;
     offers: OffersSelect<false> | OffersSelect<true>;
@@ -532,6 +534,77 @@ export interface TrimSpecification {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "catalog-ingestion-candidates".
+ */
+export interface CatalogIngestionCandidate {
+  id: number;
+  candidateKey: string;
+  displayName: string;
+  brandName: string;
+  modelName: string;
+  distributor: string;
+  sourceReference: string;
+  sourceObservedAt: string;
+  sourceType: string;
+  confidence: 'A' | 'B' | 'C';
+  contentHash?: string | null;
+  variants?:
+    | {
+        name: string;
+        id?: string | null;
+      }[]
+    | null;
+  specifications:
+    | {
+        [k: string]: unknown;
+      }
+    | unknown[]
+    | string
+    | number
+    | boolean
+    | null;
+  qualityFlags?:
+    | {
+        code: string;
+        id?: string | null;
+      }[]
+    | null;
+  mappingStatus: 'needs_review' | 'mapped' | 'approved' | 'rejected' | 'promoted';
+  proposedBrand?: (number | null) | Brand;
+  proposedModel?: (number | null) | VehicleModel;
+  proposedGeneration?: (number | null) | Generation;
+  trimMappings?:
+    | {
+        sourceVariant: string;
+        proposedTrim?: (number | null) | Trim;
+        id?: string | null;
+      }[]
+    | null;
+  promotionBlockers?:
+    | {
+        code: string;
+        note?: string | null;
+        id?: string | null;
+      }[]
+    | null;
+  reviewNotes?: string | null;
+  /**
+   * Immutable factual staging payload used to reproduce the mapping decision.
+   */
+  rawCandidate:
+    | {
+        [k: string]: unknown;
+      }
+    | unknown[]
+    | string
+    | number
+    | boolean
+    | null;
+  updatedAt: string;
+  createdAt: string;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "dealer-locations".
  */
 export interface DealerLocation {
@@ -717,6 +790,10 @@ export interface PayloadLockedDocument {
     | ({
         relationTo: 'trim-specifications';
         value: number | TrimSpecification;
+      } | null)
+    | ({
+        relationTo: 'catalog-ingestion-candidates';
+        value: number | CatalogIngestionCandidate;
       } | null)
     | ({
         relationTo: 'dealer-locations';
@@ -1075,6 +1152,57 @@ export interface TrimSpecificationsSelect<T extends boolean = true> {
   reviewNotes?: T;
   reviewedBy?: T;
   reviewedAt?: T;
+  updatedAt?: T;
+  createdAt?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "catalog-ingestion-candidates_select".
+ */
+export interface CatalogIngestionCandidatesSelect<T extends boolean = true> {
+  candidateKey?: T;
+  displayName?: T;
+  brandName?: T;
+  modelName?: T;
+  distributor?: T;
+  sourceReference?: T;
+  sourceObservedAt?: T;
+  sourceType?: T;
+  confidence?: T;
+  contentHash?: T;
+  variants?:
+    | T
+    | {
+        name?: T;
+        id?: T;
+      };
+  specifications?: T;
+  qualityFlags?:
+    | T
+    | {
+        code?: T;
+        id?: T;
+      };
+  mappingStatus?: T;
+  proposedBrand?: T;
+  proposedModel?: T;
+  proposedGeneration?: T;
+  trimMappings?:
+    | T
+    | {
+        sourceVariant?: T;
+        proposedTrim?: T;
+        id?: T;
+      };
+  promotionBlockers?:
+    | T
+    | {
+        code?: T;
+        note?: T;
+        id?: T;
+      };
+  reviewNotes?: T;
+  rawCandidate?: T;
   updatedAt?: T;
   createdAt?: T;
 }

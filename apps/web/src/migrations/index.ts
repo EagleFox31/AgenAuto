@@ -3,6 +3,7 @@ import * as migration_20260904_123805_canonical_automotive_schema from './202609
 import * as migration_20260904_131332_payload_auth_rbac_audit from './20260904_131332_payload_auth_rbac_audit';
 import * as migration_20260904_135422_catalog_data_quality from './20260904_135422_catalog_data_quality';
 import * as migration_20260905_193034_dealer_market_model from './20260905_193034_dealer_market_model';
+import * as migration_20260907_080418_pilot_ingestion_review from './20260907_080418_pilot_ingestion_review';
 
 export const migrations = [
   {
@@ -28,6 +29,11 @@ export const migrations = [
   {
     up: migration_20260905_193034_dealer_market_model.up,
     down: migration_20260905_193034_dealer_market_model.down,
-    name: '20260905_193034_dealer_market_model'
+    name: '20260905_193034_dealer_market_model',
+  },
+  {
+    up: migration_20260907_080418_pilot_ingestion_review.up,
+    down: migration_20260907_080418_pilot_ingestion_review.down,
+    name: '20260907_080418_pilot_ingestion_review'
   },
 ];
