@@ -1,0 +1,30 @@
+{
+  "schema_version": 1,
+  "distributor": "RIMCO Motors Cameroon",
+  "brands": [
+    {
+      "brand": "Haval",
+      "distributor": "RIMCO Motors Cameroon",
+      "vehicle_count": 4,
+      "models": [
+        "H6",
+        "H6 GT",
+        "H9",
+        "Jolion"
+      ],
+      "publication_policy": "draft_only_until_payload_review"
+    },
+    {
+      "brand": "GWM",
+      "distributor": "RIMCO Motors Cameroon",
+      "vehicle_count": 2,
+      "models": [
+        "POER",
+        "Wingle 5"
+      ],
+      "publication_policy": "draft_only_until_payload_review"
+    }
+  ],
+  "vehicle_count": 6,
+  "notes": "Official Great Wall/Haval Cameroon web and brochure snapshots; trim-scoped differences remain flagged for Payload review."
+}

@@ -1,0 +1,132 @@
+{
+  "schema_version": 1,
+  "pilot_brand_count": 8,
+  "vehicle_count": 59,
+  "brands": [
+    {
+      "brand": "Jetour",
+      "distributor": "Sky Motors Company",
+      "vehicle_count": 6,
+      "models": [
+        "Dashing",
+        "T1",
+        "T2",
+        "X50",
+        "X70 Plus",
+        "X90 Plus"
+      ],
+      "publication_policy": "draft_only_until_payload_review"
+    },
+    {
+      "brand": "Toyota",
+      "distributor": "CFAO Mobility Cameroon (CAMI Motors)",
+      "vehicle_count": 21,
+      "models": [
+        "Belta",
+        "Coaster",
+        "Corolla Cross",
+        "Corolla Sedan",
+        "Fortuner",
+        "Hiace",
+        "Hiace GD",
+        "Hiace van",
+        "Hilux",
+        "Land Cruiser 300",
+        "Land Cruiser 76",
+        "Land Cruiser 78",
+        "Land Cruiser 79",
+        "Land Cruiser Prado",
+        "RAV4",
+        "Rumion",
+        "Rush",
+        "Starlet",
+        "Starlet Cross",
+        "Urban Cruiser",
+        "Vitz"
+      ],
+      "publication_policy": "draft_only_until_payload_review"
+    },
+    {
+      "brand": "Suzuki",
+      "distributor": "CFAO Mobility Cameroon (CAMI Motors)",
+      "vehicle_count": 14,
+      "models": [
+        "Across",
+        "Alto",
+        "Baleno",
+        "Celerio",
+        "Dzire",
+        "Eeco",
+        "Ertiga",
+        "FRONX",
+        "Grand Vitara",
+        "Jimny",
+        "Jimny 5 doors",
+        "S-Presso",
+        "Super Carry",
+        "Swift"
+      ],
+      "publication_policy": "draft_only_until_payload_review"
+    },
+    {
+      "brand": "Hyundai",
+      "distributor": "Tractafric Motors Cameroun",
+      "vehicle_count": 4,
+      "models": [
+        "County",
+        "Palisade",
+        "Santa Fe",
+        "Tucson"
+      ],
+      "publication_policy": "draft_only_until_payload_review"
+    },
+    {
+      "brand": "Mitsubishi",
+      "distributor": "Tractafric Motors Cameroun",
+      "vehicle_count": 4,
+      "models": [
+        "Eclipse Cross",
+        "Outlander",
+        "L200",
+        "Pajero Sport"
+      ],
+      "publication_policy": "draft_only_until_payload_review"
+    },
+    {
+      "brand": "Kia",
+      "distributor": "KM Auto SA",
+      "vehicle_count": 4,
+      "models": [
+        "Cerato",
+        "Seltos",
+        "Soul",
+        "Carnival"
+      ],
+      "publication_policy": "draft_only_until_payload_review"
+    },
+    {
+      "brand": "Haval",
+      "distributor": "RIMCO Motors Cameroon",
+      "vehicle_count": 4,
+      "models": [
+        "H6",
+        "H6 GT",
+        "H9",
+        "Jolion"
+      ],
+      "publication_policy": "draft_only_until_payload_review"
+    },
+    {
+      "brand": "GWM",
+      "distributor": "RIMCO Motors Cameroon",
+      "vehicle_count": 2,
+      "models": [
+        "POER",
+        "Wingle 5"
+      ],
+      "publication_policy": "draft_only_until_payload_review"
+    }
+  ],
+  "publication_policy": "draft_only_until_payload_review",
+  "notes": "Cameroon pilot covers 8 brand slots across 5 official distributors. Unknown or trim-scoped values remain draft until review."
+}
