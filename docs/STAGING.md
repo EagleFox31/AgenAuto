@@ -10,11 +10,15 @@ The six application migrations through `20260907_080418_pilot_ingestion_review` 
 
 Supabase exposes the `public` schema through PostgREST. AgenAuto does not use Supabase as a public data API: Payload is the authorization boundary. After Payload migrations, run `infra/supabase/payload-public-schema-lockdown.sql` so every Payload-owned public table has RLS enabled with no public policies. This intentionally blocks direct anonymous/authenticated Supabase API access while allowing the server-side Payload database owner/privileged connection to operate.
 
+## Database connection for Vercel / GitHub Actions
+
+Use the **Supabase Session pooler** connection string from **Project → Connect** for `DATABASE_URL` / `STAGING_DATABASE_URL`. The shared session pooler is reachable over IPv4 on port `5432`, which avoids relying on the project's direct IPv6 endpoint and retains session semantics suitable for Payload migrations. Do not commit the connection string or database password.
+
 ## Required runtime configuration
 
 Payload / Next.js staging requires:
 
-- `DATABASE_URL` — persistent server-side PostgreSQL connection string with the privileges required by Payload;
+- `DATABASE_URL` — Supabase Session pooler PostgreSQL connection string with the privileges required by Payload;
 - `PAYLOAD_SECRET` — long random secret, different from local/CI;
 - `NEXT_PUBLIC_APP_URL` — HTTPS staging application URL.
 
