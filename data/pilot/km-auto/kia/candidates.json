@@ -1,0 +1,104 @@
+{
+  "schema_version": 1,
+  "dataset": "cameroon-pilot-km-auto-kia",
+  "generated_at": "2026-09-07T07:21:00Z",
+  "collector": "km_auto_kia_manual_official_snapshot",
+  "distributor": "KM Auto SA",
+  "publication_policy": "draft_only_until_payload_review",
+  "vehicles": [
+    {
+      "brand": "Kia",
+      "model": "Cerato",
+      "source": {
+        "url": "https://www.kiamotorscameroon.com/cerato",
+        "observed_at": "2026-09-07T07:21:00Z",
+        "distributor": "KM Auto SA",
+        "source_type": "official_web_manual_snapshot",
+        "country": "CM",
+        "confidence": "A"
+      },
+      "page_title": "Cerato | Kia Motors Cameroon",
+      "category": null,
+      "variants": [],
+      "specs": [
+        {"raw_label": "Displacement (cc)", "raw_value": "1591", "canonical_key": "engine_displacement_ml", "unit": "mL"},
+        {"raw_label": "Max power (PS/rpm)", "raw_value": "128 / 6300", "canonical_key": "horsepower_hp", "unit": "hp"},
+        {"raw_label": "Gearbox", "raw_value": "6-speed manual / 6-speed automatic / 7-speed DCT", "canonical_key": "transmission", "unit": null}
+      ],
+      "content_hash": "60c4f517c248bf4d0d37dc2e2757350d9bc8100c315f4edff6c0d5e6b9b3b769",
+      "review_status": "draft",
+      "quality_flags": ["manual_official_source_snapshot", "aggregate_page_specs_not_trim_scoped"]
+    },
+    {
+      "brand": "Kia",
+      "model": "Seltos",
+      "source": {
+        "url": "https://www.kiamotorscameroon.com/seltos",
+        "observed_at": "2026-09-07T07:21:00Z",
+        "distributor": "KM Auto SA",
+        "source_type": "official_web_manual_snapshot",
+        "country": "CM",
+        "confidence": "A"
+      },
+      "page_title": "Seltos | Kia Motors Cameroon",
+      "category": null,
+      "variants": ["Gasoline 2.0 Atkinson", "Gasoline 1.6 MPI"],
+      "specs": [
+        {"raw_label": "Fuel type", "raw_value": "Gasoline", "canonical_key": "fuel_type", "unit": null},
+        {"raw_label": "Displacement (cc)", "raw_value": "1999 (2.0 Atkinson); 1591 (1.6 MPI)", "canonical_key": "engine_displacement_ml", "unit": "mL"},
+        {"raw_label": "Max power (PS)", "raw_value": "123 (1.6 MPI)", "canonical_key": "horsepower_hp", "unit": "hp"},
+        {"raw_label": "Gearbox", "raw_value": "6-speed manual", "canonical_key": "transmission", "unit": null}
+      ],
+      "content_hash": "6310ad9f9c29ff10db27b9bebe13b78252965ec8109a489ccbdd41f8e0449898",
+      "review_status": "draft",
+      "quality_flags": ["manual_official_source_snapshot", "aggregate_page_specs_not_trim_scoped"]
+    },
+    {
+      "brand": "Kia",
+      "model": "Soul",
+      "source": {
+        "url": "https://www.kiamotorscameroon.com/soul-model",
+        "observed_at": "2026-09-07T07:21:00Z",
+        "distributor": "KM Auto SA",
+        "source_type": "official_web_manual_snapshot",
+        "country": "CM",
+        "confidence": "A"
+      },
+      "page_title": "Soul | Kia Motors Cameroon",
+      "category": null,
+      "variants": [],
+      "specs": [
+        {"raw_label": "Fuel type", "raw_value": "Gasoline", "canonical_key": "fuel_type", "unit": null},
+        {"raw_label": "Displacement (cc)", "raw_value": "1591", "canonical_key": "engine_displacement_ml", "unit": "mL"},
+        {"raw_label": "Max power (PS/rpm)", "raw_value": "123 / 6300", "canonical_key": "horsepower_hp", "unit": "hp"},
+        {"raw_label": "Gearbox", "raw_value": "6-speed manual / 6-speed automatic", "canonical_key": "transmission", "unit": null}
+      ],
+      "content_hash": "d1f2e797de5cd34377c67f2f2b4122a1a59c9fd757d90813ae8614cc7a6120c1",
+      "review_status": "draft",
+      "quality_flags": ["manual_official_source_snapshot", "aggregate_page_specs_not_trim_scoped"]
+    },
+    {
+      "brand": "Kia",
+      "model": "Carnival",
+      "source": {
+        "url": "https://www.kiamotorscameroon.com/carnival",
+        "observed_at": "2026-09-07T07:21:00Z",
+        "distributor": "KM Auto SA",
+        "source_type": "official_web_manual_snapshot",
+        "country": "CM",
+        "confidence": "A"
+      },
+      "page_title": "Carnival | Kia Motors Cameroon",
+      "category": null,
+      "variants": [],
+      "specs": [
+        {"raw_label": "Displacement (cc)", "raw_value": "3470", "canonical_key": "engine_displacement_ml", "unit": "mL"},
+        {"raw_label": "Max power (PS/rpm)", "raw_value": "294 / 6400", "canonical_key": "horsepower_hp", "unit": "hp"},
+        {"raw_label": "Gearbox", "raw_value": "6-speed automatic", "canonical_key": "transmission", "unit": null}
+      ],
+      "content_hash": "ce88b5d07417f0440954b299d6912426427406ed3cbd8e15068bcee4153bffbd",
+      "review_status": "draft",
+      "quality_flags": ["manual_official_source_snapshot", "aggregate_page_specs_not_trim_scoped"]
+    }
+  ]
+}
