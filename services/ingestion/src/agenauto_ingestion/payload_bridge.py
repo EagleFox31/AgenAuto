@@ -242,7 +242,10 @@ def _promotion_blockers(candidate: dict[str, Any]) -> list[dict[str, str]]:
         blockers.append(
             {
                 "code": "specs_not_trim_scoped",
-                "note": "One or more specifications are aggregate/model-level and need trim review.",
+                "note": (
+                    "One or more specifications are aggregate/model-level "
+                    "and need trim review."
+                ),
             }
         )
     unregistered = sorted(_canonical_keys(candidate) - SPEC_DEFINITION_META.keys())
@@ -266,7 +269,8 @@ def _source(candidate: dict[str, Any]) -> dict[str, Any]:
     missing = [field for field in required if not source.get(field)]
     if missing:
         raise ValueError(
-            f"Missing source fields {missing} for {candidate.get('brand')} {candidate.get('model')}."
+            f"Missing source fields {missing} for "
+            f"{candidate.get('brand')} {candidate.get('model')}."
         )
     return source
 
@@ -459,7 +463,10 @@ def _canonical_source_fields(operation: dict[str, Any]) -> dict[str, Any]:
             {
                 "code": "pilot_import_draft",
                 "severity": "warning",
-                "note": "Created from the Cameroon pilot staging dataset; review before publication.",
+                "note": (
+                    "Created from the Cameroon pilot staging dataset; "
+                    "review before publication."
+                ),
             }
         ],
     }
@@ -515,12 +522,18 @@ def apply_payload_import_plan(plan: dict[str, Any], client: PayloadClient) -> di
             "catalogStatus": "draft",
             "sourceType": "manual-verification",
             "sourceReference": f"pilot-normalization:{definition['sourceKey']}",
-            "sourceNotes": "Seeded from normalized pilot keys; review semantics before publication.",
+            "sourceNotes": (
+                "Seeded from normalized pilot keys; "
+                "review semantics before publication."
+            ),
             "qualityFlags": [
                 {
                     "code": "pilot_dictionary_seed",
                     "severity": "warning",
-                    "note": "Definition is a draft dictionary proposal, not a published specification.",
+                    "note": (
+                        "Definition is a draft dictionary proposal, "
+                        "not a published specification."
+                    ),
                 }
             ],
         }
