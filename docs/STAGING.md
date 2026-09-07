@@ -2,11 +2,19 @@
 
 AgenAuto staging uses the same Payload/PostgreSQL schema and migrations as the application. The pilot import remains review-only: it may create safe draft brands, models, specification definitions, and catalog ingestion candidates, but it must not invent generations or trims.
 
+## Current staging database
+
+The current persistent staging database is the Supabase project `AgenAuto-staging` in the Trigenys organization, project ref `yjfpliavyqjqqoqcomyg`, region `eu-west-3`.
+
+The six application migrations through `20260907_080418_pilot_ingestion_review` have been applied and their names have been synchronized into Payload's `payload_migrations` table. The database is intentionally still empty of pilot catalog data until the deployed Payload API is available.
+
+Supabase exposes the `public` schema through PostgREST. AgenAuto does not use Supabase as a public data API: Payload is the authorization boundary. After Payload migrations, run `infra/supabase/payload-public-schema-lockdown.sql` so every Payload-owned public table has RLS enabled with no public policies. This intentionally blocks direct anonymous/authenticated Supabase API access while allowing the server-side Payload database owner/privileged connection to operate.
+
 ## Required runtime configuration
 
 Payload / Next.js staging requires:
 
-- `DATABASE_URL` — persistent PostgreSQL connection string;
+- `DATABASE_URL` — persistent server-side PostgreSQL connection string with the privileges required by Payload;
 - `PAYLOAD_SECRET` — long random secret, different from local/CI;
 - `NEXT_PUBLIC_APP_URL` — HTTPS staging application URL.
 
@@ -21,13 +29,14 @@ Never commit any of these values.
 
 ## Bootstrap order
 
-1. Provision a persistent PostgreSQL database.
-2. Configure the deployed Payload/Next.js application with `DATABASE_URL`, `PAYLOAD_SECRET`, and `NEXT_PUBLIC_APP_URL`.
-3. Deploy the `feat/cameroon-pilot-ingestion` revision to staging.
-4. Create the first Payload admin account.
-5. Obtain a staging Payload JWT for that admin/data-editor account and save it as `STAGING_PAYLOAD_TOKEN`.
-6. Add `STAGING_DATABASE_URL`, `STAGING_PAYLOAD_SECRET`, `STAGING_PAYLOAD_TOKEN`, and `STAGING_PAYLOAD_URL` to GitHub Actions configuration.
-7. Run **Staging - migrate and import Payload pilot** manually.
+1. Provision the persistent PostgreSQL database.
+2. Apply the Payload migrations and, on Supabase, the RLS lockdown script.
+3. Configure the deployed Payload/Next.js application with `DATABASE_URL`, `PAYLOAD_SECRET`, and `NEXT_PUBLIC_APP_URL`.
+4. Deploy the `feat/cameroon-pilot-ingestion` revision to staging.
+5. Create the first Payload admin account.
+6. Obtain a staging Payload JWT for that admin/data-editor account and save it as `STAGING_PAYLOAD_TOKEN`.
+7. Add `STAGING_DATABASE_URL`, `STAGING_PAYLOAD_SECRET`, `STAGING_PAYLOAD_TOKEN`, and `STAGING_PAYLOAD_URL` to GitHub Actions configuration.
+8. Run **Staging - migrate and import Payload pilot** manually.
 
 ## Safety invariants
 
