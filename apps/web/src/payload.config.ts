@@ -33,10 +33,25 @@ import { pilotImportEndpoints } from './endpoints/pilotImport'
 
 const filename = fileURLToPath(import.meta.url)
 const dirname = path.dirname(filename)
-const vercelBranchURL = process.env.VERCEL_BRANCH_URL
+
+function absoluteURL(value?: string): string | undefined {
+  if (!value) return undefined
+  return /^https?:\/\//i.test(value) ? value : `https://${value}`
+}
+
+const explicitAppURL = absoluteURL(process.env.NEXT_PUBLIC_APP_URL)
+const vercelBranchURL = absoluteURL(process.env.VERCEL_BRANCH_URL)
+const vercelDeploymentURL = absoluteURL(process.env.VERCEL_URL)
+const vercelProductionURL = absoluteURL(process.env.VERCEL_PROJECT_PRODUCTION_URL)
 const serverURL =
-  process.env.NEXT_PUBLIC_APP_URL ||
-  (vercelBranchURL ? `https://${vercelBranchURL}` : 'http://localhost:3000')
+  explicitAppURL || vercelBranchURL || vercelDeploymentURL || 'http://localhost:3000'
+const csrf = Array.from(
+  new Set(
+    [serverURL, vercelBranchURL, vercelDeploymentURL, vercelProductionURL].filter(
+      (value): value is string => Boolean(value),
+    ),
+  ),
+)
 
 export default buildConfig({
   admin: {
@@ -49,6 +64,7 @@ export default buildConfig({
     },
   },
   endpoints: pilotImportEndpoints,
+  csrf,
   collections: [
     Users,
     DealerOrganizations,
