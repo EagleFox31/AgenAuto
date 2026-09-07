@@ -64,6 +64,7 @@ export default buildConfig({
       titleSuffix: ' — AgenAuto',
     },
   },
+  // Pilot import and human review share the same Payload auth / CSRF boundary.
   endpoints: [...pilotImportEndpoints, ...pilotReviewEndpoints],
   csrf,
   collections: [
