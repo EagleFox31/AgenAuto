@@ -8,8 +8,11 @@ on:
       - 'data/pilot/**/candidates.json'
       - 'services/ingestion/src/agenauto_ingestion/payload_bridge.py'
       - 'services/ingestion/tests/test_payload_bridge.py'
+      - 'apps/web/src/access/**'
       - 'apps/web/src/collections/automotive/CatalogIngestionCandidates.ts'
       - 'apps/web/src/collections/automotive/index.ts'
+      - 'apps/web/src/collections/platform/Users.ts'
+      - 'apps/web/src/migrations/**'
       - 'apps/web/src/payload.config.ts'
       - '.github/workflows/pilot-payload-bridge.yml'
   workflow_dispatch:
@@ -42,6 +45,9 @@ jobs:
       DATABASE_URL: postgresql://agenauto:agenauto-ci@localhost:5432/agenauto
       PAYLOAD_SECRET: ci-only-placeholder-not-a-production-secret
       NEXT_PUBLIC_APP_URL: http://localhost:3000
+      PAYLOAD_URL: http://127.0.0.1:3000
+      CI_ADMIN_EMAIL: payload-ci@agenauto.local
+      CI_ADMIN_PASSWORD: ci-only-payload-password-2026
 
     steps:
       - name: Checkout pilot branch
@@ -98,6 +104,176 @@ jobs:
 
       - name: Typecheck Payload integration
         run: pnpm typecheck
+
+      - name: Apply generated migration to smoke database
+        run: pnpm migrate
+
+      - name: Start Payload review API
+        shell: bash
+        run: |
+          pnpm dev > /tmp/agenauto-payload.log 2>&1 &
+          echo $! > /tmp/agenauto-payload.pid
+
+          for attempt in $(seq 1 60); do
+            if curl --fail --silent --show-error http://127.0.0.1:3000/ > /dev/null; then
+              echo 'Payload/Next server is ready.'
+              exit 0
+            fi
+
+            if ! kill -0 "$(cat /tmp/agenauto-payload.pid)" 2>/dev/null; then
+              echo 'Payload/Next server exited before becoming ready.'
+              cat /tmp/agenauto-payload.log
+              exit 1
+            fi
+
+            sleep 1
+          done
+
+          echo 'Timed out waiting for Payload/Next server.'
+          cat /tmp/agenauto-payload.log
+          exit 1
+
+      - name: Bootstrap CI Payload admin
+        shell: bash
+        run: |
+          curl --fail --silent --show-error \
+            --request POST \
+            --header 'Content-Type: application/json' \
+            --data "{\"email\":\"${CI_ADMIN_EMAIL}\",\"password\":\"${CI_ADMIN_PASSWORD}\",\"name\":\"Payload CI Admin\"}" \
+            "${PAYLOAD_URL}/api/users" \
+            > /tmp/payload-ci-admin.json
+
+      - name: Apply pilot bridge through Payload API
+        run: >-
+          python -m agenauto_ingestion.payload_bridge
+          --pilot-root data/pilot
+          --output data/pilot/payload-import-plan.json
+          --apply
+          --payload-url "${PAYLOAD_URL}"
+          --email "${CI_ADMIN_EMAIL}"
+          --password "${CI_ADMIN_PASSWORD}"
+
+      - name: Re-apply bridge to prove idempotency
+        run: >-
+          python -m agenauto_ingestion.payload_bridge
+          --pilot-root data/pilot
+          --output data/pilot/payload-import-plan.json
+          --apply
+          --payload-url "${PAYLOAD_URL}"
+          --email "${CI_ADMIN_EMAIL}"
+          --password "${CI_ADMIN_PASSWORD}"
+
+      - name: Verify persisted Payload draft-review state
+        shell: bash
+        run: |
+          python - <<'PY'
+          import json
+          import os
+
+          from agenauto_ingestion.payload_bridge import PayloadClient, login_payload
+
+          base_url = os.environ['PAYLOAD_URL']
+          token = login_payload(
+              base_url,
+              os.environ['CI_ADMIN_EMAIL'],
+              os.environ['CI_ADMIN_PASSWORD'],
+          )
+          client = PayloadClient(base_url, token)
+
+          with open('data/pilot/payload-import-plan.json', encoding='utf-8') as handle:
+              plan = json.load(handle)
+
+          summary = plan['summary']
+
+          def fetch_all(collection: str) -> list[dict]:
+              result = client.request(
+                  'GET',
+                  f'/api/{collection}?limit=100&depth=0&pagination=false',
+              )
+              docs = result.get('docs') or []
+              if not isinstance(docs, list):
+                  raise AssertionError(f'{collection}: invalid docs payload')
+              return docs
+
+          brands = fetch_all('brands')
+          models = fetch_all('vehicle-models')
+          definitions = fetch_all('specification-definitions')
+          candidates = fetch_all('catalog-ingestion-candidates')
+          generations = fetch_all('generations')
+          trims = fetch_all('trims')
+
+          expected = {
+              'brands': summary['brand_count'],
+              'models': summary['model_count'],
+              'definitions': summary['specification_definition_count'],
+              'candidates': summary['candidate_count'],
+          }
+          actual = {
+              'brands': len(brands),
+              'models': len(models),
+              'definitions': len(definitions),
+              'candidates': len(candidates),
+          }
+          if actual != expected:
+              raise AssertionError(f'Persisted counts mismatch: expected={expected} actual={actual}')
+
+          if generations:
+              raise AssertionError('Bridge must not fabricate canonical generations.')
+          if trims:
+              raise AssertionError('Bridge must not fabricate canonical trims.')
+
+          for collection_name, docs in (
+              ('brands', brands),
+              ('vehicle-models', models),
+              ('specification-definitions', definitions),
+          ):
+              not_draft = [doc.get('id') for doc in docs if doc.get('catalogStatus') != 'draft']
+              if not_draft:
+                  raise AssertionError(f'{collection_name}: non-draft auto-imports {not_draft}')
+
+          for candidate in candidates:
+              if candidate.get('mappingStatus') != 'needs_review':
+                  raise AssertionError(
+                      f"{candidate.get('displayName')}: expected needs_review mapping status"
+                  )
+              if not candidate.get('proposedBrand') or not candidate.get('proposedModel'):
+                  raise AssertionError(
+                      f"{candidate.get('displayName')}: safe brand/model mapping was not persisted"
+                  )
+              if candidate.get('proposedGeneration'):
+                  raise AssertionError(
+                      f"{candidate.get('displayName')}: generation must remain unset"
+                  )
+              blockers = {
+                  blocker.get('code')
+                  for blocker in (candidate.get('promotionBlockers') or [])
+                  if isinstance(blocker, dict)
+              }
+              if 'missing_generation_identity' not in blockers:
+                  raise AssertionError(
+                      f"{candidate.get('displayName')}: missing generation blocker was lost"
+                  )
+
+          print(json.dumps({
+              'verified': actual,
+              'generations_created': len(generations),
+              'trims_created': len(trims),
+              'mapping_status': 'needs_review',
+              'idempotent_reapply': True,
+          }, sort_keys=True))
+          PY
+
+      - name: Stop Payload review API
+        if: always()
+        shell: bash
+        run: |
+          if [ -f /tmp/agenauto-payload.pid ]; then
+            kill "$(cat /tmp/agenauto-payload.pid)" 2>/dev/null || true
+          fi
+          if [ "${{ job.status }}" != 'success' ] && [ -f /tmp/agenauto-payload.log ]; then
+            echo '--- Payload server log ---'
+            cat /tmp/agenauto-payload.log
+          fi
 
       - name: Commit bridge plan and generated Payload artifacts
         shell: bash
