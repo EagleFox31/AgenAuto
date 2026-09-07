@@ -1,0 +1,95 @@
+{
+  "schema_version": 1,
+  "dataset": "cameroon-pilot-rimco-haval",
+  "generated_at": "2026-09-07T07:21:00Z",
+  "collector": "rimco_haval_manual_official_snapshot",
+  "distributor": "RIMCO Motors Cameroon",
+  "publication_policy": "draft_only_until_payload_review",
+  "vehicles": [
+    {
+      "brand": "Haval",
+      "model": "H6",
+      "source": {"url": "https://greatwall-cm.com/wp-content/uploads/2025/08/Fiche-Tech-HAVAL-H6_JUILLET_25BF.pdf", "observed_at": "2026-09-07T07:21:00Z", "distributor": "RIMCO Motors Cameroon", "source_type": "official_brochure_manual_snapshot", "country": "CM", "confidence": "A"},
+      "page_title": "Fiche Tech HAVAL H6",
+      "category": null,
+      "variants": [],
+      "specs": [
+        {"raw_label": "Displacement (L)", "raw_value": "2.0", "canonical_key": "engine_displacement_l", "unit": "L"},
+        {"raw_label": "Fuel type", "raw_value": "Essence", "canonical_key": "fuel_type", "unit": null},
+        {"raw_label": "Power (DIN)", "raw_value": "210", "canonical_key": "horsepower_hp", "unit": "hp"},
+        {"raw_label": "Dimensions (LxWxH) mm", "raw_value": "4653 x 1886 x 1724", "canonical_key": "dimensions_mm", "unit": "mm"},
+        {"raw_label": "Ground clearance (mm)", "raw_value": "170", "canonical_key": "ground_clearance_mm", "unit": "mm"},
+        {"raw_label": "Curb weight (kg)", "raw_value": "1690", "canonical_key": "curb_weight_kg", "unit": "kg"},
+        {"raw_label": "Gearbox", "raw_value": "Automatique 7 rapports à double embrayage", "canonical_key": "transmission", "unit": null},
+        {"raw_label": "Drivetrain", "raw_value": "4x2 / 4x4 (AWD)", "canonical_key": "drivetrain", "unit": null}
+      ],
+      "content_hash": "4be35fe9870cd4fa6cebb12adbc4b6c737c89be3c35f76e8db2eff3dbc9615aa",
+      "review_status": "draft",
+      "quality_flags": ["manual_official_brochure_snapshot", "aggregate_page_specs_not_trim_scoped"]
+    },
+    {
+      "brand": "Haval",
+      "model": "H6 GT",
+      "source": {"url": "https://greatwall-cm.com/wp-content/uploads/2025/07/HAVAL-H6-GT.pdf", "observed_at": "2026-09-07T07:21:00Z", "distributor": "RIMCO Motors Cameroon", "source_type": "official_brochure_manual_snapshot", "country": "CM", "confidence": "A"},
+      "page_title": "Fiche technique HAVAL H6 GT",
+      "category": null,
+      "variants": ["SUPRÊME"],
+      "specs": [
+        {"raw_label": "Displacement (L)", "raw_value": "2.0", "canonical_key": "engine_displacement_l", "unit": "L"},
+        {"raw_label": "Fuel type", "raw_value": "Essence", "canonical_key": "fuel_type", "unit": null},
+        {"raw_label": "Power (DIN)", "raw_value": "210", "canonical_key": "horsepower_hp", "unit": "hp"},
+        {"raw_label": "Dimensions (LxWxH) mm", "raw_value": "4727 x 1940 x 1729", "canonical_key": "dimensions_mm", "unit": "mm"},
+        {"raw_label": "Ground clearance (mm)", "raw_value": "165", "canonical_key": "ground_clearance_mm", "unit": "mm"},
+        {"raw_label": "Curb weight (kg)", "raw_value": "1700", "canonical_key": "curb_weight_kg", "unit": "kg"},
+        {"raw_label": "Gearbox", "raw_value": "Automatique 7 rapports à double embrayage", "canonical_key": "transmission", "unit": null},
+        {"raw_label": "Drivetrain", "raw_value": "4x2", "canonical_key": "drivetrain", "unit": null},
+        {"raw_label": "Number of seats", "raw_value": "5", "canonical_key": "seats", "unit": null}
+      ],
+      "content_hash": "62db41a0c697a01fe7731ce5ce06dad0f6e995a9f45c21f42481248c6f5cdf5e",
+      "review_status": "draft",
+      "quality_flags": ["manual_official_brochure_snapshot"]
+    },
+    {
+      "brand": "Haval",
+      "model": "H9",
+      "source": {"url": "https://greatwall-cm.com/wp-content/uploads/2025/07/FICHE-TECHNIQUE-HAVAL-H9.pdf", "observed_at": "2026-09-07T07:21:00Z", "distributor": "RIMCO Motors Cameroon", "source_type": "official_brochure_manual_snapshot", "country": "CM", "confidence": "A"},
+      "page_title": "Fiche technique HAVAL H9",
+      "category": null,
+      "variants": ["LANDER LUXE"],
+      "specs": [
+        {"raw_label": "Displacement (L)", "raw_value": "2.0", "canonical_key": "engine_displacement_l", "unit": "L"},
+        {"raw_label": "Fuel type", "raw_value": "Essence", "canonical_key": "fuel_type", "unit": null},
+        {"raw_label": "Power (DIN)", "raw_value": "218", "canonical_key": "horsepower_hp", "unit": "hp"},
+        {"raw_label": "Gearbox", "raw_value": "8AT-ZF", "canonical_key": "transmission", "unit": null},
+        {"raw_label": "Dimensions (mm)", "raw_value": "4950 x 1976 x 1930", "canonical_key": "dimensions_mm", "unit": "mm"},
+        {"raw_label": "Wheelbase (mm)", "raw_value": "2850", "canonical_key": "wheelbase_mm", "unit": "mm"},
+        {"raw_label": "Drivetrain", "raw_value": "4x4 intelligent", "canonical_key": "drivetrain", "unit": null}
+      ],
+      "content_hash": "43ef6c45a109e744a1e81b397a9d156a214225af7577e8339b544a3f8fbd9173",
+      "review_status": "draft",
+      "quality_flags": ["manual_official_brochure_snapshot"]
+    },
+    {
+      "brand": "Haval",
+      "model": "Jolion",
+      "source": {"url": "https://greatwall-cm.com/wp-content/uploads/2025/07/FICHE-TECHNIQUE-HAVAL-JOLION.pdf", "observed_at": "2026-09-07T07:21:00Z", "distributor": "RIMCO Motors Cameroon", "source_type": "official_brochure_manual_snapshot", "country": "CM", "confidence": "A"},
+      "page_title": "Fiche technique HAVAL Jolion",
+      "category": null,
+      "variants": ["ÉLITE", "INTELLIGENT", "PRESTIGE"],
+      "specs": [
+        {"raw_label": "Displacement (L)", "raw_value": "1.5", "canonical_key": "engine_displacement_l", "unit": "L"},
+        {"raw_label": "Fuel type", "raw_value": "Essence", "canonical_key": "fuel_type", "unit": null},
+        {"raw_label": "Power (DIN)", "raw_value": "149", "canonical_key": "horsepower_hp", "unit": "hp"},
+        {"raw_label": "Max torque (N.m/rpm)", "raw_value": "210/2000", "canonical_key": "max_torque_nm", "unit": "N·m"},
+        {"raw_label": "Dimensions (LxWxH) mm", "raw_value": "4472 x 1841 x 1619", "canonical_key": "dimensions_mm", "unit": "mm"},
+        {"raw_label": "Ground clearance (mm)", "raw_value": "168", "canonical_key": "ground_clearance_mm", "unit": "mm"},
+        {"raw_label": "Curb weight (kg)", "raw_value": "1825", "canonical_key": "curb_weight_kg", "unit": "kg"},
+        {"raw_label": "Gearbox", "raw_value": "DCT à 7 rapports", "canonical_key": "transmission", "unit": null},
+        {"raw_label": "Drivetrain", "raw_value": "4x2", "canonical_key": "drivetrain", "unit": null}
+      ],
+      "content_hash": "085ccc0ea737212182d9cb69495a78035d53e87830bae2856425d905feef432f",
+      "review_status": "draft",
+      "quality_flags": ["manual_official_brochure_snapshot", "core_specs_common_across_listed_trims"]
+    }
+  ]
+}
