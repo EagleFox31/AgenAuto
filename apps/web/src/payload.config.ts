@@ -32,6 +32,10 @@ import { Users } from './collections/platform/Users'
 
 const filename = fileURLToPath(import.meta.url)
 const dirname = path.dirname(filename)
+const vercelBranchURL = process.env.VERCEL_BRANCH_URL
+const serverURL =
+  process.env.NEXT_PUBLIC_APP_URL ||
+  (vercelBranchURL ? `https://${vercelBranchURL}` : 'http://localhost:3000')
 
 export default buildConfig({
   admin: {
@@ -69,7 +73,7 @@ export default buildConfig({
     },
   }),
   secret: process.env.PAYLOAD_SECRET || '',
-  serverURL: process.env.NEXT_PUBLIC_APP_URL || 'http://localhost:3000',
+  serverURL,
   typescript: {
     outputFile: path.resolve(dirname, 'payload-types.ts'),
   },
