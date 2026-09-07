@@ -12,6 +12,7 @@ on:
       - 'apps/web/src/collections/automotive/CatalogIngestionCandidates.ts'
       - 'apps/web/src/collections/automotive/index.ts'
       - 'apps/web/src/collections/platform/Users.ts'
+      - 'apps/web/src/endpoints/pilotImport.ts'
       - 'apps/web/src/migrations/**'
       - 'apps/web/src/payload.config.ts'
       - '.github/workflows/pilot-payload-bridge.yml'
