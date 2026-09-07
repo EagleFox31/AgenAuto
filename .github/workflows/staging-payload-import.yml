@@ -1,0 +1,131 @@
+name: Staging - migrate and import Payload pilot
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  migrate-and-import:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    env:
+      CI: true
+      DATABASE_URL: ${{ secrets.STAGING_DATABASE_URL }}
+      PAYLOAD_SECRET: ${{ secrets.STAGING_PAYLOAD_SECRET }}
+      NEXT_PUBLIC_APP_URL: ${{ vars.STAGING_PAYLOAD_URL }}
+      PAYLOAD_URL: ${{ vars.STAGING_PAYLOAD_URL }}
+      PAYLOAD_TOKEN: ${{ secrets.STAGING_PAYLOAD_TOKEN }}
+
+    steps:
+      - name: Validate staging configuration
+        shell: bash
+        run: |
+          set -euo pipefail
+          test -n "${DATABASE_URL}" || { echo 'Missing STAGING_DATABASE_URL secret'; exit 1; }
+          test -n "${PAYLOAD_SECRET}" || { echo 'Missing STAGING_PAYLOAD_SECRET secret'; exit 1; }
+          test -n "${PAYLOAD_URL}" || { echo 'Missing STAGING_PAYLOAD_URL repository variable'; exit 1; }
+          test -n "${PAYLOAD_TOKEN}" || { echo 'Missing STAGING_PAYLOAD_TOKEN secret'; exit 1; }
+          case "${PAYLOAD_URL}" in
+            https://*) ;;
+            *) echo 'STAGING_PAYLOAD_URL must use https://'; exit 1 ;;
+          esac
+
+      - name: Checkout pilot branch
+        uses: actions/checkout@v4
+        with:
+          ref: feat/cameroon-pilot-ingestion
+
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v4
+        with:
+          version: 10.20.0
+          run_install: false
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 24.15.0
+          cache: pnpm
+
+      - name: Install workspace dependencies
+        run: pnpm install --frozen-lockfile
+
+      - name: Apply Payload migrations to staging PostgreSQL
+        run: pnpm migrate
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+          cache: pip
+          cache-dependency-path: services/ingestion/pyproject.toml
+
+      - name: Install ingestion service
+        run: python -m pip install -e 'services/ingestion[dev]'
+
+      - name: Wait for staging Payload API
+        shell: bash
+        run: |
+          set -euo pipefail
+          for attempt in $(seq 1 30); do
+            if curl --fail --silent --show-error "${PAYLOAD_URL}/api/brands?limit=1" > /dev/null; then
+              echo 'Staging Payload API is reachable.'
+              exit 0
+            fi
+            sleep 2
+          done
+          echo 'Timed out waiting for staging Payload API.'
+          exit 1
+
+      - name: Apply pilot bridge to staging Payload
+        run: >-
+          python -m agenauto_ingestion.payload_bridge
+          --pilot-root data/pilot
+          --output /tmp/payload-import-plan.json
+          --apply
+          --payload-url "${PAYLOAD_URL}"
+          --token "${PAYLOAD_TOKEN}"
+
+      - name: Verify staging import counts and safety invariants
+        shell: bash
+        run: |
+          set -euo pipefail
+          python - <<'PY'
+          import json
+          import os
+          from agenauto_ingestion.payload_bridge import PayloadClient
+
+          client = PayloadClient(os.environ['PAYLOAD_URL'], os.environ['PAYLOAD_TOKEN'])
+
+          def docs(collection: str) -> list[dict]:
+              payload = client.request('GET', f'/api/{collection}?limit=100&depth=0&pagination=false')
+              result = payload.get('docs') or []
+              if not isinstance(result, list):
+                  raise AssertionError(f'{collection}: invalid response')
+              return result
+
+          counts = {
+              'brands': len(docs('brands')),
+              'models': len(docs('vehicle-models')),
+              'definitions': len(docs('specification-definitions')),
+              'candidates': len(docs('catalog-ingestion-candidates')),
+              'generations': len(docs('generations')),
+              'trims': len(docs('trims')),
+          }
+
+          expected_minimums = {'brands': 8, 'models': 59, 'definitions': 22, 'candidates': 59}
+          for key, minimum in expected_minimums.items():
+              if counts[key] < minimum:
+                  raise AssertionError(f'{key}: expected at least {minimum}, found {counts[key]}')
+
+          candidates = docs('catalog-ingestion-candidates')
+          if any(candidate.get('mappingStatus') != 'needs_review' for candidate in candidates):
+              raise AssertionError('Automatic staging import must leave review candidates in needs_review.')
+
+          if counts['generations'] != 0 or counts['trims'] != 0:
+              raise AssertionError('Automatic staging import must not fabricate generations or trims.')
+
+          print(json.dumps({'staging_verified': counts}, sort_keys=True))
+          PY
