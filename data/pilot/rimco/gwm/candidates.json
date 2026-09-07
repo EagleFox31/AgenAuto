@@ -15,14 +15,14 @@
       "variants": [],
       "specs": [
         {"raw_label": "Fuel type", "raw_value": "Diesel", "canonical_key": "fuel_type", "unit": null},
-        {"raw_label": "Displacement (L)", "raw_value": "2.0", "canonical_key": "engine_displacement_l", "unit": "L"},
+        {"raw_label": "Displacement (cc)", "raw_value": "2000", "canonical_key": "engine_displacement_ml", "unit": "mL"},
         {"raw_label": "Max power (kW)", "raw_value": "120", "canonical_key": "max_power_kw", "unit": "kW"},
         {"raw_label": "Max torque (Nm)", "raw_value": "400", "canonical_key": "max_torque_nm", "unit": "N·m"},
         {"raw_label": "Gearbox", "raw_value": "Automatique 8 rapports ZF", "canonical_key": "transmission", "unit": null},
         {"raw_label": "Drivetrain", "raw_value": "4 roues motrices débrayables / TOD smart 4WD", "canonical_key": "drivetrain", "unit": null},
         {"raw_label": "Wheelbase (mm)", "raw_value": "3230", "canonical_key": "wheelbase_mm", "unit": "mm"}
       ],
-      "content_hash": "e6f8004b85db444f6b3fe2642368e7b4ebb4ea22bd97759db77c44f8f1fde956",
+      "content_hash": "2086e29f6cff8998b170f4221941a6d69070c1528a07242dbeb87ea44582add2",
       "review_status": "draft",
       "quality_flags": ["manual_official_source_snapshot", "aggregate_page_specs_not_trim_scoped"]
     },
@@ -36,11 +36,11 @@
       "specs": [
         {"raw_label": "Drivetrain options", "raw_value": "4x2 / 4x4", "canonical_key": "drivetrain", "unit": null},
         {"raw_label": "Fuel types by listed trim", "raw_value": "Diesel / Essence", "canonical_key": "fuel_type", "unit": null},
-        {"raw_label": "Displacement range (L)", "raw_value": "2.0 / 2.4", "canonical_key": "engine_displacement_l", "unit": "L"},
+        {"raw_label": "Displacement range (cc)", "raw_value": "2000 / 2400", "canonical_key": "engine_displacement_ml", "unit": "mL"},
         {"raw_label": "Power range (Ch)", "raw_value": "136 / 150", "canonical_key": "horsepower_hp", "unit": "hp"},
         {"raw_label": "Dimensions (LxWxH) mm", "raw_value": "5215 x 1800 x 1735 / 5095 x 1800 x 1730-1760", "canonical_key": "dimensions_mm", "unit": "mm"}
       ],
-      "content_hash": "2caabfe812abea435626640ce29d6aba7d4cd5df37e7754c1233f7567a1cf8bf",
+      "content_hash": "080c042c640a99fe45b4a8762135bc0f90aa5cf3146e9c4136d96bb48e6eaf9c",
       "review_status": "draft",
       "quality_flags": ["manual_official_brochure_snapshot", "aggregate_page_specs_not_trim_scoped", "trim_specific_values_require_payload_review"]
     }
