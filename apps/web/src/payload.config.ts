@@ -9,6 +9,7 @@ import {
 } from './access/collectionSecurity'
 import {
   Brands,
+  CatalogIngestionCandidates,
   Generations,
   SpecificationDefinitions,
   Trims,
@@ -53,6 +54,7 @@ export default buildConfig({
     secureCanonicalCollection(Trims),
     secureCanonicalCollection(SpecificationDefinitions),
     secureCanonicalCollection(TrimSpecifications),
+    CatalogIngestionCandidates,
     DealerLocations,
     DealerBrands,
     Offers,

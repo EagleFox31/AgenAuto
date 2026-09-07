@@ -1,4 +1,5 @@
 export { Brands } from './Brands'
+export { CatalogIngestionCandidates } from './CatalogIngestionCandidates'
 export { Generations } from './Generations'
 export { SpecificationDefinitions } from './SpecificationDefinitions'
 export { Trims } from './Trims'
