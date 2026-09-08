@@ -78,7 +78,8 @@ def fetch_pdf(url: str, *, allowed_hosts: frozenset[str], timeout: int = 30) -> 
         content_type = str(response.headers.get("Content-Type") or "").lower()
         payload = response.read()
     if not payload.startswith(b"%PDF") and "pdf" not in content_type:
-        raise ValueError(f"Expected a PDF from {url}, received {content_type or 'unknown content type'}.")
+        received = content_type or "unknown content type"
+        raise ValueError(f"Expected a PDF from {url}, received {received}.")
     return payload
 
 
@@ -113,9 +114,7 @@ def _looks_like_trim(value: str, *, model: str) -> bool:
         return False
     if re.fullmatch(r"[\d\s.,/+x×-]+", lowered):
         return False
-    if len(re.findall(r"[A-Za-zÀ-ÿ]", value)) < 3:
-        return False
-    return True
+    return len(re.findall(r"[A-Za-zÀ-ÿ]", value)) >= 3
 
 
 def _header_index(table: list[list[str]], *, model: str) -> tuple[int, list[str]] | None:
