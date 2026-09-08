@@ -29,6 +29,7 @@ import { AuditLogs } from './collections/platform/AuditLogs'
 import { DealerOrganizations } from './collections/platform/DealerOrganizations'
 import { Media } from './collections/platform/Media'
 import { Users } from './collections/platform/Users'
+import { pilotAutoResolveEndpoints } from './endpoints/pilotAutoResolve'
 import { pilotImportEndpoints } from './endpoints/pilotImport'
 import { pilotReviewEndpoints } from './endpoints/pilotReview'
 
@@ -64,8 +65,12 @@ export default buildConfig({
       titleSuffix: ' — AgenAuto',
     },
   },
-  // Pilot bootstrap and reviewed draft mapping share Payload auth and CSRF protection.
-  endpoints: [...pilotImportEndpoints, ...pilotReviewEndpoints],
+  // Pilot bootstrap, review and evidence-backed auto-resolution share Payload auth and CSRF protection.
+  endpoints: [
+    ...pilotImportEndpoints,
+    ...pilotReviewEndpoints,
+    ...pilotAutoResolveEndpoints,
+  ],
   csrf,
   collections: [
     Users,
