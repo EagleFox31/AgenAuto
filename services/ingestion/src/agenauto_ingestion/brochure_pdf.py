@@ -8,7 +8,7 @@ from urllib.request import Request, urlopen
 
 import pdfplumber
 
-USER_AGENT = "AgenAuto/0.1 (+https://github.com/EagleFox31/AgenAuto)"
+USER_AGENT = "Mozilla/5.0 (compatible; AgenAuto/0.1; +https://github.com/EagleFox31/AgenAuto)"
 _HEADER_HINTS = ("caracteristiques techniques", "technical specifications", "versions", "version")
 _SPEC_WORDS = {
     "cylindree",
@@ -32,6 +32,30 @@ _SPEC_WORDS = {
     "seats",
     "empattement",
     "wheelbase",
+}
+
+# Official Cameroon brochures are French while several initial snapshots used English labels.
+# These aliases bridge the two without using fuzzy guesses.
+_LABEL_ALIASES: dict[str, tuple[str, ...]] = {
+    "engine_displacement_ml": ("cylindree l", "cylindree cc", "displacement cc"),
+    "fuel_type": ("carburant", "fuel type"),
+    "horsepower_hp": ("puissance din", "power din"),
+    "dimensions_mm": (
+        "dimensions lxlxh en mm",
+        "dimensions lxwxh mm",
+        "dimensions mm",
+    ),
+    "ground_clearance_mm": (
+        "garde au sol a vide",
+        "garde au sol mm",
+        "ground clearance mm",
+    ),
+    "curb_weight_kg": ("poids a vide kg", "curb weight kg"),
+    "transmission": ("boite de vitesses", "gearbox"),
+    "drivetrain": ("transmission", "drivetrain"),
+    "seats": ("nombre de places", "number of seats", "7 sieges"),
+    "wheelbase_mm": ("empattement mm", "wheelbase mm"),
+    "max_torque_nm": ("couple n m rpm", "max torque n m rpm"),
 }
 
 
@@ -109,24 +133,62 @@ def _header_index(table: list[list[str]], *, model: str) -> tuple[int, list[str]
     return None
 
 
+def _meta_by_label(known_specs: list[dict[str, object]]) -> dict[str, dict[str, object]]:
+    result: dict[str, dict[str, object]] = {}
+    for spec in known_specs:
+        if not isinstance(spec, dict) or not spec.get("canonical_key"):
+            continue
+        canonical_key = str(spec["canonical_key"])
+        if spec.get("raw_label"):
+            result[_key(spec["raw_label"])] = spec
+        for alias in _LABEL_ALIASES.get(canonical_key, ()):
+            result[_key(alias)] = spec
+    return result
+
+
+def _normalize_value(raw_label: str, raw_value: str, meta: dict[str, object]) -> tuple[str, object]:
+    canonical_key = str(meta.get("canonical_key") or "")
+    value = re.sub(r"\s+", " ", raw_value).strip()
+    unit = meta.get("unit")
+
+    if canonical_key == "engine_displacement_ml":
+        numeric_match = re.search(r"\d+(?:[.,]\d+)?", value)
+        if numeric_match:
+            numeric = float(numeric_match.group(0).replace(",", "."))
+            if "cylindree l" in _key(raw_label) and numeric < 20:
+                numeric *= 1000
+            value = str(int(round(numeric)))
+        unit = "mL"
+    elif canonical_key == "horsepower_hp":
+        match = re.search(r"\d+(?:[.,]\d+)?", value)
+        if match:
+            value = match.group(0).replace(",", ".")
+        unit = "hp"
+    elif canonical_key in {"ground_clearance_mm", "curb_weight_kg", "wheelbase_mm", "seats"}:
+        match = re.search(r"\d+(?:[.,]\d+)?", value)
+        if match:
+            value = match.group(0).replace(",", ".")
+    elif canonical_key == "dimensions_mm":
+        value = value.replace("X", "x").replace("×", "x")
+        value = re.sub(r"\s*x\s*", " x ", value)
+        unit = "mm"
+
+    return value, unit
+
+
 def extract_trim_matrix(
     pdf_bytes: bytes,
     *,
     model: str,
     known_specs: list[dict[str, object]],
 ) -> tuple[list[str], dict[str, list[dict[str, object]]]]:
-    """Extract brochure trim headers and trim-scoped rows without guessing missing values.
+    """Extract source-backed trim headers and trim-scoped rows without guessing.
 
-    Existing normalized specs provide the label dictionary. A row is promoted only when its
-    brochure label can be matched to an already registered observation label.
+    A brochure row is accepted only when its normalized label maps to an already-known
+    canonical specification key. French/English aliases are explicit and auditable.
     """
 
-    label_meta = {
-        _key(spec.get("raw_label")): spec
-        for spec in known_specs
-        if isinstance(spec, dict) and spec.get("raw_label")
-    }
-
+    label_meta = _meta_by_label(known_specs)
     best_trims: list[str] = []
     best_specs: dict[str, list[dict[str, object]]] = {}
 
@@ -134,7 +196,7 @@ def extract_trim_matrix(
         header = _header_index(table, model=model)
         if header is None:
             continue
-        header_index, trims = header
+        header_index, _ = header
         header_row = table[header_index]
         trim_columns: list[tuple[int, str]] = []
         for column, cell in enumerate(header_row[1:], start=1):
@@ -152,15 +214,16 @@ def extract_trim_matrix(
             if meta is None:
                 continue
             for column, trim in trim_columns:
-                value = row[column].strip() if column < len(row) else ""
-                if not value or value in {"-", "—", "–"}:
+                raw_value = row[column].strip() if column < len(row) else ""
+                if not raw_value or raw_value in {"-", "—", "–"}:
                     continue
+                value, unit = _normalize_value(raw_label, raw_value, meta)
                 scoped[trim].append(
                     {
                         "raw_label": raw_label,
                         "raw_value": value,
                         "canonical_key": meta.get("canonical_key"),
-                        "unit": meta.get("unit"),
+                        "unit": unit,
                     }
                 )
 
