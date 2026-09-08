@@ -1,12 +1,24 @@
 name: Pilot RIMCO brochure enrichment
 
 on:
+  push:
+    branches:
+      - feat/cameroon-pilot-ingestion
+    paths:
+      - 'services/ingestion/src/agenauto_ingestion/brochure_pdf.py'
+      - 'services/ingestion/src/agenauto_ingestion/rimco_brochures.py'
+      - 'services/ingestion/pyproject.toml'
+      - '.github/workflows/pilot-rimco-brochures.yml'
   workflow_dispatch:
   schedule:
     - cron: '15 5 * * 1'
 
 permissions:
   contents: write
+
+concurrency:
+  group: pilot-rimco-brochure-enrichment
+  cancel-in-progress: true
 
 jobs:
   enrich-rimco:
@@ -66,4 +78,5 @@ jobs:
             exit 0
           fi
           git commit -m 'data: auto-enrich RIMCO official brochures'
+          git pull --rebase origin feat/cameroon-pilot-ingestion
           git push origin HEAD:feat/cameroon-pilot-ingestion
