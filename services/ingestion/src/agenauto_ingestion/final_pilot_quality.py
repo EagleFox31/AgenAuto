@@ -58,17 +58,38 @@ def _read_json(path: Path) -> dict[str, object]:
 def _content_hash(vehicle: dict[str, object]) -> str:
     variants = vehicle.get("variants") or []
     specs = vehicle.get("specs") or []
-    factual_text = "\n".join(
-        [
-            *(f"variant: {variant}" for variant in variants),
-            *(
-                f"{spec.get('raw_label')}: {spec.get('raw_value')}"
-                for spec in specs
-                if isinstance(spec, dict)
-            ),
-        ]
-    )
-    return hashlib.sha256(factual_text.encode("utf-8")).hexdigest()
+    parts = [
+        *(f"variant: {variant}" for variant in variants),
+        *(
+            f"{spec.get('raw_label')}: {spec.get('raw_value')}"
+            for spec in specs
+            if isinstance(spec, dict)
+        ),
+    ]
+    variant_specs = vehicle.get("variant_specs")
+    if isinstance(variant_specs, dict) and variant_specs:
+        parts.append(json.dumps(variant_specs, ensure_ascii=False, sort_keys=True))
+    return hashlib.sha256("\n".join(parts).encode("utf-8")).hexdigest()
+
+
+def _validate_spec(
+    spec: object,
+    *,
+    brand: str,
+    model: str,
+    scope: str,
+) -> bool:
+    if not isinstance(spec, dict):
+        raise ValueError(f"Invalid {scope} spec object for {brand} {model}.")
+    label = str(spec.get("raw_label") or "").lower()
+    if any(token in label for token in MARKET_LABEL_TOKENS):
+        raise ValueError(f"Market data leaked into {scope} specs for {brand} {model}.")
+    key = spec.get("canonical_key")
+    if not key:
+        return False
+    if key not in CANONICAL_KEYS:
+        raise ValueError(f"Unknown canonical key {key!r} for {brand} {model}.")
+    return True
 
 
 def validate_manual_snapshot(
@@ -119,23 +140,39 @@ def validate_manual_snapshot(
         specs = vehicle.get("specs")
         if not isinstance(specs, list):
             raise ValueError(f"Missing specs for {brand} {model}.")
-        mapped = 0
-        for spec in specs:
-            if not isinstance(spec, dict):
-                raise ValueError(f"Invalid spec object for {brand} {model}.")
-            label = str(spec.get("raw_label") or "").lower()
-            if any(token in label for token in MARKET_LABEL_TOKENS):
-                raise ValueError(f"Market data leaked into canonical specs for {brand} {model}.")
-            key = spec.get("canonical_key")
-            if key:
-                if key not in CANONICAL_KEYS:
-                    raise ValueError(f"Unknown canonical key {key!r} for {brand} {model}.")
-                mapped += 1
+        mapped = sum(
+            _validate_spec(spec, brand=brand, model=model, scope="model") for spec in specs
+        )
         if mapped < MIN_MAPPED_SPECS:
             raise ValueError(
                 f"Expected at least {MIN_MAPPED_SPECS} mapped specs for {brand} {model}, "
                 f"found {mapped}."
             )
+
+        variant_specs = vehicle.get("variant_specs")
+        if variant_specs is not None:
+            if not isinstance(variant_specs, dict):
+                raise ValueError(f"Invalid variant_specs for {brand} {model}.")
+            variants = {str(variant) for variant in vehicle.get("variants") or []}
+            if set(variant_specs) != variants:
+                raise ValueError(f"Trim/spec scope mismatch for {brand} {model}.")
+            for variant, scoped_specs in variant_specs.items():
+                if not isinstance(scoped_specs, list):
+                    raise ValueError(f"Invalid scoped specs for {brand} {model} {variant}.")
+                scoped_mapped = sum(
+                    _validate_spec(
+                        spec,
+                        brand=brand,
+                        model=model,
+                        scope=f"trim {variant}",
+                    )
+                    for spec in scoped_specs
+                )
+                if scoped_mapped < MIN_MAPPED_SPECS:
+                    raise ValueError(
+                        f"Expected at least {MIN_MAPPED_SPECS} mapped trim specs for "
+                        f"{brand} {model} {variant}, found {scoped_mapped}."
+                    )
 
         if vehicle.get("content_hash") != _content_hash(vehicle):
             raise ValueError(f"Stale content hash for {brand} {model}.")
