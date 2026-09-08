@@ -1,18 +1,47 @@
 {
   "schema_version": 1,
   "dataset": "cameroon-pilot-rimco-haval",
-  "generated_at": "2026-09-07T07:21:00Z",
-  "collector": "rimco_haval_manual_official_snapshot",
+  "generated_at": "2026-09-08T11:05:00Z",
+  "collector": "rimco_haval_official_brochure_enrichment",
   "distributor": "RIMCO Motors Cameroon",
   "publication_policy": "draft_only_until_payload_review",
   "vehicles": [
     {
       "brand": "Haval",
       "model": "H6",
-      "source": {"url": "https://greatwall-cm.com/wp-content/uploads/2025/08/Fiche-Tech-HAVAL-H6_JUILLET_25BF.pdf", "observed_at": "2026-09-07T07:21:00Z", "distributor": "RIMCO Motors Cameroon", "source_type": "official_brochure_manual_snapshot", "country": "CM", "confidence": "A"},
+      "source": {
+        "url": "https://greatwall-cm.com/wp-content/uploads/2025/08/Fiche-Tech-HAVAL-H6_JUILLET_25BF.pdf",
+        "observed_at": "2026-09-07T07:21:00Z",
+        "distributor": "RIMCO Motors Cameroon",
+        "source_type": "official_brochure_automated_enrichment",
+        "country": "CM",
+        "confidence": "A"
+      },
       "page_title": "Fiche Tech HAVAL H6",
       "category": null,
-      "variants": [],
+      "variants": [
+        "FASHIONABLE",
+        "SUPRÊME",
+        "SUPRÊME LUXE"
+      ],
+      "generation_hint": {
+        "name": "3rd Gen H6",
+        "code": "B01",
+        "production_start_year": 2020,
+        "confidence": "A",
+        "evidence": [
+          {
+            "kind": "manufacturer_generation",
+            "url": "https://www.gwm-global.com/news/1155598.html",
+            "note": "GWM identifies the vehicle as the 3rd Gen HAVAL H6 and documents its 2020 global launch."
+          },
+          {
+            "kind": "regulatory_model_code",
+            "url": "https://www.rover.infrastructure.gov.au/PublishedApprovals/VTADetails/?id=c059cdec-9e3a-ec11-a303-0050569e60b7",
+            "note": "Government approval maps HAVAL marketing designation H6 to model B01."
+          }
+        ]
+      },
       "specs": [
         {"raw_label": "Displacement (cc)", "raw_value": "2000", "canonical_key": "engine_displacement_ml", "unit": "mL"},
         {"raw_label": "Fuel type", "raw_value": "Essence", "canonical_key": "fuel_type", "unit": null},
@@ -23,9 +52,12 @@
         {"raw_label": "Gearbox", "raw_value": "Automatique 7 rapports à double embrayage", "canonical_key": "transmission", "unit": null},
         {"raw_label": "Drivetrain", "raw_value": "4x2 / 4x4 (AWD)", "canonical_key": "drivetrain", "unit": null}
       ],
-      "content_hash": "80d35e2f9f73dcdb153a3f9b260026db65b3779175701d9d5a17a8733ad9410c",
+      "content_hash": "98e90d129679fe39a0299a3dca9d2b28f91fa84ffbf8a0705f0ccdc63e526a35",
       "review_status": "draft",
-      "quality_flags": ["manual_official_brochure_snapshot", "aggregate_page_specs_not_trim_scoped"]
+      "quality_flags": [
+        "official_brochure_automated_enrichment",
+        "core_specs_common_across_listed_trims"
+      ]
     },
     {
       "brand": "Haval",
