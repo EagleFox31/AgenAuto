@@ -10,7 +10,8 @@
       "brand": "Haval",
       "model": "H6",
       "source": {
-        "url": "https://greatwall-cm.com/wp-content/uploads/2025/08/Fiche-Tech-HAVAL-H6_JUILLET_25BF.pdf",
+        "url": "https://greatwall-cm.com/wp-content/uploads/2025/07/FICHE-TECHNIQUE-HAVAL-H6.pdf",
+        "landing_page": "https://greatwall-cm.com/listings/nouveau-haval-h6/",
         "observed_at": "2026-09-07T07:21:00Z",
         "distributor": "RIMCO Motors Cameroon",
         "source_type": "official_brochure_automated_enrichment",
@@ -62,7 +63,7 @@
     {
       "brand": "Haval",
       "model": "H6 GT",
-      "source": {"url": "https://greatwall-cm.com/wp-content/uploads/2025/07/HAVAL-H6-GT.pdf", "observed_at": "2026-09-07T07:21:00Z", "distributor": "RIMCO Motors Cameroon", "source_type": "official_brochure_manual_snapshot", "country": "CM", "confidence": "A"},
+      "source": {"url": "https://greatwall-cm.com/wp-content/uploads/2025/07/HAVAL-H6-GT.pdf", "landing_page": "https://greatwall-cm.com/listings/nouveau-haval-h6-gt/", "observed_at": "2026-09-07T07:21:00Z", "distributor": "RIMCO Motors Cameroon", "source_type": "official_brochure_manual_snapshot", "country": "CM", "confidence": "A"},
       "page_title": "Fiche technique HAVAL H6 GT",
       "category": null,
       "variants": ["SUPRÊME"],
@@ -84,7 +85,7 @@
     {
       "brand": "Haval",
       "model": "H9",
-      "source": {"url": "https://greatwall-cm.com/wp-content/uploads/2025/07/FICHE-TECHNIQUE-HAVAL-H9.pdf", "observed_at": "2026-09-07T07:21:00Z", "distributor": "RIMCO Motors Cameroon", "source_type": "official_brochure_manual_snapshot", "country": "CM", "confidence": "A"},
+      "source": {"url": "https://greatwall-cm.com/wp-content/uploads/2025/07/FICHE-TECHNIQUE-HAVAL-H9.pdf", "landing_page": "https://greatwall-cm.com/listings/nouveau-haval-h9/", "observed_at": "2026-09-07T07:21:00Z", "distributor": "RIMCO Motors Cameroon", "source_type": "official_brochure_manual_snapshot", "country": "CM", "confidence": "A"},
       "page_title": "Fiche technique HAVAL H9",
       "category": null,
       "variants": ["LANDER LUXE"],
@@ -104,7 +105,7 @@
     {
       "brand": "Haval",
       "model": "Jolion",
-      "source": {"url": "https://greatwall-cm.com/wp-content/uploads/2025/07/FICHE-TECHNIQUE-HAVAL-JOLION.pdf", "observed_at": "2026-09-07T07:21:00Z", "distributor": "RIMCO Motors Cameroon", "source_type": "official_brochure_manual_snapshot", "country": "CM", "confidence": "A"},
+      "source": {"url": "https://greatwall-cm.com/wp-content/uploads/2025/07/FICHE-TECHNIQUE-HAVAL-JOLION.pdf", "landing_page": "https://greatwall-cm.com/listings/haval-jolion/", "observed_at": "2026-09-07T07:21:00Z", "distributor": "RIMCO Motors Cameroon", "source_type": "official_brochure_manual_snapshot", "country": "CM", "confidence": "A"},
       "page_title": "Fiche technique HAVAL Jolion",
       "category": null,
       "variants": ["ÉLITE", "INTELLIGENT", "PRESTIGE"],
