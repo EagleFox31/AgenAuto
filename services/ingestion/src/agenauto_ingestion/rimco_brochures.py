@@ -46,19 +46,18 @@ SCOPE_FLAGS = {
 def _content_hash(vehicle: dict[str, object]) -> str:
     variants = vehicle.get("variants") or []
     specs = vehicle.get("specs") or []
-    variant_specs = vehicle.get("variant_specs") or {}
-    factual_text = "\n".join(
-        [
-            *(f"variant: {variant}" for variant in variants),
-            *(
-                f"{spec.get('raw_label')}: {spec.get('raw_value')}"
-                for spec in specs
-                if isinstance(spec, dict)
-            ),
-            json.dumps(variant_specs, ensure_ascii=False, sort_keys=True),
-        ]
-    )
-    return hashlib.sha256(factual_text.encode("utf-8")).hexdigest()
+    parts = [
+        *(f"variant: {variant}" for variant in variants),
+        *(
+            f"{spec.get('raw_label')}: {spec.get('raw_value')}"
+            for spec in specs
+            if isinstance(spec, dict)
+        ),
+    ]
+    variant_specs = vehicle.get("variant_specs")
+    if isinstance(variant_specs, dict) and variant_specs:
+        parts.append(json.dumps(variant_specs, ensure_ascii=False, sort_keys=True))
+    return hashlib.sha256("\n".join(parts).encode("utf-8")).hexdigest()
 
 
 def _allowed_url(url: str) -> bool:
@@ -124,7 +123,9 @@ def load_current_brochure(source: dict[str, object]) -> tuple[bytes, str, str | 
 
 def _inject_generation_evidence(vehicle: dict[str, object]) -> dict[str, object]:
     enriched = dict(vehicle)
-    generation = GENERATION_REGISTRY.get((str(vehicle.get("brand") or ""), str(vehicle.get("model") or "")))
+    generation = GENERATION_REGISTRY.get(
+        (str(vehicle.get("brand") or ""), str(vehicle.get("model") or ""))
+    )
     if generation:
         enriched["generation_hint"] = generation
     return enriched
