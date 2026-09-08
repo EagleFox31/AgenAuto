@@ -1,0 +1,69 @@
+name: Pilot RIMCO brochure enrichment
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '15 5 * * 1'
+
+permissions:
+  contents: write
+
+jobs:
+  enrich-rimco:
+    if: github.repository == 'EagleFox31/AgenAuto'
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+
+    steps:
+      - name: Checkout pilot branch
+        uses: actions/checkout@v4
+        with:
+          ref: feat/cameroon-pilot-ingestion
+          fetch-depth: 0
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+          cache: pip
+          cache-dependency-path: services/ingestion/pyproject.toml
+
+      - name: Install ingestion service
+        run: python -m pip install -e 'services/ingestion[dev]'
+
+      - name: Extract official RIMCO brochure tables
+        run: >-
+          python -m agenauto_ingestion.rimco_brochures
+          --input data/pilot/rimco/haval/candidates.json
+
+      - name: Validate official pilot snapshots
+        run: python -m agenauto_ingestion.final_pilot_quality --root data/pilot
+
+      - name: Rebuild Payload staging plan
+        run: >-
+          python -m agenauto_ingestion.payload_bridge
+          --pilot-root data/pilot
+          --output data/pilot/payload-import-plan.json
+
+      - name: Lint
+        run: ruff check services/ingestion
+
+      - name: Tests
+        run: pytest services/ingestion/tests
+
+      - name: Commit changed brochure observations
+        shell: bash
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add \
+            data/pilot/rimco/haval/candidates.json \
+            data/pilot/rimco/manifest.json \
+            data/pilot/manifest.json \
+            data/pilot/payload-import-plan.json
+          if git diff --cached --quiet; then
+            echo 'No RIMCO brochure changes detected.'
+            exit 0
+          fi
+          git commit -m 'data: auto-enrich RIMCO official brochures'
+          git push origin HEAD:feat/cameroon-pilot-ingestion
