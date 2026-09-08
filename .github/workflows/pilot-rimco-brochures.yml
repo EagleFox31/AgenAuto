@@ -7,6 +7,7 @@ on:
     paths:
       - 'services/ingestion/src/agenauto_ingestion/brochure_pdf.py'
       - 'services/ingestion/src/agenauto_ingestion/rimco_brochures.py'
+      - 'services/ingestion/src/agenauto_ingestion/final_pilot_quality.py'
       - 'services/ingestion/pyproject.toml'
       - '.github/workflows/pilot-rimco-brochures.yml'
   workflow_dispatch:
