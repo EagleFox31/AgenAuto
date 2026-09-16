@@ -2,6 +2,7 @@
   "name": "agenauto",
   "version": "0.1.0",
   "private": true,
+  "license": "UNLICENSED",
   "description": "AgenAuto — automotive discovery and comparison platform for Cameroon",
   "packageManager": "pnpm@10.20.0",
   "scripts": {
