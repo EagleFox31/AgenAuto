@@ -294,3 +294,7 @@ Nous verrouillons le schéma automobile, les règles d’accès et la stratégie
 ---
 
 **AgenAuto** — construire une infrastructure de décision automobile fiable, locale et progressivement extensible.
+
+<p align="center">
+  <sub>An AgenStudio project by <a href="https://github.com/EagleFox31">EagleFox31</a>.</sub>
+</p>
