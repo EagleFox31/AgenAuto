@@ -291,6 +291,12 @@ Priorités :
 
 Nous verrouillons le schéma automobile, les règles d’accès et la stratégie de données avant d’investir dans les parcours publics de comparaison.
 
+## Licence
+
+AgenAuto est un produit propriétaire de **EagleFox31**, publié sous la marque **AgenStudio**. Le code, l’architecture, les modèles métier, la logique de comparaison et les composants originaux ne sont pas réutilisables ou redistribuables sans autorisation écrite.
+
+Les données véhicules, noms de marques, logos, jeux de données externes et autres contenus tiers restent soumis aux droits de leurs propriétaires respectifs. Voir [`LICENSE`](LICENSE).
+
 ---
 
 **AgenAuto** — construire une infrastructure de décision automobile fiable, locale et progressivement extensible.
